@@ -2,8 +2,14 @@
 *@Author Thophile
 *@Project Thophile.com
 */
+:root{
+    --maincolor:#dee1e9;
+    --secondarycolor:#7a8189;
+    --accents:#3c424e;
+}
 *{
     font-family: Arial, Helvetica, sans-serif;
+    color: var(--accents);
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -11,33 +17,75 @@
 .navbar{
     position: fixed;
     width: 100%;
-    background-color: red;
-    height: 40px;
+    background-color: var(--maincolor);
+    height: 50px;
     z-index: 256;
 }
-.navbar .label{
+.title{
     position: absolute;
-    top: calc((40px - 1.3rem) / 2);
-    right: 10px;
+    font-size: 1.3rem;
+    top: calc((45px - 1.3rem) / 2);
+    left: 60px;
+}
+.label{
+    position: absolute;
+    top: calc((45px - 1.3rem) / 2);
+    right: 20px;
     font-size: 1.3rem;
 }
-.navbar button{
+#nav-toggle{
     position: absolute;
     border: none;
-    top: 5px;
+    top: 10px;
     height: 30px;
     width: 30px;
-    left: 5px;
+    left: 10px;
+    background-color: inherit;
 }
-.side-nav{
+
+#side-nav{
     position: absolute;
     height: 100%;
     width: 250px;
-    margin-left: 0;
+    margin-left: -250px;
     transition: 0.5s;
-    background-color: blue;
+    background-color: var(--maincolor)
 }
-.side-nav ul{
-    margin-top: 40px;
+#side-nav ul{
+    margin-top: 70px;
+    margin-left: 40px;
+    list-style: none;
+    font-size: 1.2rem;
 }
+#side-nav ul li{
+    margin: 10px 0px;
+}
+.fa-bars{
+    color: inherit;
+}
+main{
+    margin-left: 250px
+}
+
+/** States **/
+
+.nav-link:hover, .nav-link:focus{
+    color: var(--secondarycolor);
+}
+button:hover, button:focus{
+    color: var(--secondarycolor) !important;
+}
+button:focus{
+    outline: 0;
+}
+button::-moz-focus-inner{ 
+    border: 0;
+}
+*:focus{
+    outline-style: solid;
+    outline-offset: 1.5px;
+    outline-width: 0.5mm;
+}
+
+
 
