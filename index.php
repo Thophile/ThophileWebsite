@@ -6,28 +6,15 @@ $router = new Router(new Request);
 
 $router->get('/', function() {
     $title = 'Thophile\'s Website';
-    $header = file_get_contents('views/navbar.html');
-    $main =<<<HTML
-    <h1>Home</h1>
-  HTML;
-    $footer = '';
-    include_once 'views/base.php';
+    include_once 'views/home.php';
 });
 
 
-$router->get('/blog', function($request) {
-  return <<<HTML
-  <h1>Blog</h1>
-HTML;
+$router->get('/projects', function($request) {
+  $title = 'Thophile\'s Website | Projects';
+  include_once 'views/projects.php';
 });
 
-$router->get('/render', function($request) {
-    $title = 'Thophile\'s Website';
-    $header = file_get_contents('views/navbar.html');
-    $main ='';
-    $footer = '';
-    include_once 'views/base.php';
-  });
 
 $router->post('/data', function($request) {
 
