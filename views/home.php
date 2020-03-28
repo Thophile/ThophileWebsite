@@ -14,6 +14,28 @@
     <header>
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
     </header>
-    <main id="main"></main>
+    <main>
+        <section id="pres">
+            Hello there, My name is Théophile but due to an encryption problem in my school's students list i have gotten the nickname thophile
+            I'm an IT Student and this is my website
+        </section>
+        <section id="project">
+            I do a lot of fun stuff and you can check them all <a href="/projects">here</a>
+        </section>
+        <section id="contact">
+            You can contact me if you want some information about how my projects works or if you want to do business with me
+            <a href="mailto:montemonttheophile@gmail.com?subject=Mail from our site">contact</a> 
+        </section>
+    </main>
+    <footer>
+        <div class="row">
+            <div class="meta">
+                Copyright
+            </div>
+            <div class="meta">
+                Terms
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
