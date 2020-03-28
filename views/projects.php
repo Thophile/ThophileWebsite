@@ -14,6 +14,18 @@
     <header>
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
     </header>
-    <main id="main"></main>
+    <main>
+        
+    </main>
+    <footer>
+        <div class="row">
+            <div class="meta">
+                Copyright
+            </div>
+            <div class="meta">
+                Terms
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
