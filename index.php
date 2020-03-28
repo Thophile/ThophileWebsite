@@ -1,5 +1,5 @@
 <?php
-
+//This file recieve request and sned back the good page
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Request.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Router.php';
 $router = new Router(new Request);
