@@ -2,6 +2,9 @@
 *@Author Thophile
 *@Project Thophile.com
 */
+
+
+/** Global section **/
 :root{
     --maincolor:#dee1e9;
     --secondarycolor:#7a8189;
@@ -14,11 +17,24 @@
     padding: 0;
     text-decoration: none;
 }
-.navbar{
+html, body{
+    height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+/** header section **/
+header{
+    height: 50px;
+}
+#navbar{
     position: fixed;
     width: 100%;
     background-color: var(--maincolor);
     height: 50px;
+    transition: 0.4s;
     z-index: 256;
 }
 .title{
@@ -44,12 +60,14 @@
 }
 
 #side-nav{
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 250px;
-    margin-left: -250px;
+    top : 0;
+    left: -250px;
     transition: 0.5s;
-    background-color: var(--maincolor)
+    background-color: var(--maincolor);
+    z-index: 128;
 }
 #side-nav ul{
     margin-top: 70px;
@@ -63,9 +81,45 @@
 .fa-bars{
     color: inherit;
 }
+
+
+/** main section **/
 main{
-    margin-left: 250px
+    flex: 1 0 auto;
+    margin-top: 50px;
 }
+#pres{
+height: 700px;
+background-color: red;
+}
+#project{
+    height: 700px;
+    background-color: blue;
+}
+#contact{
+    height: 700px;
+    background-color: red;
+}
+
+/** footer section **/
+footer{
+    flex-shrink: 0;
+    height: 50px;
+    background-color: var(--maincolor);
+}
+.row{
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.meta{
+ padding: 15px;
+ text-align: center;
+}
+
+
 
 /** States **/
 
