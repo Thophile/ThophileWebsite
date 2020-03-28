@@ -4,4 +4,40 @@
 */
 *{
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
 }
+.navbar{
+    position: fixed;
+    width: 100%;
+    background-color: red;
+    height: 40px;
+    z-index: 256;
+}
+.navbar .label{
+    position: absolute;
+    top: calc((40px - 1.3rem) / 2);
+    right: 10px;
+    font-size: 1.3rem;
+}
+.navbar button{
+    position: absolute;
+    border: none;
+    top: 5px;
+    height: 30px;
+    width: 30px;
+    left: 5px;
+}
+.side-nav{
+    position: absolute;
+    height: 100%;
+    width: 250px;
+    margin-left: 0;
+    transition: 0.5s;
+    background-color: blue;
+}
+.side-nav ul{
+    margin-top: 40px;
+}
+
