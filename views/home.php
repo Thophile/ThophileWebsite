@@ -21,7 +21,7 @@
                     I'm an IT Student and this is my website
                 </h1>                
                 <h2>
-                    Hello there, My name is Théophile but due to an encryption problem in my school's students list I have gotten the nickname Thophile
+                    Hello there, My name is Théophile but due to an encryption problem I was nicknamed Thophile
                 </h2>
             </div>
             <div class="col-30">
@@ -44,7 +44,7 @@
         <section id="contact" class="section-row">
             <div class="col-70">
                 <h1>
-                    You can contact me if you want some information about how my projects works or if you want to do business with me
+                    You can contact me if you want some information about my projects or if you want to do business with me
                 </h1>
                 <a href="mailto:montemonttheophile@gmail.com?subject=Mail from our site">
                         Contact me
