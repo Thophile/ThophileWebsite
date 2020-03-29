@@ -174,6 +174,73 @@ main{
 }
 
 
+/** main section of projects **/
+#projects{
+    background: linear-gradient(105deg, var(--accents) 74.9%, var(--maincolor ) 75%);
+    height: 40vh !important;
+}
+#projects h1{
+    margin: 20px 10px;
+    font-size: 1.3rem;
+    color: var(--maincolor);
+    text-shadow: 2px 2px #000
+}
+#projects form{
+    margin: 0 30px;
+}
+#projects button{
+    border: solid;
+    border-color: var(--maincolor);
+    border-radius: 3px;
+    border-width: 2px;
+    color: var(--maincolor);
+    padding: 5px;
+    margin: 5px;
+    background-color: inherit;
+    font-size: 1rem;
+}
+
+/** projects presentation **/
+.projects{
+    background: linear-gradient(80deg, rgba(50, 50, 50, 0.80) 55%, #dee1e9 100%);
+    height: 40vh !important;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: var(--accents);
+}
+.projects h1{
+    margin: 0 10% 0 10px;
+    font-size: 1.3rem;
+    color: var(--maincolor);
+    text-shadow: 2px 2px #000;
+}
+.projects h2{
+    margin: 0 30px;
+    font-size: 1.1rem;
+    color: var(--maincolor);
+    text-shadow: 2px 2px #000;
+}
+.projects a{
+    border: solid;
+    border-color: var(--accents);
+    border-radius: 4px;
+    border-width: 2px;
+    text-align: center;
+    color: var(--maincolor);
+    padding: 5px;
+    margin: 10% 10% 0 10%;
+    background-color: var(--accents);
+    font-size: 1.1rem;
+}
+.projects a:hover{
+    color: var(--secondarycolor);
+    border-color: var(--secondarycolor);
+    cursor: pointer;
+}
+.deskapp{
+    background-image: linear-gradient(80deg, rgba(50, 50, 50, 0.80) 55%, #dee1e9 100%), url(/assets/img/DeskApp.png);
+}
+
 /** footer section **/
 footer{
     flex-shrink: 0;
