@@ -15,27 +15,44 @@
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
     </header>
     <main>
-        <section id="pres">
-            <div class="section-row">
-                <div class="col-70">
-                    <h1>
-                        I'm an IT Student and this is my website
-                    </h1>                
-                    <h2>
-                        Hello there, My name is Théophile but due to an encryption problem in my school's students list I have gotten the nickname Thophile
-                    </h2>
-                </div>
-                <div class="col-30">
-                    <i class="far fa-9x fa-user"></i>    
-                </div>
+        <section id="pres" class="section-row">
+            <div class="col-70">
+                <h1>
+                    I'm an IT Student and this is my website
+                </h1>                
+                <h2>
+                    Hello there, My name is Théophile but due to an encryption problem in my school's students list I have gotten the nickname Thophile
+                </h2>
+            </div>
+            <div class="col-30">
+                <i class="far fa-9x fa-user"></i>    
             </div>
         </section>
-        <section id="project">
-            I do a lot of fun stuff and you can check them all <a href="/projects">here</a>
+        <section id="project" class="section-row">
+            <div class="col-70">
+                <h1>
+                    I do a lot of fun stuff for and next to my schooling.
+                </h1>
+                <a href="/projects">
+                    Check them all 
+                </a>
+            </div>
+            <div class="col-30">
+                <i class="fas fa-9x fa-tasks"></i>                
+            </div>
         </section>
-        <section id="contact">
-            You can contact me if you want some information about how my projects works or if you want to do business with me
-            <a href="mailto:montemonttheophile@gmail.com?subject=Mail from our site">contact</a> 
+        <section id="contact" class="section-row">
+            <div class="col-70">
+                <h1>
+                    You can contact me if you want some information about how my projects works or if you want to do business with me
+                </h1>
+                <a href="mailto:montemonttheophile@gmail.com?subject=Mail from our site">
+                        Contact me
+                </a> 
+            </div>
+            <div class="col-30">
+                <i class="far fa-9x fa-envelope-open"></i>
+            </div>
         </section>
     </main>
     <footer>

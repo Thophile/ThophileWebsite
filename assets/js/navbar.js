@@ -11,6 +11,7 @@ function toggleNav(){
 
     }
 }
+
 function hideNav(){
     currscroll = window.scrollY;
     if((currscroll > pastscroll ) & !sidenav){
