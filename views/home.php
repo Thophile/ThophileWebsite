@@ -16,8 +16,19 @@
     </header>
     <main>
         <section id="pres">
-            Hello there, My name is Théophile but due to an encryption problem in my school's students list i have gotten the nickname thophile
-            I'm an IT Student and this is my website
+            <div class="section-row">
+                <div class="col-70">
+                    <h1>
+                        I'm an IT Student and this is my website
+                    </h1>                
+                    <h2>
+                        Hello there, My name is Théophile but due to an encryption problem in my school's students list I have gotten the nickname Thophile
+                    </h2>
+                </div>
+                <div class="col-30">
+                    <i class="far fa-9x fa-user"></i>    
+                </div>
+            </div>
         </section>
         <section id="project">
             I do a lot of fun stuff and you can check them all <a href="/projects">here</a>

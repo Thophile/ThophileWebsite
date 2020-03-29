@@ -88,10 +88,47 @@ main{
     flex: 1 0 auto;
     margin-top: 50px;
 }
-#pres{
-height: 700px;
-background-color: red;
+.section-row{
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
+.col-70{
+    display: flex;
+    height: 100%;
+    width: 70%;
+    flex-direction: column;
+    justify-content: center;
+}
+.col-30{
+    display: flex;
+    height: 100%;
+    width: 30%;
+    flex-direction: column;
+    justify-content: center;
+}
+#pres{
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(110deg, var(--accents) 69.9%, var(--maincolor) 70%);
+}
+#pres h1{
+    margin: 30px 10px;
+    font-size: 1.2rem;
+    color: var(--maincolor);
+}
+#pres h2{
+    margin: 10px 30px;
+    font-size: 1rem;
+    color: var(--secondarycolor);
+}
+#pres .fa-user{
+    text-align: center;
+}
+
+
 #project{
     height: 700px;
     background-color: blue;
