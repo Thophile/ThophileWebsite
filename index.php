@@ -16,8 +16,12 @@ $router->get('/', function() {
 $router->get('/projects', function($request, $db) {
   $title = 'Thophile\'s Website | Projects';
   $projects = $db->getProjects();
-  //pdo -> get all projects
   include_once 'views/projects.php';
+});
+$router->get("/project", function($request, $db){
+  $project = $db->getProject($_GET['id']);
+  $title = "Thophile\'s Website | {$project['h1']}";
+  include_once 'views/project.php';
 });
 
 
