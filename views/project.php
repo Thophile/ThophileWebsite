@@ -15,6 +15,24 @@
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
     </header>
     <main>
+        <section class="section-row projects <?= $project['category']?>" style="<?= $project['preview_style']?> display:flex;">
+            <div class="col-70">
+                <h1>
+                    <?= $project['h1']?>
+                </h1>
+                <h2>
+                    in category <?= $project['category']?>
+                </h2>
+            </div>
+            <div class="col-30">
+                <a href="/projects">
+                    Back to all projects                
+                </a>
+            </div>
+        </section>
+        /* links banner , github and some techno links in case of a developpement project */
+        /* some text to explain the need */
+        /* state of the art explanation */
     </main>
     <footer>
         <div class="row">
