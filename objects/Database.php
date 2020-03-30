@@ -61,6 +61,31 @@ class Database{
             return $projects;
         }
     }
+    public function getProject($id){
+        $query = "SELECT * FROM projects WHERE id= :id";
+ 
+        //Prepare the query
+        if($this->conn == null){
+            $this->connect();
+        }
+        $stmt = $this->conn->prepare($query);
+    
+        //Execute the query, also check if query was successful
+        $stmt->execute(['id' => $id]);
+        
+        //count the number of result
+        $num = $stmt->rowCount();
+
+        if($num>0){
+            //Get record
+            $project = $stmt->fetch();
+            return $project;
+        }else{
+            http_response_code(404);
+            include($_SERVER['DOCUMENT_ROOT'].'/errors/404.html'); 
+            die();
+        }
+    }
 
 }
 ?>
