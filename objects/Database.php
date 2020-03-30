@@ -1,0 +1,66 @@
+<?php
+// used to get mysql database connection
+class Database{
+    /**
+     * @Reminder
+     * 
+     * prepare statement
+     * $stmt = $this->conn->prepare($query);
+     * 
+     * bind param
+     * $stmt->bindParam(':email', $this->email);
+     * 
+     * execute statement
+     * $stmt->execute()
+     * 
+     * count the number of result
+     * $num = $stmt->rowCount();
+     * 
+     * fetching rows
+     * $row = $stmt->fetch(PDO::FETCH_ASSOC);
+     */
+
+    // Database credentials
+    private $host = "localhost";
+    private $port = "3308";
+    private $db_name = "thophile_website";
+    private $username = "root";
+    private $password = "";
+    private $conn = null;
+ 
+    // Get the database connection
+    public function connect(){
+
+        try{
+            $this->conn = new PDO("mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db_name, $this->username, $this->password);
+        }catch(PDOException $exception){
+            echo "Connection error: " . $exception->getMessage();
+        }
+    }
+
+    //Get projects from database
+    public function getProjects(){
+
+        $query = "SELECT * FROM projects";
+ 
+        //Prepare the query
+        if($this->conn == null){
+            $this->connect();
+        }
+        $stmt = $this->conn->prepare($query);
+    
+        //Execute the query, also check if query was successful
+        $stmt->execute();
+        
+        //count the number of result
+        $num = $stmt->rowCount();
+
+        if($num>0){
+            //Get record
+            $projects = $stmt->fetchAll();
+            return $projects;
+        }
+    }
+
+}
+?>
