@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/css/all.css">
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/navbar.js"></script>
+    <script src="/assets/js/projects.js"></script>
     <title><?= $title ?></title>
 </head>
 <body>
@@ -21,10 +22,10 @@
                     Here you can see my projects
                 </h1>
                 <form action="javascript:void(0)">
-                    <button>All</button>
-                    <button>Developpement</button>
-                    <button>Network</button>
-                    <button>Other</button>
+                    <button onclick="showAll()">All</button>
+                    <button onclick="showDev()">Developpement</button>
+                    <button onclick="showNet()">Network</button>
+                    <button onclick="showOth()">Other</button>
                 </form>
             </div>
             <div class="col-30">
@@ -32,29 +33,14 @@
             </div>
         </section>
         <!-- php generated part -->
-        <section class="section-row projects deskapp developpement">
-        <div class="col-70">
-                <h1>
-                    Electron application "Deskapp"
-                </h1>
-                <h2>
-                    in category Developpement
-                </h2>
-            </div>
-            <div class="col-30">
-                <a>
-                    See more
-                </a>
-            </div>
-            </div>
-        </section>
-        <section class="section-row projects other">
+        <?php foreach ($projects as $project) { ?>
+            <section class="section-row projects <?= $project['category']?>" style="<?= $project['preview_style']?> display:flex;">
             <div class="col-70">
                 <h1>
-                    Classic car restoration
+                    <?= $project['h1']?>
                 </h1>
                 <h2>
-                    in category Other
+                    in category <?= $project['category']?>
                 </h2>
             </div>
             <div class="col-30">
@@ -63,21 +49,7 @@
                 </a>
             </div>
         </section>
-        <section class="section-row projects network">
-            <div class="col-70">
-                <h1>
-                    Project network title
-                </h1>
-                <h2>
-                    in category x
-                </h2>
-            </div>
-            <div class="col-30">
-                <a>
-                    See more
-                </a>
-            </div>
-        </section>        
+        <?php } ?>     
         <!-- end of php generated prts -->
     </main>
     <footer>
