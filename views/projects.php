@@ -34,7 +34,7 @@
         </section>
         <!-- php generated part -->
         <?php foreach ($projects as $project) { ?>
-            <section class="section-row projects <?= $project['category']?>" style="<?= $project['preview_style']?> display:flex;">
+        <section class="section-row projects <?= $project['category']?>" style="<?= $project['preview_style']?> display:flex;">
             <div class="col-70">
                 <h1>
                     <?= $project['h1']?>
