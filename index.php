@@ -2,7 +2,10 @@
 //This file recieve request and sned back the good page
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Request.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Router.php';
-$router = new Router(new Request);
+include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Database.php';
+
+$db = new Database();
+$router = new Router(new Request, $db);
 
 $router->get('/', function() {
     $title = 'Thophile\'s Website';
@@ -10,8 +13,9 @@ $router->get('/', function() {
 });
 
 
-$router->get('/projects', function($request) {
+$router->get('/projects', function($request, $db) {
   $title = 'Thophile\'s Website | Projects';
+  $projects = $db->getProjects();
   //pdo -> get all projects
   include_once 'views/projects.php';
 });

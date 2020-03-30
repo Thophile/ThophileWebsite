@@ -2,15 +2,17 @@
 
 class Router
 {
+  private $db;
   private $request;
   private $supportedHttpMethods = array(
     "GET",
     "POST"
   );
 
-  function __construct(IRequest $request)
+  function __construct(IRequest $request, Database $db)
   {
    $this->request = $request;
+   $this->db = $db;
   }
 
   function __call($name, $args)
@@ -64,7 +66,7 @@ class Router
       return;
     }
 
-    echo call_user_func_array($method, array($this->request));
+    echo call_user_func_array($method, array($this->request, $this->db));
   }
 
   function __destruct()
