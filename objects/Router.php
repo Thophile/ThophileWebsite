@@ -33,7 +33,8 @@ class Router
    */
   private function formatRoute($route)
   {
-    $result = rtrim($route, '/');
+    //trim first "/" and keep only uri before the get parameter
+    $result = explode("?",rtrim($route, '/'), 2)[0];;
     if ($result === '')
     {
       return '/';
