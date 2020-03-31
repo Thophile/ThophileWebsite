@@ -30,7 +30,10 @@
                 </a>
             </div>
         </section>
-
+        <?php if ($project['category'] = 'Developpement') {
+        ?>
+        links 
+        <?php } ?>
         /* links banner , github and some techno links in case of a developpement project */
         /* some text to explain the need */
         /* [only developpement] features */
