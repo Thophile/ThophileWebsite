@@ -25,13 +25,15 @@
                 </h2>
             </div>
             <div class="col-30">
-                <a href="/projects">
+                <a href="/projects" class="btn">
                     Back to all projects                
                 </a>
             </div>
         </section>
+
         /* links banner , github and some techno links in case of a developpement project */
         /* some text to explain the need */
+        /* [only developpement] features */
         /* state of the art explanation */
     </main>
     <footer>
