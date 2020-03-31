@@ -33,7 +33,7 @@
                 <h1>
                     I do a lot of fun stuff for and next to my schooling.
                 </h1>
-                <a href="/projects">
+                <a href="/projects" class="btn">
                     Check them all 
                 </a>
             </div>
@@ -46,7 +46,7 @@
                 <h1>
                     You can contact me if you want some information about my projects or if you want to do business with me
                 </h1>
-                <a href="mailto:montemonttheophile@gmail.com?subject=Mail from our site">
+                <a href="mailto:montemonttheophile@gmail.com?subject=Mail from our site" class="btn">
                         Contact me
                 </a> 
             </div>
