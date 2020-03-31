@@ -44,7 +44,7 @@
                 </h2>
             </div>
             <div class="col-30">
-                <a href="/project?id=<?= $project['id']?>">
+                <a href="/project?id=<?= $project['id']?>" class="btn">
                     See more
                 </a>
             </div>
