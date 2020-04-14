@@ -16,10 +16,8 @@ function hideNav(){
     currscroll = window.scrollY;
     if((currscroll > pastscroll ) & !sidenav){
         document.getElementById('navbar').style.top = "-50px"
-        console.log('scrollin down')
     }else{
         document.getElementById('navbar').style.top = "0px"
-        console.log('scrollin up')
     }
     pastscroll = currscroll;
 }
