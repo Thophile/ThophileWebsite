@@ -31,6 +31,9 @@ body{
     left: calc(50vw - 16px);
 
 }
+.h-60{
+    height: 60vh;
+}
 /** -600px only */
 @media only screen and (min-width: 500px) {
     .logo {
@@ -136,6 +139,16 @@ main{
     width: 30%;
     flex-direction: column;
     justify-content: center;
+}
+.col{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+.right{
+    text-align: right;
 }
 
 /** pres section of home **/
