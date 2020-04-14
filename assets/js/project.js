@@ -22,3 +22,11 @@ function displayImage(index){
 
     label.innerHTML = images[index].getAttribute('label')
 }
+function nextImage(){
+    index = ( ++index ) % images.length
+    displayImage(index)
+}
+function previousImage(){
+    index = ( --index + images.length) % images.length
+    displayImage(index)
+}
