@@ -182,9 +182,8 @@ main{
     text-align: center;
     margin: 10px 30px;
     font-size: 1.1rem;
-    color: var(--secondarycolor);
-    border: solid;
-    border-color: var(--accents);
+    color: var(--accents);
+    border: solid var(--accents);
     border-radius: 3px;
     padding: 3px;
 }
@@ -206,9 +205,8 @@ main{
     text-align: center;
     margin: 10px 30px;
     font-size: 1.1rem;
-    color: var(--secondarycolor);
-    border: solid;
-    border-color: var(--secondarycolor);
+    color: var(--maincolor);
+    border: solid var(--maincolor);
     border-radius: 3px;
     padding: 3px;
 }
@@ -227,16 +225,13 @@ main{
     margin: 20px 10px;
     font-size: 1.3rem;
     color: var(--maincolor);
-    text-shadow: 2px 2px #000
 }
 #projects form{
     margin: 0 30px;
 }
-#projects button{
-    border: solid;
-    border-color: var(--maincolor);
+#projects button{/*filter button*/
+    border:2px solid var(--maincolor);
     border-radius: 3px;
-    border-width: 2px;
     color: var(--maincolor);
     padding: 5px;
     margin: 5px;
