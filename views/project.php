@@ -31,6 +31,12 @@
                 </a>
             </div>
         </section>
+        <nav id="links" class="row">
+            <a href="github.com">Github</a>
+            <a href="facebook.com">Facebook</a>
+            <a href="twitter.com">Twitter</a>
+            <a href="instagram.com">Instagram</a>
+        </nav>
     </main>
     <footer>
         <div class="row">
