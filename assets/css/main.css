@@ -360,7 +360,10 @@ footer{
 
 
 /** States **/
-
+a:hover, a:focus{
+    color: var(--secondarycolor)!important;
+    cursor: pointer;
+}
 .nav-link:hover, .nav-link:focus{
     color: var(--secondarycolor);
 }
@@ -371,12 +374,12 @@ button:focus, .btn:focus{
     outline: 0;
 }
 button::-moz-focus-inner, .btn::-moz-focus-inner{ 
-    border: 0;
+    border: 1px none solid var(--secondarycolor)!important;
 }
 *:focus{
-    outline-style: solid;
+    outline-style:solid;
     outline-offset: 1.5px;
-    outline-width: 0.5mm;
+    outline-width: 0.5px;
 }
 
 
