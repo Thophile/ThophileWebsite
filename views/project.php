@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/css/all.css">
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/navbar.js"></script>
+    <script src="/assets/js/project.js"></script>
     <title><?= $title ?></title>
 </head>
 <body>
