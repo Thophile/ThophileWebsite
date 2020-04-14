@@ -59,6 +59,28 @@
                 </div>
             </div>
         </aside>
+        <article>
+            <section>
+                <h1>section title</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
+                    Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
+                    Odio aut enim qui, quod fugit tempore maxime exercitationem ut quia laudantium adipisci mollitia sapiente obcaecati reiciendis praesentium aperiam excepturi dicta nesciunt veniam illum earum in nemo et cupiditate. Reprehenderit.
+                    Doloribus error, odio accusantium iure nam vitae neque maxime aliquid architecto ab at iusto, dignissimos explicabo dolorem rem et! Iusto facere sunt, sed itaque sit id laboriosam consequatur ipsum alias.
+                    Inventore architecto amet commodi tempora illo quo dolor iusto laudantium libero ipsum. Officia, accusamus! Eligendi ipsam excepturi debitis aperiam! Molestiae atque ducimus placeat illum quod qui odio perspiciatis? Nobis, voluptatibus!
+                </p>
+            </section>
+            <section>
+                <h1>section title</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
+                    Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
+                    Odio aut enim qui, quod fugit tempore maxime exercitationem ut quia laudantium adipisci mollitia sapiente obcaecati reiciendis praesentium aperiam excepturi dicta nesciunt veniam illum earum in nemo et cupiditate. Reprehenderit.
+                    Doloribus error, odio accusantium iure nam vitae neque maxime aliquid architecto ab at iusto, dignissimos explicabo dolorem rem et! Iusto facere sunt, sed itaque sit id laboriosam consequatur ipsum alias.
+                    Inventore architecto amet commodi tempora illo quo dolor iusto laudantium libero ipsum. Officia, accusamus! Eligendi ipsam excepturi debitis aperiam! Molestiae atque ducimus placeat illum quod qui odio perspiciatis? Nobis, voluptatibus!
+                </p>
+            </section>
+        </article>
     </main>
     <footer>
         <div class="row">
