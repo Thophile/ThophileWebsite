@@ -16,7 +16,7 @@
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
     </header>
     <main>
-        <section class="section-row projects <?= $project['category']?>" style="<?= $project['preview_style']?> display:flex;">
+        <section class="section-row overview">
             <div class="col-70">
                 <h1>
                     <?= $project['h1']?>
