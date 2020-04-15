@@ -28,6 +28,12 @@ $router->get("/project", function($request, $db){
   include_once 'views/project.php';
 });
 
+//Go to admin section
+  $router->get("/admin", function($request){
+  $title = "Thophile's Website | Admin";
+  include_once 'views/admin_landing.php';
+});
+
 /**
  * post request template
  *$router->post('/data', function($request) {

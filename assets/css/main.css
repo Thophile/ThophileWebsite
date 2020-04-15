@@ -23,6 +23,7 @@ section{
 body{
     display: flex;
     flex-direction: column;
+    background-color: var(--maincolor);
 }
 .logo{
     position: relative;
