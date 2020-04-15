@@ -42,25 +42,29 @@
             ?>
         </nav>
         <aside id="images">
-            <?= $project['images']?>
-            <img src="/assets/img/favicon.png" alt="favicon image" label="favicon">
-            <img src="/assets/img/DeskApp.png" alt="deskapp image" label="deskapp c cool">
-            <img src="/assets/img/favicon.png" alt="favicon image" label="favicon">
-            <img src="/assets/img/DeskApp.png" alt="deskapp image" label="deskapp c cool">
-            <img src="/assets/img/favicon.png" alt="favicon image" label="favicon">
-                <div class="banner">
-                    <div class="col right">
-                        <i class="fas fa-2x fa-chevron-left" onclick="previousImage()"></i>
+            <?php
+            foreach (json_decode($project['images']) as $image) { 
+            ?>
+                <img src="<?= $image->url ?>" alt="Image <?=$image->label?>" label="<?=$image->label?>">
+            <?php   
+            } 
+            ?>
+            <div class="banner">
+                <div class="col right">
+                    <i class="fas fa-2x fa-chevron-left" onclick="previousImage()"></i>
+                </div>
+                <div class="col">
+                    <div class="dots_group">
+                        <?php
+                        for ($i=0; $i < count(json_decode($project['images'])); $i++) { 
+                            echo '<span class="dots" onclick="displayImage('.$i.')"></span>';
+                        }
+                        ?>
                     </div>
-                    <div class="col">
-                        <div class="dots_group">
-                            <span class="dots"></span><span class="dots"></span><span class="dots"></span><span class="dots"></span><span class="dots"></span>
-                        </div>
-                        <label id="img_label">bla bla on the image</label>
-                    </div>
-                    <div class="col">
-                        <i class="fas fa-2x fa-chevron-right" onclick="nextImage()"></i>
-                    </div>
+                    <label id="img_label"></label>
+                </div>
+                <div class="col">
+                    <i class="fas fa-2x fa-chevron-right" onclick="nextImage()"></i>
                 </div>
             </div>
         </aside>
