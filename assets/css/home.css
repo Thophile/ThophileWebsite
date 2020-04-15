@@ -1,6 +1,7 @@
 /**
 *@Author Thophile
 *@Project Thophile.com
+*@Page Home
 */
 
 /** pres section of home **/
@@ -22,14 +23,14 @@
 }
 
 /** project section of home **/
-#project{
+#projects{
     background: linear-gradient(70deg, var(--maincolor) 64.9%, var(--secondarycolor ) 65%);
 }
-#project h1{
+#projects h1{
     margin: 30px 10px;
     font-size: 1.3rem;
 }
-#project a{
+#projects a{
     max-width: 35%;
     text-align: center;
     margin: 10px 30px;
@@ -39,7 +40,7 @@
     border-radius: 3px;
     padding: 3px;
 }
-#project .fa-tasks{
+#projects .fa-tasks{
     text-align: center;
 }
 
