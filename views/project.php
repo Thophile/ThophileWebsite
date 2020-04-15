@@ -33,11 +33,13 @@
             </div>
         </section>
         <nav id="links" class="row">
-            <?= $project['links']?>
             <?php
-                foreach (json_decode($project['links']) as $link) { ?>
-            <a href="<?= $link->href?>"><?= $link->title?></a>
-            <?php } ?>
+                foreach (json_decode($project['links']) as $link) { 
+            ?>
+                <a href="<?= $link->href ?>" class="btn"><?=$link->title?></a>';
+            <?php    
+                } 
+            ?>
         </nav>
         <aside id="images">
             <?= $project['images']?>
