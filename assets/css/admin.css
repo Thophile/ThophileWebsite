@@ -42,6 +42,7 @@
     border:1px solid var(--accents);
     border-radius: 2px;
     background-color: inherit;
+    text-align: center;
 }
 #landing input::placeholder{
     text-align: center;

@@ -68,6 +68,7 @@ header{
     position: fixed;
     width: 100%;
     background-color: var(--maincolor);
+    box-shadow: 0 0 10px;
     height: 50px;
     transition: 0.4s;
     z-index: 256;
