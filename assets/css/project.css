@@ -93,7 +93,14 @@
     height: 16px;
     border: 1px solid var(--accents);
     border-radius: 8px; 
-    color: var(--maincolor);
+}
+.dots:hover{
+    background-color: var(--secondarycolor)!important;
+    cursor: pointer;
+}
+.fa-chevron-left:hover, .fa-chevron-right:hover{
+    cursor: pointer;
+    color: var(--secondarycolor);
 }
 /** article section **/
 article{
