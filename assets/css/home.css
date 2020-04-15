@@ -1,0 +1,68 @@
+/**
+*@Author Thophile
+*@Project Thophile.com
+*/
+
+/** pres section of home **/
+#pres{
+    background: linear-gradient(110deg, var(--accents) 69.9%, var(--maincolor) 70%);
+}
+#pres h1{
+    margin: 30px 10px;
+    font-size: 1.3rem;
+    color: var(--maincolor);
+}
+#pres h2{
+    margin: 10px 30px;
+    font-size: 1.1rem;
+    color: var(--secondarycolor);
+}
+#pres .fa-user{
+    text-align: center;
+}
+
+/** project section of home **/
+#project{
+    background: linear-gradient(70deg, var(--maincolor) 64.9%, var(--secondarycolor ) 65%);
+}
+#project h1{
+    margin: 30px 10px;
+    font-size: 1.3rem;
+}
+#project a{
+    max-width: 35%;
+    text-align: center;
+    margin: 10px 30px;
+    font-size: 1.1rem;
+    color: var(--accents);
+    border: solid var(--accents);
+    border-radius: 3px;
+    padding: 3px;
+}
+#project .fa-tasks{
+    text-align: center;
+}
+
+/** contact section of home **/
+#contact{
+    background: linear-gradient(105deg, var(--accents) 74.9%, var(--maincolor ) 75%);
+}
+#contact h1{
+    margin: 30px 10px;
+    font-size: 1.3rem;
+    color: var(--maincolor);
+}
+#contact a{
+    max-width: 35%;
+    text-align: center;
+    margin: 10px 30px;
+    font-size: 1.1rem;
+    color: var(--maincolor);
+    border: solid var(--maincolor);
+    border-radius: 3px;
+    padding: 3px;
+}
+.fa-envelope-open{
+    text-align: center;
+    color: var(--secondarycolor) !important;
+}
