@@ -276,6 +276,38 @@ main{
     background-image: linear-gradient(80deg, rgba(50, 50, 50, 0.80) 55%, #dee1e9 100%), url(/assets/img/DeskApp.png);
 }**/
 /** project individual view */
+.overview{
+    background: linear-gradient(75deg, var(--accents) 59.9%, #dee1e9 60%, #dee1e9 61.4%, var(--accents) 61.5%, var(--accents) 62.9%, #dee1e9 63%, #dee1e9 64.4%, var(--accents) 64.5%);
+    height: 40vh !important;
+    border-bottom:1px solid var(--accents);
+}
+.overview h1{
+    margin: 0 10% 0 10px;
+    font-size: 1.3rem;
+    color: var(--maincolor);
+    text-shadow: 2px 2px #000;
+}
+.overview h2{
+    margin: 0 30px;
+    font-size: 1.1rem;
+    color: var(--maincolor);
+    text-shadow: 2px 2px #000;
+}
+.overview a{
+    border: 2px solid var(--maincolor);
+    border-radius: 4px;
+    text-align: center;
+    color: var(--maincolor);
+    padding: 5px;
+    margin: 10% 10% 0 10%;
+    background-color: var(--accents);
+    font-size: 1.1rem;
+}
+.overview a:hover{
+    color: var(--secondarycolor);
+    border-color: var(--secondarycolor);
+    cursor: pointer;
+}
 #links{
     padding: 5px 0px;
     background-color: var(--accents);
@@ -319,7 +351,7 @@ main{
     font-size: 1.2rem;
 }
 #images .dots_group{
-    height: 14px;
+    height: 20px;
     width: 100%;
     text-align: center;
 }
@@ -327,10 +359,10 @@ main{
     background-color: var(--maincolor);
     display: inline-block;
     margin: 2px;
-    width: 10px;
-    height: 10px;
+    width: 16px;
+    height: 16px;
     border: 1px solid var(--accents);
-    border-radius: 5px; 
+    border-radius: 8px; 
     color: var(--maincolor);
 }
 
