@@ -1,5 +1,5 @@
 <?php
-//This file recieve request and sned back the good page
+//This file recieve request and send back the good page
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Request.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Router.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Database.php';
@@ -24,7 +24,7 @@ $router->get('/projects', function($request, $db) {
 //View individual project
 $router->get("/project", function($request, $db){
   $project = $db->getProject($_GET['id']);
-  $title = "Thophile's Website | {$project['h1']}";
+  $title = "Thophile's Website | {$project['title']}";
   include_once 'views/project.php';
 });
 
