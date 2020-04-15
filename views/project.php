@@ -33,12 +33,14 @@
             </div>
         </section>
         <nav id="links" class="row">
-            <a href="github.com">Github</a>
-            <a href="facebook.com">Facebook</a>
-            <a href="twitter.com">Twitter</a>
-            <a href="instagram.com">Instagram</a>
+            <?= $project['links']?>
+            <?php
+                foreach (json_decode($project['links']) as $link) { ?>
+            <a href="<?= $link->href?>"><?= $link->title?></a>
+            <?php } ?>
         </nav>
         <aside id="images">
+            <?= $project['images']?>
             <img src="/assets/img/favicon.png" alt="favicon image" label="favicon">
             <img src="/assets/img/DeskApp.png" alt="deskapp image" label="deskapp c cool">
             <img src="/assets/img/favicon.png" alt="favicon image" label="favicon">
@@ -61,8 +63,15 @@
             </div>
         </aside>
         <article>
+            <?= $project['article']?>
             <section>
-                <h1>section title</h1>
+                <h1>Section</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
+                </p>
+            </section>
+            <section>
+                <h1>Section with 5</h1>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
                     Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
@@ -72,8 +81,37 @@
                 </p>
             </section>
             <section>
-                <h1>section title</h1>
+                <h1>Section with 10 lines</h1>
                 <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
+                    Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
+                    Odio aut enim qui, quod fugit tempore maxime exercitationem ut quia laudantium adipisci mollitia sapiente obcaecati reiciendis praesentium aperiam excepturi dicta nesciunt veniam illum earum in nemo et cupiditate. Reprehenderit.
+                    Doloribus error, odio accusantium iure nam vitae neque maxime aliquid architecto ab at iusto, dignissimos explicabo dolorem rem et! Iusto facere sunt, sed itaque sit id laboriosam consequatur ipsum alias.
+                    Inventore architecto amet commodi tempora illo quo dolor iusto laudantium libero ipsum. Officia, accusamus! Eligendi ipsam excepturi debitis aperiam! Molestiae atque ducimus placeat illum quod qui odio perspiciatis? Nobis, voluptatibus!
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
+                    Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
+                    Odio aut enim qui, quod fugit tempore maxime exercitationem ut quia laudantium adipisci mollitia sapiente obcaecati reiciendis praesentium aperiam excepturi dicta nesciunt veniam illum earum in nemo et cupiditate. Reprehenderit.
+                    Doloribus error, odio accusantium iure nam vitae neque maxime aliquid architecto ab at iusto, dignissimos explicabo dolorem rem et! Iusto facere sunt, sed itaque sit id laboriosam consequatur ipsum alias.
+                    Inventore architecto amet commodi tempora illo quo dolor iusto laudantium libero ipsum. Officia, accusamus! Eligendi ipsam excepturi debitis aperiam! Molestiae atque ducimus placeat illum quod qui odio perspiciatis? Nobis, voluptatibus!
+                </p>
+            </section>
+            <section>
+                <h1>Section with 15 lines of lorem ipsum text to test for layout with big tests</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
+                    Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
+                    Odio aut enim qui, quod fugit tempore maxime exercitationem ut quia laudantium adipisci mollitia sapiente obcaecati reiciendis praesentium aperiam excepturi dicta nesciunt veniam illum earum in nemo et cupiditate. Reprehenderit.
+                    Doloribus error, odio accusantium iure nam vitae neque maxime aliquid architecto ab at iusto, dignissimos explicabo dolorem rem et! Iusto facere sunt, sed itaque sit id laboriosam consequatur ipsum alias.
+                    Inventore architecto amet commodi tempora illo quo dolor iusto laudantium libero ipsum. Officia, accusamus! Eligendi ipsam excepturi debitis aperiam! Molestiae atque ducimus placeat illum quod qui odio perspiciatis? Nobis, voluptatibus!
+
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
+                    Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
+                    Odio aut enim qui, quod fugit tempore maxime exercitationem ut quia laudantium adipisci mollitia sapiente obcaecati reiciendis praesentium aperiam excepturi dicta nesciunt veniam illum earum in nemo et cupiditate. Reprehenderit.
+                    Doloribus error, odio accusantium iure nam vitae neque maxime aliquid architecto ab at iusto, dignissimos explicabo dolorem rem et! Iusto facere sunt, sed itaque sit id laboriosam consequatur ipsum alias.
+                    Inventore architecto amet commodi tempora illo quo dolor iusto laudantium libero ipsum. Officia, accusamus! Eligendi ipsam excepturi debitis aperiam! Molestiae atque ducimus placeat illum quod qui odio perspiciatis? Nobis, voluptatibus!
+
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
                     Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
                     Odio aut enim qui, quod fugit tempore maxime exercitationem ut quia laudantium adipisci mollitia sapiente obcaecati reiciendis praesentium aperiam excepturi dicta nesciunt veniam illum earum in nemo et cupiditate. Reprehenderit.
