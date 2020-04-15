@@ -36,24 +36,18 @@
             <?php
                 foreach (json_decode($project['links']) as $link) { 
             ?>
-                <a href="<?= $link->href ?>" class="btn"><?=$link->title?></a>';
-            <?php    
+                <a href="<?= $link->href ?>" class="btn"><?=$link->title?></a>
+            <?php 
                 } 
             ?>
         </nav>
         <aside id="images">
-            <?php
-            foreach (json_decode($project['images']) as $image) { 
-            ?>
-                <img src="<?= $image->url ?>" alt="Image <?=$image->label?>" label="<?=$image->label?>">
-            <?php   
-            } 
-            ?>
             <div class="banner">
                 <div class="col right">
                     <i class="fas fa-2x fa-chevron-left" onclick="previousImage()"></i>
                 </div>
                 <div class="col">
+                    <label id="img_label"></label>
                     <div class="dots_group">
                         <?php
                         for ($i=0; $i < count(json_decode($project['images'])); $i++) { 
@@ -61,70 +55,40 @@
                         }
                         ?>
                     </div>
-                    <label id="img_label"></label>
                 </div>
                 <div class="col">
                     <i class="fas fa-2x fa-chevron-right" onclick="nextImage()"></i>
                 </div>
             </div>
+            <?php
+            foreach (json_decode($project['images']) as $image) { 
+            ?>
+                <img src="<?= $image->url ?>" class="merry" alt="Image <?=$image->label?>" label="<?=$image->label?>">
+            <?php 
+            } 
+            ?>
+            <div id="modal">
+                <i class="far fa-2x fa-times-circle"></i>
+                <img id="modalImg">
+            </div>
         </aside>
         <article>
-            <?= $project['article']?>
-            <section>
-                <h1>Section</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
-                </p>
-            </section>
-            <section>
-                <h1>Section with 5</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
-                    Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
-                    Odio aut enim qui, quod fugit tempore maxime exercitationem ut quia laudantium adipisci mollitia sapiente obcaecati reiciendis praesentium aperiam excepturi dicta nesciunt veniam illum earum in nemo et cupiditate. Reprehenderit.
-                    Doloribus error, odio accusantium iure nam vitae neque maxime aliquid architecto ab at iusto, dignissimos explicabo dolorem rem et! Iusto facere sunt, sed itaque sit id laboriosam consequatur ipsum alias.
-                    Inventore architecto amet commodi tempora illo quo dolor iusto laudantium libero ipsum. Officia, accusamus! Eligendi ipsam excepturi debitis aperiam! Molestiae atque ducimus placeat illum quod qui odio perspiciatis? Nobis, voluptatibus!
-                </p>
-            </section>
-            <section>
-                <h1>Section with 10 lines</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
-                    Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
-                    Odio aut enim qui, quod fugit tempore maxime exercitationem ut quia laudantium adipisci mollitia sapiente obcaecati reiciendis praesentium aperiam excepturi dicta nesciunt veniam illum earum in nemo et cupiditate. Reprehenderit.
-                    Doloribus error, odio accusantium iure nam vitae neque maxime aliquid architecto ab at iusto, dignissimos explicabo dolorem rem et! Iusto facere sunt, sed itaque sit id laboriosam consequatur ipsum alias.
-                    Inventore architecto amet commodi tempora illo quo dolor iusto laudantium libero ipsum. Officia, accusamus! Eligendi ipsam excepturi debitis aperiam! Molestiae atque ducimus placeat illum quod qui odio perspiciatis? Nobis, voluptatibus!
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
-                    Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
-                    Odio aut enim qui, quod fugit tempore maxime exercitationem ut quia laudantium adipisci mollitia sapiente obcaecati reiciendis praesentium aperiam excepturi dicta nesciunt veniam illum earum in nemo et cupiditate. Reprehenderit.
-                    Doloribus error, odio accusantium iure nam vitae neque maxime aliquid architecto ab at iusto, dignissimos explicabo dolorem rem et! Iusto facere sunt, sed itaque sit id laboriosam consequatur ipsum alias.
-                    Inventore architecto amet commodi tempora illo quo dolor iusto laudantium libero ipsum. Officia, accusamus! Eligendi ipsam excepturi debitis aperiam! Molestiae atque ducimus placeat illum quod qui odio perspiciatis? Nobis, voluptatibus!
-                </p>
-            </section>
-            <section>
-                <h1>Section with 15 lines of lorem ipsum text to test for layout with big tests</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
-                    Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
-                    Odio aut enim qui, quod fugit tempore maxime exercitationem ut quia laudantium adipisci mollitia sapiente obcaecati reiciendis praesentium aperiam excepturi dicta nesciunt veniam illum earum in nemo et cupiditate. Reprehenderit.
-                    Doloribus error, odio accusantium iure nam vitae neque maxime aliquid architecto ab at iusto, dignissimos explicabo dolorem rem et! Iusto facere sunt, sed itaque sit id laboriosam consequatur ipsum alias.
-                    Inventore architecto amet commodi tempora illo quo dolor iusto laudantium libero ipsum. Officia, accusamus! Eligendi ipsam excepturi debitis aperiam! Molestiae atque ducimus placeat illum quod qui odio perspiciatis? Nobis, voluptatibus!
-
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
-                    Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
-                    Odio aut enim qui, quod fugit tempore maxime exercitationem ut quia laudantium adipisci mollitia sapiente obcaecati reiciendis praesentium aperiam excepturi dicta nesciunt veniam illum earum in nemo et cupiditate. Reprehenderit.
-                    Doloribus error, odio accusantium iure nam vitae neque maxime aliquid architecto ab at iusto, dignissimos explicabo dolorem rem et! Iusto facere sunt, sed itaque sit id laboriosam consequatur ipsum alias.
-                    Inventore architecto amet commodi tempora illo quo dolor iusto laudantium libero ipsum. Officia, accusamus! Eligendi ipsam excepturi debitis aperiam! Molestiae atque ducimus placeat illum quod qui odio perspiciatis? Nobis, voluptatibus!
-
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem consequuntur accusantium, unde ratione perspiciatis doloribus repudiandae atque voluptatum ut illum velit pariatur accusamus ipsa labore, itaque eligendi, voluptas eum?
-                    Officia commodi voluptates voluptatibus? Aspernatur recusandae, nobis iusto placeat, tempora dolor distinctio consequatur veniam fugiat, ipsa nulla neque quod illum! Totam laudantium nostrum, possimus voluptatum officia harum incidunt unde veniam!
-                    Odio aut enim qui, quod fugit tempore maxime exercitationem ut quia laudantium adipisci mollitia sapiente obcaecati reiciendis praesentium aperiam excepturi dicta nesciunt veniam illum earum in nemo et cupiditate. Reprehenderit.
-                    Doloribus error, odio accusantium iure nam vitae neque maxime aliquid architecto ab at iusto, dignissimos explicabo dolorem rem et! Iusto facere sunt, sed itaque sit id laboriosam consequatur ipsum alias.
-                    Inventore architecto amet commodi tempora illo quo dolor iusto laudantium libero ipsum. Officia, accusamus! Eligendi ipsam excepturi debitis aperiam! Molestiae atque ducimus placeat illum quod qui odio perspiciatis? Nobis, voluptatibus!
-                </p>
-            </section>
+            <?php
+            foreach (json_decode($project['article']) as $section) { 
+            ?>
+                <section>
+                    <h1><?=$section->title?></h1>
+                    <?php
+                    foreach ($section->article as $p) {
+                    ?>
+                        <p><?=$p?></p>
+                    <?php
+                    }
+                    ?>
+                </section>
+            <?php  
+            } 
+            ?>
         </article>
     </main>
     <footer>
