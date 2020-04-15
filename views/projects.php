@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>
-    <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
     </header>
     <main>
         <section id="projects" class="section-row">
@@ -54,14 +54,7 @@
         <!-- end of php generated prts -->
     </main>
     <footer>
-        <div class="row">
-            <div class="meta">
-                Copyright
-            </div>
-            <div class="meta">
-                Terms
-            </div>
-        </div>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.html'?>
     </footer>
 </body>
 </html>
