@@ -29,7 +29,7 @@
                 <i class="far fa-9x fa-user"></i>    
             </div>
         </section>
-        <section id="project" class="section-row">
+        <section id="projects" class="section-row">
             <div class="col-70">
                 <h1>
                     I do a lot of fun stuff for and next to my schooling.

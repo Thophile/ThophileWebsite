@@ -20,7 +20,7 @@
         <section class="section-row overview">
             <div class="col-70">
                 <h1>
-                    <?= $project['h1']?>
+                    <?= $project['title']?>
                 </h1>
                 <h2>
                     in category <?= $project['category']?>
