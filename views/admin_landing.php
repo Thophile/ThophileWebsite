@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/css/admin.css">
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/navbar.js"></script>
+    <script src="/assets/js/landing.js"></script>
     <title><?= $title ?></title>
 </head>
 <body id="landing">
