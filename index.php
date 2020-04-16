@@ -29,11 +29,15 @@ $router->get("/project", function($request, $db){
 });
 
 //Go to admin section
-  $router->get("/admin", function($request){
+$router->get("/admin", function($request, $db){
   $title = "Thophile's Website | Admin";
-  include_once 'views/admin_landing.php';
-});
+  if(isset($_SESSION['token']) && $_SESSION['token'] === "foo"){
 
+    //fillin the field if a get is present
+    $projects = $db->getProjects();
+    if(isset($_GET['id'])){
+    $project = $db->getProject($_GET['id']);
+    }
 
 $router->post('/admin', function($request, $db) {
   $title = "Thophile's Website | Admin";
