@@ -29,17 +29,12 @@ class Router
 
   /**
    * Removes trailing forward slashes from the right of the route.
-   * @param route (string)
    */
   private function formatRoute($route)
   {
     //trim first "/" and keep only uri before the get parameter
-    $result = explode("?",rtrim($route, '/'), 2)[0];;
-    if ($result === '')
-    {
-      return '/';
-    }
-    return $result;
+    $result = explode("?",rtrim($route, '/'), 2)[0];
+    return $result === '' ? '/' : $result;
   }
 
   private function invalidMethodHandler()
