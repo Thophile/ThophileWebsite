@@ -50,9 +50,15 @@
                 ?>
             </div>
         </div>
+        <?php 
+        if(isset($project)){
+        ?>
         <div>
-            
+            you're editing project n°<?= $project['id']?> named <?= $project['title']?>
         </div>
+        <?php
+        }
+        ?>    
     </main>
     <footer>
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.html'?>
