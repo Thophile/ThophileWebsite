@@ -60,6 +60,17 @@ $router->post('/login', function($request, $db) {
   }
 });
 
+//submit data changes
+$router->post('/admin', function($request, $db) {
+  if(isset($_SESSION['token']) && $_SESSION['token'] === "foo"){
+  //handle project edit/delete/new
+  }else{
+    $title = "Thophile's Website | Login";
+    include_once 'views/admin_landing.php';
+  }
+});
+
+
 /**
  * post request template
  *$router->post('/data', function($request) {
