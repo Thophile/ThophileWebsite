@@ -44,6 +44,7 @@
     border:1px solid var(--accents);
     border-radius: 2px;
     background-color: inherit;
+    color: var(--accents);
     text-align: center;
 }
 #landing input::placeholder{
@@ -65,49 +66,59 @@ input:focus{
     flex-direction: column;
 }
 #menu{
-    width: 100%;
-    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 20px);
+    padding: 10px;
     background-color: var(--accents);
+    max-height: 200px;
+}
+#header{
+    height: 30px;
+    display: flex;
+    flex-direction: row;
     color: var(--maincolor);
 }
-#projects{
-    width: 80%;
-    max-height: 100px;
-    margin: 10px auto;
-    margin-top: 25px;
-    border: 2px solid var(--maincolor);
-    color: var(--maincolor) !important;
-    border-radius: 3px;
-    display: block; 
-    overflow: auto;
+#body{
+    max-height: 200px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
-#project .td{
+.bodyline{
+    min-height: 30px;
     margin: 5px;
-}
-th div { 
-    margin-top: -25px;
-    position: absolute; 
+    padding: 4px 0;
+    border: 1px solid var(--secondarycolor);
+    border-style: none none solid none;
+    display: flex;
+    flex-direction: row;
     color: var(--maincolor);
 }
-/** table styling **/
-#projects .table_id{
-    min-width: 20px;
-    color: var(--maincolor);
+.bodyline:hover{
+    color: var(--secondarycolor);
 }
-#projects .table_title{
-    width: 100%;
-    color: var(--maincolor);
+.id{
+    width: 30px;
+    color: inherit;
 }
-#projects .table_action{
-    display: block;
+.name{
+    width: calc(100% - 130px);
+    color: inherit;
+}
+.action{
     min-width: 100px;
-    max-height: 30px;
-    margin: 0 3px;
-    color: var(--maincolor);
+    color: inherit;
 }
-td button i{
-    color: var(--maincolor);
+.action a,.action button{
+    color:var(--maincolor);
+    padding: 5px;
+    background-color: inherit;
+    border: 1px solid var(--maincolor);
+    border-radius: 3px;
 }
-
+.action i{
+    color: inherit;
+}
 
                                                           
