@@ -23,7 +23,7 @@ $router->get('/projects', function($request, $db) {
 
 //View individual project
 $router->get("/project", function($request, $db){
-  $project = $db->getProject($_GET['id']);
+  $project = $db->getProject(isset($_GET['id']) ? $_GET['id'] : "");
   $title = "Thophile's Website | {$project['title']}";
   include_once 'views/project.php';
 });
