@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta author="Thophile">
+    <link rel="stylesheet" href="/assets/css/admin.css">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/all.css">
-    <link rel="stylesheet" href="/assets/css/admin.css">
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/navbar.js"></script>
     <title><?= $title ?></title>
@@ -17,40 +17,38 @@
     </header>
     <main>
         <div id="menu">
-            <table id="projects">
-                <tr> 
-                    <th class="table_id"><div>#</div> 
-                    <th class="table_title"><div>Name</div>
-                    <th class="table_action"><div>Action</div>
-                <tr>
-                    <td class="table_id">1
-                    <td class="table_title">bar 
-                    <td class="table_action"> 
-                        <button class="btn"><i class="far fa-eye"></i></button>
-                        <button class="btn"><i class="fas fa-edit"></i></button>
-                        <button class="btn"><i class="fas fa-trash"></i></button>
-                <tr>
-                    <td class="table_id">1
-                    <td class="table_title">bar 
-                    <td class="table_action">
-                        <button class="btn"><i class="far fa-eye"></i></button>
-                        <button class="btn"><i class="fas fa-edit"></i></button>
-                        <button class="btn"><i class="fas fa-trash"></i></button>
-                <tr>
-                    <td class="table_id">1
-                    <td class="table_title">bar
-                    <td class="table_action">
-                        <button class="btn"><i class="far fa-eye"></i></button>
-                        <button class="btn"><i class="fas fa-edit"></i></button>
-                        <button class="btn"><i class="fas fa-trash"></i></button>
-                <tr>
-                    <td class="table_id">1
-                    <td class="table_title">bar 
-                    <td class="table_action">
-                        <button class="btn"><i class="far fa-eye"></i></button>
-                        <button class="btn"><i class="fas fa-edit"></i></button>
-                        <button class="btn"><i class="fas fa-trash"></i></button>
-            </table>
+            <div id="header">
+                <div class="id">#</div>
+                <div class="name">Name</div>
+                <div class="action">Action</div>
+            </div>
+            <div id="body">
+                <div class="bodyline">
+                    <div class="id">1</div>
+                    <div class="name">Lorem ipsum dolor sit amet</div>
+                    <div class="action">
+                        <a href="/project?id=1" class="btn"><i class="far fa-eye"></i></a>
+                        <a href="" class="btn"><i class="fas fa-edit"></i></a>
+                        <a href="" class="btn"><i class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                <?php 
+                foreach ($projects as $value) {
+                ?>
+                    <div class="bodyline">
+                        <div class="id"><?=$value['id']?></div>
+                        <div class="name"><?=$value['title']?></div>
+                        <div class="action">
+                            <a href="/project?id=<?=$value['id']?>" class="btn"><i class="far fa-eye"></i></a>
+                            <a href="/admin?id=<?=$value['id']?>" class="btn"><i class="fas fa-edit"></i></a>
+                            <a href="" class="btn"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                <?php
+                    
+                }
+                ?>
+            </div>
         </div>
         <div>
             
