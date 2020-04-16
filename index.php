@@ -3,7 +3,7 @@
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Request.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Router.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Database.php';
-
+session_start();
 //Explicit enough
 $db = new Database();
 $router = new Router(new Request, $db);
