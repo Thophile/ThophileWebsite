@@ -39,15 +39,22 @@ $router->get("/admin", function($request, $db){
     $project = $db->getProject($_GET['id']);
     }
 
-$router->post('/admin', function($request, $db) {
-  $title = "Thophile's Website | Admin";
-  //insert password check here
-  if($request->getBody()["password"] == "salut"){
-    
+    $title = "Thophile's Website | Admin";
     include_once 'views/admin.php';
-
   }else{
+    $title = "Thophile's Website | Login";
+    include_once 'views/admin_landing.php';
+  }
+});
 
+//Log in
+$router->post('/login', function($request, $db) {
+  if($request->getBody()["password"] == "salut"){
+    $_SESSION['token'] = "foo";
+    header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
+    die();
+  }else{
+    $title = "Thophile's Website | Login";
     $error="Wrong Password";
     include_once 'views/admin_landing.php';
   }
