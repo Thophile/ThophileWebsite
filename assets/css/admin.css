@@ -3,6 +3,8 @@
 *@Project Thophile.com
 *@Page Admin
 */
+
+/** landing part **/
 @media only screen and (min-width: 500px) {
     #landing main {
         width: 50vw;
@@ -33,6 +35,13 @@
     padding: 6px;
     border:1px solid var(--accents);
     border-style: none none solid none;
+    background-color: inherit;
+}
+#landing .error{
+    font-size: 1.2rem;
+    margin: 10px 15px;
+    padding: 6px;
+    color: lightcoral;
     background-color: inherit;
 }
 #landing button[type=submit], #landing .inline, #landing input{

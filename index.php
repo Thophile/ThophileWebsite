@@ -31,7 +31,23 @@ $router->get("/project", function($request, $db){
 //Go to admin section
   $router->get("/admin", function($request){
   $title = "Thophile's Website | Admin";
+  $error = "";
   include_once 'views/admin_landing.php';
+});
+
+
+$router->post('/admin', function($request, $db) {
+  $title = "Thophile's Website | Admin";
+  //insert password check here
+  if($request->getBody()["password"] == "salut"){
+    
+    include_once 'views/admin.php';
+
+  }else{
+
+    $error="Wrong Password";
+    include_once 'views/admin_landing.php';
+  }
 });
 
 /**
