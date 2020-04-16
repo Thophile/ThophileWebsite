@@ -20,7 +20,7 @@
         <h1>This is a reserved Area</h1>
         <?php if(isset($error)){ echo '<span class="error">'.$error.'</span>';}?>
         
-        <form action="/admin" id="log_in" method="post">
+        <form action="/login" id="log_in" method="post">
             <input type="password" name="password" id="_password" placeholder="Password">
             <button type="submit" style="">Log in</button>
         </form>
