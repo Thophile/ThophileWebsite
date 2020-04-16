@@ -37,14 +37,7 @@
     border-style: none none solid none;
     background-color: inherit;
 }
-#landing .error{
-    font-size: 1.2rem;
-    margin: 10px 15px;
-    padding: 6px;
-    color: lightcoral;
-    background-color: inherit;
-}
-#landing button[type=submit], #landing .inline, #landing input{
+#landing button[type=submit], .inline, #landing input{
     font-size: 1.2rem;
     margin: 15px;
     padding: 6px;
@@ -56,6 +49,65 @@
 #landing input::placeholder{
     text-align: center;
 }
-#landing input:focus{
+input:focus{
     outline: 0;
 }
+.error{
+    font-size: 1.2rem;
+    margin: 10px 15px;
+    padding: 6px;
+    color: lightcoral;
+    background-color: inherit;
+}
+#admin main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#menu{
+    width: 100%;
+    padding: 10px 0;
+    background-color: var(--accents);
+    color: var(--maincolor);
+}
+#projects{
+    width: 80%;
+    max-height: 100px;
+    margin: 10px auto;
+    margin-top: 25px;
+    border: 2px solid var(--maincolor);
+    color: var(--maincolor) !important;
+    border-radius: 3px;
+    display: block; 
+    overflow: auto;
+}
+#project .td{
+    margin: 5px;
+}
+th div { 
+    margin-top: -25px;
+    position: absolute; 
+    color: var(--maincolor);
+}
+/** table styling **/
+#projects .table_id{
+    min-width: 20px;
+    color: var(--maincolor);
+}
+#projects .table_title{
+    width: 100%;
+    color: var(--maincolor);
+}
+#projects .table_action{
+    display: block;
+    min-width: 100px;
+    max-height: 30px;
+    margin: 0 3px;
+    color: var(--maincolor);
+}
+td button i{
+    color: var(--maincolor);
+}
+
+
+                                                          
