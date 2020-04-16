@@ -31,7 +31,6 @@ $router->get("/project", function($request, $db){
 //Go to admin section
   $router->get("/admin", function($request){
   $title = "Thophile's Website | Admin";
-  $error = "";
   include_once 'views/admin_landing.php';
 });
 
