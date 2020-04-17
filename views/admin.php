@@ -52,11 +52,21 @@
         </div>
         <?php 
         if(isset($project)){
+            
+
+                
         ?>
+        
         <div>
-            you're editing project n°<?= $project['id']?> named <?= $project['title']?>
+        <?= isset($project['id']) ? "you're editing project n°{$project['id']} named {$project['title']}" : "You're making a new project"?> 
         </div>
+
         <?php
+        }else {
+            
+        ?>
+            <a href="?id=0" class="btn">New</a>
+        <?php   
         }
         ?>    
     </main>

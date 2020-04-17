@@ -36,7 +36,10 @@ $router->get("/admin", function($request, $db){
     //fillin the field if a get is present
     $projects = $db->getProjects();
     if(isset($_GET['id'])){
-    $project = $db->getProject($_GET['id']);
+      $project = $_GET['id'] == "0" ? [] : $db->getProject($_GET['id']);
+      //display form filled in if id!=0
+    }else{
+      //display new button
     }
 
     $title = "Thophile's Website | Admin";
