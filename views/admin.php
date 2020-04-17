@@ -52,33 +52,67 @@
         </div>
         <div id="form">
             <?php if(isset($project)){     ?>
-                <form action="/admin" method="post">
-                    <h1>Images</h1>
-                    <div id="_images">
-                        <img src="/assets/img/favicon.png" alt="">
-                        <img src="/assets/img/DeskApp.png" alt="">
-                        <button type="button" id="images_add"class="btn" onclick="javascript:void(0)"><i class="fas fa-2x fa-plus"></i></button>
-                    </div>
-                    <h1>Links</h1>
-                    <div id="_links">
-                        <div>
-                            <input type="text" placeholder="Name">
-                            to : <input type="text" placeholder="Link">
-                        </div>
-                        <div>
-                            <input type="text" placeholder="Name">
-                            to : <input type="text" placeholder="Link">
-                        </div>
-                        <button type="button" id="links_add" class="btn" onclick="javascript:void(0)"><i class="fas fa-2x fa-plus"></i></button>
+            <h1>Header</h1>
+            <div id="head">
+                <input type="text" name="title" placeholder="Project title">
+                <input type="text" name="category" placeholder="Category">
+                <input type="text" name="style">
+            </div>
+            <h1>Images</h1>
+                <div id="_images">
+                <img src="/assets/img/favicon.png" alt="">
+                <img src="/assets/img/DeskApp.png" alt="">
+                <button type="button" class="btn images_add" onclick="javascript:void(0)">
+                    <i class="fas fa-2x fa-plus"></i>                        </button>
+            </div>
 
-                    </div>
-                    <h1>Article</h1>
-                    <div id="_article">
+            <h1>Links</h1>
+            <div id="_links">
+                <div>
+                    <input type="text" size=1 placeholder="Name">
+                        to : <input type="text" size=1 placeholder="Link">
+                    <button type="button" class="btn link_remove">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+                <div>
+                    <input type="text" size=1 placeholder="Name">
+                    to : <input type="text" size=1 placeholder="Link">
+                    <button type="button" class="btn link_remove">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+                <button type="button" class="btn links_add" onclick="javascript:void(0)">
+                    <i class="fas fa-plus"></i> Add link
+                </button>
 
+            </div>
+
+            <h1>Article</h1>
+            <div id="_article">
+                <div class="article_section">
+                    <div class="article_title">
+                        <input type="text" placeholder="Section title">
+                        <button type="button" class="btn section_remove">
+                            <i class="fas fa-minus"></i>
+                        </button>
                     </div>
-                    <div class="row" id="_submit">
-                        <button type="submit">Save</button>
-                        <a href="/admin" class="btn">Cancel</a>
+                    <div class="article_paragraphs">
+                        <textarea></textarea>
+                    </div>
+                    <button type="button" class="btn paragraphs_remove">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn paragraphs_add" onclick="javascript:void(0)">
+                        <i class="fas fa-plus"></i> Add paragraphs
+                    </button>
+                </div>
+                <div class="article_section">
+                    <div class="article_title"> 
+                        <input type="text" placeholder="Section title">
+                        <button type="button" class="btn section_remove">
+                            <i class="fas fa-minus"></i>
+                        </button>
                     </div>
                 </form>
             <?php }else {?>
