@@ -50,25 +50,41 @@
                 ?>
             </div>
         </div>
-        <?php 
-        if(isset($project)){
-            
+        <div id="form">
+            <?php if(isset($project)){     ?>
+                <form action="/admin" method="post">
+                    <h1>Images</h1>
+                    <div id="_images">
+                        <img src="/assets/img/favicon.png" alt="">
+                        <img src="/assets/img/DeskApp.png" alt="">
+                        <button type="button" id="images_add"class="btn" onclick="javascript:void(0)"><i class="fas fa-2x fa-plus"></i></button>
+                    </div>
+                    <h1>Links</h1>
+                    <div id="_links">
+                        <div>
+                            <input type="text" placeholder="Name">
+                            to : <input type="text" placeholder="Link">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Name">
+                            to : <input type="text" placeholder="Link">
+                        </div>
+                        <button type="button" id="links_add" class="btn" onclick="javascript:void(0)"><i class="fas fa-2x fa-plus"></i></button>
 
-                
-        ?>
-        
-        <div>
-        <?= isset($project['id']) ? "you're editing project n°{$project['id']} named {$project['title']}" : "You're making a new project"?> 
+                    </div>
+                    <h1>Article</h1>
+                    <div id="_article">
+
+                    </div>
+                    <div class="row" id="_submit">
+                        <button type="submit">Save</button>
+                        <a href="/admin" class="btn">Cancel</a>
+                    </div>
+                </form>
+            <?php }else {?>
+                <a href="?id=0" class="btn" id="_new">Add project</a>
+            <?php }?>    
         </div>
-
-        <?php
-        }else {
-            
-        ?>
-            <a href="?id=0" class="btn">New</a>
-        <?php   
-        }
-        ?>    
     </main>
     <footer>
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.html'?>
