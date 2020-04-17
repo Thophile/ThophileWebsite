@@ -36,10 +36,8 @@ $router->get("/admin", function($request, $db){
     //fillin the field if a get is present
     $projects = $db->getProjects();
     if(isset($_GET['id'])){
+      //id=0 stand for new project and will never be in database
       $project = $_GET['id'] == "0" ? [] : $db->getProject($_GET['id']);
-      //display form filled in if id!=0
-    }else{
-      //display new button
     }
 
     $title = "Thophile's Website | Admin";
@@ -66,11 +64,13 @@ $router->post('/login', function($request, $db) {
 //submit data changes
 $router->post('/admin', function($request, $db) {
   if(isset($_SESSION['token']) && $_SESSION['token'] === "foo"){
-  //handle project edit/delete/new
-  }else{
-    $title = "Thophile's Website | Login";
-    include_once 'views/admin_landing.php';
+
+    //handle project edit/delete/new then redirect to admin
+    
   }
+  //also redirect to GET:admin if not logged
+  header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
+  die();
 });
 
 
