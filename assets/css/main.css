@@ -194,11 +194,13 @@ button i:hover{
     color: var(--secondarycolor)!important;
     cursor: pointer;
 }
-button:focus, .btn:focus{
-    outline: 0;
+button:focus, .btn:focus, textarea:focus{
+    outline: none;
+    border: 2px solid var(--secondarycolor)!important;
+
 }
-button::-moz-focus-inner, .btn::-moz-focus-inner{ 
-    border: 1px none var(--secondarycolor)!important;
+button::-moz-focus-inner,textarea::-moz-focus-inner, .btn::-moz-focus-inner{ 
+    border: 2px none var(--secondarycolor)!important;
     border-style: none;
 }
 *:focus{
