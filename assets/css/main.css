@@ -198,10 +198,11 @@ button:focus, .btn:focus{
     outline: 0;
 }
 button::-moz-focus-inner, .btn::-moz-focus-inner{ 
-    border: 1px none solid var(--secondarycolor)!important;
+    border: 1px none var(--secondarycolor)!important;
+    border-style: none;
 }
 *:focus{
-    outline-style:solid;
+    outline-style: solid;
     outline-offset: 1.5px;
     outline-width: 0.5px;
 }
