@@ -28,7 +28,7 @@
                     <div class="name">Lorem ipsum dolor sit amet</div>
                     <div class="action">
                         <a href="/project?id=1" class="btn"><i class="far fa-eye"></i></a>
-                        <a href="" class="btn"><i class="fas fa-edit"></i></a>
+                        <a href="/admin" class="btn"><i class="fas fa-edit"></i></a>
                         <a href="" class="btn"><i class="fas fa-trash"></i></a>
                     </div>
                 </div>
