@@ -114,9 +114,32 @@
                             <i class="fas fa-minus"></i>
                         </button>
                     </div>
-                </form>
+                    <div class="article_paragraphs">
+                        <textarea></textarea>
+                        <textarea></textarea>
+                    </div>
+                    <button type="button" class="btn paragraphs_remove">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn paragraphs_add" onclick="javascript:void(0)">
+                        <i class="fas fa-plus"></i> Add paragraphs
+                    </button>
+                </div>
+                
+                <button type="button" class="btn article_add" onclick="javascript:void(0)">
+                    <i class="fas fa-plus"></i> Add section
+                </button>
+            </div>        
+
+            <div class="row" id="_submit">
+                <button type="button" onclick="parseForm()">Save</button>
+                <a href="/admin" class="btn">Cancel</a>
+            </div>                    
+
             <?php }else {?>
-                <a href="?id=0" class="btn" id="_new">Add project</a>
+
+            <a href="?id=0" class="btn" id="_new">Add project</a>
+
             <?php }?>    
         </div>
     </main>
