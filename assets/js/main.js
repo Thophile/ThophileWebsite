@@ -7,3 +7,14 @@ function ready(f) {
         document.addEventListener("DOMContentLoaded", f);
     }
 }
+//shortcut for document.createElement and attribut association
+function create(element, properties){
+    //create element
+    var element = document.createElement(element);
+    //assign properties
+    for (var prop in properties) {
+        element[prop] = properties[prop];
+    }
+    return element;
+
+}
