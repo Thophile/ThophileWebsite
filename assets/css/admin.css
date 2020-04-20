@@ -158,7 +158,7 @@ button[class$=_add], button[class$=_remove]{
 }
 
 /** Head **/
-#head input{
+#_head input{
     font-size: 1.2rem;
     width: calc(100% - 22px);
     padding: 5px;
@@ -167,7 +167,7 @@ button[class$=_add], button[class$=_remove]{
     border-radius: 2px;
     background-color: inherit;
 }
-#head input[name=title]{
+#_head input[name=title]{
     font-size: 1.2rem;
     width: 50%;
     padding: 5px;
