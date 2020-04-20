@@ -29,11 +29,13 @@ ready(function(){
     });
     
 })
+
+//turn form data into json
 function parseForm(){
     var project = new Object()
 }
 
-function link_remove(event){
+//Images
 function previewImage(event){
     //get the input that emitted the event
     var source = event.target || event.srcElement
@@ -131,8 +133,6 @@ function linkAdd(){
     source.parentElement.insertBefore(div,source)
 }
 
-
-function section_remove(event){
     var source = event.target || event.srcElement
     while(source.className !== "article_section"){
         source = source.parentElement
