@@ -55,3 +55,53 @@ function section_remove(event){
     }
     source.parentElement.removeChild(source) ;
 }
+function section_add(){
+    var source = event.target || event.srcElement
+    console.log(source)
+
+    //create a section
+    var div = document.createElement("DIV")
+    div.className='article_section'
+
+        var div_title = document.createElement("DIV")
+        div_title.className='article_title'
+        div_title.innerHTML='<input type="text" placeholder="Section title">'
+
+            let button = document.createElement("BUTTON")
+            button.type='button'
+            button.className='btn section_remove'
+            button.innerHTML='<i class="fas fa-minus"></i>'
+            button.addEventListener("click",section_remove)
+
+        div_title.appendChild(button)
+
+    div.appendChild(div_title)
+
+        let div_para = document.createElement("DIV")
+        div_para.className='article_paragraphs'
+        div_para.innerHTML = '<textarea></textarea>'
+    div.appendChild(div_para)
+
+        let div_action = document.createElement("DIV")
+        div_action.className="row"
+
+            button = document.createElement("BUTTON")
+            button.type='button'
+            button.className='btn paragraphs_remove'
+            button.innerHTML='<i class="fas fa-minus"></i>'
+            button.addEventListener("click",paragraphs_remove)
+
+        div_action.appendChild(button)
+
+            button = document.createElement("BUTTON")
+            button.type='button'
+            button.className='btn paragraphs_add'
+            button.innerHTML='<i class="fas fa-plus"></i> Add paragraphs'
+            button.addEventListener("click",paragraphs_add)
+
+        div_action.appendChild(button)
+    
+    div.appendChild(div_action)
+
+    source.parentElement.insertBefore(div,source)
+}
