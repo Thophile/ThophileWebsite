@@ -1,21 +1,31 @@
 ready(function(){
+    //initialise event 
     document.querySelectorAll(".link_remove").forEach(element => {
-        element.addEventListener("click",link_remove)
+        element.addEventListener("click",linkRemove)
     });
-    document.querySelectorAll(".links_add").forEach(element => {
-        element.addEventListener("click",link_add)
+    document.querySelectorAll(".link_add").forEach(element => {
+        element.addEventListener("click",linkAdd)
     });
     document.querySelectorAll(".section_remove").forEach(element => {
-        element.addEventListener("click",section_remove)
+        element.addEventListener("click",sectionRemove)
     });
     document.querySelectorAll(".section_add").forEach(element => {
         element.addEventListener("click",section_add)
     });
     document.querySelectorAll(".paragraphs_remove").forEach(element => {
-        element.addEventListener("click",paragraphs_remove)
+        element.addEventListener("click",paragraphsRemove)
     });
     document.querySelectorAll(".paragraphs_add").forEach(element => {
-        element.addEventListener("click",paragraphs_add)
+        element.addEventListener("click",paragraphsAdd)
+    });
+    document.querySelectorAll(".image_add").forEach(element => {
+        element.addEventListener("click",imageAdd)
+    });
+    document.querySelectorAll(".image_remove").forEach(element => {
+        element.addEventListener("click",imageRemove)
+    });
+    document.querySelectorAll(".image_file").forEach(element => {
+        element.addEventListener("change",previewImage)
     });
     
 })
