@@ -90,21 +90,13 @@
                             <i class="fas fa-minus"></i>
                         </button>
                     </div>
-                    <div class="article_paragraphs">
-                        <textarea></textarea>
-                    </div>
-                    <button type="button" class="btn paragraphs_remove">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn paragraphs_add" onclick="javascript:void(0)">
-                        <i class="fas fa-plus"></i> Add paragraphs
-                    </button>
-                </div>
-                <div class="article_section">
-                    <div class="article_title"> 
-                        <input type="text" placeholder="Section title">
-                        <button type="button" class="btn section_remove">
-                            <i class="fas fa-minus"></i>
+                    <div class="article_paragraphs"><textarea></textarea></div>
+                    <div class="row">
+                        <button type="button" class="btn paragraphs_add">
+                            <i class="fas fa-plus"></i> Add paragraph
+                        </button>
+                        <button type="button" class="btn paragraphs_remove">
+                            <i class="fas fa-minus"></i> Remove paragraph
                         </button>
                     </div>
                     <div class="article_paragraphs">
