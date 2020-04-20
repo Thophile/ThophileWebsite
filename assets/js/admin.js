@@ -133,6 +133,8 @@ function linkAdd(){
     source.parentElement.insertBefore(div,source)
 }
 
+//Articles
+function sectionRemove(event){
     var source = event.target || event.srcElement
     while(source.className !== "article_section"){
         source = source.parentElement
@@ -144,44 +146,39 @@ function section_add(){
     console.log(source)
 
     //create a section
-    var div = document.createElement("DIV")
-    div.className='article_section'
+    var div = create("DIV", {className : "article_section"})
 
-        var div_title = document.createElement("DIV")
-        div_title.className='article_title'
-        div_title.innerHTML='<input type="text" placeholder="Section title">'
+        var div_title = create("DIV", {className : "article_title"})
+            let input = create("INPUT", {type: "text", placeholder: "Section title"})
+        div_title.appendChild(input)
 
-            let button = document.createElement("BUTTON")
-            button.type='button'
-            button.className='btn section_remove'
-            button.innerHTML='<i class="fas fa-minus"></i>'
-            button.addEventListener("click",section_remove)
+            let button = create("BUTTON", {type: "button", className : "btn section_remove"})
+                let i = create("I", {className : "fas fa-minus"})
+            button.appendChild(i)
+            button.addEventListener("click",sectionRemove)
 
         div_title.appendChild(button)
 
     div.appendChild(div_title)
 
-        let div_para = document.createElement("DIV")
-        div_para.className='article_paragraphs'
-        div_para.innerHTML = '<textarea></textarea>'
+        let div_para = create("DIV", {className: "article_paragraphs"})
+            div_para.appendChild(create("textarea"))
     div.appendChild(div_para)
 
-        let div_action = document.createElement("DIV")
-        div_action.className="row"
-
-            button = document.createElement("BUTTON")
-            button.type='button'
-            button.className='btn paragraphs_remove'
-            button.innerHTML='<i class="fas fa-minus"></i>'
-            button.addEventListener("click",paragraphs_remove)
+        let div_action = create("DIV", {className : "article_action"})
+            button = create("BUTTON", {type: "button", className: "btn paragraphs_remove"})
+                i = create("I", {className: "fas fa-minus"})
+            button.appendChild(i)
+            button.appendChild(document.createTextNode("Remove paragraph"))
+            button.addEventListener("click",paragraphsRemove)
 
         div_action.appendChild(button)
-
-            button = document.createElement("BUTTON")
-            button.type='button'
-            button.className='btn paragraphs_add'
-            button.innerHTML='<i class="fas fa-plus"></i> Add paragraphs'
-            button.addEventListener("click",paragraphs_add)
+        
+            button = create("BUTTON", {type: "button", className: "btn paragraphs_add"})
+                i = create("I", {className: "fas fa-plus"})
+            button.appendChild(i)
+            button.appendChild(document.createTextNode("Add paragraph"))
+            button.addEventListener("click",paragraphsAdd)
 
         div_action.appendChild(button)
     
