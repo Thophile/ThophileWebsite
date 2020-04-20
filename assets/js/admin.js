@@ -167,7 +167,7 @@ function section_add(){
             button = create("BUTTON", {type: "button", className: "btn paragraphs_remove"})
                 i = create("I", {className: "fas fa-minus"})
             button.appendChild(i)
-            button.appendChild(document.createTextNode("Remove paragraph"))
+            button.appendChild(document.createTextNode(" Remove paragraph"))
             button.addEventListener("click",paragraphsRemove)
 
         div_action.appendChild(button)
@@ -175,7 +175,7 @@ function section_add(){
             button = create("BUTTON", {type: "button", className: "btn paragraphs_add"})
                 i = create("I", {className: "fas fa-plus"})
             button.appendChild(i)
-            button.appendChild(document.createTextNode("Add paragraph"))
+            button.appendChild(document.createTextNode(" Add paragraph"))
             button.addEventListener("click",paragraphsAdd)
 
         div_action.appendChild(button)
