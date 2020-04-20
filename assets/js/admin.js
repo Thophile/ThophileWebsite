@@ -48,3 +48,10 @@ function link_add(){
 }
 
 
+function section_remove(event){
+    var source = event.target || event.srcElement
+    while(source.className !== "article_section"){
+        source = source.parentElement
+    }
+    source.parentElement.removeChild(source) ;
+}
