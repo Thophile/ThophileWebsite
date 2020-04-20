@@ -115,3 +115,11 @@ function paragraphs_remove(event){
     console.log(source.children[1].lastChild)
     source.children[1].removeChild(source.children[1].lastChild)
 }
+function paragraphs_add(event){
+    var source = event.target || event.srcElement
+    while(source.className !== "article_section"){
+        source = source.parentElement
+    }
+    console.log(source.children[1].lastChild)
+    source.children[1].appendChild(document.createElement("TEXTAREA"))
+}
