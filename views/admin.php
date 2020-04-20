@@ -76,17 +76,9 @@
                         <i class="fas fa-minus"></i>
                     </button>
                 </div>
-                <div>
-                    <input type="text" size=1 placeholder="Name">
-                    to : <input type="text" size=1 placeholder="Link">
-                    <button type="button" class="btn link_remove">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                </div>
-                <button type="button" class="btn links_add" onclick="javascript:void(0)">
+                <button type="button" class="btn links_add">
                     <i class="fas fa-plus"></i> Add link
                 </button>
-
             </div>
 
             <h1>Article</h1>
