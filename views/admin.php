@@ -52,15 +52,34 @@
             </div>
         </div>
         <div id="form">
-            <?php if(isset($project)){     ?>
+            <?php if(isset($project)){ ?>
             <h1>Header</h1>
-            <div id="head">
-                <input type="text" name="title" placeholder="Project title">
-                <input type="text" name="category" placeholder="Category">
-                <input type="text" name="style" placeholder="Preview style">
+            <div id="_head">
+                <input type="text" name="title" placeholder="Project title" value="<?php if(isset($project["title"])) echo $project["title"]; ?>" >
+                <input type="text" name="category" placeholder="Category" value="<?php if(isset($project["category"])) echo $project["category"] ?>">
+                <input type="text" name="style" placeholder="Preview style" value="<?php if(isset($project["preview_style"])) echo $project["preview_style"] ?>">
             </div>
             <h1>Images</h1>
             <div id="_image">
+
+            <?php 
+            if(isset($project["images"])){
+                foreach (json_decode($project["images"]) as  $image) {  
+            ?>
+
+            <div class="image_preview">
+                <img src="<?= $image->url?>" style="display: block;">
+                <i class="fas fa-6x fa-upload" style="display: none;"></i>
+                <input class="image_file" type="file">
+                <input type="text" placeholder="Label" value="<?= $image->label?>">
+                <i class="fas fa-minus"></i>
+            </div>
+
+            <?php 
+                }
+            } 
+            ?>
+
                 <button type="button" class="image_add">
                     <i class="fas fa-6x fa-plus"></i>
                 </button>
@@ -68,13 +87,25 @@
 
             <h1>Links</h1>
             <div id="_links">
+
+            <?php
+            if(isset($project["links"])){
+                foreach (json_decode($project["links"]) as  $link) {  
+            ?>
+
                 <div>
-                    <input type="text" size=1 placeholder="Name">
-                        to : <input type="text" size=1 placeholder="Link">
+                    <input type="text" size=1 placeholder="Name" value="<?= $link->title?>">
+                        to : <input type="text" size=1 placeholder="Link" value="<?= $link->href?>">
                     <button type="button" class="btn link_remove">
                         <i class="fas fa-minus"></i>
                     </button>
                 </div>
+
+            <?php 
+                }
+            } 
+            ?>
+
                 <button type="button" class="btn link_add">
                     <i class="fas fa-plus"></i> Add link
                 </button>
@@ -82,23 +113,44 @@
 
             <h1>Article</h1>
             <div id="_article">
+
+            <?php
+            if(isset($project["article"])){
+                foreach (json_decode($project["article"]) as  $article) {  
+            ?>
+
                 <div class="article_section">
                     <div class="article_title">
-                        <input type="text" placeholder="Section title">
+                        <input type="text" placeholder="Section title" value="<?= $article->title?>">
                         <button type="button" class="btn section_remove">
                             <i class="fas fa-minus"></i>
                         </button>
                     </div>
-                    <div class="article_paragraphs"><textarea></textarea></div>
+                    <div class="article_paragraphs">
+                        <?php 
+                        foreach ($article->article as $paragraph) {
+                        ?>
+
+                        <textarea> <?= $paragraph?> </textarea>
+
+                        <?php 
+                        } ?>
+                    </div>
                     <div class="article_action">
-                        <button type="button" class="btn paragraphs_add">
-                            <i class="fas fa-plus"></i> Add paragraph
-                        </button>
                         <button type="button" class="btn paragraphs_remove">
                             <i class="fas fa-minus"></i> Remove paragraph
                         </button>
+                        <button type="button" class="btn paragraphs_add">
+                            <i class="fas fa-plus"></i> Add paragraph
+                        </button>
                     </div>
                 </div>
+                
+                <?php 
+                }
+            } 
+            ?>
+
                 <button type="button" class="btn section_add">
                     <i class="fas fa-plus"></i> Add section
                 </button>
