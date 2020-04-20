@@ -61,6 +61,43 @@ function previewImage(event){
     if(file) reader.readAsDataURL(file);
 
 }
+function imageRemove(event){
+    var source = event.target || event.srcElement
+
+    //handle nested source
+    while(source.className !== "image_preview"){
+        source = source.parentElement
+    }
+    source.parentElement.removeChild(source) ;
+}
+function imageAdd(event){
+    var source = event.target || event.srcElement
+    while (source.tagName != "BUTTON") {
+        source = source.parentElement
+    }
+    console.log(source)
+    var div = create("DIV", {className: "image_preview"})
+        div.appendChild(create("IMG"))
+
+        let i = create("I", {className : "fas fa-6x fa-upload"})
+        div.appendChild(i)
+
+        let input = create("INPUT", {className : "image_file", type : "file"})
+        input.addEventListener("change",previewImage)
+        div.appendChild(input)
+
+        input = create("INPUT", {type : "text", placeholder: "Label"})
+        div.appendChild(input)
+
+        i = create("I", {className : "fas fa-minus"})
+        i.addEventListener("click",imageRemove)
+        div.appendChild(i)
+
+    console.log(div)
+    console.log(document.getElementById("_image"))
+    document.getElementById("_image").insertBefore(div,source)
+
+}
     var source = event.target || event.srcElement
 
     //check if you click on the i or on the button itself
