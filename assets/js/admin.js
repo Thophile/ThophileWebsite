@@ -20,8 +20,9 @@ ready(function(){
     
 })
 function parseForm(){
-    $project = new Object()
+    var project = new Object()
 }
+
 function link_remove(event){
     var source = event.target || event.srcElement
 
