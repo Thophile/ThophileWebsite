@@ -60,11 +60,10 @@
                 <input type="text" name="style" placeholder="Preview style">
             </div>
             <h1>Images</h1>
-                <div id="_images">
-                <img src="/assets/img/favicon.png" alt="">
-                <img src="/assets/img/DeskApp.png" alt="">
-                <button type="button" class="btn images_add" onclick="javascript:void(0)">
-                    <i class="fas fa-2x fa-plus"></i>                        </button>
+            <div id="_image">
+                <button type="button" class="image_add">
+                    <i class="fas fa-6x fa-plus"></i>
+                </button>
             </div>
 
             <h1>Links</h1>
