@@ -57,7 +57,7 @@
             <div id="head">
                 <input type="text" name="title" placeholder="Project title">
                 <input type="text" name="category" placeholder="Category">
-                <input type="text" name="style">
+                <input type="text" name="style" placeholder="Preview style">
             </div>
             <h1>Images</h1>
                 <div id="_images">
