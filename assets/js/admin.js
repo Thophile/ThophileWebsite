@@ -34,6 +34,33 @@ function parseForm(){
 }
 
 function link_remove(event){
+function previewImage(event){
+    //get the input that emitted the event
+    var source = event.target || event.srcElement
+    var file = source.files[0]
+    const reader = new FileReader()
+
+    //get the div parent
+    while(source.className !== "image_preview"){
+        source = source.parentElement
+    }
+    
+
+    
+    //swap img and placeholder visibility
+    source.children[0].style.display = "block" //img
+    source.children[1].style.display = "none" //placeholder
+
+    //get the img of the div and load the image in it
+    var preview = source.children[0]
+    reader.addEventListener("load" ,function () {
+        //convert file to string
+        preview.src = reader.result
+    }, false)
+
+    if(file) reader.readAsDataURL(file);
+
+}
     var source = event.target || event.srcElement
 
     //check if you click on the i or on the button itself
