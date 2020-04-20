@@ -95,8 +95,6 @@ function imageAdd(event){
         i.addEventListener("click",imageRemove)
         div.appendChild(i)
 
-    console.log(div)
-    console.log(document.getElementById("_image"))
     document.getElementById("_image").insertBefore(div,source)
 
 }
