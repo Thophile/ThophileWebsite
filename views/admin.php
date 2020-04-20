@@ -76,7 +76,7 @@
                         <i class="fas fa-minus"></i>
                     </button>
                 </div>
-                <button type="button" class="btn links_add">
+                <button type="button" class="btn link_add">
                     <i class="fas fa-plus"></i> Add link
                 </button>
             </div>
@@ -91,7 +91,7 @@
                         </button>
                     </div>
                     <div class="article_paragraphs"><textarea></textarea></div>
-                    <div class="row">
+                    <div class="article_action">
                         <button type="button" class="btn paragraphs_add">
                             <i class="fas fa-plus"></i> Add paragraph
                         </button>
