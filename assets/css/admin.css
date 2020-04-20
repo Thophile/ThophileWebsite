@@ -248,7 +248,7 @@ button[class$=_add], button[class$=_remove]{
 .paragraphs_add,.paragraphs_remove{
     margin: 5px 40px!important;
 }
-.article_add{
+.section_add{
     font-size: 1.5rem;
 }
 

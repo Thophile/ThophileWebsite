@@ -125,8 +125,7 @@
                         <i class="fas fa-plus"></i> Add paragraphs
                     </button>
                 </div>
-                
-                <button type="button" class="btn article_add" onclick="javascript:void(0)">
+                <button type="button" class="btn section_add">
                     <i class="fas fa-plus"></i> Add section
                 </button>
             </div>        
