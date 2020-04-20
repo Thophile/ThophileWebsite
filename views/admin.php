@@ -99,16 +99,6 @@
                             <i class="fas fa-minus"></i> Remove paragraph
                         </button>
                     </div>
-                    <div class="article_paragraphs">
-                        <textarea></textarea>
-                        <textarea></textarea>
-                    </div>
-                    <button type="button" class="btn paragraphs_remove">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn paragraphs_add" onclick="javascript:void(0)">
-                        <i class="fas fa-plus"></i> Add paragraphs
-                    </button>
                 </div>
                 <button type="button" class="btn section_add">
                     <i class="fas fa-plus"></i> Add section
