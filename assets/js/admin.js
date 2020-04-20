@@ -32,3 +32,19 @@ function link_remove(event){
     }
     source.parentElement.removeChild(source) ;
 }
+function link_add(){
+    var source = event.target || event.srcElement
+
+    var div = document.createElement("DIV")
+    div.innerHTML='<input type="text" size=1 placeholder="Name"> to : <input type="text" size=1 placeholder="Link">'
+        var button = document.createElement("BUTTON")
+        button.type='button'
+        button.className='btn link_remove'
+        button.innerHTML='<i class="fas fa-minus"></i>'
+        button.addEventListener("click",link_remove)
+
+    div.appendChild(button)
+    source.parentElement.insertBefore(div,source)
+}
+
+
