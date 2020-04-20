@@ -253,12 +253,12 @@ button[class$=_add], button[class$=_remove]{
     display: flex;
     flex-direction: column;
 }
-.article_title{
+.article_title, .article_action{
     display: flex;
     flex-direction: row;
 }
 .article_section{
-    margin: 20px 0;
+    margin: 25px 0;
 }
 .article_paragraphs{
     margin: 10px 20px;
@@ -283,20 +283,29 @@ button[class$=_add], button[class$=_remove]{
     border-radius: 2px;
     background-color: inherit;
 }
+.article_action button{
+    width: 50%;
+}
 .paragraphs_add,.paragraphs_remove{
     margin: 5px 40px!important;
 }
 .section_add{
     font-size: 1.5rem;
+    margin: 10px 5 !important;
 }
 
 
+#_submit{
+    margin: 20px 0;
+}
 #_submit button,#_submit a{
+    width: calc(50% - 30px);
     font-size: 1.2rem;
     background-color: inherit;
     border: 1px solid var(--accents);
     border-radius: 2px;
     padding: 5px;
     margin: 10px;
+    text-align: center;
 }
                                                           
