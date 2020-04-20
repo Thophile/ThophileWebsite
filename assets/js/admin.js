@@ -188,7 +188,7 @@ function section_add(){
 }
 
 
-function paragraphs_remove(event){
+function paragraphsRemove(event){
     var source = event.target || event.srcElement
     while(source.className !== "article_section"){
         source = source.parentElement
@@ -196,7 +196,7 @@ function paragraphs_remove(event){
     console.log(source.children[1].lastChild)
     source.children[1].removeChild(source.children[1].lastChild)
 }
-function paragraphs_add(event){
+function paragraphsAdd(event){
     var source = event.target || event.srcElement
     while(source.className !== "article_section"){
         source = source.parentElement
