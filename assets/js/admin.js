@@ -111,6 +111,9 @@ function linkRemove(event){
 }
 function linkAdd(){
     var source = event.target || event.srcElement
+    while(source.tagName !== "BUTTON"){
+        source = source.parentElement
+    }
 
     var div = create("DIV")
 
