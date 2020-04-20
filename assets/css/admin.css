@@ -178,7 +178,7 @@ button[class$=_add], button[class$=_remove]{
 }
 
 /** Images **/
-#_images{
+#_image{
     display: flex;
     flex-direction: row;
 }
@@ -187,11 +187,8 @@ button[class$=_add], button[class$=_remove]{
     height: 50px;
     margin: 5px;
 }
-.images_add{
-    width: 50px;
-    height: 50px;
-
 }
+
 
 /** links **/
 #_links div{
@@ -206,7 +203,7 @@ button[class$=_add], button[class$=_remove]{
 #_links input::placeholder{
     font-size: 1.2rem;
 }
-.links_add{
+.link_add{
     font-size: 1.5rem;
 }
 
@@ -251,7 +248,6 @@ button[class$=_add], button[class$=_remove]{
 .section_add{
     font-size: 1.5rem;
 }
-
 
 
 #_submit button,#_submit a{
