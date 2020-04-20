@@ -22,3 +22,12 @@ ready(function(){
 function parseForm(){
     $project = new Object()
 }
+function link_remove(event){
+    var source = event.target || event.srcElement
+
+    //check if you click on the i or on the button itself
+    while(source.tagName !== "DIV"){
+        source = source.parentElement
+    }
+    source.parentElement.removeChild(source) ;
+}
