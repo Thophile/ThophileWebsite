@@ -224,7 +224,7 @@ button[class$=_add], button[class$=_remove]{
 }
 #_image .image_preview i.fa-upload{
     position: absolute;
-    bottom: auto;
+    top: auto;
     left: auto;
     height: 200px;
     width: 200px;
@@ -234,12 +234,17 @@ button[class$=_add], button[class$=_remove]{
 /** links **/
 #_links div{
     align-self: center;
+    margin: 5px 10px;
+    width: calc(100% - 20px);
 }
 #_links input{
-    min-width: 80px;
+    min-width: calc(45% - 80px);
     border: none;
     background-color: inherit;
     font-size: 1.2rem;
+}
+#_links input[placeholder = "Link"]{
+    width: 55%;
 }
 #_links input::placeholder{
     font-size: 1.2rem;
