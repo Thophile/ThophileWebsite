@@ -32,7 +32,14 @@ ready(function(){
 
 //turn form data into json
 function parseForm(){
+    //retrieve dta
     var project = new Object()
+
+    //get project id from url
+    var urlparameters = window.location.search //get full string
+    var parameters = new URLSearchParams(urlparameters)
+    project.id = parameters.get('id')
+    
 }
 
 //Images
