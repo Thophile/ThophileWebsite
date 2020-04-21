@@ -78,6 +78,13 @@ $router->post('/upload', function($request, $db) {
       }
     }
 
+    //handle project edit/new
+    $project = json_decode($_POST['project'], true);
+    if($project['id'] == 0){
+      $db->createProject($project);
+    }else{
+      $db->updateProject($project);
+    }
   }
   //also redirect to GET:admin if not logged
   header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
