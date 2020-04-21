@@ -65,8 +65,19 @@ $router->post('/login', function($request, $db) {
 $router->post('/upload', function($request, $db) {
   if(isset($_SESSION['token']) && $_SESSION['token'] === "foo"){
 
-    //handle project edit/delete/new then redirect to admin
-    
+    // Loop through each file
+    for( $i = 0; $i < sizeof($_FILES['file']['name']); $i++ ) {
+
+      //Get the temp file path
+      $tmpFilePath = $_FILES['file']['tmp_name'][$i];
+
+      if ($tmpFilePath != ""){
+        //Upload the file from the temp dir
+        move_uploaded_file($tmpFilePath, "./upload/" . $_FILES['file']['name'][$i]);
+
+      }
+    }
+
   }
   //also redirect to GET:admin if not logged
   header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
