@@ -40,6 +40,58 @@ function parseForm(){
     var parameters = new URLSearchParams(urlparameters)
     project.id = parameters.get('id')
     
+    project.title = document.querySelector('input[name=title]').value
+    project.category = document.querySelector('input[name=category]').value
+    project.preview_style = document.querySelector('input[name=style]').value
+    
+    
+    //image
+    project.images = []
+    var data = new FormData()
+    document.querySelectorAll('#_image .image_preview').forEach(element => {
+        
+        //if an img has been loaded/selected
+        if(element.querySelector('img').src != ""){
+            var image = new Object()
+            
+            //save the filename
+            if(element.querySelector('input[type=file]').files.length == 0){
+                image.filename = element.querySelector('img').src.split(/(\\|\/)/g).pop()
+            }else{
+                image.filename = element.querySelector('input[type=file]').files[0].name
+                data.append('file[]', element.querySelector('input[type=file]').files[0])
+            }
+            
+            image.label = element.querySelectorAll('input')[1].value
+            
+            project.images.push(image)
+        }
+    });
+    
+    
+    //links
+    project.links = []
+    document.querySelectorAll('#_links div').forEach(element => {
+        var link = new Object()
+        link.title = element.querySelectorAll('input')[0].value
+        link.href = element.querySelectorAll('input')[1].value
+        project.links.push(link)
+    });
+    
+    
+    //article
+    project.article = []
+    document.querySelectorAll('#_article .article_section').forEach(element => {
+        var section = new Object()
+        section.title = element.querySelector('.article_title input[type=text').value
+        section.paragraphs = []
+        element.querySelectorAll('.article_paragraphs textarea').forEach(p =>{
+            section.paragraphs.push(p.value)
+        })
+        project.article.push(section)
+    })
+    
+    data.append('project', JSON.stringify(project))
 }
 
 //Images
