@@ -62,7 +62,7 @@ $router->post('/login', function($request, $db) {
 });
 
 //submit data changes
-$router->post('/admin', function($request, $db) {
+$router->post('/upload', function($request, $db) {
   if(isset($_SESSION['token']) && $_SESSION['token'] === "foo"){
 
     //handle project edit/delete/new then redirect to admin
