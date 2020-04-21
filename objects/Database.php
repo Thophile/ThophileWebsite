@@ -89,6 +89,13 @@ class Database{
             die();
         }
     }
+    public function createProject($project){
+
+    }
+    public function updateProject($project){
+
+    }
+
 
 }
 ?>
