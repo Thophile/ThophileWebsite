@@ -97,6 +97,14 @@ function parseForm(){
     var request = new XMLHttpRequest();
     request.open('post', '/upload');
     
+    // AJAX request finished event
+    request.addEventListener('load', function(e) {
+	    // HTTP status message
+	    console.log(request.status);
+
+	// request.response will hold the response from the server
+	console.log(request.response);
+    });
 
     // send POST request to server side script
     request.send(data);
