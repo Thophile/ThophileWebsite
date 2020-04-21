@@ -63,7 +63,7 @@
             <?php
             foreach (json_decode($project['images']) as $image) { 
             ?>
-                <img src="<?= $image->url ?>" class="merry" alt="Image <?=$image->label?>" label="<?=$image->label?>">
+                <img src="/upload/<?= $image->filename ?>" class="merry" alt="Image <?=$image->label?>" label="<?=$image->label?>">
             <?php 
             } 
             ?>
@@ -79,9 +79,9 @@
                 <section>
                     <h1><?=$section->title?></h1>
                     <?php
-                    foreach ($section->article as $p) {
+                    foreach ($section->paragraphs as $paragraph) {
                     ?>
-                        <p><?=$p?></p>
+                        <p><?=$paragraph?></p>
                     <?php
                     }
                     ?>
