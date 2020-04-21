@@ -73,7 +73,7 @@ $router->post('/upload', function($request, $db) {
 
       if ($tmpFilePath != ""){
         //Upload the file from the temp dir
-        move_uploaded_file($tmpFilePath, "./upload/" . $_FILES['file']['name'][$i]);
+        move_uploaded_file($tmpFilePath, "./uploadFolder/" . $_FILES['file']['name'][$i]);
 
       }
     }
