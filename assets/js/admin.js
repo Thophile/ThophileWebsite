@@ -92,6 +92,14 @@ function parseForm(){
     })
     
     data.append('project', JSON.stringify(project))
+
+    //send to create or update
+    var request = new XMLHttpRequest();
+    request.open('post', '/upload');
+    
+
+    // send POST request to server side script
+    request.send(data);
 }
 
 //Images
