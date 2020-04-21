@@ -68,7 +68,7 @@
             ?>
 
             <div class="image_preview">
-                <img src="<?= $image->url?>" style="display: block;">
+                <img src="/upload/<?= $image->filename?>" style="display: block;">
                 <i class="fas fa-6x fa-upload" style="display: none;"></i>
                 <input class="image_file" type="file">
                 <input type="text" placeholder="Label" value="<?= $image->label?>">
@@ -116,19 +116,19 @@
 
             <?php
             if(isset($project["article"])){
-                foreach (json_decode($project["article"]) as  $article) {  
+                foreach (json_decode($project["article"]) as  $section) {  
             ?>
 
                 <div class="article_section">
                     <div class="article_title">
-                        <input type="text" placeholder="Section title" value="<?= $article->title?>">
+                        <input type="text" placeholder="Section title" value="<?= $section->title?>">
                         <button type="button" class="btn section_remove">
                             <i class="fas fa-minus"></i>
                         </button>
                     </div>
                     <div class="article_paragraphs">
                         <?php 
-                        foreach ($article->article as $paragraph) {
+                        foreach ($section->paragraphs as $paragraph) {
                         ?>
 
                         <textarea> <?= $paragraph?> </textarea>
