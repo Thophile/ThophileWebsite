@@ -134,6 +134,24 @@ class Database{
             ]);
     }
 
+    public function deleteProject($id){
+        $query = "DELETE FROM projects WHERE id = :id";
+
+        //Prepare the query
+        if($this->conn == null){
+            $this->connect();
+        }
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute(['id' => $id]);
+
+        if($stmt->rowCount() <= 0){
+            http_response_code(400);
+            include($_SERVER['DOCUMENT_ROOT'].'/errors/400.html'); 
+            die();
+        }
+    }
+
 
 }
 ?>
