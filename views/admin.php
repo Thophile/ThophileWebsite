@@ -34,14 +34,14 @@
                     </div>
                 </div>
                 <?php 
-                foreach ($projects as $value) {
+                foreach ($projects as $line) {
                 ?>
                     <div class="bodyline">
-                        <div class="id"><?=$value['id']?></div>
-                        <div class="name"><?=$value['title']?></div>
+                        <div class="id"><?=$line['id']?></div>
+                        <div class="name"><?=$line['title']?></div>
                         <div class="action">
-                            <a href="/project?id=<?=$value['id']?>" class="btn"><i class="far fa-eye"></i></a>
-                            <a href="/admin?id=<?=$value['id']?>" class="btn"><i class="fas fa-edit"></i></a>
+                            <a href="/project?id=<?=$line['id']?>" class="btn"><i class="far fa-eye"></i></a>
+                            <a href="/admin?id=<?=$line['id']?>" class="btn"><i class="fas fa-edit"></i></a>
                             <a href="" class="btn"><i class="fas fa-trash"></i></a>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
             ?>
 
             <div class="image_preview">
-                <img src="/upload/<?= $image->filename?>" style="display: block;">
+                <img src="/uploadFolder/<?= $image->filename?>" style="display: block;">
                 <i class="fas fa-6x fa-upload" style="display: none;"></i>
                 <input class="image_file" type="file">
                 <input type="text" placeholder="Label" value="<?= $image->label?>">
@@ -131,7 +131,7 @@
                         foreach ($section->paragraphs as $paragraph) {
                         ?>
 
-                        <textarea> <?= $paragraph?> </textarea>
+                        <textarea><?= $paragraph?></textarea>
 
                         <?php 
                         } ?>
@@ -156,9 +156,10 @@
                 </button>
             </div>        
 
+            <div id="status"></div>
             <div class="row" id="_submit">
                 <button type="button" onclick="parseForm()">Save</button>
-                <a href="/admin" class="btn">Cancel</a>
+                <a href="/admin" class="btn">Quit</a>
             </div>                    
 
             <?php }else {?>
