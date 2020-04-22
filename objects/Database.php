@@ -81,8 +81,8 @@ class Database{
             $project = $stmt->fetch();
             return $project;
         }else{
-            http_response_code(404);
-            include($_SERVER['DOCUMENT_ROOT'].'/errors/404.html'); 
+            http_response_code(400);
+            include($_SERVER['DOCUMENT_ROOT'].'/errors/400.html'); 
             die();
         }
     }
