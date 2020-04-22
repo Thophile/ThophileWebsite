@@ -91,9 +91,44 @@ class Database{
     }
     public function createProject($project){
 
+        $query = "INSERT INTO projects (title, category, banner_image, images, links, article) VALUES (:title, :category, :banner_image, :images, :links, :article)";
+
+        //Prepare the query
+        if($this->conn == null){
+            $this->connect();
+        }
+        $stmt = $this->conn->prepare($query);
+        
+        //Execute the query, also check if query was successful
+        $stmt->execute([
+        'title' => $project['title'],
+        'category' => $project['category'],
+        'banner_image' => $project['banner_image'],
+        'images' => json_encode($project['images']),
+        'links' => json_encode($project['links']),
+        'article' => json_encode($project['article'])
+        ]);
+
     }
     public function updateProject($project){
-
+        $query = "UPDATE projects SET title =:title, category =:category, banner_image =:banner_image, images =:images, links =:links, article =:article WHERE id= :id";
+ 
+        //Prepare the query
+        if($this->conn == null){
+            $this->connect();
+        }
+        $stmt = $this->conn->prepare($query);
+    
+        //Execute the query, also check if query was successful
+        $stmt->execute([
+            'id' => $project['id'],
+            'title' => $project['title'],
+            'category' => $project['category'],
+            'banner_image' => $project['banner_image'],
+            'images' => json_encode($project['images']),
+            'links' => json_encode($project['links']),
+            'article' => json_encode($project['article'])
+            ]);
     }
 
 
