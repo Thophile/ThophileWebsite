@@ -99,11 +99,10 @@ function parseForm(){
     
     // AJAX request finished event
     request.addEventListener('load', function(e) {
-	    // HTTP status message
-	    console.log(request.status);
 
 	// request.response will hold the response from the server
-	console.log(request.response);
+    console.log(request.response);
+    document.getElementById('status').innerHTML = 'Status : ' + request.status + ', ' + request.statusText
     });
 
     // send POST request to server side script
@@ -121,8 +120,6 @@ function previewImage(event){
     while(source.className !== "image_preview"){
         source = source.parentElement
     }
-    
-
     
     //swap img and placeholder visibility
     source.children[0].style.display = "block" //img
