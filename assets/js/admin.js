@@ -42,7 +42,7 @@ function parseForm(){
     
     project.title = document.querySelector('input[name=title]').value
     project.category = document.querySelector('input[name=category]').value
-    project.preview_style = document.querySelector('input[name=style]').value
+    project.banner_image = document.querySelector('input[name=style]').value
     
     
     //image

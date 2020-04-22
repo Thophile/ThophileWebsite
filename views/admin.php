@@ -57,7 +57,7 @@
             <div id="_head">
                 <input type="text" name="title" placeholder="Project title" value="<?php if(isset($project["title"])) echo $project["title"]; ?>" >
                 <input type="text" name="category" placeholder="Category" value="<?php if(isset($project["category"])) echo $project["category"] ?>">
-                <input type="text" name="style" placeholder="Preview style" value="<?php if(isset($project["preview_style"])) echo $project["preview_style"] ?>">
+                <input type="text" name="style" placeholder="Banner image" value="<?php if(isset($project["banner_image"])) echo $project["banner_image"] ?>">
             </div>
             <h1>Images</h1>
             <div id="_image">
