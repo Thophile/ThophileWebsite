@@ -99,7 +99,18 @@ $router->post('/upload', function($request, $db) {
   die();
 });
 
-
+$router->get('/delete', function($request) {
+  
+  if(isset($_SESSION['token']) && $_SESSION['token'] === "foo"){
+    $db->deleteProject($_GET['id']);
+  }else{
+    //redirect if unauthorized
+    http_response_code(401);
+    header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
+  }
+  //also redirect to GET:admin if not logged
+  die();
+  });
 /**
  * post request template
  *$router->post('/data', function($request) {
