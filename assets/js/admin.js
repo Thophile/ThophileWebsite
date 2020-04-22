@@ -30,6 +30,19 @@ ready(function(){
     
 })
 
+//ask user to confirm that he wants to delete a project
+function validate(event) {
+    var source = event.target || event.srcElement
+    //handle nested source
+    while (source.tagName !== "A") {
+        source = source.parentElement
+    }
+    message = "Are you sur you want to delete project n°" + source.href.split('=')[1] + " ?"
+
+    if(!confirm(message)) event.preventDefault();
+}
+
+
 //turn form data into json
 function parseForm(){
     //retrieve dta
