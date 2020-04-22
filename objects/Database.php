@@ -59,7 +59,7 @@ class Database{
         $num = $stmt->rowCount();
 
         if($num>0){
-            //Get record
+            //Get records
             $projects = $stmt->fetchAll();
             return $projects;
         }
@@ -76,10 +76,7 @@ class Database{
         //Execute the query, also check if query was successful
         $stmt->execute(['id' => $id]);
         
-        //count the number of result
-        $num = $stmt->rowCount();
-
-        if($num>0){
+        if($stmt->rowCount() > 0){
             //Get record
             $project = $stmt->fetch();
             return $project;
