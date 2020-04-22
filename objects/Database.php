@@ -106,6 +106,12 @@ class Database{
         'article' => json_encode($project['article'])
         ]);
 
+        if($stmt->rowCount() <= 0){
+            http_response_code(400);
+            include($_SERVER['DOCUMENT_ROOT'].'/errors/400.html'); 
+            die();
+        }
+
     }
     public function updateProject($project){
         $query = "UPDATE projects SET title =:title, category =:category, banner_image =:banner_image, images =:images, links =:links, article =:article WHERE id= :id";
