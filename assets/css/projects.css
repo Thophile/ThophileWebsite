@@ -28,7 +28,10 @@
 
 /** projects presentation **/
 .projects{
+    display: flex;
     background: linear-gradient(80deg, rgba(50, 50, 50, 0.80) 55%, #dee1e9 100%);
+    background-position: left center;
+    background-repeat:no-repeat;
     height: 40vh !important;
     border-bottom:1px solid var(--accents);
 }
