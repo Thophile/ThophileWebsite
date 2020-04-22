@@ -21,7 +21,7 @@ ready(function(){
     document.querySelectorAll(".image_add").forEach(element => {
         element.addEventListener("click",imageAdd)
     });
-    document.querySelectorAll(".image_remove").forEach(element => {
+    document.querySelectorAll(".image_preview i.fa-minus").forEach(element => {
         element.addEventListener("click",imageRemove)
     });
     document.querySelectorAll(".image_file").forEach(element => {
