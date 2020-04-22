@@ -63,7 +63,7 @@
             <?php
             foreach (json_decode($project['images']) as $image) { 
             ?>
-                <img src="/upload/<?= $image->filename ?>" class="merry" alt="Image <?=$image->label?>" label="<?=$image->label?>">
+                <img src="/uploadFolder/<?= $image->filename ?>" class="merry" alt="Image <?=$image->label?>" label="<?=$image->label?>">
             <?php 
             } 
             ?>
