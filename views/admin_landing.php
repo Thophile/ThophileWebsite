@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <script src="/assets/js/landing.js"></script>
     <title><?= $title ?></title>
 </head>
+
 <body id="landing">
     <header>
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
@@ -19,7 +21,7 @@
     <main>
         <h1>This is a reserved Area</h1>
         <?php if(isset($error)){ echo '<span class="error">'.$error.'</span>';}?>
-        
+
         <form action="/login" id="log_in" method="post">
             <input type="password" name="password" id="_password" placeholder="Password">
             <button type="submit" style="">Log in</button>
@@ -30,4 +32,5 @@
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.html'?>
     </footer>
 </body>
+
 </html>

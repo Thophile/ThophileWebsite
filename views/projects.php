@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <script src="/assets/js/projects.js"></script>
     <title><?= $title ?></title>
 </head>
+
 <body>
     <header>
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
@@ -30,12 +32,13 @@
                 </form>
             </div>
             <div class="col-30">
-                   
+
             </div>
         </section>
         <!-- php generated part -->
         <?php foreach ($projects as $project) { ?>
-        <section class="section-row projects <?= $project['category']?>" style="background-image: linear-gradient(80deg, rgba(50, 50, 50, 0.80) 55%, #dee1e9 100%), url(/uploadFolder/<?= rawurlencode($project['banner_image'])?>);">
+        <section class="section-row projects <?= $project['category']?>"
+            style="background-image: linear-gradient(80deg, rgba(50, 50, 50, 0.80) 55%, #dee1e9 100%), url(/uploadFolder/<?= rawurlencode($project['banner_image'])?>);">
             <div class="col-70">
                 <h1>
                     <?= $project['title']?>
@@ -50,11 +53,12 @@
                 </a>
             </div>
         </section>
-        <?php } ?>     
+        <?php } ?>
         <!-- end of php generated prts -->
     </main>
     <footer>
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.html'?>
     </footer>
 </body>
+
 </html>

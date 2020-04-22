@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <script src="/assets/js/project.js"></script>
     <title><?= $title ?></title>
 </head>
+
 <body>
     <header>
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
@@ -28,7 +30,7 @@
             </div>
             <div class="col-30">
                 <a href="/projects" class="btn">
-                    Back to all projects                
+                    Back to all projects
                 </a>
             </div>
         </section>
@@ -36,7 +38,7 @@
             <?php
                 foreach (json_decode($project['links']) as $link) { 
             ?>
-                <a href="<?= $link->href ?>" class="btn"><?=$link->title?></a>
+            <a href="<?= $link->href ?>" class="btn"><?=$link->title?></a>
             <?php 
                 } 
             ?>
@@ -63,7 +65,8 @@
             <?php
             foreach (json_decode($project['images']) as $image) { 
             ?>
-                <img src="/uploadFolder/<?= $image->filename ?>" class="merry" alt="Image <?=$image->label?>" label="<?=$image->label?>">
+            <img src="/uploadFolder/<?= $image->filename ?>" class="merry" alt="Image <?=$image->label?>"
+                label="<?=$image->label?>">
             <?php 
             } 
             ?>
@@ -76,16 +79,16 @@
             <?php
             foreach (json_decode($project['article']) as $section) { 
             ?>
-                <section>
-                    <h1><?=$section->title?></h1>
-                    <?php
+            <section>
+                <h1><?=$section->title?></h1>
+                <?php
                     foreach ($section->paragraphs as $paragraph) {
                     ?>
-                        <p><?=$paragraph?></p>
-                    <?php
+                <p><?=$paragraph?></p>
+                <?php
                     }
                     ?>
-                </section>
+            </section>
             <?php  
             } 
             ?>
@@ -95,4 +98,5 @@
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.html'?>
     </footer>
 </body>
+
 </html>

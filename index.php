@@ -64,7 +64,7 @@ $router->post('/login', function($request, $db) {
 //submit data changes
 $router->post('/upload', function($request, $db) {
   if(isset($_SESSION['token']) && $_SESSION['token'] === "foo"){
-
+    
     //Handle files if some are submitted
     if (isset($_FILES['file'])) {
       // Loop throught each file

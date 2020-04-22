@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <script src="/assets/js/admin.js"></script>
     <title><?= $title ?></title>
 </head>
+
 <body id="admin">
     <header>
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
@@ -47,27 +49,30 @@
             <?php if(isset($project)){ ?>
             <h1>Header</h1>
             <div id="_head">
-                <input type="text" name="title" placeholder="Project title" value="<?php if(isset($project["title"])) echo $project["title"]; ?>" >
-                <input type="text" name="category" placeholder="Category" value="<?php if(isset($project["category"])) echo $project["category"] ?>">
-                <input type="text" name="style" placeholder="Banner image" value="<?php if(isset($project["banner_image"])) echo $project["banner_image"] ?>">
+                <input type="text" name="title" placeholder="Project title"
+                    value="<?php if(isset($project["title"])) echo $project["title"]; ?>">
+                <input type="text" name="category" placeholder="Category"
+                    value="<?php if(isset($project["category"])) echo $project["category"] ?>">
+                <input type="text" name="style" placeholder="Banner image"
+                    value="<?php if(isset($project["banner_image"])) echo $project["banner_image"] ?>">
             </div>
             <h1>Images</h1>
             <div id="_image">
 
-            <?php 
+                <?php 
             if(isset($project["images"])){
                 foreach (json_decode($project["images"]) as  $image) {  
             ?>
 
-            <div class="image_preview">
-                <img src="/uploadFolder/<?= $image->filename?>" style="display: block;">
-                <i class="fas fa-6x fa-upload" style="display: none;"></i>
-                <input class="image_file" type="file">
-                <input type="text" placeholder="Label" value="<?= $image->label?>">
-                <i class="fas fa-minus"></i>
-            </div>
+                <div class="image_preview">
+                    <img src="/uploadFolder/<?= $image->filename?>" style="display: block;">
+                    <i class="fas fa-6x fa-upload" style="display: none;"></i>
+                    <input class="image_file" type="file">
+                    <input type="text" placeholder="Label" value="<?= $image->label?>">
+                    <i class="fas fa-minus"></i>
+                </div>
 
-            <?php 
+                <?php 
                 }
             } 
             ?>
@@ -80,20 +85,20 @@
             <h1>Links</h1>
             <div id="_links">
 
-            <?php
+                <?php
             if(isset($project["links"])){
                 foreach (json_decode($project["links"]) as  $link) {  
             ?>
 
                 <div>
                     <input type="text" size=1 placeholder="Name" value="<?= $link->title?>">
-                        to : <input type="text" size=1 placeholder="Link" value="<?= $link->href?>">
+                    to : <input type="text" size=1 placeholder="Link" value="<?= $link->href?>">
                     <button type="button" class="btn link_remove">
                         <i class="fas fa-minus"></i>
                     </button>
                 </div>
 
-            <?php 
+                <?php 
                 }
             } 
             ?>
@@ -106,7 +111,7 @@
             <h1>Article</h1>
             <div id="_article">
 
-            <?php
+                <?php
             if(isset($project["article"])){
                 foreach (json_decode($project["article"]) as  $section) {  
             ?>
@@ -137,7 +142,7 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <?php 
                 }
             } 
@@ -146,23 +151,24 @@
                 <button type="button" class="btn section_add">
                     <i class="fas fa-plus"></i> Add section
                 </button>
-            </div>        
+            </div>
 
             <div id="status"></div>
             <div class="row" id="_submit">
                 <button type="button" onclick="parseForm()">Save</button>
                 <a href="/admin" class="btn">Quit</a>
-            </div>                    
+            </div>
 
             <?php }else {?>
 
             <a href="?id=0" class="btn" id="_new">Add project</a>
 
-            <?php }?>    
+            <?php }?>
         </div>
     </main>
     <footer>
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.html'?>
     </footer>
 </body>
+
 </html>
