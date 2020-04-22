@@ -65,21 +65,25 @@ $router->post('/login', function($request, $db) {
 $router->post('/upload', function($request, $db) {
   if(isset($_SESSION['token']) && $_SESSION['token'] === "foo"){
 
-    // Loop through each file
-    for( $i = 0; $i < sizeof($_FILES['file']['name']); $i++ ) {
-
-      //Get the temp file path
-      $tmpFilePath = $_FILES['file']['tmp_name'][$i];
-
-      if ($tmpFilePath != ""){
-        //Upload the file from the temp dir
-        move_uploaded_file($tmpFilePath, "./uploadFolder/" . $_FILES['file']['name'][$i]);
-
+    //Handle files if some are submitted
+    if (isset($_FILES['file'])) {
+      // Loop throught each file
+      for( $i = 0; $i < sizeof($_FILES['file']['name']); $i++ ) {
+  
+        //Get the tmp file path
+        $tmpFilePath = $_FILES['file']['tmp_name'][$i];
+  
+        if ($tmpFilePath != ""){
+          //Upload the file from the tmp dir
+          move_uploaded_file($tmpFilePath, "./uploadFolder/" . $_FILES['file']['name'][$i]);
+  
+        }
       }
     }
 
-    //handle project edit/new
+    //Handle project edit/new
     $project = json_decode($_POST['project'], true);
+
     if($project['id'] == 0){
       $db->createProject($project);
     }else{
