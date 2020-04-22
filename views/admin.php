@@ -24,29 +24,21 @@
                 <div class="action">Action</div>
             </div>
             <div id="body">
-                <div class="bodyline">
-                    <div class="id">1</div>
-                    <div class="name">Lorem ipsum dolor sit amet</div>
-                    <div class="action">
-                        <a href="/project?id=1" class="btn"><i class="far fa-eye"></i></a>
-                        <a href="/admin" class="btn"><i class="fas fa-edit"></i></a>
-                        <a href="/delete?id=0" class="btn"><i class="fas fa-trash"></i></a>
-                    </div>
-                </div>
                 <?php 
                 foreach ($projects as $line) {
                 ?>
-                    <div class="bodyline">
-                        <div class="id"><?=$line['id']?></div>
-                        <div class="name"><?=$line['title']?></div>
-                        <div class="action">
-                            <a href="/project?id=<?=$line['id']?>" class="btn"><i class="far fa-eye"></i></a>
-                            <a href="/admin?id=<?=$line['id']?>" class="btn"><i class="fas fa-edit"></i></a>
-                            <a href="/delete?id=<?=$line['id']?>" class="btn"><i class="fas fa-trash"></i></a>
-                        </div>
+
+                <div class="bodyline">
+                    <div class="id"><?=$line['id']?></div>
+                    <div class="name"><?=$line['title']?></div>
+                    <div class="action">
+                        <a href="/project?id=<?=$line['id']?>" class="btn"><i class="far fa-eye"></i></a>
+                        <a href="/admin?id=<?=$line['id']?>" class="btn"><i class="fas fa-edit"></i></a>
+                        <a href="/delete?id=<?=$line['id']?>" class="btn to-validate"><i class="fas fa-trash"></i></a>
                     </div>
-                <?php
-                    
+                </div>
+
+                <?php 
                 }
                 ?>
             </div>
