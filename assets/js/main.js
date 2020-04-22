@@ -8,7 +8,7 @@ function ready(f) {
     }
 }
 //shortcut for document.createElement and attribut association
-function create(element, properties){
+function create(element, properties) {
     //create element
     var element = document.createElement(element);
     //assign properties

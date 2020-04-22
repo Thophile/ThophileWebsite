@@ -1,30 +1,30 @@
 var sidenav = false;
 var currscroll;
 var pastscroll = 0;
-function toggleNav(){
+function toggleNav() {
     if (sidenav) {
         document.getElementById('side-nav').style.left = "-250px"
         sidenav = !sidenav
-    }else{
+    } else {
         document.getElementById('side-nav').style.left = "0"
         sidenav = !sidenav
 
     }
 }
 
-function hideNav(){
+function hideNav() {
     currscroll = window.scrollY;
-    if((currscroll > pastscroll ) & !sidenav){
+    if ((currscroll > pastscroll) & !sidenav) {
         document.getElementById('navbar').style.top = "-50px"
-    }else{
+    } else {
         document.getElementById('navbar').style.top = "0px"
     }
     pastscroll = currscroll;
 }
 
 
-ready(function() {
-    window.onscroll = function(){
+ready(function () {
+    window.onscroll = function () {
         hideNav()
     }
 })

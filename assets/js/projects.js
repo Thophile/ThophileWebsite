@@ -1,12 +1,12 @@
 var elements;
 
-function showAll(){
+function showAll() {
     elements = document.querySelectorAll('.projects');
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "flex";
     }
 }
-function showDev(){
+function showDev() {
     elements = document.querySelectorAll('.Other, .Network');
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "none";
@@ -16,7 +16,7 @@ function showDev(){
         elements[i].style.display = "flex";
     }
 }
-function showNet(){
+function showNet() {
     elements = document.querySelectorAll('.Developpement, .Other');
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "none";
@@ -26,7 +26,7 @@ function showNet(){
         elements[i].style.display = "flex";
     }
 }
-function showOth(){
+function showOth() {
     elements = document.querySelectorAll('.Developpement, .Network');
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "none";

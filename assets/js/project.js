@@ -4,18 +4,18 @@ var index = 0
 var modalTrigger = null
 var modal
 
-ready(function (){
+ready(function () {
     modal = document.getElementById('modal')
     displayImage(0)
-    document.querySelector('#modal .far').onclick = function (){
-        modal.style.display ="none"
+    document.querySelector('#modal .far').onclick = function () {
+        modal.style.display = "none"
     }
 })
 
-function displayImage(index){
+function displayImage(index) {
     images = document.querySelectorAll('#images img.merry')
     label = document.getElementById('img_label')
-    
+
     images.forEach(element => {
         element.className = "merry"
     });
@@ -23,20 +23,20 @@ function displayImage(index){
         element.className = "dots"
     })
     modalTrigger = images[index]
-    modalTrigger.onclick =function(){
+    modalTrigger.onclick = function () {
         modal.style.display = "block";
         document.getElementById('modalImg').src = this.src;
     }
     images[index].className = "merry active"
-    document.querySelectorAll(".dots")[index].className ="dots active"
+    document.querySelectorAll(".dots")[index].className = "dots active"
 
     label.innerHTML = images[index].getAttribute('label')
 }
-function nextImage(){
-    index = ( ++index ) % images.length
+function nextImage() {
+    index = (++index) % images.length
     displayImage(index)
 }
-function previousImage(){
-    index = ( --index + images.length) % images.length
+function previousImage() {
+    index = (--index + images.length) % images.length
     displayImage(index)
 }
