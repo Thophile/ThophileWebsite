@@ -71,7 +71,7 @@ input:focus{
     width: calc(100% - 20px);
     padding: 10px;
     background-color: var(--accents);
-    max-height: 200px;
+    max-height: 220px;
 }
 #header{
     height: 30px;
