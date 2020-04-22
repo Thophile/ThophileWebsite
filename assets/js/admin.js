@@ -215,7 +215,9 @@ function sectionRemove(event){
 }
 function section_add(){
     var source = event.target || event.srcElement
-
+    while(source.tagName !== "BUTTON"){
+        source = source.parentElement
+    }
     //create a section
     var div = create("DIV", {className : "article_section"})
 
@@ -264,7 +266,7 @@ function paragraphsRemove(event){
     while(source.className !== "article_section"){
         source = source.parentElement
     }
-    source.children[1].removeChild(source.children[1].lastChild)
+    source.children[1].removeChild(source.children[1].lastElementChild)
 }
 function paragraphsAdd(event){
     var source = event.target || event.srcElement
