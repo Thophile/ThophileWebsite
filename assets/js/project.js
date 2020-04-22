@@ -27,7 +27,6 @@ function displayImage(index){
         modal.style.display = "block";
         document.getElementById('modalImg').src = this.src;
     }
-    console.log(modalTrigger)
     images[index].className = "merry active"
     document.querySelectorAll(".dots")[index].className ="dots active"
 
