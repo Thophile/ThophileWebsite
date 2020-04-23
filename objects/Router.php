@@ -2,6 +2,7 @@
 
 class Router
 {
+  private $auth;
   private $db;
   private $request;
   private $supportedHttpMethods = array(
@@ -9,10 +10,11 @@ class Router
     "POST"
   );
 
-  function __construct(IRequest $request, Database $db)
+  function __construct(IRequest $request, Database $db, Authenticator $auth)
   {
    $this->request = $request;
    $this->db = $db;
+   $this->auth = $auth;
   }
 
   function __call($name, $args)
@@ -62,7 +64,7 @@ class Router
       return;
     }
 
-    echo call_user_func_array($method, array($this->request, $this->db));
+    echo call_user_func_array($method, array($this->request, $this->db, $this->auth));
   }
 
   function __destruct()
