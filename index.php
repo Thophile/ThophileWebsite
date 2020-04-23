@@ -3,8 +3,12 @@
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Request.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Router.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Database.php';
-session_start();
+include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Authenticator.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/autoload.php';
+
+
 //Explicit enough
+session_start();
 $db = new Database();
 $router = new Router(new Request, $db);
 
