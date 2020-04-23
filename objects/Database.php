@@ -20,19 +20,14 @@ class Database{
      * $row = $stmt->fetch(PDO::FETCH_ASSOC);
      */
 
-    // Database credentials
-    private $host = "localhost";
-    private $port = "3308";
-    private $db_name = "thophile_website";
-    private $username = "root";
-    private $password = "";
+    //Connection to database
     private $conn = null;
  
     // Get the database connection
     public function connect(){
 
         try{
-            $this->conn = new PDO("mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db_name, $this->username, $this->password);
+            $this->conn = new PDO("mysql:host=" . env("DB_HOST") . ";port=" . env("DB_PORT") . ";dbname=" . env("DB_NAME"), env("DB_USERNAME"), env("DB_PASSWORD"));
         }catch(PDOException $exception){
             echo $exception->getMessage();
             http_response_code(500);
