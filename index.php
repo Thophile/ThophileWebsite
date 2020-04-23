@@ -11,15 +11,18 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/autoload.php';
 session_start();
 $db = new Database();
 $router = new Router(new Request, $db);
+$authenticator = new Authenticator();
 
 //Home
 $router->get('/', function() {
+
     $title = 'Thophile\'s Website';
     include_once 'views/home.php';
 });
 
 //All projects
 $router->get('/projects', function($request, $db) {
+
   $title = 'Thophile\'s Website | Projects';
   $projects = $db->getProjects();
   include_once 'views/projects.php';
@@ -27,6 +30,7 @@ $router->get('/projects', function($request, $db) {
 
 //View individual project
 $router->get("/project", function($request, $db){
+
   $project = $db->getProject(isset($_GET['id']) ? $_GET['id'] : "");
   $title = "Thophile's Website | {$project['title']}";
   include_once 'views/project.php';
