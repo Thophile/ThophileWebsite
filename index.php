@@ -8,7 +8,6 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/autoload.php';
 
 
 //Explicit enough
-session_start();
 $db = new Database();
 $authenticator = new Authenticator();
 $router = new Router(new Request, $db, $authenticator);
@@ -39,7 +38,7 @@ $router->get("/project", function($request, $db){
 //Go to admin section
 $router->get("/admin", function($request, $db, $auth){
   $title = "Thophile's Website | Admin";
-  if(isset($_SESSION['token']) && $auth->validateToken($_SESSION['token'])){
+  if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
 
     //fillin the field if a get is present
     $projects = $db->getProjects();
@@ -59,8 +58,7 @@ $router->get("/admin", function($request, $db, $auth){
 //Log in
 $router->post('/login', function($request, $db, $auth) {
   if($auth->validatePassword($request->getBody()['password'])){
-
-    $_SESSION['token'] = $auth->generateToken();
+    setcookie('token', $auth->generateToken(), 0);
     header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
     die();
   }else{
@@ -73,7 +71,7 @@ $router->post('/login', function($request, $db, $auth) {
 
 //submit data changes
 $router->post('/upload', function($request, $db, $auth) {
-  if(isset($_SESSION['token']) && $auth->validateToken($_SESSION['token'])){
+  if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
     
     //Handle files if some are submitted
     if (isset($_FILES['file'])) {
@@ -114,7 +112,7 @@ $router->post('/upload', function($request, $db, $auth) {
 
 $router->get('/delete', function($request, $db, $auth) {
   
-  if(isset($_SESSION['token']) && $auth->validateToken($_SESSION['token'])){
+  if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
 
     //query the database
     $db->deleteProject($_GET['id']);
