@@ -22,6 +22,23 @@ class Authenticator{
 
     //validate a token
     public function validateToken($token){
+        //cut the token
+        $data = explode('.', $token);
 
+        //decode data
+        $exp = base64_decode($data[0]);
+        $sign = base64_decode($data[1]);
+
+        //if the token has expire dont validate it
+        if(json_decode($exp)->expire > time()){
+            //hash data
+            $hash = hash_hmac('sha256', $data[0], env('APP_KEY'), true);
+
+            //using non time attack vulnerable comparision
+            return hash_equals($hash, $sign);
+        }
+        return false;
+
+       
     }
 }
