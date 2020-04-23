@@ -10,8 +10,8 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/autoload.php';
 //Explicit enough
 session_start();
 $db = new Database();
-$router = new Router(new Request, $db);
 $authenticator = new Authenticator();
+$router = new Router(new Request, $db, $authenticator);
 
 //Home
 $router->get('/', function() {
@@ -37,9 +37,9 @@ $router->get("/project", function($request, $db){
 });
 
 //Go to admin section
-$router->get("/admin", function($request, $db){
+$router->get("/admin", function($request, $db, $auth){
   $title = "Thophile's Website | Admin";
-  if(isset($_SESSION['token']) && $_SESSION['token'] === "foo"){
+  if(isset($_SESSION['token']) && $auth->validateToken($_SESSION['token'])){
 
     //fillin the field if a get is present
     $projects = $db->getProjects();
@@ -57,12 +57,14 @@ $router->get("/admin", function($request, $db){
 });
 
 //Log in
-$router->post('/login', function($request, $db) {
-  if($request->getBody()["password"] == "salut"){
-    $_SESSION['token'] = "foo";
+$router->post('/login', function($request, $db, $auth) {
+  if($auth->validatePassword($request->getBody()['password'])){
+
+    $_SESSION['token'] = $auth->generateToken();
     header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
     die();
   }else{
+
     $title = "Thophile's Website | Login";
     $error="Wrong Password";
     include_once 'views/admin_landing.php';
@@ -70,8 +72,8 @@ $router->post('/login', function($request, $db) {
 });
 
 //submit data changes
-$router->post('/upload', function($request, $db) {
-  if(isset($_SESSION['token']) && $_SESSION['token'] === "foo"){
+$router->post('/upload', function($request, $db, $auth) {
+  if(isset($_SESSION['token']) && $auth->validateToken($_SESSION['token'])){
     
     //Handle files if some are submitted
     if (isset($_FILES['file'])) {
@@ -110,9 +112,9 @@ $router->post('/upload', function($request, $db) {
   die();
 });
 
-$router->get('/delete', function($request,$db) {
+$router->get('/delete', function($request, $db, $auth) {
   
-  if(isset($_SESSION['token']) && $_SESSION['token'] === "foo"){
+  if(isset($_SESSION['token']) && $auth->validateToken($_SESSION['token'])){
 
     //query the database
     $db->deleteProject($_GET['id']);
