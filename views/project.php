@@ -57,11 +57,13 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <div class="col">
                     <label id="img_label"></label>
                     <div class="dots_group">
+                        
                         <?php
                         for ($i=0; $i < count(json_decode($project['images'])); $i++) { 
                             echo '<span class="dots" onclick="displayImage('.$i.')"></span>';
                         }
                         ?>
+
                     </div>
                 </div>
                 <div class="col">
@@ -71,7 +73,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             <?php
             foreach (json_decode($project['images']) as $image) { 
             ?>
-            <img src="/uploadFolder/<?= $image->filename ?>" class="merry" alt="Image <?=$image->label?>"
+            <img src="/uploadFolder/<?= $image->filename ?>" class="merry" alt="<?=$image->label?>"
                 data-label="<?=$image->label?>">
             <?php 
             } 
