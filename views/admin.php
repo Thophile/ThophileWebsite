@@ -22,7 +22,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
 <body id="admin">
     <header>
-        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.php'?>
     </header>
     <main>
         <div id="menu">
@@ -173,7 +173,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         </div>
     </main>
     <footer>
-        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.html'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.php'?>
     </footer>
 </body>
 

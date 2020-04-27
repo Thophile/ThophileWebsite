@@ -21,7 +21,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
 <body>
     <header>
-        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.php'?>
     </header>
     <main>
         <section id="pres" class="section-row">
@@ -66,7 +66,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         </section>
     </main>
     <footer>
-        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.html'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.php'?>
     </footer>
 </body>
 

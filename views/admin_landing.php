@@ -22,7 +22,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
 <body id="landing">
     <header>
-        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.php'?>
     </header>
     <main>
         <h1>This is a reserved Area</h1>
@@ -35,7 +35,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <a href="/" class="btn inline">Go back to site</a>
     </main>
     <footer>
-        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.html'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.php'?>
     </footer>
 </body>
 

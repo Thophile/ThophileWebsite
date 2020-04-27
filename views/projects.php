@@ -22,7 +22,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
 <body>
     <header>
-        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.html'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.php'?>
     </header>
     <main>
         <section id="projects" class="section-row">
@@ -41,7 +41,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
             </div>
         </section>
-        <!-- php generated part -->
+
         <?php foreach ($projects as $project) { ?>
         <section class="section-row projects <?= $project['category']?>"
             style="background-image: linear-gradient(80deg, rgba(50, 50, 50, 0.80) 55%, #dee1e9 100%), url(/uploadFolder/<?= rawurlencode($project['banner_image'])?>);">
@@ -60,10 +60,10 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             </div>
         </section>
         <?php } ?>
-        <!-- end of php generated prts -->
+        
     </main>
     <footer>
-        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.html'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.php'?>
     </footer>
 </body>
 
