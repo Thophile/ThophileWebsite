@@ -1,4 +1,9 @@
 <?php
+if(php_sapi_name() !== 'cli') { 
+    include_once $_SERVER['DOCUMENT_ROOT'].'/errors/403.html';
+    die();
+}
+
 function generatePassword($password){
     echo password_hash($password, PASSWORD_DEFAULT);
 }
