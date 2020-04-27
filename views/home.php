@@ -1,3 +1,9 @@
+<?php
+    if(!defined('Router')) {
+        include_once $_SERVER['DOCUMENT_ROOT'].'/errors/403.html';
+        die();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 

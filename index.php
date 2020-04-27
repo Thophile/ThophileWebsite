@@ -8,6 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/autoload.php';
 
 
 //Explicit enough
+define('Router', true);
 $db = new Database();
 $authenticator = new Authenticator();
 $router = new Router(new Request, $db, $authenticator);
