@@ -1,4 +1,9 @@
-<!--In the header tags-->
+<?php
+if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
+    include_once $_SERVER['DOCUMENT_ROOT'].'/errors/403.html';
+    die();
+}
+?>
 <nav id="navbar">
     <button id="nav-toggle" onclick="toggleNav()">
         <i class="fas fa-2x fa-bars"></i>
