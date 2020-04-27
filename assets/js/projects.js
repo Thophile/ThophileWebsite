@@ -7,31 +7,31 @@ function showAll() {
     }
 }
 function showDev() {
-    elements = document.querySelectorAll('.Other, .Network');
+    elements = document.querySelectorAll('.projects');
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "none";
     }
-    elements = document.querySelectorAll('.Developpement');
+    elements = document.querySelectorAll('.projects[category="Developpement"]');
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "flex";
     }
 }
 function showNet() {
-    elements = document.querySelectorAll('.Developpement, .Other');
+    elements = document.querySelectorAll('.projects');
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "none";
     }
-    elements = document.querySelectorAll('.Network');
+    elements = document.querySelectorAll('.projects[category="Network"]');
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "flex";
     }
 }
 function showOth() {
-    elements = document.querySelectorAll('.Developpement, .Network');
+    elements = document.querySelectorAll('.projects');
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "none";
     }
-    elements = document.querySelectorAll('.Other');
+    elements = document.querySelectorAll('.projects[category="Other"]');
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "flex";
     }
