@@ -74,7 +74,7 @@
     background-color: var(--accents);
 }
 #images .banner{
-    height: 70px;
+    min-height: 70px;
     width: 100%;
     position: relative;
     bottom: 0;
@@ -151,7 +151,7 @@
 /** article section **/
 article{
     background-color: var(--maincolor);
-    padding-bottom: 20px;
+    padding-bottom: 20vh;
 }
 article section {
     display: flex;
