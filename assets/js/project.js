@@ -30,7 +30,7 @@ function displayImage(index) {
     images[index].className = "merry active"
     document.querySelectorAll(".dots")[index].className = "dots active"
 
-    label.innerHTML = images[index].getAttribute('label')
+    label.innerHTML = images[index].getAttribute('data-label')
 }
 function nextImage() {
     index = (++index) % images.length
