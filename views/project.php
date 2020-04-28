@@ -44,10 +44,10 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         </nav>
         <aside id="images">
             <div class="banner">
-                <div class="col right">
+                <div class="right">
                     <i class="fas fa-2x fa-chevron-left" onclick="previousImage()"></i>
                 </div>
-                <div class="col">
+                <div class="middle">
                     <label id="img_label"></label>
                     <div class="dots_group">
                         
@@ -59,7 +59,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
                     </div>
                 </div>
-                <div class="col">
+                <div class="left">
                     <i class="fas fa-2x fa-chevron-right" onclick="nextImage()"></i>
                 </div>
             </div>
