@@ -27,34 +27,36 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <section id="pres" class="section-row">
             <div class="col-70">
                 <h1>
-                    I'm an IT Student and this is my website
+                    Théophile Montémont
                 </h1>
                 <h2>
-                    Hello there, My name is Théophile but due to an encryption problem I was nicknamed Thophile
+                    IT Student | Eclectic hobbyist .
                 </h2>
+                <a href="/about" class="btn">
+                    Learn more
+                </a>
             </div>
             <div class="col-30">
                 <i class="far fa-9x fa-user"></i>
             </div>
         </section>
         <section id="projects" class="section-row">
-            <div class="col-70">
-                <h1>
-                    I do a lot of fun stuff for and next to my schooling.
-                </h1>
-                <a href="/projects" class="btn">
-                    Check them all
-                </a>
-            </div>
             <div class="col-30">
                 <i class="fas fa-9x fa-tasks"></i>
+            </div>
+            <div class="col-70">
+                <h1>
+                    I have a a wide range of interests and I love to share my projects.
+                </h1>
+                <a href="/projects" class="btn">
+                    Check my projects
+                </a>
             </div>
         </section>
         <section id="contact" class="section-row">
             <div class="col-70">
                 <h1>
-                    You can contact me if you want some information about my projects or if you want to do business with
-                    me
+                If you have any questions or comments, please get in touch with me.
                 </h1>
                 <a href="mailto:montemonttheophile@gmail.com?subject=Mail from our site" class="btn">
                     Contact me
