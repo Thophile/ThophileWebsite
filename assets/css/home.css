@@ -38,7 +38,7 @@
 
 /** Project section of home **/
 #projects{
-    background: linear-gradient(70deg, var(--mainColor) 34.9%, var(--accentsLight) 35%);
+    background: linear-gradient(70deg, var(--mainColor) 34.9%, var(--accentLight) 35%);
 }
 #projects h1{
     margin: 30px 15px;
@@ -60,7 +60,7 @@
     align-items: flex-end;
 }
 #projects .fa-tasks{
-    color: var(--accentsLight);
+    color: var(--accentLight);
     text-align: center;
 }
 
