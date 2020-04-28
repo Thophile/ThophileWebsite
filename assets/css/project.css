@@ -4,37 +4,28 @@
 *@Page Project view
 */
 
-    /** overview **/
-.overview{
-    background: linear-gradient(75deg, var(--accent) 59.9%, #dee1e9 60%, #dee1e9 61.4%, var(--accent) 61.5%, var(--accent) 62.9%, #dee1e9 63%, #dee1e9 64.4%, var(--accent) 64.5%);
-    height: 40vh !important;
-    border-bottom:1px solid var(--accent);
-}
-.overview h1{
-    margin: 0 10% 0 10px;
-    font-size: 1.3rem;
-    color: var(--mainColor);
-}
-.overview h2{
-    margin: 0 30px;
-    font-size: 1.1rem;
-    color: var(--mainColor);
-
-}
-.overview a{
-    border: 2px solid var(--mainColor);
-    border-radius: 4px;
-    text-align: center;
-    color: var(--mainColor);
-    padding: 5px;
-    margin: 10% 10% 0 10%;
+/** header **/
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     background-color: var(--accent);
-    font-size: 1.1rem;
+    min-height: 70vh;
+    text-align: center;
+    padding-bottom: 20px;
 }
-.overview a:hover{
-    color: var(--secondaryColor);
-    border-color: var(--secondaryColor);
-    cursor: pointer;
+.header h1{
+    font-size: 3rem;
+    line-height: 1.2;
+    letter-spacing: 0.15em;
+    color: var(--mainColor);
+}
+.header h2{
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 1;
+    color: var(--mainColor);
 }
     /** links **/
 #links{
