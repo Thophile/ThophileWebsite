@@ -56,7 +56,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <section id="contact" class="section-row">
             <div class="col-70">
                 <h1>
-                If you have any questions or comments, please get in touch with me.
+                    If you have any questions or comments, please get in touch with me.
                 </h1>
                 <a href="mailto:montemonttheophile@gmail.com?subject=Mail from our site" class="btn">
                     Contact me

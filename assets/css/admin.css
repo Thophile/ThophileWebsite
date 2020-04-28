@@ -33,7 +33,7 @@
     font-size: 1.2rem;
     margin: 10px 15px;
     padding: 6px;
-    border:1px solid var(--accents);
+    border:1px solid var(--accent);
     border-style: none none solid none;
     background-color: inherit;
 }
@@ -41,10 +41,10 @@
     font-size: 1.2rem;
     margin: 15px;
     padding: 6px;
-    border:1px solid var(--accents);
+    border:1px solid var(--accent);
     border-radius: 2px;
     background-color: inherit;
-    color: var(--accents);
+    color: var(--accent);
     text-align: center;
 }
 #landing input::placeholder{
@@ -70,14 +70,14 @@ input:focus{
     flex-direction: column;
     width: calc(100% - 20px);
     padding: 10px;
-    background-color: var(--accents);
+    background-color: var(--accent);
     max-height: 220px;
 }
 #header{
     height: 30px;
     display: flex;
     flex-direction: row;
-    color: var(--maincolor);
+    color: var(--mainColor);
 }
 #body{
     max-height: 200px;
@@ -89,14 +89,14 @@ input:focus{
     min-height: 30px;
     margin: 5px;
     padding: 4px 0;
-    border: 1px solid var(--secondarycolor);
+    border: 1px solid var(--secondaryColor);
     border-style: none none solid none;
     display: flex;
     flex-direction: row;
-    color: var(--maincolor);
+    color: var(--mainColor);
 }
 .bodyline:hover{
-    color: var(--secondarycolor);
+    color: var(--secondaryColor);
 }
 .id{
     width: 30px;
@@ -111,10 +111,10 @@ input:focus{
     color: inherit;
 }
 .action a,.action button{
-    color:var(--maincolor);
+    color:var(--mainColor);
     padding: 5px;
     background-color: inherit;
-    border: 1px solid var(--maincolor);
+    border: 1px solid var(--mainColor);
     border-radius: 3px;
 }
 .action i{
@@ -134,14 +134,14 @@ input:focus{
     margin: auto;
     padding: 5px;
     background-color: inherit;
-    border: 1px solid var(--accents);
+    border: 1px solid var(--accent);
     border-radius: 3px;
 }
 #form h1{
     font-size: 1.5rem;
     margin: 20px 10px;
     max-width: 50%;
-    border: 1px solid var(--accents);
+    border: 1px solid var(--accent);
     border-style: none none solid none;
 }
 #_links,#_article{
@@ -152,8 +152,8 @@ button[class$=_add], button[class$=_remove]{
     margin: 5px;
     padding: 5px;
     background-color: inherit;
-    color: var(--accents);
-    border: 1px solid var(--accents);
+    color: var(--accent);
+    border: 1px solid var(--accent);
     border-radius: 3px;
 }
 
@@ -163,7 +163,7 @@ button[class$=_add], button[class$=_remove]{
     width: calc(100% - 22px);
     padding: 5px;
     margin: 5px;
-    border: 1px solid var(--secondarycolor);
+    border: 1px solid var(--secondaryColor);
     border-radius: 2px;
     background-color: inherit;
 }
@@ -172,7 +172,7 @@ button[class$=_add], button[class$=_remove]{
     width: 50%;
     padding: 5px;
     margin: 5px;
-    border: 1px solid var(--secondarycolor);
+    border: 1px solid var(--secondaryColor);
     border-radius: 2px;
     background-color: inherit;
 }
@@ -187,7 +187,7 @@ button[class$=_add], button[class$=_remove]{
     height: 200px;
     margin: 5px;
     text-align: center;
-    border: 1px solid var(--accents);
+    border: 1px solid var(--accent);
     border-radius: 4px;
 }
 #_image .image_preview input[type=file]{
@@ -204,7 +204,7 @@ button[class$=_add], button[class$=_remove]{
     width: 165px;
     height: 21px;
     background-color: inherit;
-    border: 1px solid var(--secondarycolor);
+    border: 1px solid var(--secondaryColor);
     border-radius: 3px;
 }
 #_image .image_preview img{
@@ -273,7 +273,7 @@ button[class$=_add], button[class$=_remove]{
     width: 50%;
     padding: 5px;
     margin: 5px;
-    border: 1px solid var(--secondarycolor);
+    border: 1px solid var(--secondaryColor);
     border-radius: 2px;
     background-color: inherit;
 }
@@ -284,7 +284,7 @@ button[class$=_add], button[class$=_remove]{
     padding: 5px;
     margin: 10px;
     min-height: 100px;
-    border: 1px solid var(--secondarycolor);
+    border: 1px solid var(--secondaryColor);
     border-radius: 2px;
     background-color: inherit;
 }
@@ -310,7 +310,7 @@ button[class$=_add], button[class$=_remove]{
     width: calc(50% - 30px);
     font-size: 1.2rem;
     background-color: inherit;
-    border: 1px solid var(--accents);
+    border: 1px solid var(--accent);
     border-radius: 2px;
     padding: 5px;
     margin: 10px;

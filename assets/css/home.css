@@ -6,25 +6,25 @@
 
 /** Pres section of home **/
 #pres{
-    background: linear-gradient(110deg, var(--accents) 69.9%, var(--maincolor) 70%);
+    background: linear-gradient(110deg, var(--accent) 69.9%, var(--mainColor) 70%);
 }
 #pres h1{
     margin: 10px 15px;
     font-size: 1.3rem;
-    color: var(--maincolor);
+    color: var(--mainColor);
 }
 #pres h2{
     margin: 5px 35px;
     font-size: 1.1rem;
-    color: var(--secondarycolor);
+    color: var(--secondaryColor);
 }
 #pres a{
     max-width: 35%;
     text-align: center;
     margin: 20px 35px;
     font-size: 1.1rem;
-    color: var(--maincolor);
-    border: 2px solid var(--maincolor);
+    color: var(--mainColor);
+    border: 2px solid var(--mainColor);
     border-radius: 3px;
     padding: 5px;
 }
@@ -38,20 +38,20 @@
 
 /** Project section of home **/
 #projects{
-    background: linear-gradient(70deg, var(--maincolor) 34.9%, var(--secondarycolor) 35%);
+    background: linear-gradient(70deg, var(--mainColor) 34.9%, var(--accentsLight) 35%);
 }
 #projects h1{
     margin: 30px 15px;
     font-size: 1.3rem;
-    color: var(--maincolor);
+    color: var(--mainColor);
 }
 #projects a{
     max-width: 35%;
     text-align: center;
     margin: 10px 35px;
     font-size: 1.1rem;
-    color: var(--maincolor);
-    border: 2px solid var(--maincolor);
+    color: var(--mainColor);
+    border: 2px solid var(--mainColor);
     border-radius: 3px;
     padding: 5px;
 }
@@ -60,26 +60,26 @@
     align-items: flex-end;
 }
 #projects .fa-tasks{
-    color: var(--secondarycolor);
+    color: var(--accentsLight);
     text-align: center;
 }
 
 /** Contact section of home **/
 #contact{
-    background: linear-gradient(105deg, var(--accents) 74.9%, var(--maincolor ) 75%);
+    background: linear-gradient(105deg, var(--accent) 74.9%, var(--mainColor ) 75%);
 }
 #contact h1{
     margin: 30px 15px;
     font-size: 1.3rem;
-    color: var(--maincolor);
+    color: var(--mainColor);
 }
 #contact a{
     max-width: 35%;
     text-align: center;
     margin: 10px 35px;
     font-size: 1.1rem;
-    color: var(--maincolor);
-    border: 2px solid var(--maincolor);
+    color: var(--mainColor);
+    border: 2px solid var(--mainColor);
     border-radius: 3px;
     padding: 5px;
 }
