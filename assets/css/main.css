@@ -26,6 +26,10 @@ body{
     flex-direction: column;
     background-color: var(--mainColor);
 }
+main{
+    margin-top: 50px;
+    transition: 0.4s;
+}
 .logo{
     position: relative;
     max-height: 32px;
@@ -65,7 +69,7 @@ header{
 .nav-link{
     margin: 0 10px;
 }
-#navbar{
+header{
     position: fixed;
     width: 100%;
     background-color: var(--mainColor);
