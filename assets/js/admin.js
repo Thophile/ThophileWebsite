@@ -118,7 +118,8 @@ function parseForm() {
 
         // request.response will hold the response from the server
         console.log(request.response);
-        document.getElementById('status').innerHTML = 'Status : ' + request.status + ', ' + request.statusText
+        if(request.status == 200) document.getElementById('status').innerHTML = "Successfuly saved"
+        else document.getElementById('status').innerHTML = 'Status : ' + request.status + ', ' + request.statusText
     });
 
     // send POST request to server side script
