@@ -1,16 +1,23 @@
 <?php
+
 //This file recieve request and send back the good page
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Request.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Router.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Database.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Authenticator.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/autoload.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/env.php';
 
 
 //Explicit enough
 $db = new Database();
 $authenticator = new Authenticator();
 $router = new Router(new Request, $db, $authenticator);
+
+//Prevent acces from file name
+$router->get('/index.php', function() {
+  include_once $_SERVER['DOCUMENT_ROOT'].'/errors/403.html';
+  die();
+});
 
 //Home
 $router->get('/', function() {
@@ -37,18 +44,21 @@ $router->get("/project", function($request, $db){
 
 //Go to admin section
 $router->get("/admin", function($request, $db, $auth){
-  $title = "Thophile's Website | Admin";
-  if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
 
-    //fillin the field if a get is present
+  //Check for authorization
+  if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
+    $title = "Thophile's Website | Admin";
+
+    //Geting all projects
     $projects = $db->getProjects();
+
+    //Getting currently editing project
     if(isset($_GET['id'])){
-      //id=0 stand for new project and will never be in database
+      //ID == 0 ? new Project : editing Project
       $project = $_GET['id'] == "0" ? [] : $db->getProject($_GET['id']);
     }
-
-    $title = "Thophile's Website | Admin";
     include_once 'views/admin.php';
+
   }else{
     $title = "Thophile's Website | Login";
     include_once 'views/admin_landing.php';
@@ -57,10 +67,16 @@ $router->get("/admin", function($request, $db, $auth){
 
 //Log in
 $router->post('/login', function($request, $db, $auth) {
+  //Password check
   if($auth->validatePassword($request->getBody()['password'])){
+
+    //Setting token in cookies, will expire with session
     setcookie('token', $auth->generateToken(), 0);
+
+    //Redirect
     header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
     die();
+
   }else{
 
     $title = "Thophile's Website | Login";
@@ -69,22 +85,24 @@ $router->post('/login', function($request, $db, $auth) {
   }
 });
 
-//submit data changes
+//Submit data changes
 $router->post('/upload', function($request, $db, $auth) {
+
+  //Check for authorization
   if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
     
     //Handle files if some are submitted
     if (isset($_FILES['file'])) {
+
       // Loop throught each file
       for( $i = 0; $i < sizeof($_FILES['file']['name']); $i++ ) {
   
-        //Get the tmp file path
+
         $tmpFilePath = $_FILES['file']['tmp_name'][$i];
-  
         if ($tmpFilePath != ""){
+
           //Upload the file from the tmp dir
           move_uploaded_file($tmpFilePath, "./uploadFolder/" . $_FILES['file']['name'][$i]);
-  
         }
       }
     }
@@ -93,39 +111,39 @@ $router->post('/upload', function($request, $db, $auth) {
     $project = json_decode($_POST['project'], true);
 
     if($project['id'] == 0){
-      //create the project and refresh the page
+      //Create and refresh
       $db->createProject($project);
       header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
     }else{
-      //save th project
+      //Update
       $db->updateProject($project);
     }
 
   }else{
-    //redirect if unauthorized
     http_response_code(401);
     header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
   }
-  //also redirect to GET:admin if not logged
   die();
 });
 
 $router->get('/delete', function($request, $db, $auth) {
-  
+
+  //Check for authorization
   if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
 
-    //query the database
+    //Query the database
     $db->deleteProject($_GET['id']);
-    header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
-    
+
   }else{
-    //redirect if unauthorized
+
+    //Set Error code if unauthorized
     http_response_code(401);
-    header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
   }
-  //also redirect to GET:admin if not logged
+  //Redirect
+  header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
   die();
   });
+
 
 /**
  * post request template
