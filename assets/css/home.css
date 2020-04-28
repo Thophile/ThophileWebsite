@@ -4,66 +4,89 @@
 *@Page Home
 */
 
-/** pres section of home **/
+/** Pres section of home **/
 #pres{
     background: linear-gradient(110deg, var(--accents) 69.9%, var(--maincolor) 70%);
 }
 #pres h1{
-    margin: 30px 10px;
+    margin: 10px 15px;
     font-size: 1.3rem;
     color: var(--maincolor);
 }
 #pres h2{
-    margin: 10px 30px;
+    margin: 5px 35px;
     font-size: 1.1rem;
     color: var(--secondarycolor);
+}
+#pres a{
+    max-width: 35%;
+    text-align: center;
+    margin: 20px 35px;
+    font-size: 1.1rem;
+    color: var(--maincolor);
+    border: 2px solid var(--maincolor);
+    border-radius: 3px;
+    padding: 5px;
+}
+#pres div.col-70{
+    text-align: left;
+    align-items: flex-start;
 }
 #pres .fa-user{
     text-align: center;
 }
 
-/** project section of home **/
+/** Project section of home **/
 #projects{
-    background: linear-gradient(70deg, var(--maincolor) 64.9%, var(--secondarycolor ) 65%);
+    background: linear-gradient(70deg, var(--maincolor) 34.9%, var(--secondarycolor) 35%);
 }
 #projects h1{
-    margin: 30px 10px;
+    margin: 30px 15px;
     font-size: 1.3rem;
+    color: var(--maincolor);
 }
 #projects a{
     max-width: 35%;
     text-align: center;
-    margin: 10px 30px;
+    margin: 10px 35px;
     font-size: 1.1rem;
-    color: var(--accents);
-    border: solid var(--accents);
+    color: var(--maincolor);
+    border: 2px solid var(--maincolor);
     border-radius: 3px;
-    padding: 3px;
+    padding: 5px;
+}
+#projects div.col-70{
+    text-align: right;
+    align-items: flex-end;
 }
 #projects .fa-tasks{
+    color: var(--secondarycolor);
     text-align: center;
 }
 
-/** contact section of home **/
+/** Contact section of home **/
 #contact{
     background: linear-gradient(105deg, var(--accents) 74.9%, var(--maincolor ) 75%);
 }
 #contact h1{
-    margin: 30px 10px;
+    margin: 30px 15px;
     font-size: 1.3rem;
     color: var(--maincolor);
 }
 #contact a{
     max-width: 35%;
     text-align: center;
-    margin: 10px 30px;
+    margin: 10px 35px;
     font-size: 1.1rem;
     color: var(--maincolor);
-    border: solid var(--maincolor);
+    border: 2px solid var(--maincolor);
     border-radius: 3px;
-    padding: 3px;
+    padding: 5px;
+}
+#contact div.col-70{
+    text-align: left;
+    align-items: flex-start;
 }
 .fa-envelope-open{
     text-align: center;
-    color: var(--secondarycolor) !important;
 }
