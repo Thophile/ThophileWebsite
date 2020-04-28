@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     background-color: var(--accent);
-    min-height: 70vh;
+    min-height: calc(100vh - 120px);
     text-align: center;
     padding-bottom: 20px;
 }
