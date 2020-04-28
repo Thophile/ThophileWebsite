@@ -25,20 +25,13 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.php'?>
     </header>
     <main>
-        <section class="section-row overview">
-            <div class="col-70">
-                <h1>
-                    <?= $project['title']?>
-                </h1>
-                <h2>
-                    in category <?= $project['category']?>
-                </h2>
-            </div>
-            <div class="col-30">
-                <a href="/projects" class="btn">
-                    Back to all projects
-                </a>
-            </div>
+        <section class="header">
+            <h1>
+                <?= $project['title']?>
+            </h1>
+            <h2>
+                Category <?= $project['category']?>
+            </h2>
         </section>
         <nav id="links" class="row">
             <?php
