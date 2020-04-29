@@ -111,9 +111,8 @@ $router->post('/upload', function($request, $db, $auth) {
     $project = json_decode($_POST['project'], true);
 
     if($project['id'] == 0){
-      //Create and refresh
-      $db->createProject($project);
-      header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
+      //Create and return the id
+      echo $db->createProject($project)[0];
     }else{
       //Update
       $db->updateProject($project);
