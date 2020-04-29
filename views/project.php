@@ -42,40 +42,41 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 } 
             ?>
         </nav>
-        <aside id="images">
-            <div class="banner">
-                <div class="right">
-                    <i class="fas fa-2x fa-chevron-left" onclick="previousImage()"></i>
-                </div>
-                <div class="middle">
-                    <label id="img_label"></label>
-                    <div class="dots_group">
-                        
-                        <?php
-                        for ($i=0; $i < count(json_decode($project['images'])); $i++) { 
-                            echo '<span class="dots" onclick="displayImage('.$i.')"></span>';
-                        }
-                        ?>
 
-                    </div>
-                </div>
-                <div class="left">
-                    <i class="fas fa-2x fa-chevron-right" onclick="nextImage()"></i>
-                </div>
-            </div>
+        <aside class="merry-go">
+            
             <?php
             foreach (json_decode($project['images']) as $image) { 
             ?>
-            <img src="/uploadFolder/<?= $image->filename ?>" class="merry" alt="<?=$image->label?>"
+            <img src="/uploadFolder/<?= $image->filename ?>" alt="<?=$image->label?>"
                 data-label="<?=$image->label?>">
             <?php 
             } 
             ?>
+
             <div id="modal">
                 <i class="far fa-2x fa-times-circle"></i>
                 <img id="modalImg">
             </div>
+            
+            <div class="left">
+                <i class="fas fa-2x fa-chevron-left" onclick="previousImage()"></i>
+            </div>
+            <div class="middle">
+                <label></label>
+                <div class="dots_group">  
+                    <?php
+                        for ($i=0; $i < count(json_decode($project['images'])); $i++) { 
+                            echo '<span onclick="displayImage('.$i.')"></span>';
+                        }
+                    ?>
+                </div>                
+            </div>
+            <div class="right">
+                <i class="fas fa-2x fa-chevron-right" onclick="nextImage()"></i>
+            </div>
         </aside>
+
         <article>
             <?php
             foreach (json_decode($project['article']) as $section) { 

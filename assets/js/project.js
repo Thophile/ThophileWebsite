@@ -13,22 +13,21 @@ ready(function () {
 })
 
 function displayImage(index) {
-    images = document.querySelectorAll('#images img.merry')
-    label = document.getElementById('img_label')
+    images = document.querySelectorAll('.merry-go img[data-label]')
+    label = document.querySelector('.middle label')
 
-    images.forEach(element => {
-        element.className = "merry"
-    });
-    document.querySelectorAll(".dots").forEach(element => {
-        element.className = "dots"
+
+    document.querySelectorAll(".active").forEach(element => {
+        element.className = ""
     })
+
     modalTrigger = images[index]
     modalTrigger.onclick = function () {
         modal.style.display = "block";
         document.getElementById('modalImg').src = this.src;
     }
-    images[index].className = "merry active"
-    document.querySelectorAll(".dots")[index].className = "dots active"
+    images[index].className = "active"
+    document.querySelectorAll(".dots_group span")[index].className = "active"
 
     label.innerHTML = images[index].getAttribute('data-label')
 }
