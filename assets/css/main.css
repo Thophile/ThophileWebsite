@@ -41,7 +41,7 @@ main{
     height: 60vh;
 }
 /** -600px only */
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 600px) {
     .logo {
         margin: 9px 9px 9px 9px;
         left: 0;
