@@ -51,6 +51,7 @@ main{
 }
 .projects:hover{
     box-shadow: inset 0 0 0 999em rgba(122, 129, 137, 0.4);
+    text-shadow: 1px 1px 20px var(--accent), -1px -1px 20px var(--accent);
 }
 .projects h1{
     margin: 30px 30px;
