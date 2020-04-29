@@ -38,22 +38,20 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         </section>
 
         <?php foreach ($projects as $project) { ?>
-        <section class="projects" data-category="<?= $project['category']?>"
-            style="background-image: linear-gradient(80deg, rgba(50, 50, 50, 0.80) 55%, #dee1e9 100%), url(/uploadFolder/<?= rawurlencode($project['banner_image'])?>);">
-            <div class="col-70">
-                <h1>
-                    <?= $project['title']?>
-                </h1>
-                <h2>
-                    in category <?= $project['category']?>
-                </h2>
-            </div>
-            <div class="col-30">
-                <a href="/project?id=<?= $project['id']?>" class="btn">
-                    See more
-                </a>
-            </div>
+
+        <section class="projects" data-category="<?= $project['category']?>" onclick="window.location='/project?id=<?= $project['id']?>'"
+            style="background-image: url(/uploadFolder/<?= rawurlencode($project['banner_image'])?>);">
+
+            <h1>
+                <?= $project['title']?>
+            </h1>
+            <h2>
+                Category <br>
+                "<?= $project['category']?>"
+            </h2>
+
         </section>
+
         <?php } ?>
         
     </main>
