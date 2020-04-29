@@ -25,21 +25,16 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.php'?>
     </header>
     <main>
-        <section id="projects" class="section-row">
-            <div class="col-70">
-                <h1>
-                    Here you can see my projects
-                </h1>
-                <form action="javascript:void(0)">
-                    <button onclick="showAll()">All</button>
-                    <button onclick="showDev()">Developpement</button>
-                    <button onclick="showNet()">Network</button>
-                    <button onclick="showOth()">Other</button>
-                </form>
-            </div>
-            <div class="col-30">
-
-            </div>
+        <section class="header">
+            <h1>
+                Here you can see my projects
+            </h1>
+             <form action="javascript:void(0)">
+                <button onclick="showAll()">All</button>
+                <button onclick="showDev()">Developpement</button>
+                <button onclick="showNet()">Network</button>
+                <button onclick="showOth()">Other</button>
+            </form>
         </section>
 
         <?php foreach ($projects as $project) { ?>
