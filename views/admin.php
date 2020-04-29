@@ -40,7 +40,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                     <div class="id"><?=$line['id']?></div>
                     <div class="name"><?=$line['title']?></div>
                     <div class="action">
-                        <a href="/project?id=<?=$line['id']?>" class="btn"><i class="far fa-eye"></i></a>
+                        <a href="/project?id=<?=$line['id']?>" class="btn" target="_blank"><i class="far fa-eye"></i></a>
                         <a href="/admin?id=<?=$line['id']?>" class="btn"><i class="fas fa-edit"></i></a>
                         <a href="/delete?id=<?=$line['id']?>" class="btn to-validate"><i class="fas fa-trash"></i></a>
                     </div>
