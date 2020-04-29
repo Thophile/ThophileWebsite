@@ -16,10 +16,10 @@ function hideNav() {
     currscroll = window.scrollY;
     if ((currscroll > pastscroll) & !sidenav) {
         document.querySelector("header").style.top = "-50px"
-        document.querySelector("main").style.marginTop = "0"
+        document.querySelector("main").style.top = "0"
     } else {
         document.querySelector("header").style.top = "0px"
-        document.querySelector("main").style.marginTop = "50px"
+        document.querySelector("main").style.top = "50px"
     }
     pastscroll = currscroll;
 }
