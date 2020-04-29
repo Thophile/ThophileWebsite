@@ -115,11 +115,20 @@ function parseForm() {
 
     // AJAX request finished event
     request.addEventListener('load', function (e) {
+        
+        // Check the response
+        if(request.status == 200) {
 
-        // request.response will hold the response from the server
-        console.log(request.response);
-        if(request.status == 200) document.getElementById('status').innerHTML = "Successfuly saved"
-        else document.getElementById('status').innerHTML = 'Status : ' + request.status + ', ' + request.statusText
+            //Display success message
+            document.getElementById('status').innerHTML = "Successfuly saved"
+
+            //If a valid Id is returned, redirect to that location
+            if(RegExp('^[0-9]+$').test(request.response)) window.location = "/admin?id=" + request.response ;
+        }
+        else{
+            document.getElementById('status').innerHTML = 'Status : ' + request.status + ', ' + request.statusText
+        }
+
     });
 
     // send POST request to server side script
