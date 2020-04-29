@@ -194,5 +194,5 @@ article p {
     padding-top: 7vh;
     margin: auto 5%;
     line-height: 1.7;
-    white-space: pre-line;
+    white-space: pre-wrap;
 }

@@ -85,7 +85,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <?php
                     foreach ($section->paragraphs as $paragraph) {
                     ?>
-                <p><?=$paragraph?></p>
+                <p>        <?=$paragraph?></p>
                 <?php
                     }
                     ?>
