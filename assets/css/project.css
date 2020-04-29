@@ -83,6 +83,9 @@
     flex-direction: row;
     align-items: center;
 }
+.banner i {
+    margin: 0 15px;
+}
 .banner .right{
     align-items: flex-start;
     display: flex;
@@ -171,6 +174,7 @@
 /** article section **/
 article{
     background-color: var(--mainColor);
+    margin: 0 5vw;
     padding-bottom: 20vh;
 }
 article section {
@@ -179,7 +183,7 @@ article section {
     padding-top: 8vh;
 }
 article h1{
-    max-width: 70%;
+    max-width: 50%;
     margin:0 20px;
     padding: 10px 10px;
     border: 1px solid var(--accent);
