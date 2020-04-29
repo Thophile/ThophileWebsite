@@ -4,6 +4,14 @@
 *@Page Home
 */
 
+.section-row{
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
 /** Pres section of home **/
 #pres{
     background: linear-gradient(110deg, var(--accent) 69.9%, var(--mainColor) 70%);

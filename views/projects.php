@@ -43,7 +43,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         </section>
 
         <?php foreach ($projects as $project) { ?>
-        <section class="section-row projects" data-category="<?= $project['category']?>"
+        <section class="projects" data-category="<?= $project['category']?>"
             style="background-image: linear-gradient(80deg, rgba(50, 50, 50, 0.80) 55%, #dee1e9 100%), url(/uploadFolder/<?= rawurlencode($project['banner_image'])?>);">
             <div class="col-70">
                 <h1>
