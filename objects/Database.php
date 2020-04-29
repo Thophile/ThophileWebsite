@@ -111,6 +111,16 @@ class Database{
             die();
         }
 
+        //Return newly created project's id
+        $query = "SELECT id FROM projects ORDER BY id DESC LIMIT 1";
+
+        if($this->conn == null){
+            $this->connect();
+        }
+        $stmt = $this->conn->query($query);
+
+        $id = $stmt->fetch();
+        return $id;
     }
     public function updateProject($project){
         $query = "UPDATE projects SET title =:title, category =:category, banner_image =:banner_image, images =:images, links =:links, article =:article WHERE id= :id";
