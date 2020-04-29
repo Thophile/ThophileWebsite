@@ -27,7 +27,6 @@ body{
     background-color: var(--mainColor);
 }
 main{
-    margin-top: 50px;
     transition: 0.4s;
 }
 .logo{
@@ -64,12 +63,13 @@ main{
   }
 /** header section **/
 header{
+    position: relative;
     height: 50px;
 }
 .nav-link{
     margin: 0 10px;
 }
-header{
+#navbar{
     position: fixed;
     width: 100%;
     background-color: var(--mainColor);
@@ -195,7 +195,8 @@ button i:hover{
 }
 button:focus, .btn:focus, textarea:focus{
     outline: none;
-    border: 2px solid var(--secondaryColor)!important;
+    color: var(--accentLight);
+    /*border: 1px solid var(--secondaryColor)!important;*/
 
 }
 button::-moz-focus-inner,textarea::-moz-focus-inner, .btn::-moz-focus-inner{ 

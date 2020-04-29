@@ -15,11 +15,11 @@ function toggleNav() {
 function hideNav() {
     currscroll = window.scrollY;
     if ((currscroll > pastscroll) & !sidenav) {
-        document.querySelector("header").style.top = "-50px"
-        document.querySelector("main").style.top = "0"
+        document.querySelector("#navbar").style.top = "-50px"
+        document.querySelector("header").style.top = "0"
     } else {
-        document.querySelector("header").style.top = "0px"
-        document.querySelector("main").style.top = "50px"
+        document.querySelector("#navbar").style.top = "0px"
+        document.querySelector("header").style.top = "50px"
     }
     pastscroll = currscroll;
 }
