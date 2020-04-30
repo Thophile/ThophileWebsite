@@ -192,7 +192,7 @@ function imageAdd(event) {
     i.addEventListener("click", imageRemove)
     div.appendChild(i)
 
-    document.getElementById("_image").insertBefore(div, source)
+    document.querySelector("#_image .preview_row").append(div)
 
 }
 
@@ -234,7 +234,7 @@ function linkAdd() {
 //Articles
 function sectionRemove(event) {
     var source = event.target || event.srcElement
-    while (source.className !== "article_section") {
+    while (source.className !== "article_section col") {
         source = source.parentElement
     }
     source.parentElement.removeChild(source);
@@ -245,7 +245,7 @@ function section_add() {
         source = source.parentElement
     }
     //create a section
-    var div = create("DIV", { className: "article_section" })
+    var div = create("DIV", { className: "article_section col" })
 
     var div_title = create("DIV", { className: "article_title" })
     let input = create("INPUT", { type: "text", placeholder: "Section title" })
@@ -260,12 +260,12 @@ function section_add() {
 
     div.appendChild(div_title)
 
-    let div_para = create("DIV", { className: "article_paragraphs" })
+    let div_para = create("DIV", { className: "article_paragraphs col" })
     div_para.appendChild(create("textarea"))
     div.appendChild(div_para)
 
-    let div_action = create("DIV", { className: "article_action" })
-    button = create("BUTTON", { type: "button", className: "btn paragraphs_remove" })
+    let div_action = create("DIV", { className: "row" })
+    button = create("BUTTON", { type: "button", className: "btn pills paragraphs_remove" })
     i = create("I", { className: "fas fa-minus" })
     button.appendChild(i)
     button.appendChild(document.createTextNode(" Remove paragraph"))
@@ -273,7 +273,7 @@ function section_add() {
 
     div_action.appendChild(button)
 
-    button = create("BUTTON", { type: "button", className: "btn paragraphs_add" })
+    button = create("BUTTON", { type: "button", className: "btn pills paragraphs_add" })
     i = create("I", { className: "fas fa-plus" })
     button.appendChild(i)
     button.appendChild(document.createTextNode(" Add paragraph"))
@@ -289,14 +289,14 @@ function section_add() {
 
 function paragraphsRemove(event) {
     var source = event.target || event.srcElement
-    while (source.className !== "article_section") {
+    while (source.className !== "article_section col") {
         source = source.parentElement
     }
     source.children[1].removeChild(source.children[1].lastElementChild)
 }
 function paragraphsAdd(event) {
     var source = event.target || event.srcElement
-    while (source.className !== "article_section") {
+    while (source.className !== "article_section col") {
         source = source.parentElement
     }
     source.children[1].appendChild(document.createElement("TEXTAREA"))

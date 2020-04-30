@@ -24,19 +24,19 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <header>
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.php'?>
     </header>
-    <main>
-        <div id="menu">
-            <div id="header">
+    <main class="col">
+        <div id="menu" class="col">
+            <div id="header" class="row">
                 <div class="id">#</div>
                 <div class="name">Name</div>
                 <div class="action">Action</div>
             </div>
-            <div id="body">
+            <div id="body" class="col">
                 <?php 
                 foreach ($projects as $line) {
                 ?>
 
-                <div class="bodyline">
+                <div class="bodyline row">
                     <div class="id"><?=$line['id']?></div>
                     <div class="name"><?=$line['title']?></div>
                     <div class="action">
@@ -51,10 +51,11 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 ?>
             </div>
         </div>
-        <div id="form">
+        <div id="form" class="col">
+
             <?php if(isset($project)){ ?>
-            <h1>Header</h1>
-            <div id="_head">
+            <div id="_head" class="col">
+                    <h1>Header</h1>
                 <input type="text" name="title" placeholder="Project title"
                     value="<?php if(isset($project["title"])) echo $project["title"]; ?>">
                 <input type="text" name="category" placeholder="Category"
@@ -62,34 +63,34 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <input type="text" name="style" placeholder="Banner image"
                     value="<?php if(isset($project["banner_image"])) echo $project["banner_image"] ?>">
             </div>
-            <h1>Images</h1>
-            <div id="_image">
 
-                <?php 
-            if(isset($project["images"])){
-                foreach (json_decode($project["images"]) as  $image) {  
-            ?>
+            <div id="_image" class="col">
+                <h1>Images</h1>
+                <div class="preview_row row">
 
-                <div class="image_preview">
-                    <img src="/uploadFolder/<?= $image->filename?>" style="display: block;">
-                    <i class="fas fa-6x fa-upload" style="display: none;"></i>
-                    <input class="image_file" type="file">
-                    <input type="text" placeholder="Label" value="<?= $image->label?>">
-                    <i class="fas fa-minus"></i>
+                    <?php 
+                    if(isset($project["images"])){
+                        foreach (json_decode($project["images"]) as  $image) {  
+                    ?>
+
+                    <div class="image_preview">
+                        <img src="/uploadFolder/<?= $image->filename?>" style="display: block;">
+                        <i class="fas fa-6x fa-upload" style="display: none;"></i>
+                        <input class="image_file" type="file">
+                        <input type="text" placeholder="Label" value="<?= $image->label?>">
+                        <i class="fas fa-minus"></i>
+                    </div>
+
+                    <?php }} ?>
+
                 </div>
-
-                <?php 
-                }
-            } 
-            ?>
-
-                <button type="button" class="image_add">
-                    <i class="fas fa-6x fa-plus"></i>
+                <button type="button" class="pills image_add">
+                    <i class="fas fa-plus"></i>Add an Image
                 </button>
             </div>
 
-            <h1>Links</h1>
-            <div id="_links">
+            <div id="_links" class="col">
+                <h1>Links</h1>
 
                 <?php
             if(isset($project["links"])){
@@ -109,27 +110,27 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             } 
             ?>
 
-                <button type="button" class="btn link_add">
-                    <i class="fas fa-plus"></i> Add link
+                <button type="button" class="btn pills link_add">
+                    <i class="fas fa-plus"></i> Add a link
                 </button>
             </div>
 
-            <h1>Article</h1>
-            <div id="_article">
+            <div id="_article" class="col">
+                <h1>Article</h1>
 
                 <?php
             if(isset($project["article"])){
                 foreach (json_decode($project["article"]) as  $section) {  
             ?>
 
-                <div class="article_section">
-                    <div class="article_title">
+                <div class="article_section col">
+                    <div class="article_title row">
                         <input type="text" placeholder="Section title" value="<?= $section->title?>">
                         <button type="button" class="btn section_remove">
                             <i class="fas fa-minus"></i>
                         </button>
                     </div>
-                    <div class="article_paragraphs">
+                    <div class="article_paragraphs col">
                         <?php 
                         foreach ($section->paragraphs as $paragraph) {
                         ?>
@@ -139,12 +140,12 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                         <?php 
                         } ?>
                     </div>
-                    <div class="article_action">
-                        <button type="button" class="btn paragraphs_remove">
-                            <i class="fas fa-minus"></i> Remove paragraph
+                    <div class="row">
+                        <button type="button" class="btn pills paragraphs_remove">
+                            <i class="fas fa-minus"></i> Remove a paragraph
                         </button>
-                        <button type="button" class="btn paragraphs_add">
-                            <i class="fas fa-plus"></i> Add paragraph
+                        <button type="button" class="btn pills paragraphs_add">
+                            <i class="fas fa-plus"></i> Add a paragraph
                         </button>
                     </div>
                 </div>
@@ -154,20 +155,20 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             } 
             ?>
 
-                <button type="button" class="btn section_add">
+                <button type="button" class="btn pills section_add">
                     <i class="fas fa-plus"></i> Add section
                 </button>
             </div>
 
-            <div id="status"></div>
             <div class="row" id="_submit">
-                <button type="button" onclick="parseForm()">Save</button>
-                <a href="/admin" class="btn">Quit</a>
+                <div id="status"></div>
+                <a href="/admin" class="btn pills">Quit</a>
+                <a href="javascript:void(0)" class="btn pills" onclick="parseForm()">Save</a>
             </div>
 
             <?php }else {?>
 
-            <a href="?id=0" class="btn" id="_new">Add project</a>
+            <a href="?id=0" class="btn pills" id="_new">Add project</a>
 
             <?php }?>
         </div>

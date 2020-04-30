@@ -145,10 +145,11 @@ main{
 }
 .col{
     display: flex;
-    height: 100%;
-    width: 100%;
     flex-direction: column;
-    justify-content: center;
+}
+.row{
+    display: flex;
+    flex-direction: row;
 }
 .right{
     text-align: right;
@@ -190,7 +191,7 @@ button:hover, button:focus{
     cursor: pointer;
 }
 button i:hover{
-    color: var(--secondaryColor)!important;
+    color: var(--secondaryColor);
     cursor: pointer;
 }
 button:focus, .btn:focus, textarea:focus{
