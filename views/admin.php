@@ -124,7 +124,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             ?>
 
                 <div class="article_section col">
-                    <div class="article_title row">
+                    <div class="article_title">
                         <input type="text" placeholder="Section title" value="<?= $section->title?>">
                         <button type="button" class="btn section_remove">
                             <i class="fas fa-minus"></i>

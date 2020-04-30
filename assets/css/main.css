@@ -200,6 +200,9 @@ button:focus, .btn:focus, textarea:focus{
     /*border: 1px solid var(--secondaryColor)!important;*/
 
 }
+input:focus{
+    outline: 0;
+}
 button::-moz-focus-inner,textarea::-moz-focus-inner, .btn::-moz-focus-inner{ 
     border: 2px none var(--secondaryColor)!important;
     border-style: none;

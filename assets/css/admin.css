@@ -188,6 +188,10 @@
         border-radius: 15px;
         background-color: inherit;
     }
+    input:hover, input:focus,textarea:hover,textarea:focus{
+        border-radius: 5px!important;
+        transition: 0.4s;
+    }
 
         /* Images */
     #_image .preview_row{
