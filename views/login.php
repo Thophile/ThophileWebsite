@@ -20,19 +20,23 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <title><?= $title ?></title>
 </head>
 
-<body id="landing">
+<body>
     <main>
-        <h1>This is a reserved Area</h1>
-        <?php if(isset($error)){ echo '<span class="error">'.$error.'</span>';}?>
-
-        <form action="/login" id="log_in" method="post">
-            <input type="password" name="password" id="_password" placeholder="Password">
-            <div>
-                <a href="/" class="btn inline">Go back to site</a>
-                <button type="submit">Log in</button>
-            </div>
-        </form>
+        <div id="login">
+            <i class="far fa-2x fa-user"></i>
+            <h1>This is a reserved Area</h1>
+            <?php if(isset($error)){ echo '<span class="error">'.$error.'</span>';}?>
+        
+            <form action="/login" id="log_in" method="post">
+                <input type="password" name="password" id="_password" placeholder="Password">
+                <div>
+                    <a href="/" class="btn inline">Go back</a>
+                    <button type="submit">Log in</button>
+                </div>
+            </form>
+        </div>
     </main>
+
     <footer>
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.php'?>
     </footer>
