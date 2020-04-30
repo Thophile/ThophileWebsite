@@ -12,36 +12,36 @@ main section{
 
 main section.active{
     display: flex;
-    height: calc(100vh - 30px - 50px - 40px);
+    height: calc(100vh - 30px - 50px - 50px);
     margin: 15px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     /** Animation **/
     animation-name: inRight;
-    animation-duration: 1s;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-out;
 }
 @keyframes inRight {
     from {transform:
-        /*scaleY(0.8)*/
-        translateX(100%)
+        scale(0.8)
+        translateX(40vw)
     }
     to {transform:
-        /*scaleY(1)*/
+        scale(1)
         translateX(0)
     }
 }
 #projects.active{
     animation-name: inLeft;
-    animation-duration: 1s;
 }
 @keyframes inLeft{
     from {transform:
-        /*scaleY(0.8)*/
-        translateX(-100%)
+        scale(0.8)
+        translateX(-40vw)
     }
     to {transform:
-        /*scaleY(1)*/
+        scaleY(1)
         translateX(0)
     }
 }
