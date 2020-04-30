@@ -60,12 +60,18 @@ $router->get("/admin", function($request, $db, $auth){
     include_once 'views/admin.php';
 
   }else{
-    $title = "Thophile's Website | Login";
-    include_once 'views/admin_landing.php';
+    header("Location: http://{$_SERVER['HTTP_HOST']}/login");
+    die();
   }
 });
 
+
 //Log in
+$router->get("/login", function($request){
+  $title = "Thophile's Website | Login";
+  include_once 'views/login.php';
+});
+
 $router->post('/login', function($request, $db, $auth) {
   //Password check
   if($auth->validatePassword($request->getBody()['password'])){
@@ -81,7 +87,7 @@ $router->post('/login', function($request, $db, $auth) {
 
     $title = "Thophile's Website | Login";
     $error="Wrong Password";
-    include_once 'views/admin_landing.php';
+    include_once 'views/login.php';
   }
 });
 

@@ -13,7 +13,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <meta author="Thophile">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/all.css">
-    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/navbar.js"></script>
     <script src="/assets/js/landing.js"></script>
@@ -21,18 +21,17 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 </head>
 
 <body id="landing">
-    <header>
-        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.php'?>
-    </header>
     <main>
         <h1>This is a reserved Area</h1>
         <?php if(isset($error)){ echo '<span class="error">'.$error.'</span>';}?>
 
         <form action="/login" id="log_in" method="post">
             <input type="password" name="password" id="_password" placeholder="Password">
-            <button type="submit" style="">Log in</button>
+            <div>
+                <a href="/" class="btn inline">Go back to site</a>
+                <button type="submit">Log in</button>
+            </div>
         </form>
-        <a href="/" class="btn inline">Go back to site</a>
     </main>
     <footer>
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/footer.php'?>

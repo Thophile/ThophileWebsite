@@ -4,62 +4,7 @@
 *@Page Admin
 */
 
-/** landing part **/
-@media only screen and (min-width: 500px) {
-    #landing main {
-        width: 50vw;
-        margin: auto;
-    }
-}
-#landing {
-    height: 100vh;
-}
-#landing main{
-    color: var(--accent);
-    font-size: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    
-}
-#landing form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-}
-#landing h1{
-    font-size: 1.2rem;
-    margin: 10px 15px;
-    padding: 6px;
-    border:1px solid var(--accent);
-    border-style: none none solid none;
-    background-color: inherit;
-}
-#landing button[type=submit], .inline, #landing input{
-    font-size: 1.2rem;
-    margin: 15px;
-    padding: 6px;
-    border:1px solid var(--accent);
-    border-radius: 2px;
-    background-color: inherit;
-    color: var(--accent);
-    text-align: center;
-}
-#landing input::placeholder{
-    text-align: center;
-}
-input:focus{
-    outline: 0;
-}
-.error{
-    font-size: 1.2rem;
-    margin: 10px 15px;
-    padding: 6px;
-    color: lightcoral;
-    background-color: inherit;
-}
+/**    Admin part    **/
 #admin main{
     width: 100%;
     display: flex;
