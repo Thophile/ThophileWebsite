@@ -10,7 +10,7 @@ ready(function () {
         element.addEventListener("click", sectionRemove)
     });
     document.querySelectorAll(".section_add").forEach(element => {
-        element.addEventListener("click", section_add)
+        element.addEventListener("click", sectionAdd)
     });
     document.querySelectorAll(".paragraphs_remove").forEach(element => {
         element.addEventListener("click", paragraphsRemove)
@@ -239,7 +239,7 @@ function sectionRemove(event) {
     }
     source.parentElement.removeChild(source);
 }
-function section_add() {
+function sectionAdd() {
     var source = event.target || event.srcElement
     while (source.tagName !== "BUTTON") {
         source = source.parentElement
