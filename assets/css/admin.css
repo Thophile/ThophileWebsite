@@ -95,11 +95,7 @@
         align-self: center;
     }
     .paragraphs_add,.paragraphs_remove{
-        width: 50%;
-        margin: 5px 40px!important;
-    }
-    .section_add{
-        margin: 10px 5 !important;
+        font-size: 1rem;
     }
     .pills{
         width: 40%;
@@ -109,6 +105,7 @@
         border-radius: 20px!important;
         text-align: center;
     }
+
     .pills:hover{
         background-color: var(--accent)!important;
         color: var(--mainColor)!important;
