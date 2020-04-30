@@ -74,7 +74,7 @@
         /* Ttitles */
     #form h1{
         font-size: 1.5rem;
-        margin: 20px 10px;
+        margin: 10px;
         max-width: 50%;
         border: 1px solid var(--accent);
         border-style: none none solid none;
@@ -91,8 +91,13 @@
     .link_add, .image_add, .section_add{
         font-size: 1.3rem;
         padding: 10px;
-        width: 50%;
+        width: 100%!important;
         align-self: center;
+    }
+    @media only screen and (min-width:600px){
+        .link_add, .image_add, .section_add{
+            width: 50%!important;
+        }
     }
     .paragraphs_add,.paragraphs_remove{
         font-size: 1rem;
@@ -111,7 +116,7 @@
         color: var(--mainColor)!important;
         transition: 0.4s;
     }
-        .pills i, .image_add i{
+        .pills i{
             color: inherit !important;
         }
     
@@ -120,7 +125,7 @@
     #_head, #_image, #_links, #_article{
         background-color: var(--mainColor);
         margin: 20px 10px;
-        padding: 10px;
+        padding: 30px 20px;
         border-radius: 5px;
         box-shadow: 0px 0px 10px 0px var(--accent);
     }
@@ -136,13 +141,21 @@
         padding: 5px;
         margin: 5px;
         border: 1px solid var(--secondaryColor);
-        border-radius: 15px;
+        border-radius: 2px;
         background-color: inherit;
+        align-self: center;
+        text-align: center;
     }
     #_head input[name=title]{
-        width: 50%;
-       align-self: center;
-       text-align: center;
+        border-radius: 15px;
+    }
+    @media only screen and (min-width:600px){
+        #_head input{
+            width: 75%;
+        }
+        #_head input[name=title]{
+            width: 50%;
+        }
     }
     .image_preview input[type=file]{
         z-index: 128;
