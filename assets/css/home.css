@@ -19,13 +19,13 @@ main section.active{
     justify-content: space-evenly;
     /** Animation **/
     animation-name: inRight;
-    animation-duration: 0.75s;
+    animation-duration: 1s;
     animation-timing-function: ease-out;
 }
 @keyframes inRight {
     from {transform:
-        scale(0.8)
-        translateX(40vw)
+        scale(0.9)
+        translateX(25vw)
     }
     to {transform:
         scale(1)
@@ -37,8 +37,8 @@ main section.active{
 }
 @keyframes inLeft{
     from {transform:
-        scale(0.8)
-        translateX(-40vw)
+        scale(0.9)
+        translateX(-25vw)
     }
     to {transform:
         scaleY(1)
