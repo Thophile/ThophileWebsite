@@ -3,14 +3,47 @@
 *@Project Thophile.com
 *@Page Home
 */
+main{
+    overflow-x: hidden;
+}
+main section{
+    display: none;
+}
 
-.section-row{
+main section.active{
     display: flex;
-    height: calc(100vh - 30px);
+    height: calc(100vh - 30px - 50px - 40px);
     margin: 15px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    /** Animation **/
+    animation-name: inRight;
+    animation-duration: 1s;
+}
+@keyframes inRight {
+    from {transform:
+        /*scaleY(0.8)*/
+        translateX(100%)
+    }
+    to {transform:
+        /*scaleY(1)*/
+        translateX(0)
+    }
+}
+#projects.active{
+    animation-name: inLeft;
+    animation-duration: 1s;
+}
+@keyframes inLeft{
+    from {transform:
+        /*scaleY(0.8)*/
+        translateX(-100%)
+    }
+    to {transform:
+        /*scaleY(1)*/
+        translateX(0)
+    }
 }
 
 /** Pres section of home **/

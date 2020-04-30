@@ -16,6 +16,8 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <link rel="stylesheet" href="/assets/css/home.css">
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/navbar.js"></script>
+    <script src="/assets/js/home.js"></script>
+
     <title><?= $title ?></title>
 </head>
 
@@ -24,7 +26,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.php'?>
     </header>
     <main>
-        <section id="pres" class="section-row">
+        <section id="pres">
             <div class="col-70">
                 <h1>
                     Théophile Montémont
@@ -40,7 +42,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <i class="far fa-9x fa-user"></i>
             </div>
         </section>
-        <section id="projects" class="section-row">
+        <section id="projects">
             <div class="col-30">
                 <i class="fas fa-9x fa-tasks"></i>
             </div>
@@ -53,7 +55,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 </a>
             </div>
         </section>
-        <section id="contact" class="section-row">
+        <section id="contact">
             <div class="col-70">
                 <h1>
                     If you have any questions or comments, please get in touch with me.
