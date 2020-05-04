@@ -204,7 +204,7 @@ $router->post('/upload', function($request, $db, $auth) {
     }
 
   }else{
-    http_response_code(401);
+    http_response_code(403);
     header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
   }
   die();
@@ -221,7 +221,7 @@ $router->get('/delete', function($request, $db, $auth) {
   }else{
 
     //Set Error code if unauthorized
-    http_response_code(401);
+    http_response_code(403);
   }
   //Redirect
   header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
