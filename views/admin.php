@@ -190,7 +190,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <div id="cvuploader" data-type="content" >
             <div class="col">
                 <h2>
-                    Filename must be "<?= $fileName ?>" to match or must be changed in server configuration
+                    Please choose the CV in your files
                 </h2>
                 <span>Last uploaded at : <?= $lastModified ?> (Timezone : GMT <?= $timezone ?>) </span>
                 <i class="fas fa-6x fa-upload"></i>
