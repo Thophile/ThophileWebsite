@@ -24,12 +24,12 @@ main section.active{
 }
 @keyframes inRight {
     from {transform:
-        scale(0.9)
-        translateX(25vw)
+        scale(0.95);
+        opacity : 0.8;
     }
     to {transform:
-        scale(1)
-        translateX(0)
+        scaleY(1);
+        opacity : 1;
     }
 }
 #projects.active{
@@ -37,12 +37,12 @@ main section.active{
 }
 @keyframes inLeft{
     from {transform:
-        scale(0.9)
-        translateX(-25vw)
+        scale(0.95);
+        opacity : 0.8;
     }
     to {transform:
-        scaleY(1)
-        translateX(0)
+        scaleY(1);
+        opacity : 1;
     }
 }
 
