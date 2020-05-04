@@ -42,7 +42,7 @@ main{
     flex-direction: column;
     justify-content: center;
     box-shadow: inset 0 0 0 999em rgba(80, 86, 99, 0.85);
-    background-color: #5056637a;
+    background-color: var(--mainColor);
     /*background: linear-gradient(80deg, rgba(50, 50, 50, 0.80) 55%, #dee1e9 100%);*/
     background-position: left center;
     background-repeat: no-repeat;
