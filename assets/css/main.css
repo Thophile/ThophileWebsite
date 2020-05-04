@@ -175,6 +175,7 @@ footer{
  text-align: center;
 }
 .pills{
+    background-color: var(--mainColor);
     width: 40%;
     padding: 6px;
     margin: 5px;
