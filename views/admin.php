@@ -20,7 +20,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <title><?= $title ?></title>
 </head>
 
-<body id="admin">
+<body>
     <header>
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.php'?>
     </header>
