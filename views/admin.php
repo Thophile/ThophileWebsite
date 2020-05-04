@@ -25,152 +25,178 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/views/navbar.php'?>
     </header>
     <main class="col">
-        <div id="menu" class="col">
-            <div id="header" class="row">
-                <div class="id">#</div>
-                <div class="name">Name</div>
-                <div class="action">Action</div>
-            </div>
-            <div id="body" class="col">
-                <?php 
-                foreach ($projects as $line) {
-                ?>
-
-                <div class="bodyline row">
-                    <div class="id"><?=$line['id']?></div>
-                    <div class="name"><?=$line['title']?></div>
-                    <div class="action">
-                        <a href="/project?id=<?=$line['id']?>" class="btn" target="_blank"><i class="far fa-eye"></i></a>
-                        <a href="/admin?id=<?=$line['id']?>" class="btn"><i class="fas fa-edit"></i></a>
-                        <a href="/delete?id=<?=$line['id']?>" class="btn to-validate"><i class="fas fa-trash"></i></a>
-                    </div>
-                </div>
-
-                <?php 
-                }
-                ?>
-            </div>
+        <div id="tabs">
+            <button data-target="#statistics">Statistics</button>
+            <button data-target="#projectManager">Projects manager</button>
+            <button data-target="#cvuploader">CV Uploader</button>
         </div>
-        <div id="form" class="col">
+        <div id="tabs_header">
+            <h1>
+            </h1>
+        </div>
+        <div id="statistics" data-type="content">
 
-            <?php if(isset($project)){ ?>
-            <div id="_head" class="col">
-                    <h1>Header</h1>
-                <input type="text" name="title" placeholder="Project title"
-                    value="<?php if(isset($project["title"])) echo $project["title"]; ?>">
-                <input type="text" name="category" placeholder="Category"
-                    value="<?php if(isset($project["category"])) echo $project["category"] ?>">
-                <input type="text" name="style" placeholder="Banner image"
-                    value="<?php if(isset($project["banner_image"])) echo $project["banner_image"] ?>">
-            </div>
-
-            <div id="_image" class="col">
-                <h1>Images</h1>
-                <div class="preview_row row">
-
+        </div>
+        <div id="projectManager" data-type="content">
+            <div id="menu" class="col">
+                
+                <div id="header" class="row">
+                    <div class="id">#</div>
+                    <div class="name">Name</div>
+                    <div class="action">Action</div>
+                </div>
+                <div id="body" class="col">
                     <?php 
-                    if(isset($project["images"])){
-                        foreach (json_decode($project["images"]) as  $image) {  
+                    foreach ($projects as $line) {
                     ?>
 
-                    <div class="image_preview">
-                        <img src="/uploadFolder/<?= $image->filename?>" style="display: block;">
-                        <i class="fas fa-6x fa-upload" style="display: none;"></i>
-                        <input class="image_file" type="file">
-                        <input type="text" placeholder="Label" value="<?= $image->label?>">
-                        <i class="fas fa-minus"></i>
+                    <div class="bodyline row">
+                        <div class="id"><?=$line['id']?></div>
+                        <div class="name"><?=$line['title']?></div>
+                        <div class="action">
+                            <a href="/project?id=<?=$line['id']?>" class="btn" target="_blank"><i class="far fa-eye"></i></a>
+                            <a href="/admin?id=<?=$line['id']?>" class="btn"><i class="fas fa-edit"></i></a>
+                            <a href="/delete?id=<?=$line['id']?>" class="btn to-validate"><i class="fas fa-trash"></i></a>
+                        </div>
                     </div>
 
-                    <?php }} ?>
-
+                    <?php 
+                    }
+                    ?>
                 </div>
-                <button type="button" class="pills image_add">
-                    <i class="fas fa-plus"></i>Add an Image
-                </button>
             </div>
+            <div id="form" class="col">
 
-            <div id="_links" class="col">
-                <h1>Links</h1>
+                <?php if(isset($project)){ ?>
+                <div id="_head" class="col">
+                        <h1>Header</h1>
+                    <input type="text" name="title" placeholder="Project title"
+                        value="<?php if(isset($project["title"])) echo $project["title"]; ?>">
+                    <input type="text" name="category" placeholder="Category"
+                        value="<?php if(isset($project["category"])) echo $project["category"] ?>">
+                    <input type="text" name="style" placeholder="Banner image"
+                        value="<?php if(isset($project["banner_image"])) echo $project["banner_image"] ?>">
+                </div>
 
-                <?php
-            if(isset($project["links"])){
-                foreach (json_decode($project["links"]) as  $link) {  
-            ?>
+                <div id="_image" class="col">
+                    <h1>Images</h1>
+                    <div class="preview_row row">
 
-                <div>
-                    <input type="text" size=1 placeholder="Name" value="<?= $link->title?>">
-                    to : <input type="text" size=1 placeholder="Link" value="<?= $link->href?>">
-                    <button type="button" class="btn link_remove">
-                        <i class="fas fa-minus"></i>
+                        <?php 
+                        if(isset($project["images"])){
+                            foreach (json_decode($project["images"]) as  $image) {  
+                        ?>
+
+                        <div class="image_preview">
+                            <img src="/uploadFolder/<?= $image->filename?>" style="display: block;">
+                            <i class="fas fa-6x fa-upload" style="display: none;"></i>
+                            <input class="image_file" type="file">
+                            <input type="text" placeholder="Label" value="<?= $image->label?>">
+                            <i class="fas fa-minus"></i>
+                        </div>
+
+                        <?php }} ?>
+
+                    </div>
+                    <button type="button" class="pills image_add">
+                        <i class="fas fa-plus"></i>Add an Image
                     </button>
                 </div>
 
-                <?php 
-                }
-            } 
-            ?>
+                <div id="_links" class="col">
+                    <h1>Links</h1>
 
-                <button type="button" class="btn pills link_add">
-                    <i class="fas fa-plus"></i> Add a link
-                </button>
-            </div>
+                    <?php
+                if(isset($project["links"])){
+                    foreach (json_decode($project["links"]) as  $link) {  
+                ?>
 
-            <div id="_article" class="col">
-                <h1>Article</h1>
-
-                <?php
-            if(isset($project["article"])){
-                foreach (json_decode($project["article"]) as  $section) {  
-            ?>
-
-                <div class="article_section col">
-                    <div class="article_title">
-                        <input type="text" placeholder="Section title" value="<?= $section->title?>">
-                        <button type="button" class="btn section_remove">
+                    <div>
+                        <input type="text" size=1 placeholder="Name" value="<?= $link->title?>">
+                        to : <input type="text" size=1 placeholder="Link" value="<?= $link->href?>">
+                        <button type="button" class="btn link_remove">
                             <i class="fas fa-minus"></i>
                         </button>
                     </div>
-                    <div class="article_paragraphs col">
-                        <?php 
-                        foreach ($section->paragraphs as $paragraph) {
-                        ?>
 
-                        <textarea><?= $paragraph?></textarea>
+                    <?php 
+                    }
+                } 
+                ?>
 
-                        <?php 
-                        } ?>
-                    </div>
-                    <div class="row">
-                        <button type="button" class="btn pills paragraphs_remove">
-                            <i class="fas fa-minus"></i> Remove a paragraph
-                        </button>
-                        <button type="button" class="btn pills paragraphs_add">
-                            <i class="fas fa-plus"></i> Add a paragraph
-                        </button>
-                    </div>
+                    <button type="button" class="btn pills link_add">
+                        <i class="fas fa-plus"></i> Add a link
+                    </button>
                 </div>
 
-                <?php 
-                }
-            } 
-            ?>
+                <div id="_article" class="col">
+                    <h1>Article</h1>
 
-                <button type="button" class="btn pills section_add">
-                    <i class="fas fa-plus"></i> Add section
-                </button>
+                    <?php
+                if(isset($project["article"])){
+                    foreach (json_decode($project["article"]) as  $section) {  
+                ?>
+
+                    <div class="article_section col">
+                        <div class="article_title">
+                            <input type="text" placeholder="Section title" value="<?= $section->title?>">
+                            <button type="button" class="btn section_remove">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                        <div class="article_paragraphs col">
+                            <?php 
+                            foreach ($section->paragraphs as $paragraph) {
+                            ?>
+
+                            <textarea><?= $paragraph?></textarea>
+
+                            <?php 
+                            } ?>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn pills paragraphs_remove">
+                                <i class="fas fa-minus"></i> Remove a paragraph
+                            </button>
+                            <button type="button" class="btn pills paragraphs_add">
+                                <i class="fas fa-plus"></i> Add a paragraph
+                            </button>
+                        </div>
+                    </div>
+
+                    <?php 
+                    }
+                } 
+                ?>
+
+                    <button type="button" class="btn pills section_add">
+                        <i class="fas fa-plus"></i> Add section
+                    </button>
+                </div>
+
+                <div class="row" id="_submit">
+                    <div id="status"></div>
+                    <a href="/admin" class="btn pills">Quit</a>
+                    <a href="javascript:void(0)" class="btn pills" onclick="parseForm()">Save</a>
+                </div>
+
+                <?php }else {?>
+
+                <a href="?id=0" class="btn pills" id="_new">Add project</a>
+
+                <?php }?>
             </div>
-
-            <div class="row" id="_submit">
-                <div id="status"></div>
-                <a href="/admin" class="btn pills">Quit</a>
-                <a href="javascript:void(0)" class="btn pills" onclick="parseForm()">Save</a>
+        </div>
+        <div id="cvuploader" data-type="content" >
+            <div class="col">
+                <h2>
+                    Filename must be "<?= $fileName ?>" to match or must be changed in server configuration
+                </h2>
+                <span>Last uploaded at : <?= $lastModified ?> (Timezone : GMT <?= $timezone ?>) </span>
+                <i class="fas fa-6x fa-upload"></i>
+                <input type="file" name="cv">
+                <button class="pills">Upload</button>
             </div>
-
-            <?php }else {?>
-
-            <a href="?id=0" class="btn pills" id="_new">Add project</a>
-
-            <?php }?>
         </div>
     </main>
     <footer>

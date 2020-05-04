@@ -11,19 +11,50 @@
     font-size: 1.2rem;
 }
 
-/**    Menu    **/
+/**    Tabs    **/
+#tabs button{
+    font-size: 1rem;
+    background-color: var(--mainColor);
+    padding: 10px;
+    margin: 5px 5px 0 5px;
+    border: 1px solid var(--accent);
+    border-radius: 5px 5px 0 0;
+    border-style: solid solid none solid;
+}
+#tabs button.active{
+    background-color: var(--accent);
+    color: var(--mainColor);
+}
+#tabs_header{
+    background-color: var(--accent);
+}
+#tabs_header h1{
+    color: var(--mainColor);
+    border: 2px solid var(--mainColor);
+    border-style: none none none solid;
+    padding: 10px;
+    margin : 20px 20px 50px 20px;
+    font-size: 1.5rem;
+}
+div[data-type="content"]{
+    min-height: calc(100vh - 100px - 118px - 44px);
+}
+
+
+
+/**    Projects menu    **/
 #menu{
     width: calc(100% - 20px);
     padding: 10px;
     background-color: var(--accent);
-    max-height: 220px;
+    max-height: 260px;
 }
     #header{
         height: 30px;
         color: var(--mainColor);
     }
     #body{
-        max-height: 200px;
+        max-height: 240px;
         overflow-y: auto;
     }
         .bodyline{
@@ -68,8 +99,6 @@
 /**    Form    **/
 #form{
     padding: 10px 0;
-    min-height: calc(100vh - 340px );
-
 }
         /* Ttitles */
     #form h1{
@@ -226,7 +255,6 @@
                 width: 200px;
             }
 
-
         /* Links */
     #_links div{
         align-self: center;
@@ -260,4 +288,26 @@
         margin: auto;
         padding: 8px;
         background-color: inherit;
+        align-self: center;
     }
+
+/**    CV Uploader    **/
+#cvuploader div{
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+#cvuploader h2{
+    text-align: center  ;
+}
+#cvuploader i{
+    margin-top: 40px;
+}
+#cvuploader input{
+    z-index: 128;
+    position: relative;
+    top:-100px;
+    width: 100px;
+    height: 100px;
+    text-indent: -999em;
+}
