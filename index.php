@@ -13,6 +13,7 @@ $db = new Database();
 $authenticator = new Authenticator();
 $router = new Router(new Request, $db, $authenticator);
 
+
 //Prevent acces from file name
 $router->get('/index.php', function() {
   include_once $_SERVER['DOCUMENT_ROOT'].'/errors/403.html';
@@ -35,6 +36,7 @@ $router->get('/about', function($request) {
   $title = 'Thophile\'s Website | About';
   include_once 'views/about.php';
 });
+
 //Download CV
 $router->get('/dl_cv', function($request) {
 
@@ -58,7 +60,7 @@ $router->get('/dl_cv', function($request) {
     header('Pragma: no-cache'); 
     header('Expires: 0');
 
-    //Send th file
+    //Send the file
     set_time_limit(0);
     ob_clean();
     flush();
@@ -71,6 +73,31 @@ $router->get('/dl_cv', function($request) {
     die();
   }
 });
+
+//Upload a cv
+$router->post('/ul_cv', function($request,$db, $auth) {
+  //Check for authorization
+  if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
+      
+    //Handle files if submitted
+    if (isset($_FILES['file'])) {
+
+      $tmpFilePath = $_FILES['file']['tmp_name'][0];
+      if ($tmpFilePath != ""){
+        //Upload the file from the tmp dir
+        move_uploaded_file($tmpFilePath, "./uploadFolder/" .env('CV_FILENAME'));
+      }
+    }
+  }else{
+    //Error forbidden
+    http_response_code(403);
+    header("Location: http://{$_SERVER['HTTP_HOST']}/admin");
+  }
+  die();
+});
+
+
+
 
 //All projects
 $router->get('/projects', function($request, $db) {
@@ -87,6 +114,8 @@ $router->get("/project", function($request, $db){
   $title = "Thophile's Website | {$project['title']}";
   include_once 'views/project.php';
 });
+
+
 
 //Admin section
 $router->get("/admin", function($request, $db, $auth){
