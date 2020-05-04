@@ -1,5 +1,17 @@
 ready(function () {
-    //initialise event 
+    //Tabs button event
+    document.querySelectorAll('#tabs button').forEach(element => {
+        element.addEventListener('click',displayTab)
+    });
+    //Display first tab by default by triggering an event
+    document.querySelectorAll("#tabs button")[0].dispatchEvent(new Event('click'))
+    
+    //Display projet tabs if it's a reload with a get parameter
+    if(window.location.search){
+        console.log("true")
+        document.querySelector('button[data-target="#projectManager"]').dispatchEvent(new Event('click'))
+    }
+    //Initialise Project Manager events
     document.querySelectorAll(".link_remove").forEach(element => {
         element.addEventListener("click", linkRemove)
     });
@@ -31,9 +43,32 @@ ready(function () {
         element.addEventListener('click',validate)
     });
 
+    //Initialise CV Uploader events
+    document.querySelector('#cvuploader button').addEventListener('click',uploadCV)
+
 })
 
-//ask user to confirm that he wants to delete a project
+//Display tab content
+function displayTab(event){
+    var source = event.target || event.srcElement
+    //handle nested source
+    while (source.tagName !== "BUTTON") {
+        source = source.parentElement
+    }
+    let selector = source.getAttribute("data-target")
+    let header = source.innerHTML
+
+    //Display off other tabs
+    document.querySelectorAll("div[data-type=content]").forEach(element => {
+        element.style.display = "none";
+    })
+
+    //Display the chosen tab and set the header
+    document.querySelector(selector).style.display = "block"
+    document.querySelector("#tabs_header h1").innerHTML = header;
+}
+
+//Ask user to confirm that he wants to delete a project
 function validate(event) {
     var source = event.target || event.srcElement
     //handle nested source
@@ -46,7 +81,7 @@ function validate(event) {
 }
 
 
-//turn form data into json
+//Turn form data into json
 function parseForm() {
     //retrieve dta
     var project = new Object()
@@ -72,8 +107,10 @@ function parseForm() {
 
             //save the filename
             if (element.querySelector('input[type=file]').files.length == 0) {
+                //take the already existing filename to save it back 
                 image.filename = element.querySelector('img').src.split(/(\\|\/)/g).pop()
             } else {
+                //save new filename
                 image.filename = element.querySelector('input[type=file]').files[0].name
                 data.append('file[]', element.querySelector('input[type=file]').files[0])
             }
@@ -300,4 +337,32 @@ function paragraphsAdd(event) {
         source = source.parentElement
     }
     source.children[1].appendChild(document.createElement("TEXTAREA"))
+}
+
+function uploadCV(){
+    var data = new FormData()
+    if (document.querySelector('#cvuploader input[type=file]').files.length !== 0) {
+        data.append('file[]', document.querySelector('#cvuploader input[type=file]').files[0])
+
+        //send to create or update
+        var request = new XMLHttpRequest();
+        request.open('post', '/ul_cv');
+    
+        // AJAX request finished event
+        request.addEventListener('load', function (e) {
+            
+            // Check the response
+            if(request.status == 200) {
+                alert("Successfuly uploaded")
+            }
+            else{
+                alert(response.status + response.statusText)
+            }
+        });
+
+        request.send(data);
+
+    }else{
+        alert("No file selected")
+    }
 }
