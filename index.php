@@ -35,6 +35,43 @@ $router->get('/about', function($request) {
   $title = 'Thophile\'s Website | About';
   include_once 'views/about.php';
 });
+//Download CV
+$router->get('/dl_cv', function($request) {
+
+  //Get variable from env
+  $fileName = env('CV_FILENAME');
+  $file = "uploadFolder/" . $fileName;
+  
+  if(file_exists($file)){
+
+    //Get the file type for the header
+    $type = filetype($file);
+    
+    // Get a date and timestamp
+    $today = date("F j, Y, g:i a");
+    $time = time();
+
+    //Setting headers
+    header("Content-type: $type");
+    header("Content-Disposition: attachment;filename={$fileName}");
+    header("Content-Transfer-Encoding: binary"); 
+    header('Pragma: no-cache'); 
+    header('Expires: 0');
+
+    //Send th file
+    set_time_limit(0);
+    ob_clean();
+    flush();
+    readfile($file);
+
+  }else{
+    //No file, internal error
+    http_response_code(500);
+    include($_SERVER['DOCUMENT_ROOT'].'/errors/500.html'); 
+    die();
+  }
+});
+
 //All projects
 $router->get('/projects', function($request, $db) {
 
@@ -51,7 +88,7 @@ $router->get("/project", function($request, $db){
   include_once 'views/project.php';
 });
 
-//Go to admin section
+//Admin section
 $router->get("/admin", function($request, $db, $auth){
 
   //Check for authorization
@@ -81,6 +118,7 @@ $router->get("/login", function($request){
   include_once 'views/login.php';
 });
 
+//Login handler
 $router->post('/login', function($request, $db, $auth) {
   //Password check
   if($auth->validatePassword($request->getBody()['password'])){
