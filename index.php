@@ -26,6 +26,15 @@ $router->get('/', function() {
     include_once 'views/home.php';
 });
 
+
+//About page
+$router->get('/about', function($request) {
+  $lastModified = date ("d F Y H:i:s.", filemtime("uploadFolder/" . env("CV_FILENAME")));
+  $timezone = date ("P", filemtime("uploadFolder/" . env("CV_FILENAME")));
+  
+  $title = 'Thophile\'s Website | About';
+  include_once 'views/about.php';
+});
 //All projects
 $router->get('/projects', function($request, $db) {
 

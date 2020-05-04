@@ -12,11 +12,13 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <div class="label">
         <a href="/" class="nav-link">Home </a>
         <a href="/projects" class="nav-link">Projects </a>
+        <a href="/about" class="nav-link">About </a>
     </div>
 </nav>
 <nav id="side-nav">
     <ul>
         <li><a href="/" class="nav-link">Home</a></li>
         <li><a href="/projects" class="nav-link">Projects</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
     </ul>
 </nav>
