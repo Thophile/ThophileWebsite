@@ -12,6 +12,9 @@
 }
 
 /**    Tabs    **/
+#tabs{
+    margin-top: 50px;
+}
 #tabs button{
     font-size: 1rem;
     background-color: var(--mainColor);
@@ -178,7 +181,6 @@ div[data-type="content"]{
     }
     .image_preview input[type=text]{
         position: relative;
-        bottom: 0;
         right: 0;
         width: 165px;
         height: 21px;
@@ -249,9 +251,8 @@ div[data-type="content"]{
             }
             .image_preview i.fa-upload{
                 position: absolute;
-                top: auto;
-                left: auto;
-                height: 200px;
+                margin-top: 50px;
+                height: 100px;
                 width: 200px;
             }
 
