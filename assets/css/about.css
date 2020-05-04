@@ -1,0 +1,70 @@
+/**
+*@Author Thophile
+*@Project Thophile.com
+*@Page Admin
+*/
+
+/**    Header    **/
+#header{
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-color: var(--accent);
+    margin-bottom: -10vh;
+}
+#header h1{
+    color: var(--mainColor);
+    letter-spacing: 0.10em;
+}
+/**    Article    **/
+article{
+    margin: 0 30px;
+    padding: 20px;
+    background-color: var(--mainColor);
+    box-shadow: 0px 0px 5px 0px var(--accent);
+    z-index: 64;
+}
+article h2{
+    margin-bottom: 15px;
+    padding: 0 10px;
+    border-style: none none none solid;
+}
+article p{
+    margin: 10px 15px;
+}
+section{
+    margin: 10px 0;
+}
+article a{
+    width: unset !important;
+    display: inline-block;
+    margin-bottom: 20px!important;
+    
+}
+@media only screen and (min-width:600px){
+    section{
+        line-height: 1.8;
+        margin: 4% 15px !important;
+    }
+    article a{
+        margin: 1% 15px!important;
+    }
+}
+
+/**    Download box    **/
+#downloadBox{
+    justify-content: center;
+    align-items: center;
+    margin: 25px 12%;
+    padding: 15px;
+    box-shadow: 0px 0px 5px 0px var(--accent);
+    border-radius: 3px;
+}
+#downloadBox h1{
+    align-self: flex-start;
+    margin-bottom: 15px;
+}
+#downloadBox span{
+    font-size: 0.9rem;
+    color: var(--accentLight);
+}
