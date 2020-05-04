@@ -49,6 +49,7 @@ main{
     background-size: cover;
     height: 60vh;
     margin: 30px;
+    border-radius: 3px;
     transition: 0.3s;
 }
 .projects:hover{
