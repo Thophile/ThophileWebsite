@@ -174,7 +174,23 @@ footer{
  padding: 15px;
  text-align: center;
 }
+.pills{
+    width: 40%;
+    padding: 6px;
+    margin: 5px;
+    border:1px solid var(--accent)!important;
+    border-radius: 20px!important;
+    text-align: center;
+}
 
+.pills:hover{
+    background-color: var(--accent)!important;
+    color: var(--mainColor)!important;
+    transition: 0.4s;
+}
+    .pills i{
+        color: inherit !important;
+    }
 
 
 
