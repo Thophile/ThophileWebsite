@@ -123,6 +123,9 @@ $router->get("/admin", function($request, $db, $auth){
   //Check for authorization
   if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
     $title = "Thophile's Website | Admin";
+    $fileName = env("CV_FILENAME");
+    $lastModified = date ("d F Y H:i:s.", filemtime("uploadFolder/" . $fileName));
+    $timezone = date ("P", filemtime("uploadFolder/" . $fileName));
 
     //Geting all projects
     $projects = $db->getProjects();
