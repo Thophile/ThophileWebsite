@@ -36,6 +36,8 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         </div>
         <div id="statistics" data-type="content">
             <div class="col">
+                <?php 
+                usort($statistics, function($a, $b){return $b["views"] - $a["views"];});
 
                 <div class="page_stats">
                     <h1>
@@ -55,6 +57,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                     </div>
                 </div>
 
+                <?php } ?>
             </div>
         </div>
         <div id="projectManager" data-type="content">
