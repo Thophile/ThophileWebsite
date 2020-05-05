@@ -39,6 +39,12 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <?php 
                 usort($statistics, function($a, $b){return $b["views"] - $a["views"];});
                 foreach ($statistics as $route) {
+                    if(preg_match('{/project [0-9]+}', $route['page'])){
+                        $p_id = explode(" ", $route['page'])[1];
+                        $p_key = array_search($p_id, array_column($projects, 'id'));
+                        $route['page'] = "/project , " . $projects[$p_key]['title'];
+                    }
+
                     if($route['referer'] != []){
                     
                         $referer = json_decode($route['referer']);
@@ -54,6 +60,9 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                             //sort referer by descendant orders
                             return explode(" ", $b)[1] - explode(" ", $b)[1];
                         }); 
+
+                    }?>
+
                 <div class="page_stats">
                     <h1>
                         Route : 
