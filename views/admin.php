@@ -35,7 +35,27 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             </h1>
         </div>
         <div id="statistics" data-type="content">
+            <div class="col">
 
+                <div class="page_stats">
+                    <h1>
+                        Route : 
+                        <?= $route['page'] ?>
+                    </h1>
+                    <samp class="subtitle">
+                        Total hits : <?= $route['views'] ?> , with <?= sizeof($ip_adress) ?> unique client
+                    </samp>
+                    <div>
+                        <samp>
+                            Best client : <?= $ip_adress == [] ? "none" : explode(" ", $ip_adress[0])[0] ?> , with <?= $ip_adress == [] ? "0" : explode(" ", $ip_adress[0])[1] ?> hits
+                        </samp>
+                        <samp>
+                            Best referer : <a href="<?= $referer == [] ? "" : explode(" ", $referer[0])[0] ?>"><?= $referer == [] ? "none" : explode(" ", $referer[0])[0] ?></a> , with <?= $referer == [] ? "0" : explode(" ", $referer[0])[1] ?> hits
+                        </samp> 
+                    </div>
+                </div>
+
+            </div>
         </div>
         <div id="projectManager" data-type="content">
             <div id="menu" class="col">
