@@ -39,6 +39,14 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <?php 
                 usort($statistics, function($a, $b){return $b["views"] - $a["views"];});
                 foreach ($statistics as $route) {
+                    if($route['referer'] != []){
+                    
+                        $referer = json_decode($route['referer']);
+                        usort($referer, function($a,$b){
+                            //sort referer by descendant orders
+                            return explode(" ", $b)[1] - explode(" ", $b)[1];
+                        });
+                    }
 
                 <div class="page_stats">
                     <h1>
