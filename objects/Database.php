@@ -201,7 +201,7 @@ class Database{
         $ip = $_SERVER['REMOTE_ADDR'];
 
 
-    /**    Get the page statistics    **/
+        /**    Get the page statistics    **/
         $query = "SELECT * FROM statistics WHERE page = :page";
 
         //Prepare the query
@@ -212,12 +212,12 @@ class Database{
         //Execute the query, also check if query was successful
         $stmt->execute(['page' => $page]);
 
-    //Initialise tmp
+        //Initialise tmp
         $views = 0;
         $ips = [];
         $referers = [];
 
-// If the page already has an entry
+        // If the page already has an entry
 
         if($stmt->rowCount() > 0){
 
@@ -270,7 +270,7 @@ class Database{
             }
             $stmt = $this->conn->prepare($query);
 
-//if the page hasn't already an dentry
+        //if the page hasn't already an dentry
         }else{
 
         //Initialise field to database format
@@ -303,7 +303,7 @@ class Database{
         }
 
     }
-
+    
 
 }
 ?>
