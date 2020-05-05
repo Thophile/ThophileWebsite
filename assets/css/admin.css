@@ -44,6 +44,49 @@ div[data-type="content"]{
 }
 
 
+/**    Statistics    **/
+#statistics div.col {
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+#statistics .page_stats{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: stretch;
+    margin: 15px;
+    padding: 10px;
+    box-shadow: 0 0 5px 0 var(--accent);
+    border-radius: 3px;
+}
+#statistics h1{
+    font-size: 1.3rem;
+    padding: 10px;
+    margin: 10px 20px;
+    border: 2px solid var(--accent);
+    border-style: none none none solid;
+}
+.page_stats samp{
+    font-size: 1.2rem;
+    font-weight: 1.2rem;
+    color: var(--accent);
+}
+.subtitle{
+    margin: 5px 30px;
+}
+.page_stats div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+@media only screen and (min-width:600px){
+    .page_stats div{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
 
 /**    Projects menu    **/
 #menu{
