@@ -48,6 +48,12 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                         });
                     }
 
+                    if($route['ip_adress'] != []){
+                        $ip_adress = json_decode($route['ip_adress']);
+                        usort($ip_adress, function($a,$b){
+                            //sort referer by descendant orders
+                            return explode(" ", $b)[1] - explode(" ", $b)[1];
+                        }); 
                 <div class="page_stats">
                     <h1>
                         Route : 
