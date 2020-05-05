@@ -142,7 +142,6 @@ class Database{
             'article' => json_encode($project['article'])
             ]);
     }
-
     public function deleteProject($id){
         $query = "DELETE FROM projects WHERE id = :id";
 
@@ -159,6 +158,126 @@ class Database{
             include($_SERVER['DOCUMENT_ROOT'].'/errors/400.html'); 
             die();
         }
+    }
+
+//Update Site statistics
+    public function hit($page){
+
+    //Get values from server
+        //Add the id to "page" if it's a project page
+        if($page === "/project") $page .= " ".$_GET['id'];
+        //Referer checks
+        if(isset($_SERVER['HTTP_REFERER']) 
+        && (strtolower(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST)) != strtolower($_SERVER['HTTP_HOST']))
+        && parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST) != "127.0.0.1"
+        ){
+            $referer = $_SERVER['HTTP_REFERER'];
+        }else $referer = "";
+
+        $ip = $_SERVER['REMOTE_ADDR'];
+
+
+    /**    Get the page statistics    **/
+        $query = "SELECT * FROM statistics WHERE page = :page";
+
+        //Prepare the query
+        if($this->conn == null){
+            $this->connect();
+        }
+        $stmt = $this->conn->prepare($query);
+        //Execute the query, also check if query was successful
+        $stmt->execute(['page' => $page]);
+
+    //Initialise tmp
+        $views = 0;
+        $ips = [];
+        $referers = [];
+
+// If the page already has an entry
+
+        if($stmt->rowCount() > 0){
+
+            //Get old data
+            $data = $stmt->fetch();
+            $ips = json_decode($data['ip_adress'], true);
+            $views = $data['views'];
+            $referers = json_decode($data['referer'], true);
+
+            //Search for ip in ips
+            $patern = '/'.$ip.' [0-9]+/';
+            $ip_key = array_keys(preg_grep($patern, $ips));
+            //Increment ip num
+            if (sizeof($ip_key) == 1){
+                $ip_tmp = explode(" ", $ips[$ip_key[0]]);
+                $ip_tmp[1]++;
+                $ips[$ip_key[0]] = implode(" ", $ip_tmp);
+            }
+            //Add ip to tab if no match
+            else{
+                $ips[] = $ip.' 1';
+            }
+
+            //Increment views
+            $views++ ;
+
+            //If a referer is set
+            if($referer != ""){
+                //Search for referer in referers
+                $patern = "{".$referer." [0-9]+}";
+                $referer_key = array_keys(preg_grep($patern, $referers));
+                //Increment referer num
+                if (sizeof($referer_key) == 1){
+                    $referer_tmp = explode(" ", $referers[$referer_key[0]]);
+                    $referer_tmp[1]++;
+                    $referers[$referer_key[0]] = implode(" ", $referer_tmp);
+                }
+                //Add referer to tab if no match
+                else{
+                    $referers[] = $referer.' 1';
+                }
+            }
+            
+        //Update datas
+            $query = "UPDATE statistics SET ip_adress =:ip_adress, views =:views, referer =:referer WHERE page= :page";
+ 
+            //Prepare the query
+            if($this->conn == null){
+                $this->connect();
+            }
+            $stmt = $this->conn->prepare($query);
+
+//if the page hasn't already an dentry
+        }else{
+
+        //Initialise field to database format
+            $ips[] = $ip.' 1';
+            $views = '1';
+            if($referer != "") $referers[] = $referer.' 1';
+           
+
+        //Create page in statistics database
+
+            $query = "INSERT INTO statistics (page, ip_adress, views, referer) VALUES (:page, :ip_adress, :views, :referer)";
+            //Prepare the query
+            if($this->conn == null){
+                $this->connect();
+            }
+            $stmt = $this->conn->prepare($query);
+        }
+        //Execute the query, statement can be insert or update here, also check if query was successful
+        $stmt->execute([
+            'page' => $page,
+            'ip_adress' =>  json_encode($ips),
+            'views' => $views,
+            'referer' =>  json_encode($referers)
+            ]);
+        
+        if($stmt->rowCount() <= 0){
+            http_response_code(400);
+            include($_SERVER['DOCUMENT_ROOT'].'/errors/400.html'); 
+            die();
+        }
+
     }
 
 
