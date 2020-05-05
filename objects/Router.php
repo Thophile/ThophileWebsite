@@ -60,13 +60,17 @@ class Router
     $methodDictionary = $this->{strtolower($this->request->requestMethod)};
     $formatedRoute = $this->formatRoute($this->request->requestUri);
     $method = $methodDictionary[$formatedRoute];
+    
+    
 
     if(is_null($method))
     {
       $this->defaultRequestHandler();
       return;
     }
-
+    
+    //Hit the db with a route entry
+    $this->db->hit($formatedRoute);
     echo call_user_func_array($method, array($this->request, $this->db, $this->auth));
   }
 
