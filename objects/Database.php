@@ -187,6 +187,7 @@ class Database{
     }
     public function hit($page){
 
+        //Get values from server
         //Add the id to "page" if it's a project page
         if($page === "/project") $page .= " ".$_GET['id'];
         //Referer checks
