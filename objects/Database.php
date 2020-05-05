@@ -162,6 +162,29 @@ class Database{
     }
     
     
+    //Update Site statistics
+    public function getStatistics(){
+        $query = "SELECT * FROM statistics";
+ 
+        //Prepare the query
+        if($this->conn == null){
+            $this->connect();
+        }
+        $stmt = $this->conn->prepare($query);
+    
+        //Execute the query, also check if query was successful
+        $stmt->execute();
+        
+        if($stmt->rowCount() > 0){
+            //Get record
+            $statistics = $stmt->fetchAll();
+            return $statistics;
+        }else{
+            http_response_code(400);
+            include($_SERVER['DOCUMENT_ROOT'].'/errors/400.html'); 
+            die();
+        }
+    }
     public function hit($page){
 
     //Get values from server
