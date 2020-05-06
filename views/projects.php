@@ -30,10 +30,10 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 Here you can see my projects
             </h1>
              <form action="javascript:void(0)">
-                <button onclick="showAll()">All</button>
-                <button onclick="showDev()">Developpement</button>
-                <button onclick="showNet()">Network</button>
-                <button onclick="showOth()">Other</button>
+                <button onclick="showAll()" class="pills">All</button>
+                <button onclick="showDev()" class="pills">Developpement</button>
+                <button onclick="showNet()" class="pills">Network</button>
+                <button onclick="showOth()" class="pills">Other</button>
             </form>
         </section>
 
