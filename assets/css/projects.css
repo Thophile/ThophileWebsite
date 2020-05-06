@@ -27,11 +27,8 @@ main{
     color: var(--mainColor);
 }
 .header form{
-    padding: 10px;
     margin: 0 5vw;
-    background-color: var(--mainColor);
     border-radius: 3px;
-    box-shadow: 0 0 5px 0 #222;
     display: flex;
     flex-wrap: wrap;
 }

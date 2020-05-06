@@ -183,7 +183,11 @@ footer{
     border-radius: 20px!important;
     text-align: center;
 }
-
+.pills.inverted{
+    background-color: var(--accent);
+    color: var(--mainColor);
+    border:1px solid var(--mainColor)!important;
+}
 .pills:hover{
     background-color: var(--accent)!important;
     color: var(--mainColor)!important;
@@ -192,7 +196,11 @@ footer{
     .pills i{
         color: inherit !important;
     }
-
+.pills.inverted:hover{
+    background-color: var(--mainColor)!important;
+    color: var(--accent)!important;
+    transition: 0.4s;
+}
 
 
 /** States **/
