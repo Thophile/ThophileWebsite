@@ -40,7 +40,7 @@
     font-size: 1.5rem;
 }
 div[data-type="content"]{
-    min-height: calc(100vh - 100px - 118px - 44px);
+    min-height: calc(100vh - 150px - 118px - 44px);
 }
 
 
