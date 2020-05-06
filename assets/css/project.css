@@ -45,7 +45,7 @@
 .merry-go{
     display: flex;
     flex-direction: row;
-    height: 60vh;
+    height: 40vh;
     padding-bottom: 15vh;
     text-align: center;
     color: var(--mainColor) !important;
@@ -59,10 +59,19 @@ img.active{
     display: block;
     margin: 40px;
     width: calc(100% - 80px);
-    height: calc(60vh - 80px);
+    height: calc(40vh - 80px);
     object-fit: contain;
     z-index: 0;
 }
+@media only screen and (orientation : landscape){
+    .merry-go{
+        height: 60vh !important;
+    }
+    img.active{
+        height: calc(60vh - 80px) !important;
+    }
+}
+
 /**    Left part    **/
 .left{
     justify-self: flex-start;
