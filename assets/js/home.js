@@ -21,8 +21,6 @@ window.addEventListener('wheel', function(event)
         slideIndex++ 
     }
     pos = slideIndex * window.innerHeight;
-    console.log(pos);
-
     smoothScrollTo(pos, 500); //function under
 
 });
