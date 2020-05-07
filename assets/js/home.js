@@ -1,11 +1,7 @@
 var slideIndex = 0;
-var animOut;
-ready(function () {
-    
-    main = document.querySelector('main')
-    main.children[0].className = "active"
-    console.log(main.children[0])
+var pos;
 
+ready(function () {
 })
 
 window.addEventListener('wheel', function(event)
@@ -17,19 +13,19 @@ window.addEventListener('wheel', function(event)
     if (event.deltaY < 0 & slideIndex > 0)
     {
         //Scroll Up
-        main.children[slideIndex].className = ""
-        slideIndex --
-        main.children[slideIndex].className = "active"
+        slideIndex--
     }
     else if (event.deltaY > 0 & slideIndex < 2)
     {
         //Scroll Down
-        main.children[slideIndex].className = ""
-        slideIndex ++
-        main.children[slideIndex].className = "active"
+        slideIndex++ 
     }
+    pos = slideIndex * window.innerHeight;
+    console.log(pos);
+
+    smoothScrollTo(pos, 500); //function under
+
 });
 
-function changeSlide(){
 
 }
