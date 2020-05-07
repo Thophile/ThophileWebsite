@@ -3,47 +3,20 @@
 *@Project Thophile.com
 *@Page Home
 */
+
+
 main{
     overflow-x: hidden;
 }
 main section{
-    display: none;
-}
-
-main section.active{
     display: flex;
-    height: calc(100vh - 30px - 50px - 50px);
-    margin: 15px;
+    height: calc(100vh - 50px);
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    /** Animation **/
-    animation-name: inRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
 }
-@keyframes inRight {
-    from {transform:
-        scale(0.95);
-        opacity : 0.8;
-    }
-    to {transform:
-        scaleY(1);
-        opacity : 1;
-    }
-}
-#projects.active{
-    animation-name: inLeft;
-}
-@keyframes inLeft{
-    from {transform:
-        scale(0.95);
-        opacity : 0.8;
-    }
-    to {transform:
-        scaleY(1);
-        opacity : 1;
-    }
+#projects{
+    height: 100vh;
 }
 
 /** Pres section of home **/
