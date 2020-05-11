@@ -1,3 +1,14 @@
+/**
+ * Admin page script
+ * @Author Thophile
+ * @license MIT
+ */
+
+/**
+ * Ready event
+ * 
+ * @see main.js
+ */
 ready(function () {
     //Tabs button event
     document.querySelectorAll('#tabs button').forEach(element => {
@@ -48,7 +59,10 @@ ready(function () {
 
 })
 
-//Display tab content
+/**
+ * Display the tab corresponding to the button calling the event and hide the other
+ * @param {event} event 
+ */
 function displayTab(event){
     var source = event.target || event.srcElement
     //handle nested source
@@ -68,7 +82,11 @@ function displayTab(event){
     document.querySelector("#tabs_header h1").innerHTML = header;
 }
 
-//Ask user to confirm that he wants to delete a project
+
+/**
+ * Prevent default on delete link unless browser validation occurs
+ * @param {event} event 
+ */
 function validate(event) {
     var source = event.target || event.srcElement
     //handle nested source
@@ -81,7 +99,9 @@ function validate(event) {
 }
 
 
-//Turn form data into json
+/**
+ * Parse inputs value into a form array that will be sent to the server for creation/update
+ */
 function parseForm() {
     //retrieve dta
     var project = new Object()
@@ -172,7 +192,10 @@ function parseForm() {
     request.send(data);
 }
 
-//Images
+/**
+ * Display image file as a preview for the input
+ * @param {event} event 
+ */
 function previewImage(event) {
     //get the input that emitted the event
     var source = event.target || event.srcElement
@@ -198,6 +221,11 @@ function previewImage(event) {
     if (file) reader.readAsDataURL(file);
 
 }
+
+/**
+ * Remove an image
+ * @param {event} event 
+ */
 function imageRemove(event) {
     var source = event.target || event.srcElement
 
@@ -207,6 +235,11 @@ function imageRemove(event) {
     }
     source.parentElement.removeChild(source);
 }
+
+/**
+ * Add an image field
+ * @param {event} event 
+ */
 function imageAdd(event) {
     var source = event.target || event.srcElement
     while (source.tagName != "BUTTON") {
@@ -233,7 +266,10 @@ function imageAdd(event) {
 
 }
 
-//Link
+/**
+ * Remove a link
+ * @param {event} event 
+ */
 function linkRemove(event) {
     var source = event.target || event.srcElement
 
@@ -243,6 +279,11 @@ function linkRemove(event) {
     }
     source.parentElement.removeChild(source);
 }
+
+/**
+ * Add a link field
+ * @param {event} event 
+ */
 function linkAdd() {
     var source = event.target || event.srcElement
     while (source.tagName !== "BUTTON") {
@@ -268,7 +309,10 @@ function linkAdd() {
     source.parentElement.insertBefore(div, source)
 }
 
-//Articles
+/**
+ * Remove an article section
+ * @param {event} event 
+ */
 function sectionRemove(event) {
     var source = event.target || event.srcElement
     while (source.className !== "article_section col") {
@@ -276,6 +320,11 @@ function sectionRemove(event) {
     }
     source.parentElement.removeChild(source);
 }
+
+/**
+ * Add an article section
+ * @param {event} event 
+ */
 function sectionAdd() {
     var source = event.target || event.srcElement
     while (source.tagName !== "BUTTON") {
@@ -323,7 +372,10 @@ function sectionAdd() {
     source.parentElement.insertBefore(div, source)
 }
 
-
+/**
+ * Remove a section paragraph
+ * @param {event} event 
+ */
 function paragraphsRemove(event) {
     var source = event.target || event.srcElement
     while (source.className !== "article_section col") {
@@ -331,6 +383,11 @@ function paragraphsRemove(event) {
     }
     source.children[1].removeChild(source.children[1].lastElementChild)
 }
+
+/**
+ * Add a section paragraph
+ * @param {event} event 
+ */
 function paragraphsAdd(event) {
     var source = event.target || event.srcElement
     while (source.className !== "article_section col") {
@@ -339,6 +396,9 @@ function paragraphsAdd(event) {
     source.children[1].appendChild(document.createElement("TEXTAREA"))
 }
 
+/**
+ * Send selected file to server as a CV
+ */
 function uploadCV(){
     var data = new FormData()
     if (document.querySelector('#cvuploader input[type=file]').files.length !== 0) {
