@@ -42,11 +42,11 @@ class Router
   /**
    * Router object constructor
    * 
-   * @param IRequest $request the current request
+   * @param Request $request the current request
    * @param Database $db The server's database
    * @param Authenticator $auth The server's authenticator
    */
-  function __construct(IRequest $request, Database $db, Authenticator $auth)
+  function __construct(Request $request, Database $db, Authenticator $auth)
   {
    $this->request = $request;
    $this->db = $db;

@@ -3,7 +3,6 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     include_once $_SERVER['DOCUMENT_ROOT'].'/errors/403.html';
     die();
 }
-include_once 'IRequest.php';
 
 class Request implements IRequest
 {
