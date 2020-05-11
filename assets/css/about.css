@@ -31,11 +31,12 @@ article h2{
 }
 article p{
     margin: 10px 15px;
+    white-space: pre-line;
 }
 section{
     margin: 10px 0;
 }
-article a{
+#contacts a{
     width: unset !important;
     display: inline-block;
     margin-bottom: 20px!important;
@@ -46,7 +47,7 @@ article a{
         line-height: 1.8;
         margin: 4% 15px !important;
     }
-    article a{
+    #contacts a{
         margin: 1% 15px!important;
     }
 }
