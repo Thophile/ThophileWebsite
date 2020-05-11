@@ -1,9 +1,19 @@
+/**
+ * Home page script
+ * @Author Thophile
+ * @license MIT
+ */
+
+/**  @type {int} the current slide index */
 var slideIndex = 0;
+
+/** @type {int} the wanted Y offset to top */
 var pos;
 
-ready(function () {
-})
-
+/**
+ * Change the slide index according top mouse wheel event , then calculate pos and smoothScroll to it
+ * @param {event} event
+ */
 window.addEventListener('wheel', function(event)
 {
     //Block normal scrolling
@@ -25,7 +35,14 @@ window.addEventListener('wheel', function(event)
 
 });
 
+/**
+ * Scroll smoothly to a desired Y offset in a dertain duration
+ * 
+ * @param {int} endY wanted Y offset
+ * @param {int} duration time in ms the scroll should last
+ */
 window.smoothScrollTo = function(endY, duration) {
+    // Initialisation
     startY = window.scrollY || window.pageYOffset,
     distanceY = endY - startY,
     startTime = new Date().getTime();
@@ -36,6 +53,7 @@ window.smoothScrollTo = function(endY, duration) {
         return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
     };
 
+    // Asynchronous loop to scroll
     let timer = window.setInterval(function() {
         let time = new Date().getTime() - startTime,
         newY = easeInOutQuart(time, startY, distanceY, duration);
