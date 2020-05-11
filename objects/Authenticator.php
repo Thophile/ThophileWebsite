@@ -1,17 +1,33 @@
 <?php
+//Block access from file
 if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     include_once $_SERVER['DOCUMENT_ROOT'].'/errors/403.html';
     die();
 }
 
+/**
+ * The class that is responsible for authentication
+ * 
+ * @author Thophile
+ * @license MIT
+ */
 class Authenticator{
 
-    //validate the password with the env app_password
+    /**
+     * Validate the password against the app password
+     * 
+     * @param string $password the password to be validated
+     * @return bool 
+     */
     public function validatePassword($password){
         return password_verify($password,env('APP_PASSWORD'));
     }
 
-    //generate a token
+    /**
+     * Generate a JWT-like token to keep the user authenticated
+     * 
+     * @return string The generated token
+     */
     public function generateToken(){
         
         //set expiration time at t + 2hour and encode it to b64
@@ -27,7 +43,12 @@ class Authenticator{
         return $token = $b64header . "." . $b64exp . "." . $b64sign;
     }
 
-    //validate a token
+    /**
+     * Validate token authenticity and check for it's timeout
+     * 
+     * @param string $token the token to validate
+     * @return bool
+     */
     public function validateToken($token){
 
         //cut the token
@@ -44,10 +65,10 @@ class Authenticator{
             //if the token has not expired
             if(json_decode($exp)->expire > time()){
 
-                //create hash from user data
+                //create hash from user stored data
                 $hash = hash_hmac('sha256', $data[0] . '.' . $data[1], env('APP_KEY'), true);
     
-                //using non time attack vulnerable comparision to check if token is valid
+                //using time attack safe comparison to check if token is valid
                 return hash_equals($hash, $sign);
             }
         }
