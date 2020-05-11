@@ -1,9 +1,27 @@
+/**
+ * Project page script
+ * @Author Thophile
+ * @license MIT
+ */
+
+/** @type {Array <Element>} the images dom elements */ 
 var images
+
+/** @type {Element} the label dom element */
 var label
+
+/** @type {int} the */
 var index = 0
+
+/** @type {bool|null} the image that should trigger the modal when clicked on */
 var modalTrigger = null
+
+/** @type {Element} the modal element */
 var modal
 
+/** 
+ * @see main.js 
+ */
 ready(function () {
     modal = document.getElementById('modal')
     displayImage(0)
@@ -12,6 +30,10 @@ ready(function () {
     }
 })
 
+/**
+ * Display the index-th image in the images array
+ * @param {int} index 
+ */
 function displayImage(index) {
     images = document.querySelectorAll('.merry-go img[data-label]')
     label = document.querySelector('.middle label')
@@ -31,10 +53,18 @@ function displayImage(index) {
 
     label.innerHTML = images[index].getAttribute('data-label')
 }
+
+/**
+ * Display the next image, display first if current is last
+ */
 function nextImage() {
     index = (++index) % images.length
     displayImage(index)
 }
+
+/**
+ * Display the previous image, display last if current is first
+ */
 function previousImage() {
     index = (--index + images.length) % images.length
     displayImage(index)
