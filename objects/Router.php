@@ -76,7 +76,7 @@ class Router
    * Format the route to keep uri before the get parameters
    * 
    * @param string $route the route to be formatted
-   * @return $result the formatted route
+   * @return string the formatted route
    */
   private function formatRoute($route)
   {
@@ -103,6 +103,7 @@ class Router
 
   /**
    * Resolves a route
+   * @return void
    */
   function resolve()
   {
