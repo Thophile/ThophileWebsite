@@ -1,10 +1,18 @@
 <?php
+//Block access from file
 if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     include_once $_SERVER['DOCUMENT_ROOT'].'/errors/403.html';
     die();
 }
-// used to get mysql database connection
+
+/**
+ * The class that is responsible for database connection and that stores and handle allowed queries
+ * 
+ * @author Thophile
+ * @license MIT
+ */
 class Database{
+
     /**
      * @Reminder
      * 
@@ -24,10 +32,15 @@ class Database{
      * $row = $stmt->fetch(PDO::FETCH_ASSOC);
      */
 
-    //Connection to database
+    /**
+     * The connection to the database
+     * @var PDO|null 
+     */
     private $conn = null;
  
-    // Get the database connection
+    /**
+     * Get the database connection
+     */
     public function connect(){
 
         try{
@@ -40,7 +53,11 @@ class Database{
         }
     }
 
-    //Get projects from database
+    /**
+     * Get projects from database
+     * 
+     * @return void|array An array of all the projects in database
+     */
     public function getProjects(){
 
         $query = "SELECT * FROM projects";
@@ -52,9 +69,7 @@ class Database{
         $stmt = $this->conn->prepare($query);
     
         //Execute the query, also check if query was successful
-        $stmt->execute();
-        
-        if($stmt->rowCount() > 0){
+        if($stmt->execute()){
             //Get record
             $projects = $stmt->fetchAll();
             return $projects;
@@ -64,6 +79,13 @@ class Database{
             die();
         }
     }
+
+    /**
+     * Get a project by its id
+     * 
+     * @param int $id the id to look for
+     * @return void|array the project that matche the id as an associative array
+     */
     public function getProject($id){
         $query = "SELECT * FROM projects WHERE id= :id";
  
@@ -86,6 +108,13 @@ class Database{
             die();
         }
     }
+
+    /**
+     * Create a new project
+     * 
+     * @param array $project An array that will be saved in database
+     * @return void|int the newly created project id
+     */
     public function createProject($project){
 
         $query = "INSERT INTO projects (title, category, banner_image, images, links, article) VALUES (:title, :category, :banner_image, :images, :links, :article)";
@@ -123,6 +152,12 @@ class Database{
         $id = $stmt->fetch();
         return $id;
     }
+
+    /**
+     * Update an existing project
+     * 
+     * @param array $project An array that will be saved in database
+     */
     public function updateProject($project){
         $query = "UPDATE projects SET title =:title, category =:category, banner_image =:banner_image, images =:images, links =:links, article =:article WHERE id= :id";
  
@@ -143,6 +178,12 @@ class Database{
             'article' => json_encode($project['article'])
             ]);
     }
+
+    /**
+     * Delete a row in database
+     * 
+     * @param int $id the of of the projects that will be deleted
+     */
     public function deleteProject($id){
         $query = "DELETE FROM projects WHERE id = :id";
 
@@ -162,7 +203,11 @@ class Database{
     }
     
     
-    //Update Site statistics
+    /**
+     * Get the statistics entries in the database
+     * 
+     * @return array $statistics An array of all the statistics in database
+     */
     public function getStatistics(){
         $query = "SELECT * FROM statistics";
  
@@ -185,9 +230,16 @@ class Database{
             die();
         }
     }
+
+    /**
+     * Increment view count of a page
+     * 
+     * @param string $page The page that the view count should be incremented
+     */
     public function hit($page){
 
         //Get values from server
+
         //Add the id to "page" if it's a project page
         if($page === "/project") $page .= " ".$_GET['id'];
         //Referer checks
@@ -236,7 +288,7 @@ class Database{
                 $ip_tmp[1]++;
                 $ips[$ip_key[0]] = implode(" ", $ip_tmp);
             }
-            //Add ip to tab if no match
+            //Add ip to array if no match
             else{
                 $ips[] = $ip.' 1';
             }
@@ -255,7 +307,7 @@ class Database{
                     $referer_tmp[1]++;
                     $referers[$referer_key[0]] = implode(" ", $referer_tmp);
                 }
-                //Add referer to tab if no match
+                //Add referer to array if no match
                 else{
                     $referers[] = $referer.' 1';
                 }
@@ -270,7 +322,7 @@ class Database{
             }
             $stmt = $this->conn->prepare($query);
 
-        //if the page hasn't already an dentry
+        //if the page hasn't already an entry
         }else{
 
         //Initialise field to database format
@@ -288,6 +340,7 @@ class Database{
             }
             $stmt = $this->conn->prepare($query);
         }
+        
         //Execute the query, statement can be insert or update here, also check if query was successful
         $stmt->execute([
             'page' => $page,
