@@ -40,7 +40,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <?php foreach ($projects as $project) { ?>
 
         <section class="projects" data-category="<?= $project['category']?>" onclick="window.location='/project?id=<?= $project['id']?>'"
-            style="background-image: url(/uploadFolder/<?= rawurlencode($project['banner_image'])?>);">
+            style="background-image: url(/publicFolder/<?= rawurlencode($project['banner_image'])?>);">
 
             <h1>
                 <?= $project['title']?>

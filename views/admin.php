@@ -135,7 +135,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                         ?>
 
                         <div class="image_preview">
-                            <img src="/uploadFolder/<?= $image->filename?>" style="display: block;">
+                            <img src="/publicFolder/<?= $image->filename?>" style="display: block;">
                             <i class="fas fa-6x fa-upload" style="display: none;"></i>
                             <input class="image_file" type="file">
                             <input type="text" placeholder="Label" value="<?= $image->label?>">

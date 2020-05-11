@@ -48,7 +48,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             <?php
             foreach (json_decode($project['images']) as $image) { 
             ?>
-            <img src="/uploadFolder/<?= $image->filename ?>" alt="<?=$image->label?>"
+            <img src="/publicFolder/<?= $image->filename ?>" alt="<?=$image->label?>"
                 data-label="<?=$image->label?>">
             <?php 
             } 

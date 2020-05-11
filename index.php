@@ -30,8 +30,8 @@ $router->get('/', function() {
 
 //About page
 $router->get('/about', function($request) {
-  $lastModified = date ("d F Y H:i:s.", filemtime("uploadFolder/" . env("CV_FILENAME")));
-  $timezone = date ("P", filemtime("uploadFolder/" . env("CV_FILENAME")));
+  $lastModified = date ("d F Y H:i:s.", filemtime("publicFolder/" . env("CV_FILENAME")));
+  $timezone = date ("P", filemtime("publicFolder/" . env("CV_FILENAME")));
   
   $title = 'Thophile\'s Website | About';
   include_once 'views/about.php';
@@ -42,7 +42,7 @@ $router->get('/dl_cv', function($request) {
 
   //Get variable from env
   $fileName = env('CV_FILENAME');
-  $file = "uploadFolder/" . $fileName;
+  $file = "publicFolder/" . $fileName;
   
   if(file_exists($file)){
 
@@ -85,7 +85,7 @@ $router->post('/ul_cv', function($request,$db, $auth) {
       $tmpFilePath = $_FILES['file']['tmp_name'][0];
       if ($tmpFilePath != ""){
         //Upload the file from the tmp dir
-        move_uploaded_file($tmpFilePath, "./uploadFolder/" .env('CV_FILENAME'));
+        move_uploaded_file($tmpFilePath, "./publicFolder/" .env('CV_FILENAME'));
       }
     }
   }else{
@@ -125,8 +125,8 @@ $router->get("/admin", function($request, $db, $auth){
     
     $title = "Thophile's Website | Admin";
     $fileName = env("CV_FILENAME");
-    $lastModified = date ("d F Y H:i:s.", filemtime("uploadFolder/" . $fileName));
-    $timezone = date ("P", filemtime("uploadFolder/" . $fileName));
+    $lastModified = date ("d F Y H:i:s.", filemtime("publicFolder/" . $fileName));
+    $timezone = date ("P", filemtime("publicFolder/" . $fileName));
 
     //Getting all statistics
     $statistics = $db->getStatistics();
@@ -191,7 +191,7 @@ $router->post('/upload', function($request, $db, $auth) {
         if ($tmpFilePath != ""){
 
           //Upload the file from the tmp dir
-          move_uploaded_file($tmpFilePath, "./uploadFolder/" . $_FILES['file']['name'][$i]);
+          move_uploaded_file($tmpFilePath, "./publicFolder/" . $_FILES['file']['name'][$i]);
         }
       }
     }
