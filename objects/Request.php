@@ -1,17 +1,30 @@
 <?php
+//Block access from file
 if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     include_once $_SERVER['DOCUMENT_ROOT'].'/errors/403.html';
     die();
 }
 
-class Request implements IRequest
+/**
+ * The class that represent the request
+ * 
+ * @author Thophile
+ * @license MIT
+ */
+class Request
 {
+  /**
+   * Request object constructor
+   */
   function __construct()
   {
     $this->bootstrapSelf();
   }
 
-  //set all keys in the SERVER global array as properties of the request class and assigns their value as well
+  
+  /**
+   * Set _SERVER row as properties of this object
+   */
   private function bootstrapSelf()
   {
     foreach($_SERVER as $key => $value)
@@ -20,7 +33,11 @@ class Request implements IRequest
     }
   }
 
-  //basic string manipulation
+  /**
+   * change a string to be camel case
+   * @param string $string The string to be formatted
+   * @return string The formatted string
+   */
   private function toCamelCase($string)
   {
     $result = strtolower($string);
@@ -36,7 +53,10 @@ class Request implements IRequest
     return $result;
   }
 
-  //return the body of the request if it's a post
+  /**
+   * Get the request body and sanitize it before returning
+   * @return array|void The sanitized request body
+   */
   public function getBody()
   {
     if($this->requestMethod === "GET")
