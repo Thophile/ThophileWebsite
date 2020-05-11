@@ -1,6 +1,21 @@
+/**
+ * Navbars script
+ * @Author Thophile
+ * @license MIT
+ */
+
+/** @type {bool} sidenav state indicator */
 var sidenav = false;
+
+/** @type {int} current scroll value */
 var currscroll;
+
+/** @type {int} older scroll value */
 var pastscroll = 0;
+
+/**
+ * Toggle the side navbar status
+ */
 function toggleNav() {
     if (sidenav) {
         document.getElementById('side-nav').style.left = "-250px"
@@ -12,6 +27,9 @@ function toggleNav() {
     }
 }
 
+/**
+ * Hide the top navbar when scrolling down unless the sidenav is active
+ */
 function hideNav() {
     currscroll = window.scrollY;
     if ((currscroll > pastscroll) & !sidenav) {
@@ -24,7 +42,11 @@ function hideNav() {
     pastscroll = currscroll;
 }
 
-
+/**
+ * Ready event
+ * 
+ * @see main.js
+ */
 ready(function () {
     window.onscroll = function () {
         hideNav()
