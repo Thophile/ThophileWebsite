@@ -37,7 +37,12 @@ class Database{
      * @var PDO|null 
      */
     private $conn = null;
- 
+    
+    /** @var string $project_table the project table name */
+    private $project_table;
+
+    /** @var string $stat_table the stat table name*/
+    private $stat_table;
     /**
      * Get the database connection
      */
@@ -45,6 +50,8 @@ class Database{
 
         try{
             $this->conn = new PDO("mysql:host=" . env("DB_HOST") . ";port=" . env("DB_PORT") . ";dbname=" . env("DB_NAME"), env("DB_USERNAME"), env("DB_PASSWORD"));
+            $this->project_table = env('DB_PROJECT_TABLE');
+            $this->stat_table = env('DB_STAT_TABLE');
         }catch(PDOException $exception){
             echo $exception->getMessage();
             http_response_code(500);
@@ -60,7 +67,7 @@ class Database{
      */
     public function getProjects(){
 
-        $query = "SELECT * FROM projects";
+        $query = "SELECT * FROM ".$this->project_table;
  
         //Prepare the query
         if($this->conn == null){
@@ -87,7 +94,7 @@ class Database{
      * @return void|array the project that matche the id as an associative array
      */
     public function getProject($id){
-        $query = "SELECT * FROM projects WHERE id= :id";
+        $query = "SELECT * FROM ".$this->project_table." WHERE id= :id";
  
         //Prepare the query
         if($this->conn == null){
@@ -117,7 +124,7 @@ class Database{
      */
     public function createProject($project){
 
-        $query = "INSERT INTO projects (title, category, banner_image, images, links, article) VALUES (:title, :category, :banner_image, :images, :links, :article)";
+        $query = "INSERT INTO ".$this->project_table." (title, category, banner_image, images, links, article) VALUES (:title, :category, :banner_image, :images, :links, :article)";
 
         //Prepare the query
         if($this->conn == null){
@@ -142,7 +149,7 @@ class Database{
         }
 
         //Return newly created project's id
-        $query = "SELECT id FROM projects ORDER BY id DESC LIMIT 1";
+        $query = "SELECT id FROM ".$this->project_table." ORDER BY id DESC LIMIT 1";
 
         if($this->conn == null){
             $this->connect();
@@ -159,7 +166,7 @@ class Database{
      * @param array $project An array that will be saved in database
      */
     public function updateProject($project){
-        $query = "UPDATE projects SET title =:title, category =:category, banner_image =:banner_image, images =:images, links =:links, article =:article WHERE id= :id";
+        $query = "UPDATE ".$this->project_table." SET title =:title, category =:category, banner_image =:banner_image, images =:images, links =:links, article =:article WHERE id= :id";
  
         //Prepare the query
         if($this->conn == null){
@@ -185,7 +192,7 @@ class Database{
      * @param int $id the of of the projects that will be deleted
      */
     public function deleteProject($id){
-        $query = "DELETE FROM projects WHERE id = :id";
+        $query = "DELETE FROM ".$this->project_table." WHERE id = :id";
 
         //Prepare the query
         if($this->conn == null){
@@ -209,7 +216,7 @@ class Database{
      * @return array $statistics An array of all the statistics in database
      */
     public function getStatistics(){
-        $query = "SELECT * FROM statistics";
+        $query = "SELECT * FROM ".$this->stat_table;
  
         //Prepare the query
         if($this->conn == null){
@@ -254,7 +261,7 @@ class Database{
 
 
         /**    Get the page statistics    **/
-        $query = "SELECT * FROM statistics WHERE page = :page";
+        $query = "SELECT * FROM ".$this->stat_table." WHERE page = :page";
 
         //Prepare the query
         if($this->conn == null){
@@ -314,7 +321,7 @@ class Database{
             }
             
         //Update datas
-            $query = "UPDATE statistics SET ip_adress =:ip_adress, views =:views, referer =:referer WHERE page= :page";
+            $query = "UPDATE ".$this->stat_table." SET ip_adress =:ip_adress, views =:views, referer =:referer WHERE page= :page";
  
             //Prepare the query
             if($this->conn == null){
@@ -333,7 +340,7 @@ class Database{
 
         //Create page in statistics database
 
-            $query = "INSERT INTO statistics (page, ip_adress, views, referer) VALUES (:page, :ip_adress, :views, :referer)";
+            $query = "INSERT INTO ".$this->stat_table." (page, ip_adress, views, referer) VALUES (:page, :ip_adress, :views, :referer)";
             //Prepare the query
             if($this->conn == null){
                 $this->connect();
