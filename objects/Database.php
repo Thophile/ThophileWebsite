@@ -67,12 +67,12 @@ class Database{
      */
     public function getProjects(){
 
-        $query = "SELECT * FROM ".$this->project_table;
- 
+        
         //Prepare the query
         if($this->conn == null){
             $this->connect();
         }
+        $query = "SELECT * FROM ".$this->project_table;
         $stmt = $this->conn->prepare($query);
     
         //Execute the query, also check if query was successful
@@ -94,12 +94,12 @@ class Database{
      * @return void|array the project that matche the id as an associative array
      */
     public function getProject($id){
-        $query = "SELECT * FROM ".$this->project_table." WHERE id= :id";
- 
+        
         //Prepare the query
         if($this->conn == null){
             $this->connect();
         }
+        $query = "SELECT * FROM ".$this->project_table." WHERE id= :id";
         $stmt = $this->conn->prepare($query);
     
         //Execute the query, also check if query was successful
@@ -124,12 +124,12 @@ class Database{
      */
     public function createProject($project){
 
-        $query = "INSERT INTO ".$this->project_table." (title, category, banner_image, images, links, article) VALUES (:title, :category, :banner_image, :images, :links, :article)";
-
+        
         //Prepare the query
         if($this->conn == null){
             $this->connect();
         }
+        $query = "INSERT INTO ".$this->project_table." (title, category, banner_image, images, links, article) VALUES (:title, :category, :banner_image, :images, :links, :article)";
         $stmt = $this->conn->prepare($query);
         
         //Execute the query, also check if query was successful
@@ -149,11 +149,11 @@ class Database{
         }
 
         //Return newly created project's id
-        $query = "SELECT id FROM ".$this->project_table." ORDER BY id DESC LIMIT 1";
-
+        
         if($this->conn == null){
             $this->connect();
         }
+        $query = "SELECT id FROM ".$this->project_table." ORDER BY id DESC LIMIT 1";
         $stmt = $this->conn->query($query);
 
         $id = $stmt->fetch();
@@ -166,12 +166,11 @@ class Database{
      * @param array $project An array that will be saved in database
      */
     public function updateProject($project){
-        $query = "UPDATE ".$this->project_table." SET title =:title, category =:category, banner_image =:banner_image, images =:images, links =:links, article =:article WHERE id= :id";
- 
         //Prepare the query
         if($this->conn == null){
             $this->connect();
         }
+        $query = "UPDATE ".$this->project_table." SET title =:title, category =:category, banner_image =:banner_image, images =:images, links =:links, article =:article WHERE id= :id";
         $stmt = $this->conn->prepare($query);
     
         //Execute the query, also check if query was successful
@@ -192,12 +191,12 @@ class Database{
      * @param int $id the of of the projects that will be deleted
      */
     public function deleteProject($id){
-        $query = "DELETE FROM ".$this->project_table." WHERE id = :id";
-
+        
         //Prepare the query
         if($this->conn == null){
             $this->connect();
         }
+        $query = "DELETE FROM ".$this->project_table." WHERE id = :id";
         $stmt = $this->conn->prepare($query);
 
         $stmt->execute(['id' => $id]);
@@ -216,12 +215,12 @@ class Database{
      * @return array $statistics An array of all the statistics in database
      */
     public function getStatistics(){
-        $query = "SELECT * FROM ".$this->stat_table;
- 
+        
         //Prepare the query
         if($this->conn == null){
             $this->connect();
         }
+        $query = "SELECT * FROM ".$this->stat_table;
         $stmt = $this->conn->prepare($query);
     
         //Execute the query, also check if query was successful
@@ -244,9 +243,7 @@ class Database{
      * @param string $page The page that the view count should be incremented
      */
     public function hit($page){
-
         //Get values from server
-
         //Add the id to "page" if it's a project page
         if($page === "/project") $page .= " ".$_GET['id'];
         //Referer checks
@@ -261,12 +258,11 @@ class Database{
 
 
         /**    Get the page statistics    **/
-        $query = "SELECT * FROM ".$this->stat_table." WHERE page = :page";
-
         //Prepare the query
         if($this->conn == null){
             $this->connect();
         }
+        $query = "SELECT * FROM " . $this->stat_table . " WHERE page = :page";
         $stmt = $this->conn->prepare($query);
         //Execute the query, also check if query was successful
         $stmt->execute(['page' => $page]);
@@ -321,12 +317,12 @@ class Database{
             }
             
         //Update datas
-            $query = "UPDATE ".$this->stat_table." SET ip_adress =:ip_adress, views =:views, referer =:referer WHERE page= :page";
- 
+        
             //Prepare the query
             if($this->conn == null){
                 $this->connect();
             }
+            $query = "UPDATE ".$this->stat_table." SET ip_adress =:ip_adress, views =:views, referer =:referer WHERE page= :page";
             $stmt = $this->conn->prepare($query);
 
         //if the page hasn't already an entry
@@ -340,11 +336,11 @@ class Database{
 
         //Create page in statistics database
 
-            $query = "INSERT INTO ".$this->stat_table." (page, ip_adress, views, referer) VALUES (:page, :ip_adress, :views, :referer)";
             //Prepare the query
             if($this->conn == null){
                 $this->connect();
             }
+            $query = "INSERT INTO ".$this->stat_table." (page, ip_adress, views, referer) VALUES (:page, :ip_adress, :views, :referer)";
             $stmt = $this->conn->prepare($query);
         }
         
