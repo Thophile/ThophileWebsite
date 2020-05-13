@@ -22,7 +22,7 @@ $router->get('/index.php', function() {
 //Home
 $router->get('/', function($request) {
 
-    $title = 'Thophile\'s Website';
+    $title = 'Thophile Labs';
     include_once 'views/home.php';
 });
 
@@ -34,7 +34,7 @@ $router->get('/about', function($request) {
     $timezone = date ("P", filemtime("publicFolder/" . env("CV_FILENAME")));
   }
   
-  $title = 'Thophile\'s Website | About';
+  $title = 'Thophile Labs | About';
   include_once 'views/about.php';
 });
 
@@ -103,7 +103,7 @@ $router->post('/ul_cv', function($request,$db, $auth) {
 //All projects
 $router->get('/projects', function($request, $db) {
 
-  $title = 'Thophile\'s Website | Projects';
+  $title = 'Thophile Labs | Projects';
   $projects = $db->getProjects();
   include_once 'views/projects.php';
 });
@@ -112,7 +112,7 @@ $router->get('/projects', function($request, $db) {
 $router->get("/project", function($request, $db){
 
   $project = $db->getProject(isset($_GET['id']) ? $_GET['id'] : "");
-  $title = "Thophile's Website | {$project['title']}";
+  $title = "Thophile Labs | {$project['title']}";
   include_once 'views/project.php';
 });
 
@@ -124,7 +124,7 @@ $router->get("/admin", function($request, $db, $auth){
   //Check for authorization
   if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
     
-    $title = "Thophile's Website | Admin";
+    $title = "Thophile Labs | Admin";
     $fileName = env("CV_FILENAME");
     
     if(file_exists("publicFolder/" . env("CV_FILENAME"))){
@@ -153,7 +153,7 @@ $router->get("/admin", function($request, $db, $auth){
 
 //Log in
 $router->get("/login", function($request){
-  $title = "Thophile's Website | Login";
+  $title = "Thophile Labs | Login";
   include_once 'views/login.php';
 });
 
@@ -171,7 +171,7 @@ $router->post('/login', function($request, $db, $auth) {
 
   }else{
 
-    $title = "Thophile's Website | Login";
+    $title = "Thophile Labs | Login";
     $error="Wrong Password";
     include_once 'views/login.php';
   }
