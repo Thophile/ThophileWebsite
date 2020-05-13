@@ -38,7 +38,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         </section>
 
         <?php if(empty($projects)){ ?>
-            <section class="projects" >
+            <section class="projects empty" >
             <h1>
                 No available project
             </h1>
