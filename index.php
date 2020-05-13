@@ -92,7 +92,7 @@ $router->post('/ul_cv', function($request,$db, $auth) {
   }else{
     //Error forbidden
     http_response_code(403);
-    header("Location: http://{$request->httpHost}/admin");
+    header("Location: https://{$request->httpHost}/admin");
   }
   die();
 });
@@ -143,7 +143,7 @@ $router->get("/admin", function($request, $db, $auth){
     include_once 'views/admin.php';
 
   }else{
-    header("Location: http://{$request->httpHost}/login");
+    header("Location: https://{$request->httpHost}/login");
     die();
   }
 });
@@ -164,7 +164,7 @@ $router->post('/login', function($request, $db, $auth) {
     setcookie('token', $auth->generateToken(), 0);
 
     //Redirect
-    header("Location: http://{$request->httpHost}/admin");
+    header("Location: https://{$request->httpHost}/admin");
     die();
 
   }else{
@@ -210,7 +210,7 @@ $router->post('/upload', function($request, $db, $auth) {
 
   }else{
     http_response_code(403);
-    header("Location: http://{$request->httpHost}/admin");
+    header("Location: https://{$request->httpHost}/admin");
   }
   die();
 });
@@ -229,7 +229,7 @@ $router->get('/delete', function($request, $db, $auth) {
     http_response_code(403);
   }
   //Redirect
-  header("Location: http://{$request->httpHost}/admin");
+  header("Location: https://{$request->httpHost}/admin");
   die();
   });
 
