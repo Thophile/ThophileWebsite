@@ -4,16 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta author="Thophile">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/all.css">
-    <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/navbar.js"></script>
     <title>Error 400</title>
+    <style>
+        main{
+            height: 100vh;
+            color: #3c424e;
+            font-size: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #dee1e9;
+        }
+        a{
+            background-color: #dee1e9;
+            font-size: 1.4rem;
+            margin: 30px;
+            padding: 6px;
+            border: 1px solid #3c424e;
+            border-radius: 200px;
+        }
+        a:hover{
+            background-color: var(--accent)!important;
+            color: var(--mainColor)!important;
+            transition: 0.4s;
+        }
+    </style>
 </head>
 <body>
-    <main style="height: 100vh;color: #3c424e;font-size: 3rem;display: flex;flex-direction: column;justify-content: center;text-align: center;background-color: #dee1e9;">
+    <main>
         Error 400: Wrong Request <br>
-        <a href="/" style="font-size: 1.2rem;margin: 30px;padding: 3px; border: solid;border-color: #3c424e; border-radius: 2px;">Go back to index ?</a>
+        <a href="/">Go back to index ?</a>
     </main>
 </body>
 </html>
