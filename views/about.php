@@ -49,7 +49,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
             <section id="contacts">
                 <h2>Contact</h2>
-                <a href="mailto:" class="btn pills"> <i class="fas fa-envelope"></i> My mail</a>
+                <a href="mailto:contact@thophilelabs.com" class="btn pills"> <i class="fas fa-envelope"></i> My mail</a>
                 <a href="https://www.linkedin.com/in/th%C3%A9ophile-mont%C3%A9mont-24067a192/" class="btn pills"> <i class="fab fa-linkedin"></i> My LinkedIn</a>
                 <a href="https://twitter.com/TheophileMNT" class="btn pills"> <i class="fab fa-twitter-square"></i> My twitter</a>
             </section>
