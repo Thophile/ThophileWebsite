@@ -126,9 +126,11 @@ $router->get("/admin", function($request, $db, $auth){
     
     $title = "Thophile's Website | Admin";
     $fileName = env("CV_FILENAME");
-    $lastModified = date ("d F Y H:i:s.", filemtime("publicFolder/" . $fileName));
-    $timezone = date ("P", filemtime("publicFolder/" . $fileName));
-
+    
+    if(file_exists("publicFolder/" . env("CV_FILENAME"))){
+      $lastModified = date ("d F Y H:i:s.", filemtime("publicFolder/" . $fileName));
+      $timezone = date ("P", filemtime("publicFolder/" . $fileName));
+    }
     //Getting all statistics
     $statistics = $db->getStatistics();
 

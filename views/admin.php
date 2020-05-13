@@ -237,9 +237,13 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <div id="cvuploader" data-type="content" >
             <div class="col">
                 <h2>
-                    Please choose the CV in your files
+                    Please choose a resume in your files
                 </h2>
-                <span>Last uploaded at : <?= $lastModified ?> (Timezone : GMT <?= $timezone ?>) </span>
+                <?php if(isset($lastModified) & isset($timezone)){ ?>
+                    <span>Last uploaded at : <?= $lastModified ?> (Timezone : GMT <?= $timezone ?>) </span>
+                <?php }else{ ?>
+                    <span>No resume uploaded</span>
+                <?php } ?>
                 <i class="fas fa-6x fa-upload"></i>
                 <input type="file" name="cv">
                 <button class="pills">Upload</button>
