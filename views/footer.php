@@ -6,10 +6,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 ?>
 <div class="row">
     <div class="meta">
-        Copyright
-    </div>
-    <div class="meta">
-        Terms
+    All right reserved
     </div>
     <div class="meta">
         <a href="/admin">
