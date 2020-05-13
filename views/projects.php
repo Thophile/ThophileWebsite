@@ -37,6 +37,13 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             </form>
         </section>
 
+        <?php if(empty($projects)){ ?>
+            <section class="projects" >
+            <h1>
+                No available project
+            </h1>
+            </section>
+        <?php } ?>
         <?php foreach ($projects as $project) { ?>
 
         <section class="projects" data-category="<?= $project['category']?>" onclick="window.location='/project?id=<?= $project['id']?>'"
