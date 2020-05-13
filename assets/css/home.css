@@ -18,6 +18,9 @@ main section{
 #projects{
     height: 100vh;
 }
+#projects a.pills.inverted{
+    background-color: var(--accentLight);
+}
 
 /** Pres section of home **/
 #pres{

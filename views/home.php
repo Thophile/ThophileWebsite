@@ -34,7 +34,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <h2>
                     IT Student | Eclectic hobbyist .
                 </h2>
-                <a href="/about" class="btn">
+                <a href="/about" class="pills inverted">
                     Learn more
                 </a>
             </div>
@@ -50,7 +50,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <h1>
                     I have a a wide range of interests and I love to share my projects.
                 </h1>
-                <a href="/projects" class="btn">
+                <a href="/projects" class="pills inverted">
                     Check my projects
                 </a>
             </div>
