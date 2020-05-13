@@ -90,6 +90,7 @@ class Router
    */
   private function invalidMethodHandler()
   {
+    header("Location: http://{$this->request->httpHost}/errors/405.html");
     header("{$this->request->serverProtocol} 405 Method Not Allowed");
   }
 
@@ -98,6 +99,7 @@ class Router
    */
   private function defaultRequestHandler()
   {
+    header("Location: http://{$this->request->httpHost}/errors/404.html");
     header("{$this->request->serverProtocol} 404 Not Found");
   }
 
