@@ -1,5 +1,4 @@
 <?php
-ini_set('display_errors',1);
 //This file recieve request and send back the good page
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Request.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Router.php';
