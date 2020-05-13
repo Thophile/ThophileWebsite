@@ -46,8 +46,9 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <?php } ?>
         <?php foreach ($projects as $project) { ?>
 
-        <section class="projects" data-category="<?= $project['category']?>" onclick="window.location='/project?id=<?= $project['id']?>'"
+        <section class="projects" data-category="<?= $project['category']?>"
         <?php if($project['banner_image'] != ""){?>style="background-image: url(/publicFolder/<?= rawurlencode($project['banner_image'])?>);" <?php } ?>>
+            <a href="/project?id=<?= $project['id']?>" aria-label="Link to project <?= $project['id']?>"></a>
 
             <h1>
                 <?= $project['title']?>
@@ -56,7 +57,6 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 Category <br>
                 "<?= $project['category']?>"
             </h2>
-
         </section>
 
         <?php } ?>

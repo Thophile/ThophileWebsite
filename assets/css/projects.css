@@ -60,6 +60,17 @@ main{
     box-shadow: inset 0 0 0 999em #7a8189b9, 0 0 5px 0 var(--accent);
     text-shadow: 1px 1px 20px var(--accent), -1px -1px 20px var(--accent);
 }
+.projects a{
+    position: absolute;
+    overflow: hidden;
+        width: calc(100% - 60px);
+        height: 60vh;
+        text-decoration: none; /* No underlines on the link */
+        z-index: 10; /* Places the link above everything else in the div */
+        background-color: #FFF; /* Fix to make div clickable in IE */
+        opacity: 0; /* Fix to make div clickable in IE */
+        filter: alpha(opacity=1); /* Fix to make div clickable in IE */
+}
 .projects h1{
     margin: 30px 30px;
     font-size: 2rem;
