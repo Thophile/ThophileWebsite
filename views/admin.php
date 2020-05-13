@@ -50,7 +50,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                         $referer = json_decode($route['referer']);
                         usort($referer, function($a,$b){
                             //sort referer by descendant orders
-                            return explode(" ", $b)[1] - explode(" ", $b)[1];
+                            return explode(" ", $b)[1] - explode(" ", $a)[1];
                         });
                     }
 
@@ -58,8 +58,8 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                         $ip_adress = json_decode($route['ip_adress']);
                         usort($ip_adress, function($a,$b){
                             //sort referer by descendant orders
-                            return explode(" ", $b)[1] - explode(" ", $b)[1];
-                        }); 
+                            return explode(" ", $b)[1] - explode(" ", $a)[1];
+                        });
 
                     }?>
 
