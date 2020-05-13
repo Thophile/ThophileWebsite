@@ -9,7 +9,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     All right reserved
     </div>
     <div class="meta">
-        <a href="/admin">
+        <a href="/admin" title="Administrate Website">
             <i class="fas fa-cog"></i>
         </a>
     </div>

@@ -35,7 +35,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                     IT Student | Eclectic hobbyist .
                 </h2>
                 <a href="/about" class="pills inverted">
-                    Learn more
+                    More about me
                 </a>
             </div>
             <div class="col-30">
