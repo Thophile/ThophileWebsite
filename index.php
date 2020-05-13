@@ -30,8 +30,10 @@ $router->get('/', function($request) {
 
 //About page
 $router->get('/about', function($request) {
-  $lastModified = date ("d F Y H:i:s.", filemtime("publicFolder/" . env("CV_FILENAME")));
-  $timezone = date ("P", filemtime("publicFolder/" . env("CV_FILENAME")));
+  if(file_exists("publicFolder/" . env("CV_FILENAME"))){
+    $lastModified = date ("d F Y H:i:s.", filemtime("publicFolder/" . env("CV_FILENAME")));
+    $timezone = date ("P", filemtime("publicFolder/" . env("CV_FILENAME")));
+  }
   
   $title = 'Thophile\'s Website | About';
   include_once 'views/about.php';
