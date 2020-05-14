@@ -82,14 +82,35 @@ class Authenticator{
      */
     public function ipSubnetCheck($ip, $host){
         
-        if(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+        if(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) & filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
             
             //Valid IPv6
+            $ipBin = inet_pton($ip);
+            if($ipBin === false){
+                return false;
+            }else{
+                $ipSubnet = substr_replace($ipBin, str_repeat("\000", 8), -8);;
+            }
+            $hostBin = inet_pton($host);
+            if($hostBin === false){
+                return false;
+            }else{
+                $hostSubnet = substr_replace($hostBin, str_repeat("\000", 8), -8);;
+            }
+            
+            return $ipSubnet == $hostSubnet;
+
+            
+              
             return true;
-        }elseif(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {   
+        }elseif(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) & filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {   
 
             //Valid IPv4
-            return true;
+            $ipSubnet = explode(".", $ip)[0].explode(".", $ip)[1].explode(".", $ip)[2];
+            $hostSubnet = explode(".", $host)[0].explode(".", $host)[1].explode(".", $host)[2];
+
+            return $ipSubnet == $hostSubnet;
+
         }else {
             return false;
         }
