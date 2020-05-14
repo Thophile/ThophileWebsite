@@ -20,9 +20,80 @@ class Authenticator{
      * @return bool 
      */
     public function validatePassword($password){
-        return password_verify($password,env('APP_PASSWORD'));
+
+        /* Check for Brute force */
+        $isBanned = false;
+        $ip = $_SERVER["REMOTE_ADDR"];
+        $data = [];
+        $ipGuard = $_SERVER['DOCUMENT_ROOT']."/ipGuard.json";
+
+        // Create the file if it does not exist or get the data
+        if(!file_exists($ipGuard)){
+            $f = fopen($ipGuard, 'w');
+            fwrite($f, json_encode($data));
+            fclose($f);            
+        }else $data = json_decode(file_get_contents($ipGuard), true);
+
+        if(!empty($data)){
+
+            // Check rows
+            foreach ($data as $key => $row) {
+                var_dump(time());
+                var_dump( $row["timestamp"] + ((5 ** $row["level"])) );
+
+                //Remove unlocked entries
+                if( time() > ($row["timestamp"] + (5 ** $row["level"])) ){// if unlocking time is passed
+                    unset($data[$key]);
+                    var_dump($data);
+                }elseif($this->ipSubnetCheck($ip, $row["ip"])){ // if ip is locked and match the remote host
+                    //ban longer existing ip
+                    $data[$key]["timestamp"] = time();
+                    $data[$key]["level"]++;
+
+                    $isBanned = true;
+                }   
+            }
+        }else{
+                //Create an entry for the next time
+                $row["ip"] = $ip;
+                $row["timestamp"] = time();
+                $row["level"] = 0;
+                array_push($data, $row);
+
+        }
+        
+        //Write the file with updated data
+        $f = fopen($ipGuard, 'w');
+        fwrite($f, json_encode($data));
+        fclose($f);
+
+        var_dump(password_verify($password,env('APP_PASSWORD')));
+        var_dump($isBanned);
+        return password_verify($password,env('APP_PASSWORD')) && !$isBanned;
     }
 
+    /**
+     * Check if an ip is in the same subnet as another
+     * 
+     * @param string $ip the ip to be checked
+     * @param string $host the ip to check against
+     * 
+     * @return bool
+     */
+    public function ipSubnetCheck($ip, $host){
+        
+        if(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+            
+            //Valid IPv6
+            return true;
+        }elseif(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {   
+
+            //Valid IPv4
+            return true;
+        }else {
+            return false;
+        }
+    }
     /**
      * Generate a JWT-like token to keep the user authenticated
      * 
