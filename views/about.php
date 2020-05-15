@@ -62,12 +62,12 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     
         <div id="downloadBox" class="col">
             <?php if(isset($lastModified) & isset($timezone)){?>
-            <h1>Download my resume</h1>
+            <h2>Download my resume</h2>
             <a href="/dl_cv" target="_blank" class="btn pills">Download</a>
             <span>Last uploaded at : <?= $lastModified ?> (Timezone : GMT <?= $timezone ?>) </span>
 
             <?php }else {?>
-                <h1>No resume available</h1>
+                <h2>No resume available</h2>
             <?php } ?>
         </div>
     </main>

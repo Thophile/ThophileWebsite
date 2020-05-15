@@ -42,9 +42,9 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
         <?php if(empty($projects)){ ?>
             <section class="projects empty" >
-            <h1>
+            <h2>
                 No available project
-            </h1>
+            </h2>
             </section>
         <?php } ?>
         <?php foreach ($projects as $project) { ?>
@@ -53,13 +53,13 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <?php if($project['banner_image'] != ""){?>style="background-image: url(/publicFolder/<?= rawurlencode($project['banner_image'])?>);" <?php } ?>>
             <a href="/project?id=<?= $project['id']?>" aria-label="Link to project <?= $project['id']?>"></a>
 
-            <h1>
-                <?= $project['title']?>
-            </h1>
             <h2>
+                <?= $project['title']?>
+            </h2>
+            <h3>
                 Category <br>
                 "<?= $project['category']?>"
-            </h2>
+            </h3>
         </section>
 
         <?php } ?>
