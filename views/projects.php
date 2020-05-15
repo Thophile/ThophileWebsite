@@ -18,6 +18,11 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="All projects from ThophileLabs.com">
+    <meta property="og:title" content="All projects from ThophileLabs.com" />
+    <meta property="og:image" content="https://thophilelabs.com/assets/img/favicon.png" />
+    <meta property="og:url" content="https://thophilelabs.com/projects" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="View the list of all my projects sorted by categories" />
 
     <link rel="canonical" href="https://thophilelabs.com/projects">
     <link rel="stylesheet" href="/assets/css/main.css">

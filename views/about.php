@@ -14,6 +14,13 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <meta name="description" content="All information you will ever need about myself, download my resume here too">
     <meta name ="keywords" content="project, theophile, théophile, thophile, montemont, montémont, resume, it">
     <meta name="robots" content="follow">
+
+    <meta property="og:title" content="All about me | Thophile Labs" />
+    <meta property="og:image" content="https://thophilelabs.com/assets/img/favicon.png" />
+    <meta property="og:url" content="https://thophilelabs.com/about" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Learn about my studies and how I came up with so many hobbies" />
+
     <link rel="canonical" href="https://thophilelabs.com/about">
     <link rel="stylesheet" href="/assets/css/about.css">
     <link rel="stylesheet" href="/assets/css/main.css">

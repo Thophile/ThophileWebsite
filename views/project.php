@@ -19,6 +19,11 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= $project['title']?> from ThophileLabs.com">
     <meta name="twitter:image" content="https://thophilelabs.com/publicFolder/<?= $project['banner_image']?>">
+    <meta property="og:title" content="<?= $project['title']?> from ThophileLabs.com" />
+    <meta property="og:image" content="https://thophilelabs.com/publicFolder/<?= $project['banner_image']?>" />
+    <meta property="og:url" content="https://thophilelabs.com/project?id=<?= $project['id']?>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Access the infos you need about <?= $project['title']?> , useful links, images, and the project full description" />
 
     <link rel="canonical" href="https://thophilelabs.com/project?id=<?= $project['id']?>">
     <link rel="stylesheet" href="/assets/css/main.css">
