@@ -27,16 +27,16 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             <h1>About myself</h1>
         </div>
         <article>
+            <h2>Studies</h2>
             <section id="studies">
-                <h2>Studies</h2>
                 <p>
                 I have always wanted to be useful to the society, my natural talent for logics oriented me to an IT formation after a "scientific Baccalauréat" 
                 I think IT have and will have a huge place in the society as a tool to help everyone and make any task easier and as an entertainment tool too.
                 With so said roll IT is a perfect choice to use the most of my capacity while doing something good for helping people</p>
             </section>
 
+            <h2>Hobbies</h2>
             <section id="hobbies">
-                <h2>Hobbies</h2>
                 <p>
                 I like to do the most I can by myself.
                 It all started when I was a first year primary student when was authorized for the first time to use an axe saw and I never stopped working on manual project during my free time since ! 
@@ -46,8 +46,8 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 </p>
             </section>
 
+            <h2>Contact</h2>
             <section id="contacts">
-                <h2>Contact</h2>
                 <a href="mailto:contact@thophilelabs.com" class="btn pills"> <i class="fas fa-envelope"></i> My mail</a>
                 <a href="https://www.linkedin.com/in/theophile-MONTEMONT" class="btn pills"> <i class="fab fa-linkedin"></i> My LinkedIn</a>
                 <a href="https://twitter.com/TheophileMNT" class="btn pills"> <i class="fab fa-twitter-square"></i> My twitter</a>

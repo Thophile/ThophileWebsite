@@ -25,16 +25,13 @@ article{
     z-index: 64;
 }
 article h2{
-    margin-bottom: 15px;
+    margin: 10px 0px;
     padding: 0 10px;
     border-style: none none none solid;
 }
 article p{
     margin: 10px 15px;
     white-space: pre-line;
-}
-section{
-    margin: 10px 0;
 }
 #contacts a{
     width: unset !important;
@@ -45,7 +42,7 @@ section{
 @media only screen and (min-width:600px){
     section{
         line-height: 1.8;
-        margin: 4% 15px !important;
+        margin: 2% 15px !important;
     }
     #contacts a{
         margin: 1% 15px!important;
