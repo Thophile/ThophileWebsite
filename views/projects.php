@@ -51,13 +51,13 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             </form>
         </section>
 
-        <?php if(empty($projects)){ ?>
-            <section class="projects empty" >
+
+        <section class="projects empty" >
             <h2>
                 No available project
             </h2>
-            </section>
-        <?php } ?>
+        </section>
+
         <?php foreach ($projects as $project) { ?>
 
         <section class="projects" data-category="<?= $project['category']?>"

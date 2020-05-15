@@ -57,6 +57,7 @@ main{
 .projects.empty{
     box-shadow: inset 0 0 0 999em var(--accentLight), 0 0 5px 0 var(--accent)!important;
     text-shadow: 1px 1px 20px var(--accent), -1px -1px 20px var(--accent)!important;
+    display: none;
 }
 .projects:hover{
     box-shadow: inset 0 0 0 999em var(--accentLight), 0 0 5px 0 var(--accent);

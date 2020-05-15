@@ -2,10 +2,20 @@
 var elements;
 
 /**
+ * @see main.js showw all on load
+ */
+ready(function(){
+    showAll()
+})
+
+/**
  * Show all projects
  */
 function showAll() {
-    elements = document.querySelectorAll('.projects');
+    elements = document.querySelectorAll('.projects[data-category]');
+    
+    if(elements.length == 0)document.querySelector(".empty").style.display = "flex"
+    
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "flex";
     }
@@ -20,6 +30,9 @@ function showDev() {
         elements[i].style.display = "none";
     }
     elements = document.querySelectorAll('.projects[data-category="Developpement"]');
+
+    if(elements.length == 0)document.querySelector(".empty").style.display = "flex"
+
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "flex";
     }
@@ -34,6 +47,9 @@ function showNet() {
         elements[i].style.display = "none";
     }
     elements = document.querySelectorAll('.projects[data-category="Network"]');
+    
+    if(elements.length == 0)document.querySelector(".empty").style.display = "flex"
+    
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "flex";
     }
@@ -48,6 +64,9 @@ function showOth() {
         elements[i].style.display = "none";
     }
     elements = document.querySelectorAll('.projects[data-category="Other"]');
+    
+    if(elements.length == 0)document.querySelector(".empty").style.display = "flex"
+    
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "flex";
     }
