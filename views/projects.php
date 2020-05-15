@@ -10,6 +10,10 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="thophile">
+    <meta name="description" content="View a list of all of my projects here, sorted by their category">
+    <meta name ="keywords" content="project, theophile, théophile, thophile, montemont, montémont, resume, it">
+    <meta name="robots" content="follow">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/all.css">
     <link rel="stylesheet" href="/assets/css/projects.css">
