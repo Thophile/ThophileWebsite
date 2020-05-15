@@ -40,7 +40,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             <?php
                 foreach (json_decode($project['links']) as $link) { 
             ?>
-            <a href="<?= $link->href ?>" class="btn"><?=$link->title?></a>
+            <a href="<?= $link->href ?>" rel="nofollow" class="btn"><?=$link->title?></a>
             <?php 
                 } 
             ?>
