@@ -26,12 +26,12 @@ main section{
 #pres{
     background: linear-gradient(110deg, var(--accent) 69.9%, var(--mainColor) 70%);
 }
-#pres h1{
+#pres h2{
     margin: 10px 15px;
     font-size: 1.3rem;
     color: var(--mainColor);
 }
-#pres h2{
+#pres h3{
     margin: 5px 35px;
     font-size: 1.1rem;
     color: var(--secondaryColor);
@@ -58,7 +58,7 @@ main section{
 #projects{
     background: linear-gradient(70deg, var(--mainColor) 34.9%, var(--accentLight) 35%);
 }
-#projects h1{
+#projects h2{
     margin: 30px 15px;
     font-size: 1.3rem;
     color: var(--mainColor);
@@ -86,7 +86,7 @@ main section{
 #contact{
     background: linear-gradient(105deg, var(--accent) 74.9%, var(--mainColor ) 75%);
 }
-#contact h1{
+#contact h2{
     margin: 30px 15px;
     font-size: 1.3rem;
     color: var(--mainColor);

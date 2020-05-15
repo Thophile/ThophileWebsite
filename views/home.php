@@ -31,12 +31,12 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <main>
         <section id="pres">
             <div class="col-70">
-                <h1>
-                    Théophile Montémont
-                </h1>
                 <h2>
-                    IT Student | Eclectic hobbyist .
+                    Théophile Montémont
                 </h2>
+                <h3>
+                    IT Student | Eclectic hobbyist .
+                </h3>
                 <a href="/about" class="pills inverted">
                     More about me
                 </a>
@@ -50,9 +50,9 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <i class="fas fa-9x fa-tasks"></i>
             </div>
             <div class="col-70">
-                <h1>
+                <h2>
                     I have a a wide range of interests and I love to share my projects.
-                </h1>
+                </h2>
                 <a href="/projects" class="pills inverted">
                     Check my projects
                 </a>
@@ -60,9 +60,9 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         </section>
         <section id="contact">
             <div class="col-70">
-                <h1>
+                <h2>
                     If you have any questions or comments, please get in touch with me.
-                </h1>
+                </h2>
                 <a href="mailto:contact@thophilelabs.com" class="pills inverted">
                     Contact me
                 </a>
