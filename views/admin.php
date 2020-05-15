@@ -14,6 +14,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <meta name="description" content="This is a reserved page">
     <meta name ="keywords" content="project, theophile, théophile, thophile, montemont, montémont, resume, it">
     <meta name="robots" content="noindex">
+    <link rel="canonical" href="https://thophilelabs.com/admin">
     <link rel="stylesheet" href="/assets/css/admin.css">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/all.css">
