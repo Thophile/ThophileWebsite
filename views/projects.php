@@ -14,6 +14,11 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <meta name="description" content="View a list of all of my projects here, sorted by their category">
     <meta name ="keywords" content="project, theophile, théophile, thophile, montemont, montémont, resume, it">
     <meta name="robots" content="follow">
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="All projects from ThophileLabs.com">
+
     <link rel="canonical" href="https://thophilelabs.com/projects">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/all.css">

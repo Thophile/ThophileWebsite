@@ -14,6 +14,12 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <meta name="description" content="Check the infos on <?= $project['title']?> from category <?= $project['category']?>">
     <meta name ="keywords" content="project, <?= $project['title']?>, theophile, théophile, thophile, montemont, montémont, resume, it">
     <meta name="robots" content="follow">
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?= $project['title']?> from ThophileLabs.com">
+    <meta name="twitter:image" content="https://thophilelabs.com/publicFolder/<?= $project['banner_image']?>">
+
     <link rel="canonical" href="https://thophilelabs.com/project?id=<?= $project['id']?>">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/all.css">
