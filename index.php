@@ -22,7 +22,7 @@ $router->get('/index.php', function() {
 //Home
 $router->get('/', function($request) {
 
-    $title = 'Thophile Labs';
+    $title = 'Thophile Labs | Home';
     include_once 'views/home.php';
 });
 
