@@ -59,7 +59,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <h1>
                     If you have any questions or comments, please get in touch with me.
                 </h1>
-                <a href="mailto:contact@thophilelabs.com?subject=Mail from our site" class="pills inverted">
+                <a href="mailto:contact@thophilelabs.com" class="pills inverted">
                     Contact me
                 </a>
             </div>
