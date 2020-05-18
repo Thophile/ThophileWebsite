@@ -15,9 +15,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <meta name ="keywords" content="project, theophile, théophile, thophile, montemont, montémont, resume, it">
     <meta name="robots" content="follow">
 
-    <!-- Twitter card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="All projects from ThophileLabs.com">
+    <!-- Open graph card -->
     <meta property="og:title" content="All projects from ThophileLabs.com" />
     <meta property="og:image" content="https://thophilelabs.com/assets/img/favicon.png" />
     <meta property="og:url" content="https://thophilelabs.com/projects" />

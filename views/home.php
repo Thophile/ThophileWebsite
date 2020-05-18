@@ -21,7 +21,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <meta property="og:type" content="website" />
     <meta property="og:description" content="Check out all my projects and infos" />
 
-    <link rel="canonical" href="https://thophilelabs.com">
+    <link rel="canonical" href="https://thophilelabs.com/">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/all.css">
     <link rel="stylesheet" href="/assets/css/home.css">
@@ -39,9 +39,9 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <main>
         <section id="pres">
             <div class="col-70">
-                <h2>
+                <h1>
                     Théophile Montémont
-                </h2>
+                </h1>
                 <h3>
                     IT Student | Eclectic hobbyist .
                 </h3>

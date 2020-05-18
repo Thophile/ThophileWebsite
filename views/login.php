@@ -13,7 +13,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <meta name="author" content="thophile">
     <meta name="description" content="Log in to access to the private section">
     <meta name ="keywords" content="project, theophile, théophile, thophile, montemont, montémont, resume, it">
-    <meta name="robots" content="noindex">
+    <meta name="robots" content="noindex, nofollow">
     <link rel="canonical" href="https://thophilelabs.com/login">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/all.css">
