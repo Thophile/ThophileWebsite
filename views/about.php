@@ -41,16 +41,14 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <article>
             <h2>Studies</h2>
             <section id="studies">
-                <p>
-                I always wanted to be useful to society, my natural talent for logic led me to computer training after a "Scientific Baccalaureate"
+                <p>I always wanted to be useful to society, my natural talent for logic led me to computer training after a "Scientific Baccalaureate"
                 I think that IT has and will have a huge place in society as a tool to help everyone, facilitate any task and as an entertainment tool.
                 With such a role, IT is a perfect choice to make the most of my abilities while doing something good to help people.</p>
             </section>
 
             <h2>Hobbies</h2>
             <section id="hobbies">
-                <p>
-                I like to do everything I can by myself.
+                <p>I like to do everything I can by myself.
                 It all started when I was a first year elementary school student when I was first authorized to use a hacksaw. I have never stopped working on manual projects in my spare time since!
 
                 I like to learn and I like useless or beautiful gadgets but I am not so rich so I cannot buy everything that I find fun or pretty.

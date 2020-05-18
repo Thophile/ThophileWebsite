@@ -25,12 +25,12 @@ article{
     z-index: 64;
 }
 article h2{
-    margin: 10px 0px;
+    margin: 1% 0px;
     padding: 0 10px;
     border-style: none none none solid;
 }
 article p{
-    margin: 10px 15px;
+    margin: 5px 15px;
     white-space: pre-line;
 }
 #contacts a{
@@ -59,7 +59,6 @@ article p{
     border-radius: 3px;
 }
 #downloadBox h2{
-    align-self: flex-start;
     margin-bottom: 15px;
 }
 #downloadBox span{
