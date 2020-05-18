@@ -42,19 +42,19 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             <h2>Studies</h2>
             <section id="studies">
                 <p>
-                I have always wanted to be useful to the society, my natural talent for logics oriented me to an IT formation after a "scientific Baccalauréat" 
-                I think IT have and will have a huge place in the society as a tool to help everyone and make any task easier and as an entertainment tool too.
-                With so said roll IT is a perfect choice to use the most of my capacity while doing something good for helping people</p>
+                I always wanted to be useful to society, my natural talent for logic led me to computer training after a "Scientific Baccalaureate"
+                I think that IT has and will have a huge place in society as a tool to help everyone, facilitate any task and as an entertainment tool.
+                With such a role, IT is a perfect choice to make the most of my abilities while doing something good to help people.</p>
             </section>
 
             <h2>Hobbies</h2>
             <section id="hobbies">
                 <p>
-                I like to do the most I can by myself.
-                It all started when I was a first year primary student when was authorized for the first time to use an axe saw and I never stopped working on manual project during my free time since ! 
-                
-                I like to learn and I like useless or beautifull gadget but i'm not that rich so I can't buy all the thing I find fun or pretty. 
-                Most of the time I end up watching tutorials and building them myself for a 10th of the price. Sometimes it cost me 10 times the price but I always end up learning something new and having a lot of fun !
+                I like to do everything I can by myself.
+                It all started when I was a first year elementary school student when I was first authorized to use a hacksaw. I have never stopped working on manual projects in my spare time since!
+
+                I like to learn and I like useless or beautiful gadgets but I am not so rich so I cannot buy everything that I find fun or pretty.
+                Most of the time, I end up watching tutorials and building them myself for a 10th of the price. Sometimes it costs me 10 times the price but I always end up learning something new and I have a lot of fun!
                 </p>
             </section>
 
