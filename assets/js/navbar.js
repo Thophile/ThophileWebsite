@@ -32,7 +32,7 @@ function toggleNav() {
  */
 function hideNav() {
     currscroll = window.scrollY;
-    if ((currscroll > pastscroll) & !sidenav) {
+    if ((currscroll > pastscroll) & !sidenav & currscroll > 50) {
         document.querySelector("#navbar").style.top = "-50px"
         document.querySelector("header").style.top = "0"
     } else {
