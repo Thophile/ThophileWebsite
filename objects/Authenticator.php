@@ -38,13 +38,10 @@ class Authenticator{
 
             // Check rows
             foreach ($data as $key => $row) {
-                var_dump(time());
-                var_dump( $row["timestamp"] + ((5 ** $row["level"])) );
 
                 //Remove unlocked entries
                 if( time() > ($row["timestamp"] + (5 ** $row["level"])) ){// if unlocking time is passed
                     unset($data[$key]);
-                    var_dump($data);
                 }elseif($this->ipSubnetCheck($ip, $row["ip"])){ // if ip is locked and match the remote host
                     //ban longer existing ip
                     $data[$key]["timestamp"] = time();
@@ -66,9 +63,7 @@ class Authenticator{
         $f = fopen($ipGuard, 'w');
         fwrite($f, json_encode($data));
         fclose($f);
-
-        var_dump(password_verify($password,env('APP_PASSWORD')));
-        var_dump($isBanned);
+        
         return password_verify($password,env('APP_PASSWORD')) && !$isBanned;
     }
 
