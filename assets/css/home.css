@@ -4,39 +4,46 @@
 *@Page Home
 */
 
-
-main{
+main {
     overflow-x: hidden;
 }
-main section{
+
+main section {
     display: flex;
     height: calc(100vh - 50px);
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-#projects{
+
+#projects {
     height: 100vh;
 }
-#projects a.pills.inverted{
+
+#projects a.pills.inverted {
     background-color: var(--accentLight);
 }
 
+
 /** Pres section of home **/
-#pres{
+
+#pres {
     background: linear-gradient(110deg, var(--accent) 69.9%, var(--mainColor) 70%);
 }
-#pres h1{
+
+#pres h1 {
     margin: 10px 15px;
     font-size: 1.3rem;
     color: var(--mainColor);
 }
-#pres h3{
+
+#pres h3 {
     margin: 5px 35px;
     font-size: 1.1rem;
     color: var(--secondaryColor);
 }
-#pres a{
+
+#pres a {
     max-width: 35%;
     text-align: center;
     margin: 20px 35px;
@@ -46,24 +53,30 @@ main section{
     border-radius: 3px;
     padding: 5px;
 }
-#pres div.col-70{
+
+#pres div.col-70 {
     text-align: left;
     align-items: flex-start;
 }
-#pres .fa-user{
+
+#pres .fa-user {
     text-align: center;
 }
 
+
 /** Project section of home **/
-#projects{
+
+#projects {
     background: linear-gradient(70deg, var(--mainColor) 34.9%, var(--accentLight) 35%);
 }
-#projects h2{
+
+#projects h2 {
     margin: 30px 15px;
     font-size: 1.3rem;
     color: var(--mainColor);
 }
-#projects a{
+
+#projects a {
     max-width: 35%;
     text-align: center;
     margin: 10px 35px;
@@ -73,25 +86,31 @@ main section{
     border-radius: 3px;
     padding: 5px;
 }
-#projects div.col-70{
+
+#projects div.col-70 {
     text-align: right;
     align-items: flex-end;
 }
-#projects .fa-tasks{
+
+#projects .fa-tasks {
     color: var(--accentLight);
     text-align: center;
 }
 
+
 /** Contact section of home **/
-#contact{
-    background: linear-gradient(105deg, var(--accent) 74.9%, var(--mainColor ) 75%);
+
+#contact {
+    background: linear-gradient(105deg, var(--accent) 74.9%, var(--mainColor) 75%);
 }
-#contact h2{
+
+#contact h2 {
     margin: 30px 15px;
     font-size: 1.3rem;
     color: var(--mainColor);
 }
-#contact a{
+
+#contact a {
     max-width: 35%;
     text-align: center;
     margin: 10px 35px;
@@ -101,10 +120,12 @@ main section{
     border-radius: 3px;
     padding: 5px;
 }
-#contact div.col-70{
+
+#contact div.col-70 {
     text-align: left;
     align-items: flex-start;
 }
-.fa-envelope-open{
+
+.fa-envelope-open {
     text-align: center;
 }
