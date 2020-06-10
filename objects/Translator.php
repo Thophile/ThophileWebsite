@@ -28,6 +28,11 @@ class Translator
         //get dictionary data
         if(!file_exists($locale.".json")){
             $this->dictionary = json_decode(file_get_contents($locale.".json"), true);
+        }else{
+            //No file error
+            http_response_code(500);
+            include($_SERVER['DOCUMENT_ROOT'].'/errors/500.html'); 
+            die();
         }
 
 
@@ -53,6 +58,7 @@ class Translator
 
             $this->dictionary = json_decode(file_get_contents($locale.".json"), true);
         }else{
+            //No file error
             http_response_code(500);
             include($_SERVER['DOCUMENT_ROOT'].'/errors/500.html'); 
             die();
