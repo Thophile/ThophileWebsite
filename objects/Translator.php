@@ -42,6 +42,19 @@ class Translator
         }
     }
 
+    function changeLocale(String $newLocale){
+        
+        if(!file_exists($newLocale.".json")){
+            $this->locale = $newLocale;
+            //set on cookie for next time
+            $this->dictionary = json_decode(file_get_contents($this->locale.".json"), true);
+        }else{
+            http_response_code(500);
+            include($_SERVER['DOCUMENT_ROOT'].'/errors/500.html'); 
+            die();
+        }
+    }
+
     
 
 }
