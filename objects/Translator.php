@@ -15,15 +15,16 @@ class Translator
 {
     private $dictionary = [];
     private $locale;
-    
+
     function __construct(){
 
         //get default locale
+        //if set on cookie take from cookie else :
         $this->locale = env("DEFAULT_LOCALE");
 
         //get dictionary data
-        if(!file_exists($locale.".json")){
-            $this->dictionary = json_decode(file_get_contents($locale.".json"), true);
+        if(!file_exists($this->locale.".json")){
+            $this->dictionary = json_decode(file_get_contents($this->locale.".json"), true);
         }
 
 
