@@ -135,14 +135,14 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
                         <?php 
                         if(isset($project["images"])){
-                            foreach (json_decode($project["images"]) as  $image) {  
+                            foreach ($project["images"] as  $image) {
                         ?>
 
                         <div class="image_preview">
-                            <img src="/publicFolder/<?= $image->filename?>" style="display: block;">
+                            <img src="/publicFolder/<?= $image["filename"]?>" style="display: block;">
                             <i class="fas fa-6x fa-upload" style="display: none;"></i>
                             <input class="image_file" type="file">
-                            <input type="text" placeholder="Label" value="<?= $image->label?>">
+                            <input type="text" placeholder="Label" value="<?= $image["label"]?>">
                             <i class="fas fa-minus"></i>
                         </div>
 
@@ -159,12 +159,12 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
                     <?php
                 if(isset($project["links"])){
-                    foreach (json_decode($project["links"]) as  $link) {  
+                    foreach ($project["links"] as  $link) { 
                 ?>
 
                     <div>
-                        <input type="text" size=1 placeholder="Name" value="<?= $link->title?>">
-                        to : <input type="text" size=1 placeholder="Link" value="<?= $link->href?>">
+                        <input type="text" size=1 placeholder="Name" value="<?= $link["title"]?>">
+                        to : <input type="text" size=1 placeholder="Link" value="<?= $link["href"]?>">
                         <button type="button" class="btn link_remove">
                             <i class="fas fa-minus"></i>
                         </button>
@@ -185,19 +185,19 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
                     <?php
                 if(isset($project["article"])){
-                    foreach (json_decode($project["article"]) as  $section) {  
+                    foreach ($project["article"] as  $section) {  
                 ?>
 
                     <div class="article_section col">
                         <div class="article_title">
-                            <input type="text" placeholder="Section title" value="<?= $section->title?>">
+                            <input type="text" placeholder="Section title" value="<?= $section["title"]?>">
                             <button type="button" class="btn section_remove">
                                 <i class="fas fa-minus"></i>
                             </button>
                         </div>
                         <div class="article_paragraphs col">
                             <?php 
-                            foreach ($section->paragraphs as $paragraph) {
+                            foreach ($section["paragraphs"] as $paragraph) {
                             ?>
 
                             <textarea><?= $paragraph?></textarea>
