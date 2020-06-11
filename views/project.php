@@ -50,7 +50,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         </section>
         <nav id="links" class="row">
             <?php
-                foreach (json_decode($project['links']) as $link) { 
+                foreach ($project['links'] as $link) { 
             ?>
             <a href="<?= $link->href ?>" rel="nofollow" class="btn"><?=$link->title?></a>
             <?php 
@@ -61,7 +61,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <aside class="merry-go">
             
             <?php
-            foreach (json_decode($project['images']) as $image) { 
+            foreach ($project['images'] as $image) { 
             ?>
             <img src="/publicFolder/<?= $image->filename ?>" alt="<?=$image->label?>"
                 data-label="<?=$image->label?>">
@@ -81,7 +81,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <label></label>
                 <div class="dots_group">  
                     <?php
-                        for ($i=0; $i < count(json_decode($project['images'])); $i++) { 
+                        for ($i=0; $i < count($project['images']); $i++) { 
                             echo '<span onclick="displayImage('.$i.')"></span>';
                         }
                     ?>
@@ -94,7 +94,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
         <article>
             <?php
-            foreach (json_decode($project['article']) as $section) { 
+            foreach ($project['article'] as $section) { 
             ?>
             <section>
                 <h1><?=$section->title?></h1>
