@@ -9,12 +9,11 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Translator.php';
 //Include Environnement file
 include_once $_SERVER['DOCUMENT_ROOT'].'/env.php';
 
-
 //Instanciate objects
 $db = new Database();
-$authenticator = new Authenticator();
+$auth = new Authenticator();
 $translator = new Translator();
-$router = new Router(new Request, $db, $authenticator);
+$router = new Router(new Request, $db, $auth);
 
 
 //Prevent acces from file name
@@ -108,14 +107,14 @@ $router->post('/ul_cv', function($request,$db, $auth) {
 $router->get('/projects', function($request, $db) {
 
   $title = 'Thophile Labs | Projects';
-  $projects = $db->getProjects();
+  $projects = $db->getAll("projects");
   include_once 'views/projects.php';
 });
 
 //View individual project
 $router->get("/project", function($request, $db){
 
-  $project = $db->getProject(isset($_GET['id']) ? $_GET['id'] : "");
+  $project = $db->get("projects", isset($_GET['id']) ? $_GET['id'] : "");
   $title = "Thophile Labs | {$project['title']}";
   include_once 'views/project.php';
 });
@@ -136,15 +135,15 @@ $router->get("/admin", function($request, $db, $auth){
       $timezone = date ("P", filemtime("publicFolder/" . $fileName));
     }
     //Getting all statistics
-    $statistics = $db->getStatistics();
+    //$statistics = $db->getStatistics();
 
     //Geting all projects
-    $projects = $db->getProjects();
+    $projects = $db->getAll("projects");
 
     //Getting currently editing project
     if(isset($_GET['id'])){
       //ID == 0 ? new Project : editing Project
-      $project = $_GET['id'] == "0" ? [] : $db->getProject($_GET['id']);
+      $project = $_GET['id'] == "0" ? [] : $db->get("projects", $_GET['id']);
     }
     include_once 'views/admin.php';
 
@@ -162,7 +161,7 @@ $router->get("/login", function($request){
 });
 
 //Login handler
-$router->post('/login', function($request, $db, $auth) {
+$router->post('/login', function($request, $db ,$auth) {
   //Password check
   if($auth->validatePassword($request->getBody()['password'])){
 
@@ -208,10 +207,10 @@ $router->post('/upload', function($request, $db, $auth) {
 
     if($project['id'] == 0){
       //Create and return the id
-      echo $db->createProject($project)[0];
+      echo $db->set("projects", $project);
     }else{
       //Update
-      $db->updateProject($project);
+      $db->set("projects", $project);
     }
 
   }else{
@@ -227,7 +226,7 @@ $router->get('/delete', function($request, $db, $auth) {
   if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
 
     //Query the database
-    $db->deleteProject($_GET['id']);
+    $db->delete("projects", $_GET['id']);
 
   }else{
 
