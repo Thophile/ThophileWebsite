@@ -13,7 +13,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
  */
 class Translator
 {
-    private $dictionary = [];
+    public static $dictionary = [];
 
     function __construct(){
 
@@ -26,8 +26,8 @@ class Translator
         }
 
         //get dictionary data
-        if(!file_exists($locale.".json")){
-            $this->dictionary = json_decode(file_get_contents($locale.".json"), true);
+        if(file_exists($locale.".json")){
+            self::$dictionary = json_decode(file_get_contents($locale.".json"), true);
         }else{
             //No file error
             http_response_code(500);
@@ -40,11 +40,12 @@ class Translator
          * @param String $textCode the text code that point on the text we need
          */
         function translate(String $textCode){
+
             //recursively search text in nested array corresponding to textcode tree
             $branches = explode(".", $textCode);
-            $text = $this->dictionary;
+            $text = Translator::$dictionary;
             foreach ($branches as $branche) {
-                $text = $text[$branch];
+                $text = $text[$branche];
             }
             echo $text;
             return;
