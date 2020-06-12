@@ -1,7 +1,24 @@
 {
-    "TEST": "salut",
+    "TITLE": "Thophilelabs",
+    "NAV": {
+        "HOME": "Accueil",
+        "PROJECTS": "Projets",
+        "ABOUT": "A propos"
+    },
     "HOME": {
-        "TITLE": "Thophilelabs"
+        "SECTION1": {
+            "TITLE": "Théophile Montémont",
+            "SUBTITLE": "Étudiant en informatique | hobbyiste passionés .",
+            "LINK": "En apprendre plus"
+        },
+        "SECTION2": {
+            "TITLE": "Je suis intéressé par beaucoup de domaines et j'apprécie partager mes projets.",
+            "LINK": "Voir mes projets"
+        },
+        "SECTION3": {
+            "TITLE": "Si vous avez des questions ou des commentaires, n'hésiter pas à me contacter.",
+            "LINK": "Contacter moi"
+        }
     }
 
 }
