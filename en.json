@@ -1,0 +1,24 @@
+{
+    "TITLE": "Thophilelabs",
+    "NAV": {
+        "HOME": "Home",
+        "PROJECTS": "Projects",
+        "ABOUT": "About"
+    },
+    "HOME": {
+        "SECTION1": {
+            "TITLE": "Théophile Montémont",
+            "SUBTITLE": "IT Student | Eclectic hobbyist .",
+            "LINK": "More about me"
+        },
+        "SECTION2": {
+            "TITLE": "I have a a wide range of interests and I love to share my projects.",
+            "LINK": "Check my projects"
+        },
+        "SECTION3": {
+            "TITLE": "If you have any questions or comments, please get in touch with me.",
+            "LINK": "Contact me"
+        }
+    }
+
+}

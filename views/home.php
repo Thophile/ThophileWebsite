@@ -40,13 +40,13 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <section id="pres">
             <div class="col-70">
                 <h1>
-                    Théophile Montémont
+                    <?= translate("HOME.SECTION1.TITLE")?>
                 </h1>
                 <h3>
-                    IT Student | Eclectic hobbyist .
+                    <?= translate("HOME.SECTION1.SUBTITLE")?>
                 </h3>
                 <a href="/about" class="pills inverted">
-                    More about me
+                    <?= translate("HOME.SECTION1.LINK")?>
                 </a>
             </div>
             <div class="col-30">
@@ -59,20 +59,20 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             </div>
             <div class="col-70">
                 <h2>
-                    I have a a wide range of interests and I love to share my projects.
+                <?= translate("HOME.SECTION2.TITLE")?>
                 </h2>
                 <a href="/projects" class="pills inverted">
-                    Check my projects
+                <?= translate("HOME.SECTION2.LINK")?>
                 </a>
             </div>
         </section>
         <section id="contact">
             <div class="col-70">
                 <h2>
-                    If you have any questions or comments, please get in touch with me.
+                    <?= translate("HOME.SECTION3.TITLE")?>
                 </h2>
                 <a href="mailto:contact@thophilelabs.com" class="pills inverted">
-                    Contact me
+                    <?= translate("HOME.SECTION3.LINK")?>
                 </a>
             </div>
             <div class="col-30">
