@@ -47,8 +47,7 @@ class Translator
             foreach ($branches as $branche) {
                 $text = $text[$branche];
             }
-            echo $text;
-            return;
+            return $text;
         }
     }
 
