@@ -27,7 +27,7 @@ class Translator
 
         //get dictionary data
         if(file_exists($locale.".json")){
-            self::$dictionary = json_decode(file_get_contents($locale.".json"), true);
+            self::$dictionary = json_decode(file_get_contents("translations/".$locale.".json"), true);
         }else{
             //No file error
             http_response_code(500);
@@ -42,9 +42,9 @@ class Translator
         function translate(String $textCode){
 
             //recursively search text in nested array corresponding to textcode tree
-            $branches = explode(".", $textCode);
+            $tree = explode(".", $textCode);
             $text = Translator::$dictionary;
-            foreach ($branches as $branche) {
+            foreach ($tree as $branche) {
                 $text = $text[$branche];
             }
             return $text;
@@ -53,10 +53,10 @@ class Translator
 
     function changeLocale(String $locale){
         
-        if(!file_exists($locale.".json")){
+        if(file_exists("translations/".$locale.".json")){
             setcookie("locale", $locale);
 
-            $this->dictionary = json_decode(file_get_contents($locale.".json"), true);
+            $this->dictionary = json_decode(file_get_contents("translations/".$locale.".json"), true);
         }else{
             //No file error
             http_response_code(500);

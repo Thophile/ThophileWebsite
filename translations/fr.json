@@ -19,6 +19,9 @@
             "TITLE": "Si vous avez des questions ou des commentaires, n'hésiter pas à me contacter.",
             "LINK": "Contacter moi"
         }
+    },
+    "DATABASE": {
+        "ROW1": "rdm json"
     }
 
 }
