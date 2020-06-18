@@ -52,7 +52,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             <?php
                 foreach ($project['links'] as $link) { 
             ?>
-            <a href="<?= $link->href ?>" rel="nofollow" class="btn"><?=$link->title?></a>
+            <a href="<?= $link["href"] ?>" rel="nofollow" class="btn"><?=$link["title"]?></a>
             <?php 
                 } 
             ?>
@@ -63,8 +63,8 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             <?php
             foreach ($project['images'] as $image) { 
             ?>
-            <img src="/publicFolder/<?= $image->filename ?>" alt="<?=$image->label?>"
-                data-label="<?=$image->label?>">
+            <img src="/publicFolder/<?= $image["filename"] ?>" alt="<?=$image["label"]?>"
+                data-label="<?=$image["label"]?>">
             <?php 
             } 
             ?>
@@ -97,9 +97,9 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
             foreach ($project['article'] as $section) { 
             ?>
             <section>
-                <h1><?=$section->title?></h1>
+                <h1><?=$section["title"]?></h1>
                 <?php
-                    foreach ($section->paragraphs as $paragraph) {
+                    foreach ($section["paragraphs"] as $paragraph) {
                     ?>
                 <p>        <?=$paragraph?></p>
                 <?php
