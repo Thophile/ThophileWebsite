@@ -34,15 +34,15 @@ class Database{
     
     function get(String $table, String $id){
 
-        if(isset($this->data[$table][$id - 1])){
-            return $this->data[$table][$id - 1];
+        if(isset($this->data[$table][$id])){
+            return $this->data[$table][$id];
         }else return false;
     }
 
     function set(String $table, array $row ){
         if(!isset($this->data[$table])) $this->createTable($table);
 
-        if($row['id'] !== 0 && $this->get($table, $row['id'])){
+        if(isset($row['id']) && $this->get($table, $row['id'])){
             $this->update($table, $row);
         }else{
             $this->create($table, $row);
@@ -62,7 +62,7 @@ class Database{
     function create(String $table, array $row){
         
         $id = array_column($this->data[$table], 'id');
-        $row['id'] = ($id == []) ? 1 : sizeof($id)+1;
+        $row['id'] = ($id == []) ? 0 : sizeof($id);
         $this->data[$table][] = $row;
 
         return $row['id'];

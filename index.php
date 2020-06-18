@@ -143,7 +143,10 @@ $router->get("/admin", function($request, $db, $auth){
     //Getting currently editing project
     if(isset($_GET['id'])){
       //ID == 0 ? new Project : editing Project
-      $project = $_GET['id'] == "0" ? [] : $db->get("projects", $_GET['id']);
+      $project =  $db->get("projects", $_GET['id']);
+    }
+    if(isset($_GET['new'])){
+      $project = [];
     }
     include_once 'views/admin.php';
 
