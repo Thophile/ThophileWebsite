@@ -26,8 +26,8 @@ class Translator
         }
 
         //get dictionary data
-        if(file_exists($locale.".json")){
-            self::$dictionary = json_decode(file_get_contents("translations/".$locale.".json"), true);
+        if(file_exists("./translations/".$locale.".json")){
+            self::$dictionary = json_decode(file_get_contents("./translations/".$locale.".json"), true);
         }else{
             //No file error
             http_response_code(500);
@@ -53,7 +53,7 @@ class Translator
 
     function changeLocale(String $locale){
         
-        if(file_exists("translations/".$locale.".json")){
+        if(file_exists("./translations/".$locale.".json")){
             setcookie("locale", $locale);
 
             $this->dictionary = json_decode(file_get_contents("translations/".$locale.".json"), true);
