@@ -70,10 +70,10 @@ class Database{
     }
 
     function delete(String $table, $id){
-        unset($this->data[$table][$id - 1]);
-        //reindex array
-        foreach (array_column($this->data[$table], 'id') as $key => $value) {
-            $value = $key - 1;
+        array_splice($this->data[$table], $id, 1);
+
+        for ($i=0; $i < sizeof($this->data[$table]) ; $i++) { 
+            $this->data[$table][$i]['id'] = $i;
         }
         $this->writeData();
     }
