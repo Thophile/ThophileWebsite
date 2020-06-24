@@ -22,6 +22,12 @@ $router->get('/index.php', function() {
   die();
 });
 
+$router->get('/test', function() {
+  setTranslation("TEST.1","salut","fr");
+  setTranslation("TEST.1","hello","en");
+  setTranslation("TEST.2","911 is known in any languages");
+});
+
 //Home
 $router->get('/', function($request) {
 
