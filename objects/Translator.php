@@ -13,21 +13,23 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
  */
 class Translator
 {
+    public static $instance = null;
     public static $dictionary = [];
+    public static $locale;
 
     function __construct(){
 
         //get default locale
         //if set on cookie take from cookie else :
         if(isset($_COOKIE["locale"])){
-            $locale = $_COOKIE["locale"];
+            self::$locale = $_COOKIE["locale"];
         }else{
-            $locale = env("DEFAULT_LOCALE");
+            self::$locale = env("DEFAULT_LOCALE");
         }
 
         //get dictionary data
-        if(file_exists("./translations/".$locale.".json")){
-            self::$dictionary = json_decode(file_get_contents("./translations/".$locale.".json"), true);
+        if(file_exists("./translations/".self::$locale.".json")){
+            self::$dictionary = json_decode(file_get_contents("./translations/".self::$locale.".json"), true);
         }else{
             //No file error
             http_response_code(500);
@@ -49,21 +51,61 @@ class Translator
             }
             return $text;
         }
-    }
-
-    function changeLocale(String $locale){
+        function changeLocale(String $locale){
         
-        if(file_exists("./translations/".$locale.".json")){
-            setcookie("locale", $locale);
+            if(file_exists("./translations/".$locale.".json")){
+                setcookie("locale", $locale);
+                Translator::$locale = $locale;
+                Translator::$dictionary = json_decode(file_get_contents("translations/".Translator::$locale.".json"), true);
+            }else{
+                //No file error
+                http_response_code(500);
+                include($_SERVER['DOCUMENT_ROOT'].'/errors/500.html'); 
+                die();
+            }
+        }
 
-            $this->dictionary = json_decode(file_get_contents("translations/".$locale.".json"), true);
-        }else{
-            //No file error
-            http_response_code(500);
-            include($_SERVER['DOCUMENT_ROOT'].'/errors/500.html'); 
-            die();
+        function setTranslation($textCode, $defaultValue, $locale = null){
+
+            //set in all file by default or in specified locale if set
+            if($locale == null){
+                $translations = scandir("./translations/");
+            }else{
+                $translations[] = $locale.".json";
+            }
+
+            
+            foreach ($translations as $key => $filename) {
+                if(is_dir("./translations/".$filename)){
+                    unset($translations[$key]);
+                    continue;
+                }
+                $data = json_decode(file_get_contents("./translations/".$filename),true);
+                $tree = explode(".", $textCode);
+
+                $tmp =& $data;
+                foreach($tree as $key) {
+                    $tmp =& $tmp[$key];
+                }
+                $tmp = $defaultValue;
+
+                //write file
+                $f = fopen("./translations/".$filename, 'w');
+                fwrite($f, json_encode($data));
+                fclose($f);
+            }
         }
     }
+    /*
+    static function getTranslator(){
+        if(is_null(self::$instance)){
+            self::$instance = new Translator();
+        }
+        return self::$instance;
+        
+    }*/
+
+    
 
     
 
