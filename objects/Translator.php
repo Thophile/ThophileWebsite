@@ -65,7 +65,7 @@ class Translator
             }
         }
 
-        function setTranslation($textCode, $defaultValue, $locale = null){
+        function setTranslation($textCode, $value, $locale = null){
 
             //set in all file by default or in specified locale if set
             if($locale == null){
@@ -77,7 +77,6 @@ class Translator
             
             foreach ($translations as $key => $filename) {
                 if(is_dir("./translations/".$filename)){
-                    unset($translations[$key]);
                     continue;
                 }
                 $data = json_decode(file_get_contents("./translations/".$filename),true);
@@ -87,7 +86,7 @@ class Translator
                 foreach($tree as $key) {
                     $tmp =& $tmp[$key];
                 }
-                $tmp = $defaultValue;
+                $tmp = $value;
 
                 //write file
                 $f = fopen("./translations/".$filename, 'w');
