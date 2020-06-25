@@ -92,7 +92,7 @@ function validate(event) {
     while (source.tagName !== "A") {
         source = source.parentElement
     }
-    message = "Are you sur you want to delete project n°" + source.href.split('=')[1] + " ?"
+    message = "Are you sur you want to delete PROJECT n°" + source.href.split('=')[1] + " ?"
 
     if (!confirm(message)) event.preventDefault();
 }
@@ -103,67 +103,67 @@ function validate(event) {
  */
 function parseForm() {
     //retrieve dta
-    var project = new Object()
+    var PROJECT = new Object()
 
-    //get project id from url
+    //get PROJECT id from url
     var urlparameters = window.location.search //get full string
     var parameters = new URLSearchParams(urlparameters)
-    project.id = parameters.get('id')
+    PROJECT.ID = parameters.get('id')
 
-    project.title = document.querySelector('input[name=title]').value
-    project.category = document.querySelector('input[name=category]').value
-    project.banner_image = document.querySelector('input[name=style]').value
+    PROJECT.TITLE = document.querySelector('input[name=title]').value
+    PROJECT.CATEGORY = document.querySelector('input[name=category]').value
+    PROJECT.BANNER_IMAGE = document.querySelector('input[name=style]').value
 
 
     //image
-    project.images = []
+    PROJECT.IMAGES = []
     var data = new FormData()
     document.querySelectorAll('#_image .image_preview').forEach(element => {
 
         //if an img has been loaded/selected
         if (element.querySelector('img').src != "") {
-            var image = new Object()
+            var IMAGE = new Object()
 
             //save the filename
             if (element.querySelector('input[type=file]').files.length == 0) {
                 //take the already existing filename to save it back 
-                image.filename = element.querySelector('img').src.split(/(\\|\/)/g).pop()
+                IMAGE.FILENAME = element.querySelector('img').src.split(/(\\|\/)/g).pop()
             } else {
                 //save new filename
-                image.filename = element.querySelector('input[type=file]').files[0].name
+                IMAGE.FILENAME = element.querySelector('input[type=file]').files[0].name
                 data.append('file[]', element.querySelector('input[type=file]').files[0])
             }
 
-            image.label = element.querySelectorAll('input')[1].value
+            IMAGE.LABEL = element.querySelectorAll('input')[1].value
 
-            project.images.push(image)
+            PROJECT.IMAGES.push(image)
         }
     });
 
 
     //links
-    project.links = []
+    PROJECT.LINKS = []
     document.querySelectorAll('#_links div').forEach(element => {
-        var link = new Object()
-        link.title = element.querySelectorAll('input')[0].value
-        link.href = element.querySelectorAll('input')[1].value
-        project.links.push(link)
+        var LINK = new Object()
+        LINK.TITLE = element.querySelectorAll('input')[0].value
+        LINK.HREF = element.querySelectorAll('input')[1].value
+        PROJECT.LINKS.push(LINK)
     });
 
 
     //article
-    project.article = []
+    PROJECT.ARTICLE = []
     document.querySelectorAll('#_article .article_section').forEach(element => {
-        var section = new Object()
-        section.title = element.querySelector('.article_title input[type=text').value
-        section.paragraphs = []
+        var SECTION = new Object()
+        SECTION.TITLE = element.querySelector('.article_title input[type=text').value
+        SECTION.PARAGRAPHS = []
         element.querySelectorAll('.article_paragraphs textarea').forEach(p => {
-            section.paragraphs.push(p.value)
+            SECTION.PARAGRAPHS.push(p.value)
         })
-        project.article.push(section)
+        PROJECT.ARTICLE.push(SECTION)
     })
 
-    data.append('project', JSON.stringify(project))
+    data.append('PROJECT', JSON.stringify(PROJECT))
 
     //send to create or update
     var request = new XMLHttpRequest();
@@ -177,6 +177,8 @@ function parseForm() {
 
             //Display success message
             document.getElementById('status').innerHTML = "Successfuly saved"
+            /*debug line*/
+            console.log(request.response)
                 //If a valid Id is returned, redirect to that location
             if (RegExp('^[0-9]+$').test(request.response)) window.location = "/admin?id=" + request.response;
         } else {
