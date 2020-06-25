@@ -113,14 +113,14 @@ $router->post('/ul_cv', function($request,$db, $auth) {
 $router->get('/projects', function($request, $db) {
 
   $title = 'Thophile Labs | Projects';
-  $projects = $db->getAll("projects");
+  $projects = $db->getAll("PROJECTS");
   include_once 'views/projects.php';
 });
 
 //View individual project
 $router->get("/project", function($request, $db){
 
-  $project = $db->get("projects", isset($_GET['id']) ? $_GET['id'] : "");
+  $project = $db->get("PROJECTS", isset($_GET['ID']) ? $_GET['ID'] : "");
   $title = "Thophile Labs | {$project['title']}";
   include_once 'views/project.php';
 });
@@ -144,12 +144,12 @@ $router->get("/admin", function($request, $db, $auth){
     //$statistics = $db->getStatistics();
 
     //Geting all projects
-    $projects = $db->getAll("projects");
+    $projects = $db->getAll("PROJECTS");
 
     //Getting currently editing project
-    if(isset($_GET['id'])){
+    if(isset($_GET['ID'])){
       //ID == 0 ? new Project : editing Project
-      $project =  $db->get("projects", $_GET['id']);
+      $project =  $db->get("PROJECTS", $_GET['ID']);
     }
     if(isset($_GET['new'])){
       $project = [];
@@ -212,14 +212,14 @@ $router->post('/upload', function($request, $db, $auth) {
     }
 
     //Handle project edit/new
-    $project = json_decode($_POST['project'], true);
+    $project = json_decode($_POST['PROJECT'], true);
 
-    if($project['id'] == 0){
+    if($project['ID'] == 0){
       //Create and return the id
-      echo $db->set("projects", $project);
+      echo $db->set("PROJECTS", $project);
     }else{
       //Update
-      $db->set("projects", $project);
+      $db->set("PROJECTS", $project);
     }
 
   }else{
@@ -235,7 +235,7 @@ $router->get('/delete', function($request, $db, $auth) {
   if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
 
     //Query the database
-    $db->delete("projects", $_GET['id']);
+    $db->delete("PROJECTS", $_GET['ID']);
 
   }else{
 

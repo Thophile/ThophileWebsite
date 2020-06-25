@@ -44,7 +44,7 @@ class Database{
 
         
 
-        if(isset($row['id']) && $this->get($table, $row['id'])){
+        if(isset($row['ID']) && $this->get($table, $row['ID'])){
             $this->update($table, $row);
         }else{
             $this->create($table, $row);
@@ -67,9 +67,9 @@ class Database{
     function create(String $table, array $row){
         
         if(empty($this->data[$table])){
-            $row['id'] = 0;
+            $row['ID'] = 0;
         } else{
-            $row['id'] = array_key_last($this->data[$table]) + 1;
+            $row['ID'] = array_key_last($this->data[$table]) + 1;
         }
         $this->data[$table][] = $row;
 
@@ -80,7 +80,7 @@ class Database{
 
         
         $this->writeData();
-        return $row['id'];
+        return $row['ID'];
     }
 
     function delete(String $table, $id){
@@ -104,7 +104,7 @@ class Database{
     function sendToTranslation($table, $row){
         //create array to associate textcode with value
         $translationList = [];
-        $slug = array($table,$row["id"]);
+        $slug = array($table,$row['ID']);
         //declare recursion and then call it
         function findTranslation(array $haystack, array $path = [], &$translationList, $slug) {
             foreach ($haystack as $key => $value) {
