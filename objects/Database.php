@@ -44,9 +44,32 @@ class Database{
 
         //set translations for each value of any depth with first key as project id if class translator is available
         //if translator module existe parse data to send for translation generation
-        /*if(class_exists("Translator")){
+        if(class_exists("Translator")){
+            //create array to associate textcode with value
+            $translationList = [];
+
+            //declare recursion and then call it
+            function findTranslation(array $haystack, array $path = []) {
+                foreach ($haystack as $key => $value) {
+                    $currentPath = array_merge($path, [$key]);
+                    if (is_array($value)) {
+                        findTranslation($value, $currentPath);
+                    } else {
+                        //capitals separated by dots
+                        $textCode = strtoupper(implode(".",$currentPath));
+                        $translationList[$textCode] = $value;
+                    }
+                }
+            }
+            findTranslation($row);
+
+
+            var_dump($translationList);
+            foreach ($translationList as $textCode => $value) {
+                Translator::setTranslation($textCode,$value);
+            } 
         
-        }*/
+        }
 
         if(isset($row['id']) && $this->get($table, $row['id'])){
             $this->update($table, $row);
