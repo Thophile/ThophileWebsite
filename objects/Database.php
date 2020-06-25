@@ -42,10 +42,7 @@ class Database{
     function set(String $table, array $row ){
         if(!isset($this->data[$table])) $this->createTable($table);
 
-        //if translator module existe parse data to send for translation generation
-        if(class_exists("Translator")){
-            sendToTranslation($row);
-        }
+        
 
         if(isset($row['id']) && $this->get($table, $row['id'])){
             $this->update($table, $row);
@@ -56,6 +53,10 @@ class Database{
     }
 
     function update(String $table, array $row){
+        //if translator module existe parse data to send for translation generation
+        if(class_exists("Translator")){
+            $this->sendToTranslation($table, $row);
+        }
 
         $id = array_column($this->data[$table], 'id');
         $rowKey = array_search($row['id'], $id);
@@ -71,6 +72,11 @@ class Database{
             $row['id'] = array_key_last($this->data[$table]) + 1;
         }
         $this->data[$table][] = $row;
+
+        //if translator module existe parse data to send for translation generation
+        if(class_exists("Translator")){
+            $this->sendToTranslation($table, $row);
+        }
 
         
         $this->writeData();
@@ -117,7 +123,8 @@ class Database{
 
         var_dump($translationList);
         foreach ($translationList as $textCode => $value) {
-            Translator::setTranslation($textCode,$value);
+            //globally accessible function declared in Translator
+            setTranslation($textCode,$value);
         } 
     }
 }
