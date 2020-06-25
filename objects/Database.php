@@ -53,13 +53,15 @@ class Database{
     }
 
     function update(String $table, array $row){
+        
+        $id = array_column($this->data[$table], 'ID');
+        $rowKey = array_search($row['ID'], $id);
+        
         //if translator module existe parse data to send for translation generation
         if(class_exists("Translator")){
-            $this->sendToTranslation($table, $row);
+           $row = $this->sendToTranslation($table, $row);
         }
 
-        $id = array_column($this->data[$table], 'id');
-        $rowKey = array_search($row['id'], $id);
         $this->data[$table][$rowKey] = $row;
         $this->writeData();
     }
@@ -71,12 +73,12 @@ class Database{
         } else{
             $row['ID'] = array_key_last($this->data[$table]) + 1;
         }
-        $this->data[$table][] = $row;
-
+        
         //if translator module existe parse data to send for translation generation
         if(class_exists("Translator")){
-            $this->sendToTranslation($table, $row);
+            $row = $this->sendToTranslation($table, $row);
         }
+        $this->data[$table][] = $row;
 
         
         $this->writeData();
@@ -126,6 +128,22 @@ class Database{
         foreach ($translationList as $textCode => $value) {
             //globally accessible function declared in Translator
             setTranslation($textCode,$value);
+
+            //replace row value with text code after translation has  been set
+
+            //get relevant code
+            $tree = explode(".", $textCode, 3);
+            $tree= explode(".",$tree[2]);
+
+            $tmp =& $row;
+                foreach($tree as $key) {
+                    if($key == 'ID') $flag = true;
+                    $tmp =& $tmp[$key];
+                }
+                if ($flag) continue;
+                $tmp = $textCode;
+
         } 
+        return $row;
     }
 }
