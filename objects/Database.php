@@ -101,24 +101,25 @@ class Database{
         fclose($f);
     }
 
-    function sendToTranslation($row){
+    function sendToTranslation($table, $row){
         //create array to associate textcode with value
         $translationList = [];
-
+        $slug = array($table,$row["id"]);
         //declare recursion and then call it
-        function findTranslation(array $haystack, array $path = []) {
+        function findTranslation(array $haystack, array $path = [], &$translationList, $slug) {
             foreach ($haystack as $key => $value) {
                 $currentPath = array_merge($path, [$key]);
                 if (is_array($value)) {
-                    findTranslation($value, $currentPath);
+                    findTranslation($value, $currentPath, $translationList, $slug);
                 } else {
                     //capitals separated by dots
-                    $textCode = strtoupper(implode(".",$currentPath));
+                    $textCode = strtoupper(implode(".",array_merge($slug, $currentPath)));
+                    var_dump($textCode);
                     $translationList[$textCode] = $value;
                 }
             }
         }
-        findTranslation($row);
+        findTranslation($row,[], $translationList, $slug);
 
 
         var_dump($translationList);
