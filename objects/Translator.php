@@ -90,7 +90,7 @@ class Translator
 
                 //write file
                 $f = fopen("./translations/".$filename, 'w');
-                fwrite($f, json_encode($data));
+                fwrite($f, json_encode($data, JSON_FORCE_OBJECT));
                 fclose($f);
             }
         }
