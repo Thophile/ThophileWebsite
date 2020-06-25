@@ -42,12 +42,17 @@ class Database{
     function set(String $table, array $row ){
         if(!isset($this->data[$table])) $this->createTable($table);
 
+        //set translations for each value of any depth with first key as project id if class translator is available
+        //if translator module existe parse data to send for translation generation
+        /*if(class_exists("Translator")){
+        
+        }*/
+
         if(isset($row['id']) && $this->get($table, $row['id'])){
             $this->update($table, $row);
         }else{
             $this->create($table, $row);
         }
-        $this->writeData();
         
     }
 
@@ -61,20 +66,22 @@ class Database{
 
     function create(String $table, array $row){
         
-        $id = array_column($this->data[$table], 'id');
-        $row['id'] = ($id == []) ? 0 : sizeof($id);
+        if(empty($this->data[$table])){
+            $row['id'] = 0;
+        } else{
+            $row['id'] = array_key_last($this->data[$table]) + 1;
+        }
         $this->data[$table][] = $row;
 
-        return $row['id'];
+        
         $this->writeData();
+        return $row['id'];
     }
 
     function delete(String $table, $id){
-        array_splice($this->data[$table], $id, 1);
 
-        for ($i=0; $i < sizeof($this->data[$table]) ; $i++) { 
-            $this->data[$table][$i]['id'] = $i;
-        }
+        unset($this->data[$table][$id]);
+
         $this->writeData();
     }
 
@@ -85,7 +92,7 @@ class Database{
 
     function writeData(){
         $f = fopen($this->file, 'w');
-        fwrite($f, json_encode($this->data));
+        fwrite($f, json_encode($this->data, JSON_FORCE_OBJECT));
         fclose($f);
     }
 }
