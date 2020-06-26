@@ -58,16 +58,16 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
         <?php foreach ($projects as $project) { ?>
 
-        <section class="projects" data-category="<?= $project['category']?>"
-        <?php if($project['banner_image'] != ""){?>style="background-image: url(/publicFolder/<?= rawurlencode($project['banner_image'])?>);" <?php } ?>>
-            <a href="/project?id=<?= $project['id']?>" aria-label="Link to project <?= $project['id']?>"></a>
+        <section class="projects" data-category="<?= translate($project['CATEGORY'])?>"
+        <?php if(translate($project['BANNER_IMAGE']) != ""){?>style="background-image: url(/publicFolder/<?= rawurlencode(translate($project['BANNER_IMAGE']))?>);" <?php } ?>>
+            <a href="/project?id=<?= $project['ID']?>" aria-label="Link to project <?= $project['ID']?>"></a>
 
             <h2>
-                <?= $project['title']?>
+                <?= translate($project['TITLE'])?>
             </h2>
             <h3>
                 Category <br>
-                "<?= $project['category']?>"
+                "<?= translate($project['CATEGORY'])?>"
             </h3>
         </section>
 

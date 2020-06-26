@@ -59,7 +59,7 @@ class Database{
         
         //if translator module existe parse data to send for translation generation
         if(class_exists("Translator")){
-           $row = $this->sendToTranslation($table, $row);
+           $row = $this->sendToTranslation($table, $row, Translator::$locale);
         }
 
         $this->data[$table][$rowKey] = $row;
@@ -103,7 +103,7 @@ class Database{
         fclose($f);
     }
 
-    function sendToTranslation($table, $row){
+    function sendToTranslation($table, $row, $locale = null){
         //create array to associate textcode with value
         $translationList = [];
         $slug = array($table,$row['ID']);
@@ -126,8 +126,13 @@ class Database{
 
         var_dump($translationList);
         foreach ($translationList as $textCode => $value) {
-            //globally accessible function declared in Translator
-            setTranslation($textCode,$value);
+            //if translation does not exist set it on all else set it on locale
+            if(!translate($textCode)){
+                setTranslation($textCode,$value);
+            }else{
+                //globally accessible function declared in Translator
+                setTranslation($textCode,$value, $locale);
+            }
 
             //replace row value with text code after translation has  been set
 
@@ -136,8 +141,9 @@ class Database{
             $tree= explode(".",$tree[2]);
 
             $tmp =& $row;
+            $flag = false;
                 foreach($tree as $key) {
-                    if($key == 'ID') $flag = true;
+                    $key == 'ID' ? $flag = true : $flag = false;
                     $tmp =& $tmp[$key];
                 }
                 if ($flag) continue;

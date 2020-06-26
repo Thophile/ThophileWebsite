@@ -120,8 +120,8 @@ $router->get('/projects', function($request, $db) {
 //View individual project
 $router->get("/project", function($request, $db){
 
-  $project = $db->get("PROJECTS", isset($_GET['ID']) ? $_GET['ID'] : "");
-  $title = "Thophile Labs | {$project['title']}";
+  $project = $db->get("PROJECTS", isset($_GET['id']) ? $_GET['id'] : "");
+  $title = "Thophile Labs | ".translate($project['TITLE']);
   include_once 'views/project.php';
 });
 
@@ -147,9 +147,9 @@ $router->get("/admin", function($request, $db, $auth){
     $projects = $db->getAll("PROJECTS");
 
     //Getting currently editing project
-    if(isset($_GET['ID'])){
+    if(isset($_GET['id'])){
       //ID == 0 ? new Project : editing Project
-      $project =  $db->get("PROJECTS", $_GET['ID']);
+      $project =  $db->get("PROJECTS", $_GET['id']);
     }
     if(isset($_GET['new'])){
       $project = [];
@@ -235,7 +235,7 @@ $router->get('/delete', function($request, $db, $auth) {
   if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
 
     //Query the database
-    $db->delete("PROJECTS", $_GET['ID']);
+    $db->delete("PROJECTS", $_GET['id']);
 
   }else{
 

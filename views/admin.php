@@ -52,12 +52,12 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                     ?>
 
                     <div class="bodyline row">
-                        <div class="id"><?=$line['id']?></div>
-                        <div class="name"><?=$line['title']?></div>
+                        <div class="id"><?=$line['ID']?></div>
+                        <div class="name"><?=translate($line['TITLE'])?></div>
                         <div class="action">
-                            <a href="/project?id=<?=$line['id']?>" class="btn" target="_blank"><i class="far fa-eye"></i></a>
-                            <a href="/admin?id=<?=$line['id']?>" class="btn"><i class="fas fa-edit"></i></a>
-                            <a href="/delete?id=<?=$line['id']?>" class="btn to-validate"><i class="fas fa-trash"></i></a>
+                            <a href="/project?id=<?=$line['ID']?>" class="btn" target="_blank"><i class="far fa-eye"></i></a>
+                            <a href="/admin?id=<?=$line['ID']?>" class="btn"><i class="fas fa-edit"></i></a>
+                            <a href="/delete?id=<?=$line['ID']?>" class="btn to-validate"><i class="fas fa-trash"></i></a>
                         </div>
                     </div>
 
@@ -72,11 +72,11 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <div id="_head" class="col">
                         <h1>Header</h1>
                     <input type="text" name="title" placeholder="Project title"
-                        value="<?php if(isset($project["title"])) echo $project["title"]; ?>">
+                        value="<?php if(isset($project["TITLE"])) echo translate($project["TITLE"]); ?>">
                     <input type="text" name="category" placeholder="Category"
-                        value="<?php if(isset($project["category"])) echo $project["category"] ?>">
+                        value="<?php if(isset($project["CATEGORY"])) echo translate($project["CATEGORY"]) ?>">
                     <input type="text" name="style" placeholder="Banner image"
-                        value="<?php if(isset($project["banner_image"])) echo $project["banner_image"] ?>">
+                        value="<?php if(isset($project["BANNER_IMAGE"])) echo translate($project["BANNER_IMAGE"]) ?>">
                 </div>
 
                 <div id="_image" class="col">
@@ -84,15 +84,15 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                     <div class="preview_row row">
 
                         <?php 
-                        if(isset($project["images"])){
-                            foreach ($project["images"] as  $image) {
+                        if(isset($project["IMAGES"])){
+                            foreach ($project["IMAGES"] as  $image) {
                         ?>
 
                         <div class="image_preview">
-                            <img src="/publicFolder/<?= $image["filename"]?>" style="display: block;">
+                            <img src="/publicFolder/<?= translate($image["FILENAME"])?>" style="display: block;">
                             <i class="fas fa-6x fa-upload" style="display: none;"></i>
                             <input class="image_file" type="file">
-                            <input type="text" placeholder="Label" value="<?= $image["label"]?>">
+                            <input type="text" placeholder="Label" value="<?= translate($image["LABEL"])?>">
                             <i class="fas fa-minus"></i>
                         </div>
 
@@ -108,13 +108,13 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                     <h1>Links</h1>
 
                     <?php
-                if(isset($project["links"])){
-                    foreach ($project["links"] as  $link) { 
+                if(isset($project["LINKS"])){
+                    foreach ($project["LINKS"] as  $link) { 
                 ?>
 
                     <div>
-                        <input type="text" size=1 placeholder="Name" value="<?= $link["title"]?>">
-                        to : <input type="text" size=1 placeholder="Link" value="<?= $link["href"]?>">
+                        <input type="text" size=1 placeholder="Name" value="<?= translate($link["TITLE"])?>">
+                        to : <input type="text" size=1 placeholder="Link" value="<?= translate($link["HREF"])?>">
                         <button type="button" class="btn link_remove">
                             <i class="fas fa-minus"></i>
                         </button>
@@ -134,23 +134,23 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                     <h1>Article</h1>
 
                     <?php
-                if(isset($project["article"])){
-                    foreach ($project["article"] as  $section) {  
+                if(isset($project["ARTICLE"])){
+                    foreach ($project["ARTICLE"] as  $section) {  
                 ?>
 
                     <div class="article_section col">
                         <div class="article_title">
-                            <input type="text" placeholder="Section title" value="<?= $section["title"]?>">
+                            <input type="text" placeholder="Section title" value="<?= translate($section["TITLE"])?>">
                             <button type="button" class="btn section_remove">
                                 <i class="fas fa-minus"></i>
                             </button>
                         </div>
                         <div class="article_paragraphs col">
                             <?php 
-                            foreach ($section["paragraphs"] as $paragraph) {
+                            foreach ($section["PARAGRAPHS"] as $paragraph) {
                             ?>
 
-                            <textarea><?= $paragraph?></textarea>
+                            <textarea><?= translate($paragraph)?></textarea>
 
                             <?php 
                             } ?>

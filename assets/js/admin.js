@@ -136,7 +136,7 @@ function parseForm() {
 
             IMAGE.LABEL = element.querySelectorAll('input')[1].value
 
-            PROJECT.IMAGES.push(image)
+            PROJECT.IMAGES.push(IMAGE)
         }
     });
 
