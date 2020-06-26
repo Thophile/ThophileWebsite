@@ -47,6 +47,7 @@ class Translator
             $tree = explode(".", $textCode);
             $text = Translator::$dictionary;
             foreach ($tree as $branche) {
+                if(!isset($text[$branche])) return false;
                 $text = $text[$branche];
             }
             return $text;
