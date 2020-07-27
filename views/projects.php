@@ -42,10 +42,11 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 Here you can see my projects
             </h1>
              <form action="javascript:void(0)">
-                <button onclick="showAll()" class="pills inverted">All</button>
-                <button onclick="showDev()" class="pills inverted">Developpement</button>
-                <button onclick="showNet()" class="pills inverted">Network</button>
-                <button onclick="showOth()" class="pills inverted">Other</button>
+                <button onclick="showAll()" class="pills inverted"><?= translate("PROJETS.SECTION1.BUTTON")?></button>
+                <?php foreach (array_column($projects,'CATEGORY') as $filter) :?>
+                    <?php $cat = translate($filter);?>
+                    <button onclick="show('<?= $cat ?>')" class="pills inverted"><?= $cat ?></button>
+                <?php endforeach ?>
             </form>
         </section>
 
