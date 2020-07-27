@@ -122,8 +122,7 @@ class Router
       return;
     }
     
-    //Hit the db with a route entry
-    //$this->db->hit($formatedRoute);
+
     //call the method that match the route with arguments
     echo call_user_func_array($method, array($this->request, $this->db, $this->auth));
   }
