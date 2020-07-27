@@ -247,7 +247,7 @@ $router->get('/delete', function($request, $db, $auth) {
   die();
   });
 
-$router->get('/setlangue', function(){
+$router->get('/setlocale', function(){
 
   if(isset($_GET['l']) && isset($_GET['r'])){
     changeLocale($_GET['l']);

@@ -53,7 +53,7 @@ function setLangue(event){
     var source = event.target || event.srcElement;
     l = source.getAttribute("data-lang");
     r = window.location.href;
-    window.location = window.location.protocol +"//"+ window.location.host + "/setlangue"  + "?l=" + l + "&r=" + r;
+    window.location = window.location.protocol +"//"+ window.location.host + "/setlocale"  + "?l=" + l + "&r=" + r;
 
 }
 
