@@ -84,6 +84,13 @@ header{
 #lang-toggle i:hover{
     color: var(--secondaryColor);
 }
+#lang-list a{
+    padding:5px;
+}
+#lang-list a[data-selected="true"]{
+    background-color: var(--accent);
+    color:var(--mainColor);
+}
 #lang-list{
     display:none;
     flex-direction: column;
@@ -93,7 +100,7 @@ header{
     background-color: var(--mainColor);
     box-shadow: 0 0 10px;
     padding: 10px ;
-    margin: -10px;
+    margin: -15px;
 }
 
 .title{
