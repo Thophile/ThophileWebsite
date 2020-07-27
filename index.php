@@ -194,17 +194,18 @@ $router->post('/upload', function($request, $db, $auth) {
 
   //Check for authorization
   if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
-    
+ 
     //Handle files if some are submitted
     if (isset($_FILES['file'])) {
 
       // Loop throught each file
       for( $i = 0; $i < sizeof($_FILES['file']['name']); $i++ ) {
-  
 
+        
         $tmpFilePath = $_FILES['file']['tmp_name'][$i];
         if ($tmpFilePath != ""){
 
+          
           //Upload the file from the tmp dir
           move_uploaded_file($tmpFilePath, "./publicFolder/" . $_FILES['file']['name'][$i]);
         }
@@ -214,7 +215,7 @@ $router->post('/upload', function($request, $db, $auth) {
     //Handle project edit/new
     $project = json_decode($_POST['PROJECT'], true);
 
-    if($project['ID'] == 0){
+    if(isset($_GET['new']) && $_GET['new'] == true){
       //Create and return the id
       echo $db->set("PROJECTS", $project);
     }else{
