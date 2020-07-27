@@ -28,8 +28,8 @@ class Translator
         }
 
         //get dictionary data
-        if(file_exists("./translations/".self::$locale.".json")){
-            self::$dictionary = json_decode(file_get_contents("./translations/".self::$locale.".json"), true);
+        if(file_exists($_SERVER['DOCUMENT_ROOT'].'/translations/'.self::$locale.".json")){
+            self::$dictionary = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/translations/'.self::$locale.".json"), true);
         }else{
             //No file error
             http_response_code(500);
@@ -57,7 +57,7 @@ class Translator
             
                 setcookie("locale", $locale);
                 Translator::$locale = $locale;
-                Translator::$dictionary = json_decode(file_get_contents("translations/".Translator::$locale.".json"), true);
+                Translator::$dictionary = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/translations/'.Translator::$locale.".json"), true);
             
         }
 
@@ -65,17 +65,17 @@ class Translator
 
             //set in all file by default or in specified locale if set
             if($locale == null){
-                $translations = scandir("./translations/");
+                $translations = scandir($_SERVER['DOCUMENT_ROOT'].'/translations/'.$filename);
             }else{
                 $translations[] = $locale.".json";
             }
 
             
             foreach ($translations as $key => $filename) {
-                if(is_dir("./translations/".$filename)){
+                if(is_dir($_SERVER['DOCUMENT_ROOT'].'/translations/'.$filename)){
                     continue;
                 }
-                $data = json_decode(file_get_contents("./translations/".$filename),true);
+                $data = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/translations/'.$filename),true);
                 $tree = explode(".", $textCode);
 
                 $tmp =& $data;
@@ -85,7 +85,7 @@ class Translator
                 $tmp = $value;
 
                 //write file
-                $f = fopen("./translations/".$filename, 'w');
+                $f = fopen($_SERVER['DOCUMENT_ROOT'].'/translations/'.$filename, 'w');
                 fwrite($f, json_encode($data, JSON_FORCE_OBJECT));
                 fclose($f);
             }
