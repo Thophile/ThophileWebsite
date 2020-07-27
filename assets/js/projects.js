@@ -22,51 +22,17 @@ function showAll() {
 }
 
 /**
- * Show projects with category attribute as "Developpement"
+ * Show projects with category attribute as "cat"
  */
-function showDev() {
+function show($cat) {
     elements = document.querySelectorAll('.projects');
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "none";
     }
-    elements = document.querySelectorAll('.projects[data-category="Developpement"]');
+    elements = document.querySelectorAll('.projects[data-category="' + $cat + '"]');
 
     if(elements.length == 0)document.querySelector(".empty").style.display = "flex"
 
-    for (var i = 0, max = elements.length; i < max; i++) {
-        elements[i].style.display = "flex";
-    }
-}
-
-/**
- * Show projects with category attribute as "Network"
- */
-function showNet() {
-    elements = document.querySelectorAll('.projects');
-    for (var i = 0, max = elements.length; i < max; i++) {
-        elements[i].style.display = "none";
-    }
-    elements = document.querySelectorAll('.projects[data-category="Network"]');
-    
-    if(elements.length == 0)document.querySelector(".empty").style.display = "flex"
-    
-    for (var i = 0, max = elements.length; i < max; i++) {
-        elements[i].style.display = "flex";
-    }
-}
-
-/**
- * Show projects with category attribute as "Other"
- */
-function showOth() {
-    elements = document.querySelectorAll('.projects');
-    for (var i = 0, max = elements.length; i < max; i++) {
-        elements[i].style.display = "none";
-    }
-    elements = document.querySelectorAll('.projects[data-category="Other"]');
-    
-    if(elements.length == 0)document.querySelector(".empty").style.display = "flex"
-    
     for (var i = 0, max = elements.length; i < max; i++) {
         elements[i].style.display = "flex";
     }

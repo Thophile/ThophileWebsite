@@ -1,22 +1,31 @@
 <?php
-//This file recieve request and send back the good page
+//Include classes
+include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Authenticator.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Database.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Request.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Router.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Database.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Authenticator.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/objects/Translator.php';
+
+//Include Environnement file
 include_once $_SERVER['DOCUMENT_ROOT'].'/env.php';
 
-
-//Explicit enough
+//Instanciate objects
 $db = new Database();
-$authenticator = new Authenticator();
-$router = new Router(new Request, $db, $authenticator);
+$auth = new Authenticator();
+$translator = new Translator();
+$router = new Router(new Request, $db, $auth);
 
 
 //Prevent acces from file name
 $router->get('/index.php', function() {
   include_once $_SERVER['DOCUMENT_ROOT'].'/errors/403.html';
   die();
+});
+
+$router->get('/test', function() {
+  setTranslation("TEST.1","salut","fr");
+  setTranslation("TEST.1","hello","en");
+  setTranslation("TEST.2","911 is known in any languages");
 });
 
 //Home
@@ -104,15 +113,15 @@ $router->post('/ul_cv', function($request,$db, $auth) {
 $router->get('/projects', function($request, $db) {
 
   $title = 'Thophile Labs | Projects';
-  $projects = $db->getProjects();
+  $projects = $db->getAll("PROJECTS");
   include_once 'views/projects.php';
 });
 
 //View individual project
 $router->get("/project", function($request, $db){
 
-  $project = $db->getProject(isset($_GET['id']) ? $_GET['id'] : "");
-  $title = "Thophile Labs | {$project['title']}";
+  $project = $db->get("PROJECTS", isset($_GET['id']) ? $_GET['id'] : "");
+  $title = "Thophile Labs | ".translate($project['TITLE']);
   include_once 'views/project.php';
 });
 
@@ -132,15 +141,18 @@ $router->get("/admin", function($request, $db, $auth){
       $timezone = date ("P", filemtime("publicFolder/" . $fileName));
     }
     //Getting all statistics
-    $statistics = $db->getStatistics();
+    //$statistics = $db->getStatistics();
 
     //Geting all projects
-    $projects = $db->getProjects();
+    $projects = $db->getAll("PROJECTS");
 
     //Getting currently editing project
     if(isset($_GET['id'])){
       //ID == 0 ? new Project : editing Project
-      $project = $_GET['id'] == "0" ? [] : $db->getProject($_GET['id']);
+      $project =  $db->get("PROJECTS", $_GET['id']);
+    }
+    if(isset($_GET['new'])){
+      $project = [];
     }
     include_once 'views/admin.php';
 
@@ -158,7 +170,7 @@ $router->get("/login", function($request){
 });
 
 //Login handler
-$router->post('/login', function($request, $db, $auth) {
+$router->post('/login', function($request, $db ,$auth) {
   //Password check
   if($auth->validatePassword($request->getBody()['password'])){
 
@@ -200,14 +212,14 @@ $router->post('/upload', function($request, $db, $auth) {
     }
 
     //Handle project edit/new
-    $project = json_decode($_POST['project'], true);
+    $project = json_decode($_POST['PROJECT'], true);
 
-    if($project['id'] == 0){
+    if($project['ID'] == 0){
       //Create and return the id
-      echo $db->createProject($project)[0];
+      echo $db->set("PROJECTS", $project);
     }else{
       //Update
-      $db->updateProject($project);
+      $db->set("PROJECTS", $project);
     }
 
   }else{
@@ -223,7 +235,7 @@ $router->get('/delete', function($request, $db, $auth) {
   if(isset($_COOKIE['token']) && $auth->validateToken($_COOKIE['token'])){
 
     //Query the database
-    $db->deleteProject($_GET['id']);
+    $db->delete("PROJECTS", $_GET['id']);
 
   }else{
 
@@ -234,6 +246,18 @@ $router->get('/delete', function($request, $db, $auth) {
   header("Location: https://{$request->httpHost}/admin");
   die();
   });
+
+$router->get('/setlangue', function(){
+
+  if(isset($_GET['l']) && isset($_GET['r'])){
+    changeLocale($_GET['l']);
+    header("Location: ".$_GET['r']);
+  }else{
+    http_response_code(400);
+  }
+  die();
+
+});
 
 /**
  * post request template

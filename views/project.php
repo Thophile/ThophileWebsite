@@ -42,17 +42,17 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <main>
         <section class="header">
             <h1>
-                <?= $project['title']?>
+                <?= translate($project['TITLE'])?>
             </h1>
             <h2>
-                Category <?= $project['category']?>
+                Category <?= translate($project['CATEGORY'])?>
             </h2>
         </section>
         <nav id="links" class="row">
             <?php
-                foreach (json_decode($project['links']) as $link) { 
+                foreach ($project['LINKS'] as $link) { 
             ?>
-            <a href="<?= $link->href ?>" rel="nofollow" class="btn"><?=$link->title?></a>
+            <a href="<?= translate($link["HREF"]) ?>" rel="nofollow" class="btn"><?=translate($link["TITLE"])?></a>
             <?php 
                 } 
             ?>
@@ -61,10 +61,10 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <aside class="merry-go">
             
             <?php
-            foreach (json_decode($project['images']) as $image) { 
+            foreach ($project['IMAGES'] as $image) { 
             ?>
-            <img src="/publicFolder/<?= $image->filename ?>" alt="<?=$image->label?>"
-                data-label="<?=$image->label?>">
+            <img src="/publicFolder/<?= translate($image["FILENAME"]) ?>" alt="<?= translate($image["LABEL"])?>"
+                data-label="<?= translate($image["LABEL"])?>">
             <?php 
             } 
             ?>
@@ -81,7 +81,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <label></label>
                 <div class="dots_group">  
                     <?php
-                        for ($i=0; $i < count(json_decode($project['images'])); $i++) { 
+                        for ($i=0; $i < count($project['IMAGES']); $i++) { 
                             echo '<span onclick="displayImage('.$i.')"></span>';
                         }
                     ?>
@@ -94,14 +94,14 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
         <article>
             <?php
-            foreach (json_decode($project['article']) as $section) { 
+            foreach ($project['ARTICLE'] as $section) { 
             ?>
             <section>
-                <h1><?=$section->title?></h1>
+                <h1><?= translate($section["TITLE"])?></h1>
                 <?php
-                    foreach ($section->paragraphs as $paragraph) {
+                    foreach ($section["PARAGRAPHS"] as $paragraph) {
                     ?>
-                <p>        <?=$paragraph?></p>
+                <p>        <?=translate($paragraph)?></p>
                 <?php
                     }
                     ?>

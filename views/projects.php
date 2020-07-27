@@ -39,35 +39,36 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <main>
         <section class="header">
             <h1>
-                Here you can see my projects
+            <?= translate("PROJETS.SECTION1.HEADER")?>
             </h1>
              <form action="javascript:void(0)">
-                <button onclick="showAll()" class="pills inverted">All</button>
-                <button onclick="showDev()" class="pills inverted">Developpement</button>
-                <button onclick="showNet()" class="pills inverted">Network</button>
-                <button onclick="showOth()" class="pills inverted">Other</button>
+                <button onclick="showAll()" class="pills inverted"><?= translate("PROJETS.SECTION1.BUTTON")?></button>
+                <?php foreach (array_column($projects,'CATEGORY') as $filter) :?>
+                    <?php $cat = translate($filter);?>
+                    <button onclick="show('<?= $cat ?>')" class="pills inverted"><?= $cat ?></button>
+                <?php endforeach ?>
             </form>
         </section>
 
 
         <section class="projects empty" >
             <h2>
-                No available project
+            <?= translate("PROJETS.SECTION2.NOPROJECTS")?>
             </h2>
         </section>
 
         <?php foreach ($projects as $project) { ?>
 
-        <section class="projects" data-category="<?= $project['category']?>"
-        <?php if($project['banner_image'] != ""){?>style="background-image: url(/publicFolder/<?= rawurlencode($project['banner_image'])?>);" <?php } ?>>
-            <a href="/project?id=<?= $project['id']?>" aria-label="Link to project <?= $project['id']?>"></a>
+        <section class="projects" data-category="<?= translate($project['CATEGORY'])?>"
+        <?php if(translate($project['BANNER_IMAGE']) != ""){?>style="background-image: url(/publicFolder/<?= rawurlencode(translate($project['BANNER_IMAGE']))?>);" <?php } ?>>
+            <a href="/project?id=<?= $project['ID']?>" aria-label="Link to project <?= $project['ID']?>"></a>
 
             <h2>
-                <?= $project['title']?>
+                <?= translate($project['TITLE'])?>
             </h2>
             <h3>
-                Category <br>
-                "<?= $project['category']?>"
+            <?= translate("PROJETS.CATEGORY")?> <br>
+                "<?= translate($project['CATEGORY'])?>"
             </h3>
         </section>
 

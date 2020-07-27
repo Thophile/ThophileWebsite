@@ -9,17 +9,16 @@
  * 
  * @see main.js
  */
-ready(function () {
+ready(function() {
     //Tabs button event
     document.querySelectorAll('#tabs button').forEach(element => {
-        element.addEventListener('click',displayTab)
+        element.addEventListener('click', displayTab)
     });
     //Display first tab by default by triggering an event
     document.querySelectorAll("#tabs button")[0].dispatchEvent(new Event('click'))
-    
+
     //Display projet tabs if it's a reload with a get parameter
-    if(window.location.search){
-        console.log("true")
+    if (window.location.search) {
         document.querySelector('button[data-target="#projectManager"]').dispatchEvent(new Event('click'))
     }
     //Initialise Project Manager events
@@ -51,11 +50,11 @@ ready(function () {
         element.addEventListener("change", previewImage)
     });
     document.querySelectorAll('.bodyline a.to-validate').forEach(element => {
-        element.addEventListener('click',validate)
+        element.addEventListener('click', validate)
     });
 
     //Initialise CV Uploader events
-    document.querySelector('#cvuploader button').addEventListener('click',uploadCV)
+    document.querySelector('#cvuploader button').addEventListener('click', uploadCV)
 
 })
 
@@ -63,9 +62,9 @@ ready(function () {
  * Display the tab corresponding to the button calling the event and hide the other
  * @param {event} event 
  */
-function displayTab(event){
+function displayTab(event) {
     var source = event.target || event.srcElement
-    //handle nested source
+        //handle nested source
     while (source.tagName !== "BUTTON") {
         source = source.parentElement
     }
@@ -89,13 +88,13 @@ function displayTab(event){
  */
 function validate(event) {
     var source = event.target || event.srcElement
-    //handle nested source
+        //handle nested source
     while (source.tagName !== "A") {
         source = source.parentElement
     }
-    message = "Are you sur you want to delete project n°" + source.href.split('=')[1] + " ?"
+    message = "Are you sur you want to delete PROJECT n°" + source.href.split('=')[1] + " ?"
 
-    if(!confirm(message)) event.preventDefault();
+    if (!confirm(message)) event.preventDefault();
 }
 
 
@@ -104,85 +103,85 @@ function validate(event) {
  */
 function parseForm() {
     //retrieve dta
-    var project = new Object()
+    var PROJECT = new Object()
 
-    //get project id from url
+    //get PROJECT id from url
     var urlparameters = window.location.search //get full string
     var parameters = new URLSearchParams(urlparameters)
-    project.id = parameters.get('id')
+    PROJECT.ID = parameters.get('id')
 
-    project.title = document.querySelector('input[name=title]').value
-    project.category = document.querySelector('input[name=category]').value
-    project.banner_image = document.querySelector('input[name=style]').value
+    PROJECT.TITLE = document.querySelector('input[name=title]').value
+    PROJECT.CATEGORY = document.querySelector('input[name=category]').value
+    PROJECT.BANNER_IMAGE = document.querySelector('input[name=style]').value
 
 
     //image
-    project.images = []
+    PROJECT.IMAGES = []
     var data = new FormData()
     document.querySelectorAll('#_image .image_preview').forEach(element => {
 
         //if an img has been loaded/selected
         if (element.querySelector('img').src != "") {
-            var image = new Object()
+            var IMAGE = new Object()
 
             //save the filename
             if (element.querySelector('input[type=file]').files.length == 0) {
                 //take the already existing filename to save it back 
-                image.filename = element.querySelector('img').src.split(/(\\|\/)/g).pop()
+                IMAGE.FILENAME = element.querySelector('img').src.split(/(\\|\/)/g).pop()
             } else {
                 //save new filename
-                image.filename = element.querySelector('input[type=file]').files[0].name
+                IMAGE.FILENAME = element.querySelector('input[type=file]').files[0].name
                 data.append('file[]', element.querySelector('input[type=file]').files[0])
             }
 
-            image.label = element.querySelectorAll('input')[1].value
+            IMAGE.LABEL = element.querySelectorAll('input')[1].value
 
-            project.images.push(image)
+            PROJECT.IMAGES.push(IMAGE)
         }
     });
 
 
     //links
-    project.links = []
+    PROJECT.LINKS = []
     document.querySelectorAll('#_links div').forEach(element => {
-        var link = new Object()
-        link.title = element.querySelectorAll('input')[0].value
-        link.href = element.querySelectorAll('input')[1].value
-        project.links.push(link)
+        var LINK = new Object()
+        LINK.TITLE = element.querySelectorAll('input')[0].value
+        LINK.HREF = element.querySelectorAll('input')[1].value
+        PROJECT.LINKS.push(LINK)
     });
 
 
     //article
-    project.article = []
+    PROJECT.ARTICLE = []
     document.querySelectorAll('#_article .article_section').forEach(element => {
-        var section = new Object()
-        section.title = element.querySelector('.article_title input[type=text').value
-        section.paragraphs = []
+        var SECTION = new Object()
+        SECTION.TITLE = element.querySelector('.article_title input[type=text').value
+        SECTION.PARAGRAPHS = []
         element.querySelectorAll('.article_paragraphs textarea').forEach(p => {
-            section.paragraphs.push(p.value)
+            SECTION.PARAGRAPHS.push(p.value)
         })
-        project.article.push(section)
+        PROJECT.ARTICLE.push(SECTION)
     })
 
-    data.append('project', JSON.stringify(project))
+    data.append('PROJECT', JSON.stringify(PROJECT))
 
     //send to create or update
     var request = new XMLHttpRequest();
     request.open('post', '/upload');
 
     // AJAX request finished event
-    request.addEventListener('load', function (e) {
-        
+    request.addEventListener('load', function(e) {
+
         // Check the response
-        if(request.status == 200) {
+        if (request.status == 200) {
 
             //Display success message
             document.getElementById('status').innerHTML = "Successfuly saved"
-
-            //If a valid Id is returned, redirect to that location
-            if(RegExp('^[0-9]+$').test(request.response)) window.location = "/admin?id=" + request.response ;
-        }
-        else{
+            /*debug line*/
+            console.log(request.response)
+                //If a valid Id is returned, redirect to that location
+            if (RegExp('^[0-9]+$').test(request.response)) window.location = "/admin?id=" + request.response;
+        } else {
             document.getElementById('status').innerHTML = 'Status : ' + request.status + ', ' + request.statusText
         }
 
@@ -213,7 +212,7 @@ function previewImage(event) {
 
     //get the img of the div and load the image in it
     var preview = source.children[0]
-    reader.addEventListener("load", function () {
+    reader.addEventListener("load", function() {
         //convert file to string
         preview.src = reader.result
     }, false)
@@ -399,7 +398,7 @@ function paragraphsAdd(event) {
 /**
  * Send selected file to server as a CV
  */
-function uploadCV(){
+function uploadCV() {
     var data = new FormData()
     if (document.querySelector('#cvuploader input[type=file]').files.length !== 0) {
         data.append('file[]', document.querySelector('#cvuploader input[type=file]').files[0])
@@ -407,22 +406,21 @@ function uploadCV(){
         //send to create or update
         var request = new XMLHttpRequest();
         request.open('post', '/ul_cv');
-    
+
         // AJAX request finished event
-        request.addEventListener('load', function (e) {
-            
+        request.addEventListener('load', function(e) {
+
             // Check the response
-            if(request.status == 200) {
+            if (request.status == 200) {
                 alert("Successfuly uploaded")
-            }
-            else{
+            } else {
                 alert(response.status + response.statusText)
             }
         });
 
         request.send(data);
 
-    }else{
+    } else {
         alert("No file selected")
     }
 }

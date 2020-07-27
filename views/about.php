@@ -36,31 +36,24 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     </header>
     <main>
         <div id="header" class="col">
-            <h1>About myself</h1>
+            <h1><?= translate("ABOUT.HEADER")?></h1>
         </div>
         <article>
-            <h2>Studies</h2>
+            <h2><?= translate("ABOUT.ARTICLE.STUDIES")?></h2>
             <section id="studies">
-                <p>I always wanted to be useful to society, my natural talent for logic led me to computer training after a "Scientific Baccalaureate"
-                I think that IT has and will have a huge place in society as a tool to help everyone, facilitate any task and as an entertainment tool.
-                With such a role, IT is a perfect choice to make the most of my abilities while doing something good to help people.</p>
+                <p><?= translate("ABOUT.ARTICLE.P1")?></p>
             </section>
 
-            <h2>Hobbies</h2>
+            <h2><?= translate("ABOUT.ARTICLE.HOBBIES")?></h2>
             <section id="hobbies">
-                <p>I like to do everything I can by myself.
-                It all started when I was a first year elementary school student when I was first authorized to use a hacksaw. I have never stopped working on manual projects in my spare time since!
-
-                I like to learn and I like useless or beautiful gadgets but I am not so rich so I cannot buy everything that I find fun or pretty.
-                Most of the time, I end up watching tutorials and building them myself for a 10th of the price. Sometimes it costs me 10 times the price but I always end up learning something new and I have a lot of fun!
-                </p>
+                <p><?= translate("ABOUT.ARTICLE.P2")?></p>
             </section>
 
-            <h2>Contact</h2>
+            <h2><?= translate("ABOUT.CONTACT")?></h2>
             <section id="contacts">
-                <a href="mailto:contact@thophilelabs.com" class="btn pills"> <i class="fas fa-envelope"></i> My mail</a>
-                <a href="https://www.linkedin.com/in/theophile-MONTEMONT" class="btn pills"> <i class="fab fa-linkedin"></i> My LinkedIn</a>
-                <a href="https://twitter.com/TheophileMNT" class="btn pills"> <i class="fab fa-twitter-square"></i> My twitter</a>
+                <a href="mailto:contact@thophilelabs.com" class="btn pills"> <i class="fas fa-envelope"></i><?= translate("ABOUT.MAIL")?></a>
+                <a href="https://www.linkedin.com/in/theophile-MONTEMONT" class="btn pills"> <i class="fab fa-linkedin"></i><?= translate("ABOUT.LINKEDIN")?></a>
+                <a href="https://twitter.com/TheophileMNT" class="btn pills"> <i class="fab fa-twitter-square"></i><?= translate("ABOUT.TWITTER")?></a>
             </section>
 
         </article>
@@ -68,12 +61,12 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     
         <div id="downloadBox" class="col">
             <?php if(isset($lastModified) & isset($timezone)){?>
-            <h2>Download my resume</h2>
-            <a href="/dl_cv" target="_blank" class="btn pills">Download</a>
-            <span>Last uploaded at : <?= $lastModified ?> (Timezone : GMT <?= $timezone ?>) </span>
+            <h2><?= translate("ABOUT.RESUME.HEADER")?></h2>
+            <a href="/dl_cv" target="_blank" class="btn pills"><?= translate("ABOUT.RESUME.DL")?></a>
+            <span><?= translate("ABOUT.RESUME.LASTUPLOAD")?> <?= $lastModified ?> (<?= translate("ABOUT.RESUME.TIMEZONE")?> <?= $timezone ?>) </span>
 
             <?php }else {?>
-                <h2>No resume available</h2>
+                <h2><?= translate("ABOUT.RESUME.NORESUME")?></h2>
             <?php } ?>
         </div>
     </main>

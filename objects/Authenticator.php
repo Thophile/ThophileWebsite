@@ -63,7 +63,6 @@ class Authenticator{
         $f = fopen($ipGuard, 'w');
         fwrite($f, json_encode($data));
         fclose($f);
-        
         return password_verify($password,env('APP_PASSWORD')) && !$isBanned;
     }
 
