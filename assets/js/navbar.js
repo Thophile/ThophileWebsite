@@ -7,6 +7,9 @@
 /** @type {bool} sidenav state indicator */
 var sidenav = false;
 
+/** @type {bool} sidenav state indicator */
+var lang = false;
+
 /** @type {int} current scroll value */
 var currscroll;
 
@@ -43,6 +46,29 @@ function hideNav() {
 }
 
 /**
+ * Change the site langue
+ * @param {event} event 
+ */
+function setLangue(event){
+    var source = event.target || event.srcElement;
+    l = source.getAttribute("data-lang");
+    r = window.location.href;
+    window.location = window.location.protocol +"//"+ window.location.host + "/setlangue"  + "?l=" + l + "&r=" + r;
+
+}
+
+function toggleLangue(){
+    if(lang) {
+        document.querySelector("#lang-list").style.display = "none";
+    }
+    else {
+        document.querySelector("#lang-list").style.display = "flex";
+    }
+    lang = !lang;
+
+}
+
+/**
  * Ready event
  * 
  * @see main.js
@@ -51,4 +77,6 @@ ready(function () {
     window.onscroll = function () {
         hideNav()
     }
+    document.querySelectorAll("#lang-list a").forEach(e => { e.addEventListener("click", setLangue)});
+    document.querySelector("#lang-toggle").addEventListener("click", toggleLangue);
 })

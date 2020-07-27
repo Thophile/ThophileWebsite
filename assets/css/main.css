@@ -78,6 +78,24 @@ header{
     transition: 0.4s;
     z-index: 256;
 }
+#lang-toggle{
+    padding: 0 10px;
+}
+#lang-toggle i:hover{
+    color: var(--secondaryColor);
+}
+#lang-list{
+    display:none;
+    flex-direction: column;
+    position: fixed;
+    top:55px;
+    z-index: 2048;
+    background-color: var(--mainColor);
+    box-shadow: 0 0 10px;
+    padding: 10px ;
+    margin: -10px;
+}
+
 .title{
     position: absolute;
     font-size: 1.3rem;

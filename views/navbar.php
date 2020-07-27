@@ -13,6 +13,14 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
         <a href="/" class="nav-link">Home </a>
         <a href="/projects" class="nav-link">Projects </a>
         <a href="/about" class="nav-link">About </a>
+        <div id="lang-toggle">
+            <i class="fas fa-language"></i>
+            <div id="lang-list">
+                <a href="#" data-lang="fr">FR</a>
+                <a href="#" data-lang="en">GB</a>
+            </div>
+        </div>
+        
     </div>
 </nav>
 <nav id="side-nav">

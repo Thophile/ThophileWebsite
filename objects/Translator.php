@@ -33,7 +33,7 @@ class Translator
         }else{
             //No file error
             http_response_code(500);
-            include($_SERVER['DOCUMENT_ROOT'].'/errors/500.html'); 
+            include($_SERVER['DOCUMENT_ROOT'].'/errors/500.html');
             die();
         }
 

@@ -247,6 +247,18 @@ $router->get('/delete', function($request, $db, $auth) {
   die();
   });
 
+$router->get('/setlangue', function(){
+
+  if(isset($_GET['l']) && isset($_GET['r'])){
+    changeLocale($_GET['l']);
+    header("Location: ".$_GET['r']);
+  }else{
+    http_response_code(400);
+  }
+  die();
+
+});
+
 /**
  * post request template
  *$router->post('/data', function($request) {
