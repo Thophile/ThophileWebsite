@@ -54,11 +54,16 @@ class Translator
         }
         function changeLocale(String $locale){
         
-            
+            if(file_exists($_SERVER['DOCUMENT_ROOT'].'/translations/'.$locale.".json")){
                 setcookie("locale", $locale);
                 Translator::$locale = $locale;
                 Translator::$dictionary = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/translations/'.Translator::$locale.".json"), true);
-            
+            }else{
+                //No file error
+                http_response_code(500);
+                include($_SERVER['DOCUMENT_ROOT'].'/errors/500.html'); 
+                die();
+            }
         }
 
         function setTranslation($textCode, $value, $locale = null){
