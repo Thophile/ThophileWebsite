@@ -76,6 +76,7 @@ function toggleLangue(){
 ready(function () {
     window.onscroll = function () {
         hideNav()
+        if(lang) toggleNav;
     }
     document.querySelectorAll("#lang-list a").forEach(e => { e.addEventListener("click", setLangue)});
     document.querySelector("#lang-toggle").addEventListener("click", toggleLangue);
