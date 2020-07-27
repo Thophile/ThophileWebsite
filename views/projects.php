@@ -39,7 +39,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <main>
         <section class="header">
             <h1>
-                Here you can see my projects
+            <?= translate("PROJETS.SECTION1.HEADER")?>
             </h1>
              <form action="javascript:void(0)">
                 <button onclick="showAll()" class="pills inverted"><?= translate("PROJETS.SECTION1.BUTTON")?></button>
@@ -53,7 +53,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
         <section class="projects empty" >
             <h2>
-                No available project
+            <?= translate("PROJETS.SECTION2.NOPROJECTS")?>
             </h2>
         </section>
 
@@ -67,7 +67,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <?= translate($project['TITLE'])?>
             </h2>
             <h3>
-                Category <br>
+            <?= translate("PROJETS.CATEGORY")?> <br>
                 "<?= translate($project['CATEGORY'])?>"
             </h3>
         </section>

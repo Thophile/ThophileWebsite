@@ -1,1 +1,81 @@
-{"TITLE":"Thophile labs","NAV":{"HOME":"Accueil","PROJECTS":"Projets","ABOUT":"A propos"},"HOME":{"SECTION1":{"TITLE":"Th\u00e9ophile Mont\u00e9mont","SUBTITLE":"\u00c9tudiant en informatique | hobbyiste passion\u00e9s .","LINK":"En apprendre plus"},"SECTION2":{"TITLE":"Je suis int\u00e9ress\u00e9 par beaucoup de domaines et j'appr\u00e9cie partager mes projets.","LINK":"Voir mes projets"},"SECTION3":{"TITLE":"Si vous avez des questions ou des commentaires, n'h\u00e9siter pas \u00e0 me contacter.","LINK":"Contacter moi"}},"PROJECTS":{"0":{"ID":"0","TITLE":"PHP translator with compatible database service","CATEGORY":"developpement","BANNER_IMAGE":"ungandalorian.png","IMAGES":{"0":{"FILENAME":"ugandalorian.png","LABEL":"uganda"}},"ARTICLE":{"0":{"TITLE":"title","PARAGRAPHS":{"0":"p","1":"pp","2":"ppp","4":"p5 en local"}}}}}}
+{
+    "TITLE": "Thophile labs",
+    "NAV": {
+        "HOME": "Accueil",
+        "PROJECTS": "Projets",
+        "ABOUT": "A propos"
+    },
+    "FOOTER":{
+        "MENTION": "Tout droit réservés"
+    },
+    "HOME": {
+        "SECTION1": {
+            "TITLE": "Th\u00e9ophile Mont\u00e9mont",
+            "SUBTITLE": "\u00c9tudiant en informatique | hobbyiste passion\u00e9s .",
+            "LINK": "En apprendre plus"
+        },
+        "SECTION2": {
+            "TITLE": "Je suis int\u00e9ress\u00e9 par beaucoup de domaines et j'appr\u00e9cie partager mes projets.",
+            "LINK": "Voir mes projets"
+        },
+        "SECTION3": {
+            "TITLE": "Si vous avez des questions ou des commentaires, n'h\u00e9siter pas \u00e0 me contacter.",
+            "LINK": "Contacter moi"
+        }
+    },
+    "PROJETS":{
+        "SECTION1":{
+            "HEADER": "Vous pouvez voir ici tous mes projets",
+            "BUTTON" : "Tous"
+        },
+        "SECTION2":{
+            "NOPROJECTS" : "Pas de projets disponible"
+        },
+        "CATEGORY": "Categorie"
+    },
+    "ABOUT":{
+        "HEADER": "À Propos de moi",
+        "ARTICLE": {
+            "STUDIES": "Études",
+            "P1" : "J'ai toujours souhaité être utile a la société, mon talent naturel pour la logique ma orienté vers un formation dans l'informatique après un Bac Scientifique. Je pense que l'informatiquea une place importante dans la société, en tant qu'outil pour faciliter la vie de chacun mais également en tant que divertissement. Avec un tel rôle l'informatique est le choix parfait pour exploiter mes capacités tout en atteigant mes objectifs personels.",
+            "HOBBIES": "Loisirs",
+            "P2":"J'apprécie faire tout ce dont je suis capable par moi-même.J'ai décourvert cette passion à l'age de 6 ans lorsque j'ai été autorisé pour la première fois à utilisé une scie. Je n'ai jamais arrété de réaliser des projets manuels depuis ! \n\n J'aime apprendre et je suis un grand fan de tout les gadgets esthétiques et inutiles mais l'argent ne tombe pas du ciel donc je ne peut pas acheter les dizaines d'objet que j'apprécie. La plupart du temps je regarde des tutoriels pour les réalisés moi même pour un dixième du prix. Quelquefois cela me coute 10 fois plus, mais je finis toujours par apprendre quelquechose d'intéressant et je m'amuse beaucoup !"
+        },
+        "CONTACT": "Contact",
+        "MAIL" : " Mon Mail",
+        "LINKEDIN" : " Mon LinkedIn",
+        "TWITTER" : " Mon Twitter",
+        "RESUME":{
+            "HEADER": "Télécharger mon cv",
+            "DL": "Télécharger",
+            "LASTUPLOAD" : "Dernière mise à jour à :",
+            "TIMEZONE" : "fuseau horaire : GMT",
+            "NORESUME" : "Pas de cv disponible"
+        }
+    },
+    "PROJECTS": {
+        "0": {
+            "ID": "0",
+            "TITLE": "Module de traduction PHP avec base de donnée compatible",
+            "CATEGORY": "Développement",
+            "BANNER_IMAGE": "ugandalorian.png",
+            "IMAGES": {
+                "0": {
+                    "FILENAME": "ugandalorian.png",
+                    "LABEL": "uganda"
+                }
+            },
+            "ARTICLE": {
+                "0": {
+                    "TITLE": "title",
+                    "PARAGRAPHS": {
+                        "0": "p",
+                        "1": "pp",
+                        "2": "ppp",
+                        "4": "p5 en local"
+                    }
+                }
+            }
+        }
+    }
+}

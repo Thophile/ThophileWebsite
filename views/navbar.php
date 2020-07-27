@@ -10,14 +10,14 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     </button>
     <img src="/assets/img/favicon.png" alt="logo" class="logo">
     <div class="label">
-        <a href="/" class="nav-link">Home </a>
-        <a href="/projects" class="nav-link">Projects </a>
-        <a href="/about" class="nav-link">About </a>
+        <a href="/" class="nav-link"><?= translate("NAV.HOME")?></a>
+        <a href="/projects" class="nav-link"><?= translate("NAV.PROJECTS")?></a>
+        <a href="/about" class="nav-link"><?= translate("NAV.ABOUT")?></a>
         <div id="lang-toggle">
             <i class="fas fa-language"></i>
             <div id="lang-list">
-                <a href="#" data-lang="fr">FR</a>
-                <a href="#" data-lang="en">GB</a>
+                <a href="#" data-lang="fr" data-selected="<?= isset($_COOKIE["locale"]) && $_COOKIE["locale"] ==  "fr" ? "true" : "false" ?>">FR</a>
+                <a href="#" data-lang="en" data-selected="<?= isset($_COOKIE["locale"]) && $_COOKIE["locale"] ==  "en" ? "true" : "false" ?>">EN</a>
             </div>
         </div>
         
@@ -25,8 +25,8 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 </nav>
 <nav id="side-nav">
     <ul>
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/projects" class="nav-link">Projects</a></li>
-        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/" class="nav-link"><?= translate("NAV.HOME")?></a></li>
+        <li><a href="/projects" class="nav-link"><?= translate("NAV.PROJECTS")?></a></li>
+        <li><a href="/about" class="nav-link"><?= translate("NAV.ABOUT")?></a></li>
     </ul>
 </nav>

@@ -1,1 +1,82 @@
-{"TITLE":"Thophile labs","NAV":{"HOME":"Home","PROJECTS":"Projects","ABOUT":"About"},"HOME":{"SECTION1":{"TITLE":"Th\u00e9ophile Mont\u00e9mont","SUBTITLE":"IT Student | Eclectic hobbyist .","LINK":"More about me"},"SECTION2":{"TITLE":"I have a a wide range of interests and I love to share my projects.","LINK":"Check my projects"},"SECTION3":{"TITLE":"If you have any questions or comments, please get in touch with me.","LINK":"Contact me"}},"PROJECTS":{"0":{"ID":"0","TITLE":"PHP translator with compatible database service","CATEGORY":"developpement","BANNER_IMAGE":"ugandalorian.png","IMAGES":{"0":{"FILENAME":"ugandalorian.png","LABEL":"uganda"}},"ARTICLE":{"0":{"TITLE":"title","PARAGRAPHS":{"0":"p","1":"pp","2":"ppp","3":"pppp en locale","4":"p5 en local"}}}}}}
+{
+    "TITLE": "Thophile labs",
+    "NAV": {
+        "HOME": "Home",
+        "PROJECTS": "Projects",
+        "ABOUT": "About"
+    },
+    "FOOTER":{
+        "MENTION": "All right reserved"
+    },
+    "HOME": {
+        "SECTION1": {
+            "TITLE": "Th\u00e9ophile Mont\u00e9mont",
+            "SUBTITLE": "IT Student | Eclectic hobbyist .",
+            "LINK": "More about me"
+        },
+        "SECTION2": {
+            "TITLE": "I have a a wide range of interests and I love to share my projects.",
+            "LINK": "Check my projects"
+        },
+        "SECTION3": {
+            "TITLE": "If you have any questions or comments, please get in touch with me.",
+            "LINK": "Contact me"
+        }
+    },
+    "PROJETS":{
+        "SECTION1":{
+            "HEADER": "Here you can see my projects",
+            "BUTTON" : "All"
+        },
+        "SECTION2":{
+            "NOPROJECTS" : "No available project"
+        },
+        "CATEGORY": "Category"
+    },
+    "ABOUT":{
+        "HEADER": "About myself",
+        "ARTICLE": {
+            "STUDIES": "Studies",
+            "P1" : "I always wanted to be useful to society, my natural talent for logic led me to computer training after a \"Scientific Baccalaureate\". I think that IT has and will have a huge place in society as a tool to help everyone, facilitate any task and as an entertainment tool. With such a role, IT is a perfect choice to make the most of my abilities while doing something good to help people.",
+            "HOBBIES": "Hobbies",
+            "P2":"I like to do everything I can by myself. It all started when I was a first year elementary school student when I was first authorized to use a hacksaw. I have never stopped working on manual projects in my spare time since! \n\n I like to learn and I like useless or beautiful gadgets but I am not so rich so I cannot buy everything that I find fun or pretty. Most of the time, I end up watching tutorials and building them myself for a 10th of the price. Sometimes it costs me 10 times the price but I always end up learning something new and I have a lot of fun!"
+        },
+        "CONTACT": "Contact",
+        "MAIL" : " My Mail",
+        "LINKEDIN" : " My LinkedIn",
+        "TWITTER" : " My Twitter",
+        "RESUME":{
+            "HEADER": "Download my resume",
+            "DL": "Download",
+            "LASTUPLOAD" : "Last uploaded at :",
+            "TIMEZONE" : "Timezone : GMT",
+            "NORESUME" : "No resume available"
+        }
+    },
+    "PROJECTS": {
+        "0": {
+            "ID": "0",
+            "TITLE": "PHP translator with compatible database service",
+            "CATEGORY": "Developpement",
+            "BANNER_IMAGE": "ugandalorian.png",
+            "IMAGES": {
+                "0": {
+                    "FILENAME": "ugandalorian.png",
+                    "LABEL": "uganda"
+                }
+            },
+            "ARTICLE": {
+                "0": {
+                    "TITLE": "title",
+                    "PARAGRAPHS": {
+                        "0": "p",
+                        "1": "pp",
+                        "2": "ppp",
+                        "3": "pppp en locale",
+                        "4": "p5 en local"
+                    }
+                }
+            }
+        }
+    }
+}
