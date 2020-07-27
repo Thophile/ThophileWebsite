@@ -31,7 +31,6 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <main class="col">
         <div id="tabs">
             <button data-target="#projectManager">Projects manager</button>
-            <button data-target="#statistics">Statistics</button>
             <button data-target="#cvuploader">CV Uploader</button>
         </div>
         <div id="tabs_header">
@@ -186,56 +185,6 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
                 <a href="?new=true" class="btn pills" id="_new">Add project</a>
 
                 <?php }?>
-            </div>
-        </div>
-        <div id="statistics" data-type="content">
-            <div class="col">
-                <?php 
-                usort($statistics, function($a, $b){return $b["views"] - $a["views"];});
-                foreach ($statistics as $route) {
-                    if(preg_match('{/project [0-9]+}', $route['page'])){
-                        $p_id = explode(" ", $route['page'])[1];
-                        $p_key = array_search($p_id, array_column($projects, 'id'));
-                        $route['page'] = "/project \"" . $projects[$p_key]['title'] . "\"";
-                    }
-
-                    if($route['referer'] != []){
-                    
-                        $referer = json_decode($route['referer']);
-                        usort($referer, function($a,$b){
-                            //sort referer by descendant orders
-                            return explode(" ", $b)[1] - explode(" ", $a)[1];
-                        });
-                    }
-
-                    if($route['ip_adress'] != []){
-                        $ip_adress = json_decode($route['ip_adress']);
-                        usort($ip_adress, function($a,$b){
-                            //sort referer by descendant orders
-                            return explode(" ", $b)[1] - explode(" ", $a)[1];
-                        });
-
-                    }?>
-
-                <div class="page_stats">
-                    <h1>
-                        Route : 
-                        <?= $route['page'] ?>
-                    </h1>
-                    <samp class="subtitle">
-                        Total hits : <?= $route['views'] ?> , with <?= sizeof($ip_adress) ?> unique client
-                    </samp>
-                    <div>
-                        <samp>
-                            Best client : <?= $ip_adress == [] ? "none" : explode(" ", $ip_adress[0])[0] ?> , with <?= $ip_adress == [] ? "0" : explode(" ", $ip_adress[0])[1] ?> hits
-                        </samp>
-                        <samp>
-                            Best referer : <a href="<?= $referer == [] ? "" : explode(" ", $referer[0])[0] ?>"><?= $referer == [] ? "none" : explode(" ", $referer[0])[0] ?></a> , with <?= $referer == [] ? "0" : explode(" ", $referer[0])[1] ?> hits
-                        </samp> 
-                    </div>
-                </div>
-
-                <?php } ?>
             </div>
         </div>
         <div id="cvuploader" data-type="content" >
