@@ -14,7 +14,7 @@ var pos;
  * Change the slide index according top mouse wheel event , then calculate pos and smoothScroll to it
  * @param {event} event
  */
-window.addEventListener('wheel', function(event)
+/*window.addEventListener('wheel', function(event)
 {
     //Block normal scrolling
     event.preventDefault();
@@ -33,7 +33,7 @@ window.addEventListener('wheel', function(event)
     pos = slideIndex * window.innerHeight;
     smoothScrollTo(pos, 750);
 
-});
+});*/
 
 /**
  * Scroll smoothly to a desired Y offset in a dertain duration
