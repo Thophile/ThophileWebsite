@@ -8,7 +8,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <button id="nav-toggle" onclick="toggleNav()">
         <i class="fas fa-2x fa-bars"></i>
     </button>
-    <img src="/assets/img/favicon.png" alt="logo" class="logo">
+    <img src="favicon.ico" alt="logo" class="logo">
     <div class="label">
         <a href="/" class="nav-link"><?= translate("NAV.HOME")?></a>
         <a href="/projects" class="nav-link"><?= translate("NAV.PROJECTS")?></a>
