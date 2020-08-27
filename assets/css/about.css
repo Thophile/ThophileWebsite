@@ -13,7 +13,7 @@
     margin-bottom: -10vh;
 }
 #header h1{
-    color: var(--mainColor);
+    color: rgb(255,189,97);
     letter-spacing: 0.10em;
 }
 /**    Article    **/

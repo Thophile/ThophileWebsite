@@ -48,9 +48,6 @@ main section {
     text-align: center;
     margin: 20px 35px;
     font-size: 1.1rem;
-    color: var(--mainColor);
-    border: 2px solid var(--mainColor);
-    border-radius: 3px;
     padding: 5px;
 }
 
@@ -81,9 +78,6 @@ main section {
     text-align: center;
     margin: 10px 35px;
     font-size: 1.1rem;
-    color: var(--mainColor);
-    border: 2px solid var(--mainColor);
-    border-radius: 3px;
     padding: 5px;
 }
 
@@ -115,9 +109,6 @@ main section {
     text-align: center;
     margin: 10px 35px;
     font-size: 1.1rem;
-    color: var(--mainColor);
-    border: 2px solid var(--mainColor);
-    border-radius: 3px;
     padding: 5px;
 }
 

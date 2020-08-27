@@ -33,7 +33,7 @@
 }
 #tabs_header h1{
     color: var(--mainColor);
-    border: 2px solid var(--mainColor);
+    border: 3px solid rgb(255,189,97);
     border-style: none none none solid;
     padding: 10px;
     margin : 20px 20px 50px 20px;
@@ -113,7 +113,7 @@ div[data-type="content"]{
         .bodyline{
             margin: 5px;
             padding: 8px 0;
-            border: 1px solid var(--secondaryColor);
+            border: 1px solid rgb(255,189,97);
             border-style: none none solid none;
             align-items: center;
             color: var(--mainColor);
