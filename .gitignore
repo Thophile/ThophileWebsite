@@ -2,3 +2,4 @@ env.php
 publicFolder/*
 production/*
 ipGuard.json
+DATABASE.json

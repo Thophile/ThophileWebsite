@@ -16,7 +16,7 @@ class Database{
     private $file;
 
     function __construct(){
-        $this->file = env('DATABASE');
+        $this->file = $_SERVER['DOCUMENT_ROOT'].'/'.env('DATABASE');
         if(file_exists($this->file)){
             $this->data = json_decode(file_get_contents($this->file), true);
         }else{
@@ -61,7 +61,6 @@ class Database{
         if(class_exists("Translator")){
            $row = $this->sendToTranslation($table, $row, Translator::$locale);
         }
-
         $this->data[$table][$rowKey] = $row;
         $this->writeData();
     }
@@ -98,8 +97,8 @@ class Database{
     }
 
     function writeData(){
-        $f = fopen($this->file, 'w');
-        fwrite($f, json_encode($this->data, JSON_FORCE_OBJECT));
+        $f = fopen($this->file, 'w') or die('can\'t open');
+        if(!fwrite($f, json_encode($this->data, JSON_FORCE_OBJECT))) var_dump("can't write");
         fclose($f);
     }
 
@@ -116,7 +115,6 @@ class Database{
                 } else {
                     //capitals separated by dots
                     $textCode = strtoupper(implode(".",array_merge($slug, $currentPath)));
-                    var_dump($textCode);
                     $translationList[$textCode] = $value;
                 }
             }
@@ -124,7 +122,6 @@ class Database{
         findTranslation($row,[], $translationList, $slug);
 
 
-        var_dump($translationList);
         foreach ($translationList as $textCode => $value) {
             //if translation does not exist set it on all else set it on locale
             if(!translate($textCode)){
