@@ -57,20 +57,36 @@
         "0": {
             "ID": "0",
             "TITLE": "PHP translator with compatible database service",
-            "CATEGORY": "Developpement",
+            "CATEGORY": "PHP Developpement",
             "BANNER_IMAGE": "konnichiwa.png",
             "IMAGES": {
                 "0": {
                     "FILENAME": "konnichiwa.png",
-                    "LABEL": ""
+                    "LABEL": "Hello in 4 languages"
                 }
             },
             "ARTICLE": {
                 "0": {
-                    "TITLE": "Currently writing",
+                    "TITLE": "Origins of the project",
                     "PARAGRAPHS": {
-                        "0": ""
+                        "0": "This project was created to add internationalization support to the thophilelabs.com website. It was also important for me to create reusable modules in order to optimize the work done.\nThe absence of database handler is due to the technical limitations of the web hosting used, which is limited to a single database, the storage by json file allows to keep this single database available for other future projects on this hosting.",
+                        "1": "",
+                        "2": "",
+                        "3": "",
+                        "4": ""
                     }
+                },
+                "1": {
+                    "TITLE": "How it works",
+                    "PARAGRAPHS": {
+                        "0": "The project includes the creation of two independent modules capable of working together\n\nThe first one is a database module that will store data in the form of a JavaScript object (JSON).\n\nThe Second allows to store strings and to access them via their path (nested JSON object) the file read will depend on a locale that will define the language of the strings. With a locale and a path we can retrieve a string. \n\nWhen they work together, these two modules allow to store the path of a translation in a database and to automatically write the translation in the corresponding path in the translation file of the current locale."
+                    }
+                }
+            },
+            "LINKS": {
+                "0": {
+                    "TITLE": "Github",
+                    "HREF": "https:\/\/github.com\/Thophile\/TranslatedDatabase"
                 }
             }
         }

@@ -1,1 +1,36 @@
-{"PROJECTS":{"0":{"ID":"0","TITLE":"PROJECTS.0.TITLE","CATEGORY":"PROJECTS.0.CATEGORY","BANNER_IMAGE":"PROJECTS.0.BANNER_IMAGE","IMAGES":{"0":{"FILENAME":"PROJECTS.0.IMAGES.0.FILENAME","LABEL":"PROJECTS.0.IMAGES.0.LABEL"}},"LINKS":{},"ARTICLE":{"0":{"TITLE":"PROJECTS.0.ARTICLE.0.TITLE","PARAGRAPHS":{"0":"PROJECTS.0.ARTICLE.0.PARAGRAPHS.0"}}}}}}
+{
+    "PROJECTS": {
+        "0": {
+            "ID": "0",
+            "TITLE": "PROJECTS.0.TITLE",
+            "CATEGORY": "PROJECTS.0.CATEGORY",
+            "BANNER_IMAGE": "PROJECTS.0.BANNER_IMAGE",
+            "IMAGES": {
+                "0": {
+                    "FILENAME": "PROJECTS.0.IMAGES.0.FILENAME",
+                    "LABEL": "PROJECTS.0.IMAGES.0.LABEL"
+                }
+            },
+            "LINKS": {
+                "0": {
+                    "TITLE": "PROJECTS.0.LINKS.0.TITLE",
+                    "HREF": "PROJECTS.0.LINKS.0.HREF"
+                }
+            },
+            "ARTICLE": {
+                "0": {
+                    "TITLE": "PROJECTS.0.ARTICLE.0.TITLE",
+                    "PARAGRAPHS": {
+                        "0": "PROJECTS.0.ARTICLE.0.PARAGRAPHS.0"
+                    }
+                },
+                "1": {
+                    "TITLE": "PROJECTS.0.ARTICLE.1.TITLE",
+                    "PARAGRAPHS": {
+                        "0": "PROJECTS.0.ARTICLE.1.PARAGRAPHS.0"
+                    }
+                }
+            }
+        }
+    }
+}
