@@ -17,7 +17,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
 
     <!-- Open graph card -->
     <meta property="og:title" content="All projects from ThophileLabs.com" />
-    <meta property="og:image" content="https://thophilelabs.com/favicon.ico" />
+    <meta property="og:image" content="https://thophilelabs.com/assets/img/favicon.png" />
     <meta property="og:url" content="https://thophilelabs.com/projects" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="View the list of all my projects sorted by categories" />
