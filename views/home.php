@@ -16,7 +16,7 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <meta name="robots" content="follow">
 
     <meta property="og:title" content="Home page | Thophile Labs" />
-    <meta property="og:image" content="https://thophilelabs.com/assets/img/favicon.png" />
+    <meta property="og:image" content="https://thophilelabs.com/favicon.ico" />
     <meta property="og:url" content="https://thophilelabs.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="Check out all my projects and infos" />
