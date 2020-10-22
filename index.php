@@ -38,9 +38,9 @@ $router->get('/', function($request) {
 
 //About page
 $router->get('/about', function($request) {
-  if(file_exists("publicFolder/" . env("CV_FILENAME"))){
-    $lastModified = date ("d F Y H:i:s.", filemtime("publicFolder/" . env("CV_FILENAME")));
-    $timezone = date ("P", filemtime("publicFolder/" . env("CV_FILENAME")));
+  if(file_exists($_SERVER['DOCUMENT_ROOT']."/publicFolder/" . env("CV_FILENAME"))){
+    $lastModified = date ("d F Y H:i:s.", filemtime($_SERVER['DOCUMENT_ROOT']."/publicFolder/" . env("CV_FILENAME")));
+    $timezone = date ("P", filemtime($_SERVER['DOCUMENT_ROOT'] . "/publicFolder/" . env("CV_FILENAME")));
   }
   
   $title = 'Thophile Labs | About';
@@ -52,7 +52,7 @@ $router->get('/dl_cv', function($request) {
 
   //Get variable from env
   $fileName = env('CV_FILENAME');
-  $file = "publicFolder/" . $fileName;
+  $file = $_SERVER['DOCUMENT_ROOT']."/publicFolder/" . $fileName;
   
   if(file_exists($file)){
 
@@ -95,7 +95,7 @@ $router->post('/ul_cv', function($request,$db, $auth) {
       $tmpFilePath = $_FILES['file']['tmp_name'][0];
       if ($tmpFilePath != ""){
         //Upload the file from the tmp dir
-        move_uploaded_file($tmpFilePath, "./publicFolder/" .env('CV_FILENAME'));
+        move_uploaded_file($tmpFilePath, $_SERVER['DOCUMENT_ROOT'] . "/publicFolder/" .env('CV_FILENAME'));
       }
     }
   }else{
@@ -136,9 +136,9 @@ $router->get("/admin", function($request, $db, $auth){
     $title = "Thophile Labs | Admin";
     $fileName = env("CV_FILENAME");
     
-    if(file_exists("publicFolder/" . env("CV_FILENAME"))){
-      $lastModified = date ("d F Y H:i:s.", filemtime("publicFolder/" . $fileName));
-      $timezone = date ("P", filemtime("publicFolder/" . $fileName));
+    if(file_exists($_SERVER['DOCUMENT_ROOT']."/publicFolder/" . env("CV_FILENAME"))){
+      $lastModified = date ("d F Y H:i:s.", filemtime($_SERVER['DOCUMENT_ROOT']."/publicFolder/" . $fileName));
+      $timezone = date ("P", filemtime($_SERVER['DOCUMENT_ROOT']."/publicFolder/" . $fileName));
     }
     //Getting all statistics
     //$statistics = $db->getStatistics();
@@ -207,7 +207,7 @@ $router->post('/upload', function($request, $db, $auth) {
 
           
           //Upload the file from the tmp dir
-          move_uploaded_file($tmpFilePath, "./publicFolder/" . $_FILES['file']['name'][$i]);
+          move_uploaded_file($tmpFilePath, $_SERVER['DOCUMENT_ROOT']."/publicFolder/" . $_FILES['file']['name'][$i]);
         }
       }
     }
