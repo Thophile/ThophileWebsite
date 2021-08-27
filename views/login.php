@@ -19,7 +19,6 @@ if(__FILE__ == $_SERVER['SCRIPT_FILENAME']){
     <link rel="stylesheet" href="/assets/css/all.css">
     <link rel="stylesheet" href="/assets/css/login.css">
     <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/navbar.js"></script>
     <script src="/assets/js/landing.js"></script>
     <title><?= $title ?></title>
 </head>
